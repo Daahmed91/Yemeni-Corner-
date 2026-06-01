@@ -1,14 +1,35 @@
 <section class="section" data-section-id="{{ section.id }}">
   <div class="page-width">
-    <div class="section-header">
+    <div class="section-header" data-reveal>
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
       <h2 class="heading-lg">{{ section.settings.heading }}</h2>
       <p class="lead">{{ section.settings.text }}</p>
     </div>
 
-    <div class="menu-grid">
+    <div class="menu-filters" data-menu-filter role="tablist" aria-label="Cafe menu categories">
+      <button class="menu-filter is-active" type="button" data-menu-filter-button="all" role="tab" aria-selected="true">All</button>
+      {%- liquid
+        assign seen_labels = '|'
+      -%}
       {% for block in section.blocks %}
-        <article class="menu-card" {{ block.shopify_attributes }}>
+        {%- liquid
+          assign category_handle = block.settings.label | handle
+          assign category_token = category_handle | prepend: '|' | append: '|'
+        -%}
+        {% unless seen_labels contains category_token %}
+          <button class="menu-filter" type="button" data-menu-filter-button="{{ category_handle }}" role="tab" aria-selected="false">
+            {{ block.settings.label }}
+          </button>
+          {%- liquid
+            assign seen_labels = seen_labels | append: category_handle | append: '|'
+          -%}
+        {% endunless %}
+      {% endfor %}
+    </div>
+
+    <div class="menu-grid" data-menu-grid>
+      {% for block in section.blocks %}
+        <article class="menu-card" data-menu-card data-menu-category="{{ block.settings.label | handle }}" data-reveal {{ block.shopify_attributes }}>
           <span>{{ block.settings.label }}</span>
           <h3>{{ block.settings.title }}</h3>
           <div class="rte">{{ block.settings.text }}</div>
@@ -80,4 +101,3 @@
   ]
 }
 {% endschema %}
-

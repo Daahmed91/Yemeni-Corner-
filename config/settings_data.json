@@ -2,6 +2,7 @@
   "current": {
     "brand_tagline": "Premium Yemeni Coffee",
     "brand_statement": "Premium Yemeni coffee rooted in heritage, crafted for today's coffee drinker.",
+    "enable_motion": true,
     "color_gold": "#C28839",
     "color_brown": "#4A2C2A",
     "color_cream": "#F5E6D3",

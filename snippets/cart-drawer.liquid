@@ -1,0 +1,66 @@
+<div
+  class="cart-drawer"
+  data-cart-drawer
+  data-cart-fallback-image="{{ 'yemeni-corner-bag.svg' | asset_url }}"
+  aria-hidden="true"
+>
+  <button class="cart-drawer__backdrop" type="button" data-cart-drawer-close aria-label="{{ 'general.accessibility.close' | t }}"></button>
+
+  <aside class="cart-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="CartDrawerTitle" tabindex="-1">
+    <div class="cart-drawer__header">
+      <div>
+        <p class="eyebrow">Coffee Bag</p>
+        <h2 id="CartDrawerTitle" class="heading-md">Added to your ritual</h2>
+      </div>
+      <button class="header-action" type="button" data-cart-drawer-close>{{ 'general.accessibility.close' | t }}</button>
+    </div>
+
+    <div class="cart-drawer__items" data-cart-drawer-items>
+      {% if cart.item_count > 0 %}
+        {% for item in cart.items limit: 4 %}
+          <article class="cart-drawer__item">
+            <div class="cart-drawer__image">
+              {% if item.image %}
+                {{
+                  item.image
+                  | image_url: width: 180
+                  | image_tag:
+                    widths: '90, 140, 180',
+                    sizes: '76px',
+                    loading: 'lazy',
+                    alt: item.image.alt | default: item.product.title
+                }}
+              {% else %}
+                <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item.product.title | escape }}" width="900" height="1100" loading="lazy">
+              {% endif %}
+            </div>
+            <div>
+              <h3>{{ item.product.title }}</h3>
+              {% unless item.product.has_only_default_variant %}
+                <p>{{ item.variant.title }}</p>
+              {% endunless %}
+              <p>{{ item.quantity }} x {{ item.final_price | money }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      {% else %}
+        <div class="cart-drawer__empty">
+          <p>Your cart is ready for its first coffee bag.</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="cart-drawer__summary">
+      <div class="cart-drawer__subtotal">
+        <span>{{ 'cart.general.subtotal' | t }}</span>
+        <strong data-cart-drawer-subtotal>{{ cart.total_price | money }}</strong>
+      </div>
+      <p class="muted">Shipping and taxes are calculated at checkout.</p>
+      <div class="cart-drawer__actions">
+        <a class="button" href="/checkout">{{ 'cart.general.checkout' | t }}</a>
+        <a class="button button--secondary" href="{{ routes.cart_url }}">{{ 'cart.general.title' | t }}</a>
+      </div>
+      <button class="cart-drawer__continue" type="button" data-cart-drawer-close>{{ 'cart.general.continue_shopping' | t }}</button>
+    </div>
+  </aside>
+</div>

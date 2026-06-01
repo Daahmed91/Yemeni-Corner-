@@ -11,8 +11,23 @@
 -%}
 
 <section class="hero-coffee" data-section-id="{{ section.id }}" aria-labelledby="HeroHeading-{{ section.id }}">
+  <div class="hero-coffee__brand-mark" data-parallax data-parallax-speed="-0.08" aria-hidden="true">
+    {% if settings.logo_mark != blank %}
+      {{
+        settings.logo_mark
+        | image_url: width: 520
+        | image_tag:
+          widths: '220, 360, 520',
+          sizes: '220px',
+          loading: 'eager',
+          alt: ''
+      }}
+    {% else %}
+      <img src="{{ 'yemeni-corner-mark.png' | asset_url }}" alt="" width="400" height="497" loading="eager">
+    {% endif %}
+  </div>
   <div class="page-width hero-coffee__inner">
-    <div class="hero-coffee__copy">
+    <div class="hero-coffee__copy" data-reveal>
       {% if section.settings.eyebrow != blank %}
         <p class="eyebrow">{{ section.settings.eyebrow }}</p>
       {% endif %}
@@ -33,23 +48,23 @@
       </div>
 
       <div class="trust-strip" aria-label="Coffee highlights">
-        <div class="trust-item">
+        <div class="trust-item" data-reveal>
           <strong>340 g</strong>
           <span>Whole bean coffee</span>
         </div>
-        <div class="trust-item">
+        <div class="trust-item" data-reveal>
           <strong>Medium</strong>
           <span>Balanced roast profile</span>
         </div>
-        <div class="trust-item">
+        <div class="trust-item" data-reveal>
           <strong>Canada</strong>
           <span>Launching online first</span>
         </div>
       </div>
     </div>
 
-    <div class="hero-coffee__media">
-      <div class="hero-coffee__media-frame">
+    <div class="hero-coffee__media" data-reveal data-parallax data-parallax-speed="0.05">
+      <div class="hero-coffee__media-frame" data-parallax data-parallax-speed="0.03">
         {% render 'responsive-image',
           image: hero_image,
           width: 1200,

@@ -1,17 +1,24 @@
 <section class="section" data-section-id="{{ section.id }}">
   <div class="page-width">
-    <div class="section-header">
+    <div class="section-header" data-reveal>
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
       <h2 class="heading-lg">{{ section.settings.heading }}</h2>
     </div>
 
-    <div class="testimonial-grid">
+    <div class="testimonial-shell" data-testimonial-slider>
+      <div class="testimonial-controls" aria-label="Testimonial carousel controls">
+        <button class="header-action" type="button" data-slider-prev aria-label="Previous testimonial">Prev</button>
+        <button class="header-action" type="button" data-slider-next aria-label="Next testimonial">Next</button>
+      </div>
+
+      <div class="testimonial-grid" data-slider-track>
       {% for block in section.blocks %}
-        <article class="testimonial-card" {{ block.shopify_attributes }}>
+        <article class="testimonial-card" data-reveal {{ block.shopify_attributes }}>
           <blockquote>{{ block.settings.quote }}</blockquote>
           <cite>{{ block.settings.author }}</cite>
         </article>
       {% endfor %}
+      </div>
     </div>
   </div>
 </section>
@@ -65,4 +72,3 @@
   ]
 }
 {% endschema %}
-

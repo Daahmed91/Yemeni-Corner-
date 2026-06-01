@@ -10,7 +10,7 @@
 
 <section class="section" data-section-id="{{ section.id }}">
   <div class="page-width featured-product">
-    <div class="featured-product__image">
+    <div class="featured-product__image" data-reveal data-parallax data-parallax-speed="0.025">
       <span class="featured-product__badge">340 g whole bean</span>
       {% if featured_product.featured_media %}
         {{
@@ -27,7 +27,7 @@
       {% endif %}
     </div>
 
-    <div class="featured-product__content">
+    <div class="featured-product__content" data-reveal>
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
       <h2 class="heading-lg">
         {% if featured_product != blank %}
@@ -52,15 +52,15 @@
       {% endif %}
 
       <div class="product-points">
-        <div class="point">
+        <div class="point" data-reveal>
           <span>Tasting Notes</span>
           <strong>Warm spice, cocoa, dried fruit</strong>
         </div>
-        <div class="point">
+        <div class="point" data-reveal>
           <span>Roast Level</span>
           <strong>Medium, smooth, aromatic</strong>
         </div>
-        <div class="point">
+        <div class="point" data-reveal>
           <span>Best For</span>
           <strong>Drip, French press, pour-over</strong>
         </div>

@@ -1,14 +1,26 @@
-<section class="section section--cream" data-section-id="{{ section.id }}">
+<section class="section section--cream" data-section-id="{{ section.id }}" data-brew-guide>
   <div class="page-width">
-    <div class="section-header">
+    <div class="section-header" data-reveal>
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
       <h2 class="heading-lg">{{ section.settings.heading }}</h2>
       <p class="lead">{{ section.settings.text }}</p>
     </div>
 
+    <div class="brew-progress" aria-hidden="true">
+      <span data-brew-progress></span>
+    </div>
+
     <div class="brew-grid">
       {% for block in section.blocks %}
-        <article class="brew-card" {{ block.shopify_attributes }}>
+        <article
+          class="brew-card {% if forloop.first %}is-active{% endif %}"
+          data-brew-step
+          data-reveal
+          tabindex="0"
+          role="button"
+          aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+          {{ block.shopify_attributes }}
+        >
           <span>{{ block.settings.step }}</span>
           <h3>{{ block.settings.title }}</h3>
           <p>{{ block.settings.text }}</p>
@@ -80,4 +92,3 @@
   ]
 }
 {% endschema %}
-

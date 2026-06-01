@@ -1,6 +1,6 @@
 <section class="section section--cream" data-section-id="{{ section.id }}">
   <div class="page-width">
-    <div class="section-header">
+    <div class="section-header" data-reveal>
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
       <h2 class="heading-lg">{{ section.settings.heading }}</h2>
       <p class="lead">{{ section.settings.text }}</p>
@@ -8,17 +8,19 @@
 
     <div class="location-grid">
       {% for block in section.blocks %}
-        <article class="location-card" {{ block.shopify_attributes }}>
+        <article class="location-card" data-reveal {{ block.shopify_attributes }}>
           <span class="location-card__label">Yemeni Corner Cafe</span>
           <h3>{{ block.settings.title }}</h3>
           <address>{{ block.settings.address | newline_to_br }}</address>
           <p>{{ block.settings.hours | newline_to_br }}</p>
-          {% if block.settings.phone != blank %}
-            <p><a href="tel:{{ block.settings.phone | remove: ' ' | remove: '-' }}">{{ block.settings.phone }}</a></p>
-          {% endif %}
-          {% if block.settings.map_link != blank %}
-            <a class="button button--secondary" href="{{ block.settings.map_link }}">Get Directions</a>
-          {% endif %}
+          <div class="location-card__actions">
+            {% if block.settings.phone != blank %}
+              <a class="button button--secondary" href="tel:{{ block.settings.phone | remove: ' ' | remove: '-' }}">{{ block.settings.phone }}</a>
+            {% endif %}
+            {% if block.settings.map_link != blank %}
+              <a class="button" href="{{ block.settings.map_link }}">Get Directions</a>
+            {% endif %}
+          </div>
         </article>
       {% endfor %}
     </div>
