@@ -1,19 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero-coffee",
       "settings": {
+        "eyebrow": "Premium Yemeni Coffee",
         "heading": "Discover Yemen in Every Sip",
         "text": "Premium Yemeni coffee, roasted for a rich and unforgettable cup. A heritage-led roast made for today's home coffee ritual.",
         "primary_label": "Shop Coffee",
-        "secondary_label": "Our Story"
+        "primary_link": "",
+        "secondary_label": "Our Story",
+        "secondary_link": "",
+        "product": "",
+        "image_alt": "Yemeni Corner Signature Roast coffee bag"
       }
     },
     "featured": {
       "type": "featured-signature-product",
       "settings": {
+        "product": "yemeni-corner-harraz-signature-roast",
+        "eyebrow": "Signature Roast",
         "heading": "Yemeni Corner Signature Roast",
-        "text": "One signature roast. One rich cup. A true taste of Yemeni coffee, launching as a 340 g whole bean bag."
+        "text": "One signature roast. One rich cup. A true taste of Yemeni coffee, launching as a 340 g whole bean bag.",
+        "button_label": "Shop Signature Roast"
       }
     },
     "story": {
@@ -24,7 +41,9 @@
         "eyebrow": "Coffee From Its Birthplace",
         "heading": "A heritage roast, crafted for today",
         "text": "<p>Coffee has roots in Yemen. Yemeni Corner brings that story home through a clean, premium coffee experience made for everyday brewing.</p>",
-        "badge": "Heritage in every sip"
+        "badge": "Heritage in every sip",
+        "button_label": "Read the Story",
+        "button_link": ""
       }
     },
     "brew": {
@@ -69,27 +88,50 @@
         "brew3",
         "brew4"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "A Richer Way to Brew",
+        "heading": "Brew it slowly. Share it generously.",
+        "text": "Designed for familiar home methods, the Signature Roast brings warmth and depth to drip, French press, pour-over, and espresso."
+      }
     },
     "menu": {
       "type": "menu-showcase",
-      "settings": {}
+      "settings": {
+        "eyebrow": "At the Coffee House",
+        "heading": "A cafe menu rooted in Yemeni hospitality",
+        "text": "Our online shop is focused on coffee bags, while our cafes continue to serve traditional drinks, Yemeni-inspired lattes, cold drinks, and fresh desserts."
+      }
     },
     "locations": {
       "type": "locations-preview",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Visit Us",
+        "heading": "Coffee houses in Windsor and LaSalle",
+        "text": "Come for a cup, stay for the warmth. Our cafes bring Yemeni coffee, desserts, and hospitality into welcoming local spaces."
+      }
     },
     "reviews": {
       "type": "testimonials",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Shared Warmly",
+        "heading": "A richer cup, made to be remembered"
+      }
     },
     "faq": {
       "type": "faq",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Good to Know",
+        "heading": "Coffee questions, answered simply"
+      }
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "eyebrow": "First Release",
+        "heading": "Be first to taste the Signature Roast",
+        "text": "Join the list for launch updates, brewing notes, and the first release of Yemeni Corner coffee bags.",
+        "button_label": "Join"
+      }
     }
   },
   "order": [
@@ -104,4 +146,3 @@
     "newsletter"
   ]
 }
-
