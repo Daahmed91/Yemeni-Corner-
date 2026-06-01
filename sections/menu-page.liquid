@@ -1,0 +1,277 @@
+{%- liquid
+  assign featured_product = all_products[section.settings.featured_product]
+  assign primary_url = section.settings.primary_url
+  if primary_url == blank and featured_product != blank
+    assign primary_url = featured_product.url
+  endif
+  if primary_url == blank
+    assign primary_url = routes.all_products_collection_url
+  endif
+
+  assign locations_page = pages['locations']
+  assign fallback_locations_url = locations_page.url | default: '/pages/locations'
+  assign secondary_url = section.settings.secondary_url | default: fallback_locations_url
+-%}
+
+<section class="menu-page" data-section-id="{{ section.id }}">
+  <div class="menu-page__hero">
+    <div class="page-width menu-page__hero-inner">
+      <div class="menu-page__hero-copy" data-reveal>
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1 class="heading-xl">{{ section.settings.heading }}</h1>
+        <p class="lead">{{ section.settings.text }}</p>
+
+        <div class="button-row">
+          <a class="button" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
+          <a class="button button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
+        </div>
+
+        <div class="menu-page__proof">
+          <span>Traditional drinks</span>
+          <span>Signature lattes</span>
+          <span>Cold favorites</span>
+        </div>
+      </div>
+
+      <div class="menu-page__hero-media" data-reveal data-parallax data-parallax-speed="0.035">
+        {% if section.settings.image != blank %}
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              widths: '540, 720, 960, 1200, 1600',
+              sizes: '(min-width: 960px) 46vw, 92vw',
+              loading: 'eager',
+              alt: section.settings.image.alt | default: section.settings.heading
+          }}
+        {% else %}
+          <img
+            src="{{ 'yemeni-corner-ritual.webp' | asset_url }}"
+            alt="Yemeni coffee ritual with coffee, dates, and traditional details"
+            width="1454"
+            height="1048"
+            loading="eager"
+          >
+        {% endif %}
+        <div class="menu-page__hero-badge">
+          <span>Cafe menu</span>
+          <strong>Made to inspire your next cup at home</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="page-width">
+      <div class="menu-page__sales" data-reveal>
+        <div class="menu-page__sales-media" aria-hidden="true">
+          {% if featured_product.featured_media %}
+            {{
+              featured_product.featured_media.preview_image
+              | image_url: width: 640
+              | image_tag:
+                widths: '220, 360, 480, 640',
+                sizes: '(min-width: 960px) 220px, 38vw',
+                loading: 'lazy',
+                alt: featured_product.title
+            }}
+          {% else %}
+            <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="" width="900" height="1100" loading="lazy">
+          {% endif %}
+        </div>
+        <div>
+          <p class="eyebrow">Shop the roast</p>
+          <h2 class="heading-md">{{ section.settings.sales_heading }}</h2>
+          <p>{{ section.settings.sales_text }}</p>
+        </div>
+        <div class="menu-page__sales-actions">
+          <a class="button" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
+          <a class="button button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
+        </div>
+      </div>
+
+      <div class="section-header full-menu__header" data-reveal>
+        <p class="eyebrow">Cafe menu</p>
+        <h2 class="heading-lg">Explore the full menu</h2>
+        <p class="lead">Browse the drinks that shape the Yemeni Corner experience. Cafe items are served in person; prices are intentionally hidden online.</p>
+      </div>
+
+      <div class="menu-filters full-menu__filters" data-menu-filter role="tablist" aria-label="Cafe menu categories">
+        <button class="menu-filter is-active" type="button" data-menu-filter-button="all" role="tab" aria-selected="true">All</button>
+        <button class="menu-filter" type="button" data-menu-filter-button="traditional" role="tab" aria-selected="false">Traditional Drinks</button>
+        <button class="menu-filter" type="button" data-menu-filter-button="espresso" role="tab" aria-selected="false">Espresso Drinks</button>
+        <button class="menu-filter" type="button" data-menu-filter-button="cold" role="tab" aria-selected="false">Cold Drinks</button>
+        <button class="menu-filter" type="button" data-menu-filter-button="smoothies" role="tab" aria-selected="false">Smoothies</button>
+      </div>
+
+      <div class="full-menu__list" data-menu-grid>
+        {% for block in section.blocks %}
+          {%- liquid
+            case block.settings.category
+              when 'traditional'
+                assign category_label = 'Traditional Drinks'
+              when 'espresso'
+                assign category_label = 'Espresso Drinks'
+              when 'cold'
+                assign category_label = 'Cold Drinks'
+              when 'smoothies'
+                assign category_label = 'Smoothies'
+              else
+                assign category_label = 'Menu'
+            endcase
+          -%}
+          <article class="full-menu__item" data-menu-card data-menu-category="{{ block.settings.category }}" data-reveal {{ block.shopify_attributes }}>
+            <div class="full-menu__item-main">
+              <div>
+                <span>{{ category_label }}</span>
+                {% if block.settings.subcategory != blank %}
+                  <p class="full-menu__subcategory">{{ block.settings.subcategory }}</p>
+                {% endif %}
+                <h3>{{ block.settings.title }}</h3>
+              </div>
+              {% if block.settings.badge != blank %}
+                <strong class="full-menu__badge">{{ block.settings.badge }}</strong>
+              {% endif %}
+            </div>
+            {% if block.settings.description != blank %}
+              <div class="rte full-menu__description">{{ block.settings.description }}</div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="menu-page__bottom-cta" data-reveal>
+        <p class="eyebrow">From cafe to home</p>
+        <h2 class="heading-md">Love the ritual? Brew Yemeni Corner at home.</h2>
+        <p>Start with the Signature Roast online, then visit the cafe for the full menu of traditional drinks, lattes, cold favorites, and smoothies.</p>
+        <div class="button-row">
+          <a class="button" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
+          <a class="button button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sales menu page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Yemeni Corner Cafe"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Cafe favorites, rooted in Yemeni hospitality"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu, then bring the same warm ritual home with our Signature Roast."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Featured product"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Shop Signature Roast"
+    },
+    {
+      "type": "url",
+      "id": "primary_url",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Visit Our Cafes"
+    },
+    {
+      "type": "url",
+      "id": "secondary_url",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "sales_heading",
+      "label": "Sales heading",
+      "default": "Bring the cafe ritual home"
+    },
+    {
+      "type": "textarea",
+      "id": "sales_text",
+      "label": "Sales text",
+      "default": "The cafe menu shows the range of Yemeni Corner flavor. The online shop keeps it simple with our Signature Roast, made for rich everyday brewing at home."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_item",
+      "name": "Menu item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "category",
+          "label": "Category",
+          "default": "traditional",
+          "options": [
+            { "value": "traditional", "label": "Traditional Drinks" },
+            { "value": "espresso", "label": "Espresso Drinks" },
+            { "value": "cold", "label": "Cold Drinks" },
+            { "value": "smoothies", "label": "Smoothies" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "subcategory",
+          "label": "Subcategory"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Adeni Tea"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Signature black tea with cardamom, nutmeg, and milk.</p>"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sales menu page",
+      "blocks": [
+        { "type": "menu_item" },
+        { "type": "menu_item", "settings": { "title": "Mufawar Coffee", "description": "<p>Medium roast with nutmeg, cardamom, and milk.</p>", "badge": "House favorite" } },
+        { "type": "menu_item", "settings": { "category": "espresso", "title": "Yemeni Latte", "description": "<p>Our famous 5 spice blend latte.</p>" } },
+        { "type": "menu_item", "settings": { "category": "cold", "subcategory": "Lemonades", "title": "Tawahi Lemonade", "description": "", "badge": "House favorite" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

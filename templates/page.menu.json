@@ -1,11 +1,402 @@
 {
   "sections": {
     "menu": {
-      "type": "menu-showcase",
+      "type": "menu-page",
       "settings": {
-        "heading": "Cafe favorites, served with Yemeni hospitality",
-        "text": "The Shopify store sells coffee bags for home brewing. The cafe menu remains an in-person experience built around traditional drinks, signature lattes, cold drinks, and fresh desserts."
-      }
+        "eyebrow": "Yemeni Corner Cafe",
+        "heading": "Cafe favorites, rooted in Yemeni hospitality",
+        "text": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu, then bring the same warm ritual home with our Signature Roast.",
+        "primary_label": "Shop Signature Roast",
+        "secondary_label": "Visit Our Cafes",
+        "sales_heading": "Bring the cafe ritual home",
+        "sales_text": "The cafe menu shows the range of Yemeni Corner flavor. The online shop keeps it simple with our Signature Roast, made for rich everyday brewing at home."
+      },
+      "blocks": {
+        "traditional_adeni_tea": {
+          "type": "menu_item",
+          "settings": {
+            "category": "traditional",
+            "title": "Adeni Tea",
+            "description": "<p>Signature black tea with cardamom, nutmeg, and milk.</p>",
+            "badge": "House favorite"
+          }
+        },
+        "traditional_mufawar_coffee": {
+          "type": "menu_item",
+          "settings": {
+            "category": "traditional",
+            "title": "Mufawar Coffee",
+            "description": "<p>Medium roast with nutmeg, cardamom, and milk.</p>",
+            "badge": "House favorite"
+          }
+        },
+        "traditional_sanaani_coffee": {
+          "type": "menu_item",
+          "settings": {
+            "category": "traditional",
+            "title": "Sana'ani Coffee",
+            "description": "<p>Medium roast with cardamom.</p>"
+          }
+        },
+        "traditional_yemeni_tea": {
+          "type": "menu_item",
+          "settings": {
+            "category": "traditional",
+            "title": "Yemeni Tea",
+            "description": "<p>Black tea with cardamom and cloves.</p>"
+          }
+        },
+        "traditional_yemeni_mint_tea": {
+          "type": "menu_item",
+          "settings": {
+            "category": "traditional",
+            "title": "Yemeni Mint Tea",
+            "description": "<p>Black tea with fresh mint.</p>"
+          }
+        },
+        "traditional_jubani_coffee": {
+          "type": "menu_item",
+          "settings": {
+            "category": "traditional",
+            "title": "Jubani Coffee",
+            "description": "<p>Light roast with cardamom, ginger, and cinnamon.</p>"
+          }
+        },
+        "traditional_qishr": {
+          "type": "menu_item",
+          "settings": {
+            "category": "traditional",
+            "title": "Qishr",
+            "description": "<p>Coffee husks with cardamom, ginger, and cinnamon.</p>"
+          }
+        },
+        "espresso_yemeni_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Signature lattes",
+            "title": "Yemeni Latte",
+            "description": "<p>Our famous 5 spice blend latte.</p>"
+          }
+        },
+        "espresso_pistachio_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Signature lattes",
+            "title": "Pistachio Latte",
+            "description": "<p>Made with our in-house pistachio paste.</p>"
+          }
+        },
+        "espresso_lotus_cookie_butter_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Signature lattes",
+            "title": "Lotus Cookie Butter Latte",
+            "description": "<p>Lotus cookie-infused latte.</p>"
+          }
+        },
+        "espresso_tarim_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Signature lattes",
+            "title": "Tarim Latte",
+            "description": "<p>A delicious honey latte.</p>"
+          }
+        },
+        "espresso_yemeni_matcha_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Signature lattes",
+            "title": "Yemeni Matcha Latte",
+            "description": "<p>Matcha infused with our spice mix.</p>"
+          }
+        },
+        "espresso_date_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Signature lattes",
+            "title": "Date Latte",
+            "description": "<p>Sweetened with our house-made date paste.</p>"
+          }
+        },
+        "espresso_andalusian_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Signature lattes",
+            "title": "Andalusian Latte",
+            "description": "<p>Our signature triple milk blend in a latte.</p>"
+          }
+        },
+        "espresso_iced_tiramisu_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Iced specialties",
+            "title": "Iced Tiramisu Latte with Cold Foam",
+            "description": ""
+          }
+        },
+        "espresso_iced_banana_pudding_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Iced specialties",
+            "title": "Iced Banana Pudding Latte with Cold Foam",
+            "description": ""
+          }
+        },
+        "espresso_iced_adeni": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Iced specialties",
+            "title": "Iced Adeni",
+            "description": ""
+          }
+        },
+        "espresso_caramel_macchiato": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Cafe classics",
+            "title": "Caramel Macchiato",
+            "description": ""
+          }
+        },
+        "espresso_mocha_white_mocha": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Cafe classics",
+            "title": "Mocha / White Mocha",
+            "description": ""
+          }
+        },
+        "espresso_hot_chocolate": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Cafe classics",
+            "title": "Hot Chocolate",
+            "description": ""
+          }
+        },
+        "espresso_latte": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Cafe classics",
+            "title": "Latte",
+            "description": ""
+          }
+        },
+        "espresso_cappuccino": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Cafe classics",
+            "title": "Cappuccino",
+            "description": ""
+          }
+        },
+        "espresso_americano": {
+          "type": "menu_item",
+          "settings": {
+            "category": "espresso",
+            "subcategory": "Cafe classics",
+            "title": "Americano",
+            "description": ""
+          }
+        },
+        "cold_tawahi": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Lemonades",
+            "title": "Tawahi Lemonade",
+            "description": "",
+            "badge": "House favorite"
+          }
+        },
+        "cold_strawberry_lemonade": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Lemonades",
+            "title": "Strawberry Lemonade",
+            "description": ""
+          }
+        },
+        "cold_mint_lemonade": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Lemonades",
+            "title": "Mint Lemonade",
+            "description": ""
+          }
+        },
+        "cold_strawberry_lime": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Lemonades",
+            "title": "Strawberry Lime Lemonade",
+            "description": ""
+          }
+        },
+        "cold_blueberry_lime": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Lemonades",
+            "title": "Blueberry Lime Lemonade",
+            "description": ""
+          }
+        },
+        "cold_lime_mint": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Lemonades",
+            "title": "Lime Mint Lemonade",
+            "description": ""
+          }
+        },
+        "cold_mango_dragonfruit": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Refreshers",
+            "title": "Mango Dragonfruit",
+            "description": ""
+          }
+        },
+        "cold_strawberry_acai": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Refreshers",
+            "title": "Strawberry Acai Splash",
+            "description": ""
+          }
+        },
+        "cold_hibiscus_berry_blast": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Refreshers",
+            "title": "Hibiscus Berry Blast",
+            "description": ""
+          }
+        },
+        "cold_socotra_island_breeze": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Refreshers",
+            "title": "Socotra Island Breeze",
+            "description": ""
+          }
+        },
+        "cold_mango_lime": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Refreshers",
+            "title": "Mango Lime",
+            "description": ""
+          }
+        },
+        "cold_mixed_berry": {
+          "type": "menu_item",
+          "settings": {
+            "category": "cold",
+            "subcategory": "Refreshers",
+            "title": "Mixed Berry",
+            "description": ""
+          }
+        },
+        "smoothies_banana": {
+          "type": "menu_item",
+          "settings": {
+            "category": "smoothies",
+            "title": "Banana Smoothie",
+            "description": ""
+          }
+        },
+        "smoothies_strawberry": {
+          "type": "menu_item",
+          "settings": {
+            "category": "smoothies",
+            "title": "Strawberry Smoothie",
+            "description": ""
+          }
+        },
+        "smoothies_mixed_berry": {
+          "type": "menu_item",
+          "settings": {
+            "category": "smoothies",
+            "title": "Mixed Berry Smoothie",
+            "description": ""
+          }
+        },
+        "smoothies_mango": {
+          "type": "menu_item",
+          "settings": {
+            "category": "smoothies",
+            "title": "Mango Smoothie",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "traditional_adeni_tea",
+        "traditional_mufawar_coffee",
+        "traditional_sanaani_coffee",
+        "traditional_yemeni_tea",
+        "traditional_yemeni_mint_tea",
+        "traditional_jubani_coffee",
+        "traditional_qishr",
+        "espresso_yemeni_latte",
+        "espresso_pistachio_latte",
+        "espresso_lotus_cookie_butter_latte",
+        "espresso_tarim_latte",
+        "espresso_yemeni_matcha_latte",
+        "espresso_date_latte",
+        "espresso_andalusian_latte",
+        "espresso_iced_tiramisu_latte",
+        "espresso_iced_banana_pudding_latte",
+        "espresso_iced_adeni",
+        "espresso_caramel_macchiato",
+        "espresso_mocha_white_mocha",
+        "espresso_hot_chocolate",
+        "espresso_latte",
+        "espresso_cappuccino",
+        "espresso_americano",
+        "cold_tawahi",
+        "cold_strawberry_lemonade",
+        "cold_mint_lemonade",
+        "cold_strawberry_lime",
+        "cold_blueberry_lime",
+        "cold_lime_mint",
+        "cold_mango_dragonfruit",
+        "cold_strawberry_acai",
+        "cold_hibiscus_berry_blast",
+        "cold_socotra_island_breeze",
+        "cold_mango_lime",
+        "cold_mixed_berry",
+        "smoothies_banana",
+        "smoothies_strawberry",
+        "smoothies_mixed_berry",
+        "smoothies_mango"
+      ]
     },
     "locations": {
       "type": "locations-preview",
@@ -17,4 +408,3 @@
     "locations"
   ]
 }
-
