@@ -1,50 +1,70 @@
 document.documentElement.classList.remove('no-js');
 document.documentElement.classList.add('js');
 
-const trapFocus = (container) => {
-  const selectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-  const focusable = Array.from(container.querySelectorAll(selectors));
-  if (!focusable.length) return;
-  const first = focusable[0];
-  const last = focusable[focusable.length - 1];
+const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
-  container.addEventListener('keydown', (event) => {
+const getFocusable = (container) =>
+  Array.from(container.querySelectorAll(focusableSelectors)).filter((element) => element.offsetParent !== null);
+
+document.querySelectorAll('[data-drawer-open]').forEach((button) => {
+  const drawer = document.querySelector(button.getAttribute('data-drawer-open'));
+  if (!drawer) return;
+
+  const panel = drawer.querySelector('[role="dialog"]') || drawer;
+  let previouslyFocused = null;
+
+  const closeDrawer = () => {
+    drawer.setAttribute('aria-hidden', 'true');
+    button.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('drawer-open');
+
+    if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
+      previouslyFocused.focus();
+    }
+  };
+
+  const openDrawer = () => {
+    previouslyFocused = document.activeElement;
+    drawer.setAttribute('aria-hidden', 'false');
+    button.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('drawer-open');
+
+    const focusable = getFocusable(panel);
+    (focusable[0] || panel).focus();
+  };
+
+  button.addEventListener('click', openDrawer);
+
+  drawer.querySelectorAll('[data-drawer-close]').forEach((closeButton) => {
+    closeButton.addEventListener('click', closeDrawer);
+  });
+
+  drawer.querySelectorAll('a[href]').forEach((link) => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  drawer.addEventListener('keydown', (event) => {
+    if (drawer.getAttribute('aria-hidden') === 'true') return;
+
+    if (event.key === 'Escape') {
+      closeDrawer();
+      return;
+    }
+
     if (event.key !== 'Tab') return;
+
+    const focusable = getFocusable(panel);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
     if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
       last.focus();
     } else if (!event.shiftKey && document.activeElement === last) {
       event.preventDefault();
       first.focus();
-    }
-  });
-
-  first.focus();
-};
-
-document.querySelectorAll('[data-drawer-open]').forEach((button) => {
-  const drawer = document.querySelector(button.getAttribute('data-drawer-open'));
-  if (!drawer) return;
-
-  const closeDrawer = () => {
-    drawer.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('drawer-open');
-    button.focus();
-  };
-
-  button.addEventListener('click', () => {
-    drawer.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('drawer-open');
-    trapFocus(drawer);
-  });
-
-  drawer.querySelectorAll('[data-drawer-close]').forEach((closeButton) => {
-    closeButton.addEventListener('click', closeDrawer);
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') {
-      closeDrawer();
     }
   });
 });
@@ -71,10 +91,15 @@ document.querySelectorAll('form.product-form').forEach((form) => {
     event.preventDefault();
     const button = form.querySelector('[type="submit"]');
     const originalText = button ? button.textContent : '';
+    const status = form.querySelector('[data-product-status]');
 
     if (button) {
       button.disabled = true;
       button.textContent = 'Adding...';
+    }
+
+    if (status) {
+      status.textContent = '';
     }
 
     try {
@@ -92,7 +117,6 @@ document.querySelectorAll('form.product-form').forEach((form) => {
         count.textContent = cart.item_count;
       });
 
-      const status = form.querySelector('[data-product-status]');
       if (status) {
         status.textContent = 'Added to cart. Checkout when you are ready.';
       }

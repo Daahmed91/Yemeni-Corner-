@@ -4,11 +4,14 @@
   if featured_product != blank
     assign product_url = featured_product.url
   endif
+  assign story_page = pages['story']
+  assign story_url = story_page.url | default: '/pages/story'
 -%}
 
 <section class="section" data-section-id="{{ section.id }}">
   <div class="page-width featured-product">
     <div class="featured-product__image">
+      <span class="featured-product__badge">340 g whole bean</span>
       {% if featured_product.featured_media %}
         {{
           featured_product.featured_media.preview_image
@@ -20,7 +23,7 @@
             alt: featured_product.featured_media.alt | default: featured_product.title
         }}
       {% else %}
-        <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="Yemeni Corner Signature Roast coffee bag" loading="lazy">
+        <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="Yemeni Corner Signature Roast coffee bag" width="900" height="1100" loading="lazy">
       {% endif %}
     </div>
 
@@ -34,6 +37,19 @@
         {% endif %}
       </h2>
       <p class="lead">{{ section.settings.text }}</p>
+
+      {% if featured_product != blank %}
+        <div class="featured-product__price">
+          {% render 'price', product: featured_product %}
+          <span class="featured-product__status">
+            {% if featured_product.available %}
+              Ready to add to cart
+            {% else %}
+              Launching soon
+            {% endif %}
+          </span>
+        </div>
+      {% endif %}
 
       <div class="product-points">
         <div class="point">
@@ -52,7 +68,7 @@
 
       <div class="button-row">
         <a class="button" href="{{ product_url }}">{{ section.settings.button_label }}</a>
-        <a class="button button--secondary" href="/pages/story">Why Yemeni Coffee</a>
+        <a class="button button--secondary" href="{{ story_url }}">Why Yemeni Coffee</a>
       </div>
     </div>
   </div>
@@ -60,7 +76,7 @@
 
 {% schema %}
 {
-  "name": "Featured signature product",
+  "name": "Signature product",
   "settings": [
     {
       "type": "product",
@@ -94,7 +110,7 @@
   ],
   "presets": [
     {
-      "name": "Featured signature product"
+      "name": "Signature product"
     }
   ]
 }

@@ -9,6 +9,16 @@
     {% render 'meta-tags' %}
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    <style>
+      :root {
+        --color-gold: {{ settings.color_gold | default: '#C28839' }};
+        --color-brown: {{ settings.color_brown | default: '#4A2C2A' }};
+        --color-cream: {{ settings.color_cream | default: '#F5E6D3' }};
+        --color-charcoal: {{ settings.color_charcoal | default: '#333333' }};
+        --color-white: {{ settings.color_white | default: '#FFFDF8' }};
+        --color-turquoise: {{ settings.color_turquoise | default: '#3AAFA9' }};
+      }
+    </style>
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
 
     {{ content_for_header }}
@@ -26,4 +36,3 @@
     {% sections 'footer-group' %}
   </body>
 </html>
-

@@ -3,4 +3,4 @@ ignore:
   - node_modules/**
   - dist/**
   - theme.zip
-
+  - "*.zip"

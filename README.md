@@ -13,6 +13,7 @@ Premium Shopify Online Store 2.0 theme for Yemeni Corner, built as a coffee-firs
   - `page.contact.json`
 - Premium Yemeni Corner design system using Heritage Gold, Deep Coffee Brown, Cream Sand, Charcoal Gray, and Warm White.
 - Sections for hero, signature product, story, brewing guide, cafe menu, locations, testimonials, FAQ, newsletter, contact, and core commerce pages.
+- Production design pass with responsive editorial layouts, premium product staging, richer hover/focus states, mobile drawer accessibility, structured data, and Shopify package hygiene.
 
 ## Required Store Setup
 
@@ -34,6 +35,13 @@ A rich and aromatic coffee inspired by Yemen's deep coffee heritage. Smooth, war
 ```
 
 Add product photography when available. The theme includes a branded coffee bag placeholder for development only.
+
+For a polished launch, use:
+
+- One clean product packshot on warm neutral background.
+- One lifestyle image with brewed coffee, dates, or a home ritual setting.
+- One cafe or hospitality image for story/location sections.
+- Consistent alt text that describes the subject, not just the brand.
 
 ### Collection
 
@@ -109,3 +117,5 @@ shopify theme push --unpublished --store your-store.myshopify.com
 - Test add to cart, quantity updates, cart note, checkout handoff, and empty cart state.
 - Check mobile navigation, keyboard focus, form labels, color contrast, and image alt text.
 - Replace development placeholder imagery with final product and lifestyle photography before launch.
+- Verify Product and WebSite structured data in a rich results validator after the theme is connected to the live Shopify domain.
+- Confirm `*.zip`, `.env`, local Shopify state, and development-only files are excluded before pushing the theme.

@@ -12,7 +12,7 @@
             alt: product_card_product.featured_media.alt | default: product_card_product.title
         }}
       {% else %}
-        <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ product_card_product.title | escape }}" loading="lazy">
+        <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ product_card_product.title | escape }}" width="900" height="1100" loading="lazy">
       {% endif %}
     </div>
 
@@ -20,6 +20,7 @@
       <p class="eyebrow">{{ product_card_product.type | default: settings.brand_tagline }}</p>
       <h3>{{ product_card_product.title }}</h3>
       {% render 'price', product: product_card_product, show_from: true %}
+      <p class="product-card__cta">{{ 'products.product.view_product' | t }}</p>
     </div>
   </a>
 {% endif %}

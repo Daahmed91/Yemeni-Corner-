@@ -1,5 +1,13 @@
 {%- liquid
   assign navigation = linklists[section.settings.menu]
+  assign story_page = pages['story']
+  assign menu_page = pages['menu']
+  assign locations_page = pages['locations']
+  assign story_url = story_page.url | default: '/pages/story'
+  assign menu_url = menu_page.url | default: '/pages/menu'
+  assign locations_url = locations_page.url | default: '/pages/locations'
+  assign journal_blog = blogs['news']
+  assign journal_url = journal_blog.url | default: '/blogs/news'
 -%}
 
 <header class="site-header" data-section-id="{{ section.id }}">
@@ -37,10 +45,10 @@
         {% else %}
           <li><a class="site-nav__link" href="{{ routes.root_url }}">Home</a></li>
           <li><a class="site-nav__link" href="{{ routes.all_products_collection_url }}">Shop</a></li>
-          <li><a class="site-nav__link" href="/pages/story">Story</a></li>
-          <li><a class="site-nav__link" href="/pages/menu">Menu</a></li>
-          <li><a class="site-nav__link" href="/pages/locations">Locations</a></li>
-          <li><a class="site-nav__link" href="/blogs/news">Journal</a></li>
+          <li><a class="site-nav__link" href="{{ story_url }}">Story</a></li>
+          <li><a class="site-nav__link" href="{{ menu_url }}">Menu</a></li>
+          <li><a class="site-nav__link" href="{{ locations_url }}">Locations</a></li>
+          <li><a class="site-nav__link" href="{{ journal_url }}">Journal</a></li>
         {% endif %}
       </ul>
     </nav>
@@ -56,7 +64,14 @@
         Cart
         <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
       </a>
-      <button class="header-action menu-toggle" type="button" data-drawer-open="#MobileMenu" aria-label="{{ 'general.accessibility.menu' | t }}">
+      <button
+        class="header-action menu-toggle"
+        type="button"
+        data-drawer-open="#MobileMenu"
+        aria-controls="MobileMenu"
+        aria-expanded="false"
+        aria-label="{{ 'general.accessibility.menu' | t }}"
+      >
         Menu
       </button>
     </div>
@@ -64,7 +79,7 @@
 
   <div id="MobileMenu" class="mobile-drawer" aria-hidden="true">
     <button class="mobile-drawer__backdrop" type="button" data-drawer-close aria-label="{{ 'general.accessibility.close' | t }}"></button>
-    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ 'general.accessibility.menu' | t }}">
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ 'general.accessibility.menu' | t }}" tabindex="-1">
       <button class="header-action" type="button" data-drawer-close>{{ 'general.accessibility.close' | t }}</button>
       <nav class="mobile-drawer__nav" aria-label="Mobile navigation">
         {% if navigation.links.size > 0 %}
@@ -74,9 +89,9 @@
         {% else %}
           <a href="{{ routes.root_url }}">Home</a>
           <a href="{{ routes.all_products_collection_url }}">Shop Coffee</a>
-          <a href="/pages/story">Story</a>
-          <a href="/pages/menu">Menu</a>
-          <a href="/pages/locations">Locations</a>
+          <a href="{{ story_url }}">Story</a>
+          <a href="{{ menu_url }}">Menu</a>
+          <a href="{{ locations_url }}">Locations</a>
           <a href="{{ routes.cart_url }}">Cart</a>
         {% endif %}
       </nav>

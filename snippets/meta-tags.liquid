@@ -44,3 +44,47 @@
   <meta name="twitter:description" content="{{ seo_description | strip_html | escape }}">
 {% endif %}
 
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ shop.name | json }},
+    "url": {{ shop.url | json }},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {{ shop.url | append: routes.search_url | append: '?q={search_term_string}' | json }},
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>
+
+{% if template.name == 'product' and product != blank %}
+  {%- liquid
+    assign structured_variant = product.selected_or_first_available_variant
+    assign structured_description = product.description | strip_html | default: seo_description
+  -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": {{ product.title | json }},
+      "description": {{ structured_description | strip | json }},
+      "brand": {
+        "@type": "Brand",
+        "name": {{ shop.name | json }}
+      },
+      "image": [
+        {% for media in product.media limit: 4 %}
+          {{ media.preview_image | image_url: width: 1200 | prepend: 'https:' | json }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": {{ canonical_url | json }},
+        "priceCurrency": {{ cart.currency.iso_code | json }},
+        "price": {{ structured_variant.price | divided_by: 100.0 | json }},
+        "availability": "https://schema.org/{% if structured_variant.available %}InStock{% else %}OutOfStock{% endif %}"
+      }
+    }
+  </script>
+{% endif %}

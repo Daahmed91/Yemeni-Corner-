@@ -22,7 +22,7 @@
                       alt: item.image.alt | default: item.product.title
                   }}
                 {% else %}
-                  <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item.product.title | escape }}" loading="lazy">
+                  <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item.product.title | escape }}" width="900" height="1100" loading="lazy">
                 {% endif %}
               </div>
               <div>
@@ -70,4 +70,3 @@
   "settings": []
 }
 {% endschema %}
-

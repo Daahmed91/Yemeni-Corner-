@@ -4,5 +4,7 @@
 *.liquid text eol=lf
 *.md text eol=lf
 *.svg text eol=lf
+*.webp binary
 *.yml text eol=lf
-
+.gitattributes text eol=lf
+.shopifyignore text eol=lf
