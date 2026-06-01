@@ -5,8 +5,7 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "menu": "footer",
-        "show_newsletter": true
+        "menu": "footer"
       }
     }
   },
@@ -14,4 +13,3 @@
     "footer"
   ]
 }
-

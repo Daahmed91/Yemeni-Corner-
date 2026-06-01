@@ -1,3 +1,9 @@
+{%- liquid
+  assign story_page = pages['story']
+  assign story_url = story_page.url | default: '/pages/story'
+  assign button_url = section.settings.button_link | default: story_url
+-%}
+
 <section class="section section--{{ section.settings.background }}" data-section-id="{{ section.id }}">
   <div class="page-width split {% if section.settings.image_position == 'right' %}split--reverse{% endif %}">
     <div class="split__media">
@@ -10,7 +16,7 @@
             alt: section.settings.heading
           %}
         {% else %}
-          <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+          <img src="{{ 'yemeni-corner-ritual.webp' | asset_url }}" alt="{{ section.settings.heading | escape }}" width="1448" height="1086" loading="lazy">
         {% endif %}
         {% if section.settings.badge != blank %}
           <div class="media-panel__badge">{{ section.settings.badge }}</div>
@@ -28,7 +34,7 @@
       {% endif %}
       {% if section.settings.button_label != blank %}
         <div class="button-row">
-          <a class="button button--secondary" href="{{ section.settings.button_link | default: '/pages/story' }}">{{ section.settings.button_label }}</a>
+          <a class="button button--secondary" href="{{ button_url }}">{{ section.settings.button_label }}</a>
         </div>
       {% endif %}
     </div>
@@ -108,4 +114,3 @@
   ]
 }
 {% endschema %}
-

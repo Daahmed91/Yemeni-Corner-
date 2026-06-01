@@ -9,6 +9,7 @@
     <div class="location-grid">
       {% for block in section.blocks %}
         <article class="location-card" {{ block.shopify_attributes }}>
+          <span class="location-card__label">Yemeni Corner Cafe</span>
           <h3>{{ block.settings.title }}</h3>
           <address>{{ block.settings.address | newline_to_br }}</address>
           <p>{{ block.settings.hours | newline_to_br }}</p>

@@ -17,7 +17,7 @@
               alt: product.featured_media.alt | default: product.title
           }}
         {% else %}
-          <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ product.title | escape }}" loading="eager">
+          <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ product.title | escape }}" width="900" height="1100" loading="eager">
         {% endif %}
       </div>
 
@@ -47,6 +47,12 @@
 
       <div>
         {% render 'price', product: product %}
+      </div>
+
+      <div class="product__trust" aria-label="Product highlights">
+        <span>340 g whole bean</span>
+        <span>Canada launch</span>
+        <span>Fresh coffee ritual</span>
       </div>
 
       {% form 'product', product, class: 'product-form' %}
