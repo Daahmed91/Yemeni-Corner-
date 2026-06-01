@@ -24,7 +24,7 @@
     {{ content_for_header }}
   </head>
 
-  <body class="template-{{ template.name | handle }}">
+  <body class="template-{{ template.name | handle }} {% if settings.enable_motion %}motion-enabled{% else %}motion-disabled{% endif %}">
     <a class="skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
     {% sections 'header-group' %}
@@ -32,6 +32,8 @@
     <main id="MainContent" class="main-content" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
+
+    {% render 'cart-drawer' %}
 
     {% sections 'footer-group' %}
   </body>

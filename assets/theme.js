@@ -2,9 +2,29 @@ document.documentElement.classList.remove('no-js');
 document.documentElement.classList.add('js');
 
 const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionEnabled = document.body.classList.contains('motion-enabled') && !reducedMotion.matches;
 
 const getFocusable = (container) =>
   Array.from(container.querySelectorAll(focusableSelectors)).filter((element) => element.offsetParent !== null);
+
+const trapTab = (event, container) => {
+  if (event.key !== 'Tab') return;
+
+  const focusable = getFocusable(container);
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+};
 
 document.querySelectorAll('[data-drawer-open]').forEach((button) => {
   const drawer = document.querySelector(button.getAttribute('data-drawer-open'));
@@ -51,22 +71,125 @@ document.querySelectorAll('[data-drawer-open]').forEach((button) => {
       return;
     }
 
-    if (event.key !== 'Tab') return;
-
-    const focusable = getFocusable(panel);
-    if (!focusable.length) return;
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
+    trapTab(event, panel);
   });
+});
+
+const revealItems = Array.from(document.querySelectorAll('[data-reveal]'));
+if (revealItems.length) {
+  if (!motionEnabled || !('IntersectionObserver' in window)) {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  }
+}
+
+const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]'));
+if (motionEnabled && parallaxItems.length) {
+  let ticking = false;
+
+  const updateParallax = () => {
+    parallaxItems.forEach((item) => {
+      const speed = Number(item.dataset.parallaxSpeed || 0.04);
+      const rect = item.getBoundingClientRect();
+      const viewportCenter = window.innerHeight / 2;
+      const itemCenter = rect.top + rect.height / 2;
+      const offset = (viewportCenter - itemCenter) * speed;
+      item.style.setProperty('--parallax-y', `${offset.toFixed(2)}px`);
+    });
+    ticking = false;
+  };
+
+  const requestParallax = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateParallax);
+  };
+
+  updateParallax();
+  window.addEventListener('scroll', requestParallax, { passive: true });
+  window.addEventListener('resize', requestParallax);
+}
+
+document.querySelectorAll('[data-brew-guide]').forEach((guide) => {
+  const steps = Array.from(guide.querySelectorAll('[data-brew-step]'));
+  const progress = guide.querySelector('[data-brew-progress]');
+  if (!steps.length) return;
+
+  const setActiveStep = (activeIndex) => {
+    steps.forEach((step, index) => {
+      const isActive = index === activeIndex;
+      step.classList.toggle('is-active', isActive);
+      step.setAttribute('aria-pressed', String(isActive));
+    });
+
+    if (progress) {
+      progress.style.width = `${((activeIndex + 1) / steps.length) * 100}%`;
+    }
+  };
+
+  steps.forEach((step, index) => {
+    step.addEventListener('click', () => setActiveStep(index));
+    step.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      setActiveStep(index);
+    });
+    step.addEventListener('focus', () => setActiveStep(index));
+  });
+
+  setActiveStep(0);
+});
+
+document.querySelectorAll('[data-menu-filter]').forEach((filters) => {
+  const buttons = Array.from(filters.querySelectorAll('[data-menu-filter-button]'));
+  const section = filters.closest('.section');
+  const cards = section ? Array.from(section.querySelectorAll('[data-menu-card]')) : [];
+  if (!buttons.length || !cards.length) return;
+
+  const applyFilter = (category) => {
+    buttons.forEach((button) => {
+      const isActive = button.dataset.menuFilterButton === category;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-selected', String(isActive));
+    });
+
+    cards.forEach((card) => {
+      const isVisible = category === 'all' || card.dataset.menuCategory === category;
+      card.classList.toggle('is-hidden', !isVisible);
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => applyFilter(button.dataset.menuFilterButton));
+  });
+});
+
+document.querySelectorAll('[data-testimonial-slider]').forEach((slider) => {
+  const track = slider.querySelector('[data-slider-track]');
+  const previous = slider.querySelector('[data-slider-prev]');
+  const next = slider.querySelector('[data-slider-next]');
+  if (!track || !previous || !next) return;
+
+  const scrollByCard = (direction) => {
+    const firstCard = track.querySelector('.testimonial-card');
+    const distance = firstCard ? firstCard.getBoundingClientRect().width + 16 : track.clientWidth;
+    track.scrollBy({ left: distance * direction, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+  };
+
+  previous.addEventListener('click', () => scrollByCard(-1));
+  next.addEventListener('click', () => scrollByCard(1));
 });
 
 document.querySelectorAll('[data-quantity]').forEach((quantity) => {
@@ -83,6 +206,99 @@ document.querySelectorAll('[data-quantity]').forEach((quantity) => {
     });
   });
 });
+
+const cartDrawer = document.querySelector('[data-cart-drawer]');
+const cartDrawerPanel = cartDrawer ? cartDrawer.querySelector('[role="dialog"]') : null;
+const cartDrawerItems = cartDrawer ? cartDrawer.querySelector('[data-cart-drawer-items]') : null;
+const cartDrawerSubtotal = cartDrawer ? cartDrawer.querySelector('[data-cart-drawer-subtotal]') : null;
+let cartReturnFocus = null;
+
+const escapeHtml = (value) =>
+  String(value || '').replace(/[&<>"']/g, (character) => {
+    const entities = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    };
+    return entities[character];
+  });
+
+const formatMoney = (cents, currency) => {
+  const activeCurrency = currency || window.Shopify?.currency?.active || 'CAD';
+  return new Intl.NumberFormat(undefined, {
+    style: 'currency',
+    currency: activeCurrency
+  }).format(Number(cents || 0) / 100);
+};
+
+const openCartDrawer = (returnFocus) => {
+  if (!cartDrawer || !cartDrawerPanel) return;
+  cartReturnFocus = returnFocus || document.activeElement;
+  cartDrawer.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('drawer-open');
+  const focusable = getFocusable(cartDrawerPanel);
+  (focusable[0] || cartDrawerPanel).focus();
+};
+
+const closeCartDrawer = () => {
+  if (!cartDrawer) return;
+  cartDrawer.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('drawer-open');
+
+  if (cartReturnFocus && typeof cartReturnFocus.focus === 'function') {
+    cartReturnFocus.focus();
+  }
+};
+
+const renderCartDrawer = (cart) => {
+  if (!cartDrawer || !cartDrawerItems || !cartDrawerSubtotal) return;
+
+  if (!cart.items || !cart.items.length) {
+    cartDrawerItems.innerHTML = '<div class="cart-drawer__empty"><p>Your cart is ready for its first coffee bag.</p></div>';
+  } else {
+    const fallbackImage = cartDrawer.dataset.cartFallbackImage;
+    cartDrawerItems.innerHTML = cart.items
+      .slice(0, 4)
+      .map((item) => {
+        const image = item.image || fallbackImage;
+        const variant = item.variant_title && item.variant_title !== 'Default Title' ? `<p>${escapeHtml(item.variant_title)}</p>` : '';
+        return `
+          <article class="cart-drawer__item">
+            <div class="cart-drawer__image">
+              <img src="${escapeHtml(image)}" alt="${escapeHtml(item.product_title)}" loading="lazy">
+            </div>
+            <div>
+              <h3>${escapeHtml(item.product_title)}</h3>
+              ${variant}
+              <p>${item.quantity} x ${formatMoney(item.final_price, cart.currency)}</p>
+            </div>
+          </article>
+        `;
+      })
+      .join('');
+  }
+
+  cartDrawerSubtotal.textContent = formatMoney(cart.total_price, cart.currency);
+};
+
+if (cartDrawer && cartDrawerPanel) {
+  cartDrawer.querySelectorAll('[data-cart-drawer-close]').forEach((button) => {
+    button.addEventListener('click', closeCartDrawer);
+  });
+
+  cartDrawer.addEventListener('keydown', (event) => {
+    if (cartDrawer.getAttribute('aria-hidden') === 'true') return;
+
+    if (event.key === 'Escape') {
+      closeCartDrawer();
+      return;
+    }
+
+    trapTab(event, cartDrawerPanel);
+  });
+}
 
 document.querySelectorAll('form.product-form').forEach((form) => {
   form.addEventListener('submit', async (event) => {
@@ -110,6 +326,7 @@ document.querySelectorAll('form.product-form').forEach((form) => {
       });
 
       if (!response.ok) throw new Error('Cart add failed');
+      await response.json();
 
       const cartResponse = await fetch('/cart.js', { headers: { Accept: 'application/json' } });
       const cart = await cartResponse.json();
@@ -117,8 +334,11 @@ document.querySelectorAll('form.product-form').forEach((form) => {
         count.textContent = cart.item_count;
       });
 
+      renderCartDrawer(cart);
+      openCartDrawer(button);
+
       if (status) {
-        status.textContent = 'Added to cart. Checkout when you are ready.';
+        status.textContent = 'Added to cart. Your coffee bag is waiting in the mini cart.';
       }
     } catch (error) {
       form.submit();

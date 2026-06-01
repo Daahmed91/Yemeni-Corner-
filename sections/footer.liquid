@@ -15,7 +15,29 @@
 <footer class="site-footer" data-section-id="{{ section.id }}">
   <div class="page-width site-footer__inner">
     <div class="site-footer__brand">
-      <h2 class="site-footer__title">Yemeni Corner</h2>
+      <a class="site-footer__logo-link" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+        {% if settings.logo_dark != blank %}
+          {{
+            settings.logo_dark
+            | image_url: width: 720
+            | image_tag:
+              widths: '280, 420, 560, 720',
+              sizes: '(min-width: 960px) 300px, 220px',
+              loading: 'lazy',
+              class: 'site-footer__logo',
+              alt: shop.name
+          }}
+        {% else %}
+          <img
+            class="site-footer__logo"
+            src="{{ 'yemeni-corner-logo-horizontal-dark.png' | asset_url }}"
+            width="715"
+            height="140"
+            loading="lazy"
+            alt="{{ shop.name | escape }}"
+          >
+        {% endif %}
+      </a>
       <p>{{ settings.brand_statement | default: "Premium Yemeni coffee rooted in heritage, crafted for today's coffee drinker." }}</p>
       <p class="eyebrow">{{ settings.brand_tagline | default: 'Premium Yemeni Coffee' }}</p>
     </div>

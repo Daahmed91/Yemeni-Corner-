@@ -13,7 +13,17 @@
       {
         "type": "image_picker",
         "id": "logo",
-        "label": "Logo"
+        "label": "Header logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_dark",
+        "label": "Dark surface logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_mark",
+        "label": "Compact brand mark"
       },
       {
         "type": "text",
@@ -26,6 +36,12 @@
         "id": "brand_statement",
         "label": "Brand statement",
         "default": "Premium Yemeni coffee rooted in heritage, crafted for today's coffee drinker."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_motion",
+        "label": "Enable elegant motion",
+        "default": true
       }
     ]
   },

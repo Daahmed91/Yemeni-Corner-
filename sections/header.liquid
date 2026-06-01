@@ -25,12 +25,14 @@
             alt: shop.name
         }}
       {% else %}
-        <span class="site-header__mark" aria-hidden="true">YC</span>
-        <span class="site-header__wordmark">
-          <span>Yemeni</span>
-          <span>Corner</span>
-          <span class="site-header__tagline">{{ settings.brand_tagline | default: 'Premium Yemeni Coffee' }}</span>
-        </span>
+        <img
+          class="site-header__fallback-logo"
+          src="{{ 'yemeni-corner-logo-header.png' | asset_url }}"
+          width="715"
+          height="140"
+          loading="eager"
+          alt="{{ shop.name | escape }}"
+        >
       {% endif %}
     </a>
 

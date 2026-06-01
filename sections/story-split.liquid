@@ -6,8 +6,8 @@
 
 <section class="section section--{{ section.settings.background }}" data-section-id="{{ section.id }}">
   <div class="page-width split {% if section.settings.image_position == 'right' %}split--reverse{% endif %}">
-    <div class="split__media">
-      <div class="media-panel media-panel--placeholder">
+    <div class="split__media" data-reveal>
+      <div class="media-panel media-panel--placeholder" data-parallax data-parallax-speed="0.035">
         {% if section.settings.image != blank %}
           {% render 'responsive-image',
             image: section.settings.image,
@@ -21,10 +21,13 @@
         {% if section.settings.badge != blank %}
           <div class="media-panel__badge">{{ section.settings.badge }}</div>
         {% endif %}
+        <div class="media-panel__mark" aria-hidden="true">
+          <img src="{{ 'yemeni-corner-mark.png' | asset_url }}" alt="" width="400" height="497" loading="lazy">
+        </div>
       </div>
     </div>
 
-    <div class="split__content">
+    <div class="split__content" data-reveal>
       {% if section.settings.eyebrow != blank %}
         <p class="eyebrow">{{ section.settings.eyebrow }}</p>
       {% endif %}
