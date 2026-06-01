@@ -1,0 +1,64 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="section-header">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="heading-lg">{{ section.settings.heading }}</h1>
+      <p class="lead">{{ section.settings.text }}</p>
+    </div>
+
+    <div class="collection-grid">
+      {% for collection in collections %}
+        {% unless collection.handle == 'frontpage' %}
+          <a class="product-card" href="{{ collection.url }}">
+            <div class="product-card__image">
+              {% if collection.featured_image %}
+                {{
+                  collection.featured_image
+                  | image_url: width: 800
+                  | image_tag:
+                    widths: '360, 540, 720, 900',
+                    sizes: '(min-width: 960px) 33vw, 92vw',
+                    loading: 'lazy',
+                    alt: collection.title
+                }}
+              {% else %}
+                <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ collection.title | escape }}" loading="lazy">
+              {% endif %}
+            </div>
+            <div>
+              <p class="eyebrow">Collection</p>
+              <h3>{{ collection.title }}</h3>
+            </div>
+          </a>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main list collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Collections"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop Yemeni Corner"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Start with the flagship coffee collection, then expand into future roasts, gifts, and bundles."
+    }
+  ]
+}
+{% endschema %}
+

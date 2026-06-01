@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "locations": {
+      "type": "locations-preview",
+      "settings": {
+        "heading": "Come grab a drink with us"
+      }
+    },
+    "contact": {
+      "type": "main-contact",
+      "settings": {
+        "heading": "Questions before you visit?",
+        "text": "Send a note about cafe hours, online coffee bags, or anything else you would like to ask."
+      }
+    }
+  },
+  "order": [
+    "locations",
+    "contact"
+  ]
+}
+

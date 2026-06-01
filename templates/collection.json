@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {}
+    },
+    "story": {
+      "type": "story-split",
+      "settings": {
+        "background": "cream",
+        "image_position": "right",
+        "eyebrow": "Simple Launch",
+        "heading": "One signature roast to start",
+        "text": "<p>The first online collection is intentionally simple: premium Yemeni coffee in a 340 g whole bean bag, crafted to be easy to choose and memorable to brew.</p>",
+        "button_label": ""
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "story",
+    "faq"
+  ]
+}
+

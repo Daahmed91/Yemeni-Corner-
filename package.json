@@ -1,0 +1,14 @@
+{
+  "name": "yemeni-corner-shopify-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium Shopify Online Store 2.0 theme for Yemeni Corner coffee.",
+  "scripts": {
+    "check": "shopify theme check",
+    "dev": "shopify theme dev",
+    "push": "shopify theme push",
+    "pull": "shopify theme pull"
+  },
+  "devDependencies": {}
+}
+

@@ -1,0 +1,52 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content",
+      "close": "Close",
+      "menu": "Menu"
+    },
+    "search": {
+      "search": "Search",
+      "placeholder": "Search coffee, stories, and pages",
+      "submit": "Search",
+      "results_for": "Results for",
+      "no_results": "No results found."
+    },
+    "newsletter": {
+      "success": "Thank you for joining Yemeni Corner.",
+      "email": "Email address"
+    },
+    "forms": {
+      "error": "Please review the highlighted fields."
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "quantity": "Quantity",
+      "from": "From",
+      "unavailable": "Unavailable",
+      "view_product": "View product"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your cart",
+      "empty": "Your cart is empty.",
+      "checkout": "Checkout",
+      "subtotal": "Subtotal",
+      "remove": "Remove",
+      "update": "Update cart",
+      "note": "Order notes",
+      "continue_shopping": "Continue shopping"
+    }
+  },
+  "blogs": {
+    "article": {
+      "read_more": "Read more",
+      "back_to_blog": "Back to blog"
+    }
+  }
+}
+

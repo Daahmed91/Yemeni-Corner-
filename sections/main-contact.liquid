@@ -1,0 +1,78 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width split">
+    <div>
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="heading-lg">{{ section.settings.heading }}</h1>
+      <p class="lead">{{ section.settings.text }}</p>
+
+      <div class="product-meta">
+        <div class="product-meta__item">
+          <span>South Windsor</span>
+          <strong>350 Cabana Rd E</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>LaSalle</span>
+          <strong>5881 Malden Rd</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Phone</span>
+          <strong>519-915-0595</strong>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <p class="form-message">Thanks for reaching out. We will get back to you soon.</p>
+        {% elsif form.errors %}
+          <div class="form-message">{{ form.errors | default_errors }}</div>
+        {% endif %}
+
+        <div class="field">
+          <label for="ContactName-{{ section.id }}">Name</label>
+          <input id="ContactName-{{ section.id }}" class="input" type="text" name="contact[name]" value="{{ form.name }}" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="ContactEmail-{{ section.id }}">Email</label>
+          <input id="ContactEmail-{{ section.id }}" class="input" type="email" name="contact[email]" value="{{ form.email }}" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="ContactMessage-{{ section.id }}">Message</label>
+          <textarea id="ContactMessage-{{ section.id }}" class="textarea" name="contact[body]" required>{{ form.body }}</textarea>
+        </div>
+
+        <button class="button" type="submit">Send</button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main contact",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Let's Connect"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Questions, coffee, or cafe visits"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Reach out about coffee bags, cafe visits, wholesale interest, or anything you would like to share with the Yemeni Corner team."
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,28 @@
+{%- liquid
+  assign image_width = width | default: 1200
+  assign image_sizes = sizes | default: '100vw'
+  assign image_loading = loading | default: 'lazy'
+  assign image_alt = alt | default: image.alt | default: shop.name
+  assign image_class_name = image_class | default: ''
+-%}
+
+{% if image != blank %}
+  {{
+    image
+    | image_url: width: image_width
+    | image_tag:
+      widths: '360, 540, 720, 900, 1080, 1400, 1800',
+      sizes: image_sizes,
+      loading: image_loading,
+      alt: image_alt,
+      class: image_class_name
+  }}
+{% else %}
+  <img
+    src="{{ 'yemeni-corner-bag.svg' | asset_url }}"
+    alt="{{ image_alt | escape }}"
+    loading="{{ image_loading }}"
+    class="{{ image_class_name }}"
+  >
+{% endif %}
+

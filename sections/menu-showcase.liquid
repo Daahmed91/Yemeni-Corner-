@@ -1,0 +1,83 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="section-header">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="heading-lg">{{ section.settings.heading }}</h2>
+      <p class="lead">{{ section.settings.text }}</p>
+    </div>
+
+    <div class="menu-grid">
+      {% for block in section.blocks %}
+        <article class="menu-card" {{ block.shopify_attributes }}>
+          <span>{{ block.settings.label }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <div class="rte">{{ block.settings.text }}</div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cafe menu showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "At the Coffee House"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A cafe menu rooted in Yemeni hospitality"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Our online shop is focused on coffee bags, while our cafes continue to serve traditional drinks, Yemeni-inspired lattes, cold drinks, and fresh desserts."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Menu category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Cafe"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Traditional Drinks"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Adeni tea, Yemeni tea, Mufawar, Qishr coffee, Juban Valley coffee, Sanaani coffee, and mint tea.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cafe menu showcase",
+      "blocks": [
+        { "type": "category", "settings": { "label": "Heritage", "title": "Traditional Drinks", "text": "<p>Adeni tea, Yemeni tea, Mufawar, Qishr coffee, Juban Valley coffee, Sanaani coffee, and mint tea.</p>" } },
+        { "type": "category", "settings": { "label": "Signature", "title": "Yemeni-Inspired Lattes", "text": "<p>Yemeni latte, date latte, pistachio latte, Cerelac latte, and Yemeni matcha latte.</p>" } },
+        { "type": "category", "settings": { "label": "Fresh", "title": "Cold Drinks", "text": "<p>Tawahi lemonade, iced Adeni, iced Yemeni latte, refreshers, smoothies, and mint lime drinks.</p>" } },
+        { "type": "category", "settings": { "label": "House Made", "title": "Desserts", "text": "<p>Honeycomb bites, Sabaya, saffron milk cake, pistachio milk cake, cheesecake, and warm cinnamon rolls.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

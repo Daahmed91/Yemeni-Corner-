@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "intro": {
+      "type": "story-split",
+      "settings": {
+        "background": "white",
+        "image_position": "right",
+        "eyebrow": "The Birthplace of Coffee",
+        "heading": "Premium Yemeni coffee, rooted in heritage",
+        "text": "<p>Yemeni Corner began with the warmth of the coffee house and a love for the depth of Yemeni coffee. The online roast brings that same heritage into homes across Canada.</p>",
+        "badge": "Premium Yemeni Coffee",
+        "button_label": ""
+      }
+    },
+    "haraz": {
+      "type": "story-split",
+      "settings": {
+        "background": "cream",
+        "image_position": "left",
+        "eyebrow": "From the Mountains",
+        "heading": "A richer way to understand coffee",
+        "text": "<p>Yemeni coffee is known for character, warmth, and history. Our brand keeps the story clear, modern, and premium so the coffee can stand beside the best specialty roasts while staying proudly Yemeni.</p>",
+        "badge": "Heritage-led, modern, trustworthy",
+        "button_label": "Shop Coffee"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "intro",
+    "haraz",
+    "newsletter"
+  ]
+}
+

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Yemeni Corner Signature Roast coffee bag</title>
+  <desc id="desc">A matte black coffee bag with cream label, gold arch emblem, and Yemeni Corner Signature Roast text.</desc>
+  <defs>
+    <linearGradient id="bag" x1="0" x2="1">
+      <stop offset="0" stop-color="#1d1715"/>
+      <stop offset="0.55" stop-color="#30201d"/>
+      <stop offset="1" stop-color="#120f0e"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="30" stdDeviation="28" flood-color="#2a1512" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1100" fill="#f5e6d3"/>
+  <path d="M165 122c0-34 27-61 61-61h448c34 0 61 27 61 61v824c0 46-37 83-83 83H248c-46 0-83-37-83-83V122z" fill="url(#bag)" filter="url(#shadow)"/>
+  <path d="M218 132h464v92H218z" fill="#201715"/>
+  <path d="M222 298h456v480H222z" fill="#fffdf8"/>
+  <path d="M250 326h400v424H250z" fill="none" stroke="#c28839" stroke-width="4"/>
+  <path d="M338 454c0-62 50-112 112-112s112 50 112 112v58H338v-58z" fill="none" stroke="#c28839" stroke-width="8"/>
+  <path d="M417 453c22-42 58-55 102-40-8 55-39 83-93 84 11-14 22-29 33-47-17 9-31 10-42 3z" fill="#c28839"/>
+  <text x="450" y="586" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#4a2c2a" letter-spacing="8">YEMENI</text>
+  <text x="450" y="648" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#4a2c2a" letter-spacing="8">CORNER</text>
+  <text x="450" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#4a2c2a" letter-spacing="5">PREMIUM YEMENI COFFEE</text>
+  <line x1="315" y1="724" x2="585" y2="724" stroke="#c28839" stroke-width="3"/>
+  <text x="450" y="804" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#fffdf8">Signature Roast</text>
+  <text x="450" y="858" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" fill="#f5e6d3" letter-spacing="4">WHOLE BEAN &#183; 340 G</text>
+</svg>

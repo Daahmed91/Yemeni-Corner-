@@ -1,0 +1,17 @@
+{%- liquid
+  assign target = product.selected_or_first_available_variant | default: product
+  assign compare_at_price = target.compare_at_price
+  assign price = target.price | default: 0
+-%}
+
+<span class="price">
+  {% if product.price_varies and show_from %}
+    {{ 'products.product.from' | t }}
+  {% endif %}
+  {{ price | money }}
+</span>
+
+{% if compare_at_price > price %}
+  <span class="compare-price">{{ compare_at_price | money }}</span>
+{% endif %}
+

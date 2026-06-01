@@ -1,0 +1,83 @@
+<section class="section section--cream" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="section-header">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="heading-lg">{{ section.settings.heading }}</h2>
+      <p class="lead">{{ section.settings.text }}</p>
+    </div>
+
+    <div class="brew-grid">
+      {% for block in section.blocks %}
+        <article class="brew-card" {{ block.shopify_attributes }}>
+          <span>{{ block.settings.step }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brew guide",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "A Richer Way to Brew"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Brew it slowly. Share it generously."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Designed for familiar home methods, the Signature Roast brings warmth and depth to drip, French press, pour-over, and espresso."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Brew step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step",
+          "label": "Step label",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Grind fresh"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Start with whole beans and grind for your brew method just before brewing."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brew guide",
+      "blocks": [
+        { "type": "step", "settings": { "step": "01", "title": "Grind fresh", "text": "Start with whole beans and grind for your brew method just before brewing." } },
+        { "type": "step", "settings": { "step": "02", "title": "Use clean water", "text": "Good water helps the warm spice, cocoa, and dried fruit notes come forward." } },
+        { "type": "step", "settings": { "step": "03", "title": "Brew with care", "text": "Use drip, French press, pour-over, or espresso for a rich everyday cup." } },
+        { "type": "step", "settings": { "step": "04", "title": "Enjoy warmly", "text": "Serve it slowly, share it generously, and make the ritual your own." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,76 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width newsletter">
+    <div class="newsletter__inner">
+      <div>
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="heading-md">{{ section.settings.heading }}</h2>
+        <p class="lead">{{ section.settings.text }}</p>
+      </div>
+
+      {% form 'customer' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="form-row">
+          <div class="field">
+            <label for="NewsletterEmail-{{ section.id }}">{{ 'general.newsletter.email' | t }}</label>
+            <input
+              id="NewsletterEmail-{{ section.id }}"
+              class="input"
+              type="email"
+              name="contact[email]"
+              value="{{ form.email }}"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              required
+            >
+          </div>
+          <button class="button button--gold" type="submit">{{ section.settings.button_label }}</button>
+        </div>
+
+        {% if form.posted_successfully? %}
+          <p class="form-message">{{ 'general.newsletter.success' | t }}</p>
+        {% elsif form.errors %}
+          <div class="form-message">{{ form.errors | default_errors }}</div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "First Release"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Be first to taste the Signature Roast"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Join the list for launch updates, brewing notes, and the first release of Yemeni Corner coffee bags."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Join"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}
+

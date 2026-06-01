@@ -1,0 +1,111 @@
+{%- liquid
+  assign navigation = linklists[section.settings.menu]
+-%}
+
+<header class="site-header" data-section-id="{{ section.id }}">
+  <div class="page-width site-header__inner">
+    <a class="site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      {% if settings.logo != blank %}
+        {{
+          settings.logo
+          | image_url: width: 320
+          | image_tag:
+            widths: '160, 240, 320',
+            sizes: '160px',
+            loading: 'eager',
+            class: 'site-header__logo',
+            alt: shop.name
+        }}
+      {% else %}
+        <span class="site-header__mark" aria-hidden="true">YC</span>
+        <span class="site-header__wordmark">
+          <span>Yemeni</span>
+          <span>Corner</span>
+          <span class="site-header__tagline">{{ settings.brand_tagline | default: 'Premium Yemeni Coffee' }}</span>
+        </span>
+      {% endif %}
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <ul class="site-nav__list">
+        {% if navigation.links.size > 0 %}
+          {% for link in navigation.links %}
+            <li>
+              <a class="site-nav__link" href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        {% else %}
+          <li><a class="site-nav__link" href="{{ routes.root_url }}">Home</a></li>
+          <li><a class="site-nav__link" href="{{ routes.all_products_collection_url }}">Shop</a></li>
+          <li><a class="site-nav__link" href="/pages/story">Story</a></li>
+          <li><a class="site-nav__link" href="/pages/menu">Menu</a></li>
+          <li><a class="site-nav__link" href="/pages/locations">Locations</a></li>
+          <li><a class="site-nav__link" href="/blogs/news">Journal</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      {% if section.settings.show_shop_button %}
+        <a class="button button--gold site-header__shop-button" href="{{ routes.all_products_collection_url }}">
+          {{ section.settings.shop_button_label }}
+        </a>
+      {% endif %}
+      <a class="header-action header-action--search" href="{{ routes.search_url }}" aria-label="{{ 'general.search.search' | t }}">Search</a>
+      <a class="header-action" href="{{ routes.cart_url }}" aria-label="{{ 'cart.general.title' | t }}">
+        Cart
+        <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+      <button class="header-action menu-toggle" type="button" data-drawer-open="#MobileMenu" aria-label="{{ 'general.accessibility.menu' | t }}">
+        Menu
+      </button>
+    </div>
+  </div>
+
+  <div id="MobileMenu" class="mobile-drawer" aria-hidden="true">
+    <button class="mobile-drawer__backdrop" type="button" data-drawer-close aria-label="{{ 'general.accessibility.close' | t }}"></button>
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ 'general.accessibility.menu' | t }}">
+      <button class="header-action" type="button" data-drawer-close>{{ 'general.accessibility.close' | t }}</button>
+      <nav class="mobile-drawer__nav" aria-label="Mobile navigation">
+        {% if navigation.links.size > 0 %}
+          {% for link in navigation.links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        {% else %}
+          <a href="{{ routes.root_url }}">Home</a>
+          <a href="{{ routes.all_products_collection_url }}">Shop Coffee</a>
+          <a href="/pages/story">Story</a>
+          <a href="/pages/menu">Menu</a>
+          <a href="/pages/locations">Locations</a>
+          <a href="{{ routes.cart_url }}">Cart</a>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shop_button",
+      "label": "Show shop button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "shop_button_label",
+      "label": "Shop button label",
+      "default": "Shop Coffee"
+    }
+  ]
+}
+{% endschema %}

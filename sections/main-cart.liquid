@@ -1,0 +1,73 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width cart-page">
+    <div class="section-header">
+      <p class="eyebrow">Checkout</p>
+      <h1 class="heading-lg">{{ 'cart.general.title' | t }}</h1>
+    </div>
+
+    {% if cart.item_count > 0 %}
+      <form action="{{ routes.cart_url }}" method="post">
+        <div class="cart-items">
+          {% for item in cart.items %}
+            <div class="cart-item">
+              <div class="cart-item__image">
+                {% if item.image %}
+                  {{
+                    item.image
+                    | image_url: width: 220
+                    | image_tag:
+                      widths: '120, 180, 220',
+                      sizes: '110px',
+                      loading: 'lazy',
+                      alt: item.image.alt | default: item.product.title
+                  }}
+                {% else %}
+                  <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item.product.title | escape }}" loading="lazy">
+                {% endif %}
+              </div>
+              <div>
+                <h2 class="heading-md"><a href="{{ item.url }}">{{ item.product.title }}</a></h2>
+                {% unless item.product.has_only_default_variant %}
+                  <p>{{ item.variant.title }}</p>
+                {% endunless %}
+                <p>{{ item.final_line_price | money }}</p>
+              </div>
+              <div class="cart-item__actions">
+                {% render 'quantity-input', name: 'updates[]', value: item.quantity %}
+                <p><a href="{{ item.url_to_remove }}">{{ 'cart.general.remove' | t }}</a></p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="field">
+          <label for="CartNote">{{ 'cart.general.note' | t }}</label>
+          <textarea id="CartNote" class="textarea" name="note">{{ cart.note }}</textarea>
+        </div>
+
+        <div class="cart-summary">
+          <p class="price">{{ 'cart.general.subtotal' | t }}: {{ cart.total_price | money }}</p>
+          <p class="muted">Shipping and taxes are calculated at checkout.</p>
+          <div class="button-row">
+            <button class="button button--secondary" type="submit" name="update">{{ 'cart.general.update' | t }}</button>
+            <button class="button" type="submit" name="checkout">{{ 'cart.general.checkout' | t }}</button>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      <div class="empty-state">
+        <h2 class="heading-md">{{ 'cart.general.empty' | t }}</h2>
+        <p>Yemeni Corner Signature Roast will be ready here when the product is live.</p>
+        <a class="button" href="{{ routes.all_products_collection_url }}">{{ 'cart.general.continue_shopping' | t }}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main cart",
+  "settings": []
+}
+{% endschema %}
+

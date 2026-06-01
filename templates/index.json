@@ -1,0 +1,107 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-coffee",
+      "settings": {
+        "heading": "Discover Yemen in Every Sip",
+        "text": "Premium Yemeni coffee, roasted for a rich and unforgettable cup. A heritage-led roast made for today's home coffee ritual.",
+        "primary_label": "Shop Coffee",
+        "secondary_label": "Our Story"
+      }
+    },
+    "featured": {
+      "type": "featured-signature-product",
+      "settings": {
+        "heading": "Yemeni Corner Signature Roast",
+        "text": "One signature roast. One rich cup. A true taste of Yemeni coffee, launching as a 340 g whole bean bag."
+      }
+    },
+    "story": {
+      "type": "story-split",
+      "settings": {
+        "background": "cream",
+        "image_position": "right",
+        "eyebrow": "Coffee From Its Birthplace",
+        "heading": "A heritage roast, crafted for today",
+        "text": "<p>Coffee has roots in Yemen. Yemeni Corner brings that story home through a clean, premium coffee experience made for everyday brewing.</p>",
+        "badge": "Heritage in every sip"
+      }
+    },
+    "brew": {
+      "type": "brew-guide",
+      "blocks": {
+        "brew1": {
+          "type": "step",
+          "settings": {
+            "step": "01",
+            "title": "Grind fresh",
+            "text": "Start with whole beans and grind for your chosen brew method."
+          }
+        },
+        "brew2": {
+          "type": "step",
+          "settings": {
+            "step": "02",
+            "title": "Use clean water",
+            "text": "Good water helps the warm spice, cocoa, and dried fruit notes come forward."
+          }
+        },
+        "brew3": {
+          "type": "step",
+          "settings": {
+            "step": "03",
+            "title": "Brew with care",
+            "text": "Use drip, French press, pour-over, or espresso for a rich everyday cup."
+          }
+        },
+        "brew4": {
+          "type": "step",
+          "settings": {
+            "step": "04",
+            "title": "Enjoy warmly",
+            "text": "Serve it slowly, share it generously, and make the ritual your own."
+          }
+        }
+      },
+      "block_order": [
+        "brew1",
+        "brew2",
+        "brew3",
+        "brew4"
+      ],
+      "settings": {}
+    },
+    "menu": {
+      "type": "menu-showcase",
+      "settings": {}
+    },
+    "locations": {
+      "type": "locations-preview",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "featured",
+    "story",
+    "brew",
+    "menu",
+    "locations",
+    "reviews",
+    "faq",
+    "newsletter"
+  ]
+}
+

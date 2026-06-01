@@ -1,0 +1,68 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="section-header">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="heading-lg">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      {% for block in section.blocks %}
+        <article class="testimonial-card" {{ block.shopify_attributes }}>
+          <blockquote>{{ block.settings.quote }}</blockquote>
+          <cite>{{ block.settings.author }}</cite>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Shared Warmly"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A richer cup, made to be remembered"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Rich, smooth, and unlike any coffee I have brewed at home."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Yemeni Corner customer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "Rich, smooth, and unlike any coffee I have brewed at home.", "author": "Early taster" } },
+        { "type": "testimonial", "settings": { "quote": "The warmth and spice make it feel special without being overwhelming.", "author": "Coffee customer" } },
+        { "type": "testimonial", "settings": { "quote": "A beautiful way to bring Yemeni coffee heritage into the morning routine.", "author": "Yemeni Corner guest" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

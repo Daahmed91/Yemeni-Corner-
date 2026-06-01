@@ -1,0 +1,88 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Yemeni Corner",
+    "theme_author": "Yemeni Corner",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https://www.yemenicorner.ca/",
+    "theme_support_url": "https://www.yemenicorner.ca/contact-us"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "text",
+        "id": "brand_tagline",
+        "label": "Brand tagline",
+        "default": "Premium Yemeni Coffee"
+      },
+      {
+        "type": "textarea",
+        "id": "brand_statement",
+        "label": "Brand statement",
+        "default": "Premium Yemeni coffee rooted in heritage, crafted for today's coffee drinker."
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Heritage gold",
+        "default": "#C28839"
+      },
+      {
+        "type": "color",
+        "id": "color_brown",
+        "label": "Deep coffee brown",
+        "default": "#4A2C2A"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Cream sand",
+        "default": "#F5E6D3"
+      },
+      {
+        "type": "color",
+        "id": "color_charcoal",
+        "label": "Charcoal gray",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "color_white",
+        "label": "Warm white",
+        "default": "#FFFDF8"
+      },
+      {
+        "type": "color",
+        "id": "color_turquoise",
+        "label": "Heritage turquoise accent",
+        "default": "#3AAFA9"
+      }
+    ]
+  },
+  {
+    "name": "Social links",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      }
+    ]
+  }
+]

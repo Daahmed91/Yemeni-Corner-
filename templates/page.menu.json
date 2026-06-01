@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "menu": {
+      "type": "menu-showcase",
+      "settings": {
+        "heading": "Cafe favorites, served with Yemeni hospitality",
+        "text": "The Shopify store sells coffee bags for home brewing. The cafe menu remains an in-person experience built around traditional drinks, signature lattes, cold drinks, and fresh desserts."
+      }
+    },
+    "locations": {
+      "type": "locations-preview",
+      "settings": {}
+    }
+  },
+  "order": [
+    "menu",
+    "locations"
+  ]
+}
+

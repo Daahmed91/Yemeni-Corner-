@@ -1,0 +1,6 @@
+root: .
+ignore:
+  - node_modules/**
+  - dist/**
+  - theme.zip
+

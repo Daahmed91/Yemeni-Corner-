@@ -1,0 +1,62 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="section-header">
+      <p class="eyebrow">{{ 'general.search.search' | t }}</p>
+      <h1 class="heading-lg">
+        {% if search.performed %}
+          {{ 'general.search.results_for' | t }} "{{ search.terms | escape }}"
+        {% else %}
+          Search Yemeni Corner
+        {% endif %}
+      </h1>
+    </div>
+
+    <form action="{{ routes.search_url }}" method="get" role="search" class="form-row">
+      <div class="field">
+        <label for="SearchInput">{{ 'general.search.search' | t }}</label>
+        <input
+          id="SearchInput"
+          class="input"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.placeholder' | t }}"
+        >
+      </div>
+      <button class="button" type="submit">{{ 'general.search.submit' | t }}</button>
+    </form>
+
+    {% if search.performed %}
+      {% paginate search.results by 12 %}
+        {% if search.results_count > 0 %}
+          <div class="search-grid section">
+            {% for item in search.results %}
+              <article class="search-card">
+                <p class="eyebrow">{{ item.object_type }}</p>
+                <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+                {% if item.object_type == 'product' %}
+                  {% render 'price', product: item %}
+                {% else %}
+                  <p>{{ item.content | strip_html | truncate: 140 }}</p>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+          {% render 'pagination', paginate: paginate %}
+        {% else %}
+          <div class="empty-state">
+            <p>{{ 'general.search.no_results' | t }}</p>
+          </div>
+        {% endif %}
+      {% endpaginate %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main search",
+  "settings": []
+}
+{% endschema %}
+

@@ -1,0 +1,84 @@
+{%- liquid
+  assign footer_menu = linklists[section.settings.menu]
+-%}
+
+<footer class="site-footer" data-section-id="{{ section.id }}">
+  <div class="page-width site-footer__inner">
+    <div class="site-footer__brand">
+      <h2 class="site-footer__title">Yemeni Corner</h2>
+      <p>{{ settings.brand_statement | default: "Premium Yemeni coffee rooted in heritage, crafted for today's coffee drinker." }}</p>
+      <p class="eyebrow">{{ settings.brand_tagline | default: 'Premium Yemeni Coffee' }}</p>
+    </div>
+
+    <div>
+      <h3 class="site-footer__title">Explore</h3>
+      <ul class="footer-nav">
+        {% if footer_menu.links.size > 0 %}
+          {% for link in footer_menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        {% else %}
+          <li><a href="{{ routes.all_products_collection_url }}">Shop Coffee</a></li>
+          <li><a href="/pages/story">Our Story</a></li>
+          <li><a href="/pages/menu">Cafe Menu</a></li>
+          <li><a href="/pages/locations">Locations</a></li>
+          <li><a href="/blogs/news">Journal</a></li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="site-footer__title">Visit Us</h3>
+      <p>
+        South Windsor<br>
+        350 Cabana Rd E<br>
+        Windsor, ON
+      </p>
+      <p>
+        LaSalle<br>
+        5881 Malden Rd<br>
+        LaSalle, ON
+      </p>
+    </div>
+
+    <div>
+      <h3 class="site-footer__title">Connect</h3>
+      <ul class="social-list">
+        {% if settings.social_instagram_link != blank %}
+          <li><a href="{{ settings.social_instagram_link }}">Instagram</a></li>
+        {% else %}
+          <li><a href="https://www.instagram.com/yemenicorner/">Instagram</a></li>
+        {% endif %}
+        {% if settings.social_facebook_link != blank %}
+          <li><a href="{{ settings.social_facebook_link }}">Facebook</a></li>
+        {% endif %}
+        <li><a href="/pages/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-width site-footer__bottom">
+    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | default: 'Yemeni Corner' }}</span>
+    <span>Premium Yemeni coffee for homes across Canada.</span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer menu",
+      "default": "footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter prompt",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

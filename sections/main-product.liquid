@@ -1,0 +1,191 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width product">
+    <div class="product__media">
+      <div class="product__media-main">
+        {% if product.featured_media %}
+          {{
+            product.featured_media.preview_image
+            | image_url: width: 1400
+            | image_tag:
+              widths: '520, 720, 960, 1200, 1400',
+              sizes: '(min-width: 960px) 52vw, 92vw',
+              loading: 'eager',
+              alt: product.featured_media.alt | default: product.title
+          }}
+        {% else %}
+          <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ product.title | escape }}" loading="eager">
+        {% endif %}
+      </div>
+
+      {% if product.media.size > 1 %}
+        <div class="collection-grid">
+          {% for media in product.media offset: 1 limit: 3 %}
+            <div class="product-card__image">
+              {{
+                media.preview_image
+                | image_url: width: 600
+                | image_tag:
+                  widths: '240, 360, 480, 600',
+                  sizes: '(min-width: 960px) 16vw, 30vw',
+                  loading: 'lazy',
+                  alt: media.alt | default: product.title
+              }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="product__info">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="heading-md">{{ product.title }}</h1>
+      <p class="lead">{{ section.settings.subtitle }}</p>
+
+      <div>
+        {% render 'price', product: product %}
+      </div>
+
+      {% form 'product', product, class: 'product-form' %}
+        {% if product.has_only_default_variant %}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {% else %}
+          <div class="field">
+            <label for="VariantSelect-{{ section.id }}">Choose option</label>
+            <select id="VariantSelect-{{ section.id }}" class="select" name="id">
+              {% for variant in product.variants %}
+                <option
+                  value="{{ variant.id }}"
+                  {% if variant == current_variant %}selected="selected"{% endif %}
+                  {% unless variant.available %}disabled{% endunless %}
+                >
+                  {{ variant.title }} - {{ variant.price | money }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+        {% endif %}
+
+        <div class="field">
+          <label>{{ 'products.product.quantity' | t }}</label>
+          {% render 'quantity-input' %}
+        </div>
+
+        <button
+          class="button"
+          type="submit"
+          name="add"
+          {% unless current_variant.available %}disabled{% endunless %}
+        >
+          {% if current_variant.available %}
+            {{ 'products.product.add_to_cart' | t }}
+          {% else %}
+            {{ 'products.product.sold_out' | t }}
+          {% endif %}
+        </button>
+
+        <p class="form-message" data-product-status aria-live="polite"></p>
+
+        {% if section.settings.show_dynamic_checkout %}
+          {{ form | payment_button }}
+        {% endif %}
+      {% endform %}
+
+      <div class="product-meta">
+        <div class="product-meta__item">
+          <span>Tasting Notes</span>
+          <strong>{{ section.settings.tasting_notes }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Roast Level</span>
+          <strong>{{ section.settings.roast_level }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Best For</span>
+          <strong>{{ section.settings.best_for }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Launch Market</span>
+          <strong>{{ section.settings.market }}</strong>
+        </div>
+      </div>
+
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when '@app' %}
+            {% render block %}
+        {% endcase %}
+      {% endfor %}
+
+      {% if product.description != blank %}
+        <div class="rte">{{ product.description }}</div>
+      {% else %}
+        <p class="muted">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Premium Yemeni Coffee"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Premium Yemeni Coffee | Whole Bean | 340 g"
+    },
+    {
+      "type": "text",
+      "id": "tasting_notes",
+      "label": "Tasting notes",
+      "default": "Warm spice, cocoa, dried fruit"
+    },
+    {
+      "type": "text",
+      "id": "roast_level",
+      "label": "Roast level",
+      "default": "Medium"
+    },
+    {
+      "type": "text",
+      "id": "best_for",
+      "label": "Best for",
+      "default": "Drip, French press, pour-over, espresso"
+    },
+    {
+      "type": "text",
+      "id": "market",
+      "label": "Market",
+      "default": "Canada-only launch"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Fallback description",
+      "default": "A rich and aromatic coffee inspired by Yemen's deep coffee heritage. Smooth, warm, and full of character, this roast is made for slow mornings, family gatherings, and anyone looking for a coffee with a story."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "label": "Show dynamic checkout buttons",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,64 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="section-header">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="heading-lg">{{ blog.title }}</h1>
+      <p class="lead">{{ section.settings.text }}</p>
+    </div>
+
+    {% paginate blog.articles by 9 %}
+      {% if blog.articles.size > 0 %}
+        <div class="article-grid">
+          {% for article in blog.articles %}
+            <article class="article-card">
+              {% if article.image %}
+                <div class="product-card__image">
+                  {{
+                    article.image
+                    | image_url: width: 800
+                    | image_tag:
+                      widths: '360, 540, 720, 900',
+                      sizes: '(min-width: 960px) 33vw, 92vw',
+                      loading: 'lazy',
+                      alt: article.image.alt | default: article.title
+                  }}
+                </div>
+              {% endif %}
+              <p class="eyebrow">{{ article.published_at | date: '%b %d, %Y' }}</p>
+              <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+              <p>{{ article.excerpt_or_content | strip_html | truncate: 150 }}</p>
+              <a class="button button--secondary" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+            </article>
+          {% endfor %}
+        </div>
+        {% render 'pagination', paginate: paginate %}
+      {% else %}
+        <div class="empty-state">
+          <h2 class="heading-md">Coffee stories are brewing.</h2>
+          <p>Add articles in Shopify admin to share launch notes, origin stories, and brewing guides.</p>
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main blog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Journal"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Stories from the cafe, notes on Yemeni coffee, and behind-the-scenes updates from the first online roast."
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,46 @@
+{%- liquid
+  assign seo_title = page_title
+  if current_tags
+    assign meta_tags = current_tags | join: ', '
+    assign seo_title = seo_title | append: ' - ' | append: meta_tags
+  endif
+  if current_page != 1
+    assign seo_title = seo_title | append: ' - Page ' | append: current_page
+  endif
+  unless seo_title contains shop.name
+    assign seo_title = seo_title | append: ' - ' | append: shop.name
+  endunless
+
+  assign seo_description = page_description | default: settings.brand_statement | default: shop.description
+-%}
+
+<title>{{ seo_title | escape }}</title>
+
+{% if seo_description %}
+  <meta name="description" content="{{ seo_description | strip_html | escape }}">
+{% endif %}
+
+<link rel="canonical" href="{{ canonical_url }}">
+
+<meta property="og:site_name" content="{{ shop.name | escape }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:type" content="website">
+
+{% if seo_description %}
+  <meta property="og:description" content="{{ seo_description | strip_html | escape }}">
+{% endif %}
+
+{% if page_image %}
+  <meta property="og:image" content="http:{{ page_image | image_url: width: 1200 }}">
+  <meta property="og:image:secure_url" content="https:{{ page_image | image_url: width: 1200 }}">
+  <meta name="twitter:card" content="summary_large_image">
+{% else %}
+  <meta name="twitter:card" content="summary">
+{% endif %}
+
+<meta name="twitter:title" content="{{ page_title | escape }}">
+{% if seo_description %}
+  <meta name="twitter:description" content="{{ seo_description | strip_html | escape }}">
+{% endif %}
+

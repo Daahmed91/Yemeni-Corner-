@@ -1,0 +1,18 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "show_shop_button": true,
+        "shop_button_label": "Shop Coffee"
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}
+
