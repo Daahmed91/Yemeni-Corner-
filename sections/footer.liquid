@@ -4,12 +4,16 @@
   assign menu_page = pages['menu']
   assign locations_page = pages['locations']
   assign contact_page = pages['contact']
-  assign story_url = story_page.url | default: '/pages/story'
+  assign story_url = routes.root_url | append: '#story'
+  if story_page != blank
+    assign story_url = story_page.url
+  endif
   assign menu_url = menu_page.url | default: '/pages/menu'
-  assign locations_url = locations_page.url | default: '/pages/locations'
+  assign locations_url = routes.root_url | append: '#locations'
+  if locations_page != blank
+    assign locations_url = locations_page.url
+  endif
   assign contact_url = contact_page.url | default: '/pages/contact'
-  assign journal_blog = blogs['news']
-  assign journal_url = journal_blog.url | default: '/blogs/news'
 -%}
 
 <footer class="site-footer" data-section-id="{{ section.id }}">
@@ -45,7 +49,13 @@
     <div>
       <h3 class="site-footer__title">Explore</h3>
       <ul class="footer-nav">
-        {% if footer_menu.links.size > 0 %}
+        {% if section.settings.use_curated_navigation %}
+          <li><a href="{{ routes.all_products_collection_url }}">Shop Coffee</a></li>
+          <li><a href="{{ story_url }}">Our Story</a></li>
+          <li><a href="{{ menu_url }}">Cafe Menu</a></li>
+          <li><a href="{{ locations_url }}">Locations</a></li>
+          <li><a href="{{ contact_url }}">Contact</a></li>
+        {% elsif footer_menu.links.size > 0 %}
           {% for link in footer_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
@@ -54,7 +64,7 @@
           <li><a href="{{ story_url }}">Our Story</a></li>
           <li><a href="{{ menu_url }}">Cafe Menu</a></li>
           <li><a href="{{ locations_url }}">Locations</a></li>
-          <li><a href="{{ journal_url }}">Journal</a></li>
+          <li><a href="{{ contact_url }}">Contact</a></li>
         {% endif %}
       </ul>
     </div>
@@ -64,12 +74,14 @@
       <p>
         South Windsor<br>
         350 Cabana Rd E<br>
-        Windsor, ON
+        Windsor, ON<br>
+        519-915-0595
       </p>
       <p>
         LaSalle<br>
         5881 Malden Rd<br>
-        LaSalle, ON
+        LaSalle, ON<br>
+        519-915-1119
       </p>
     </div>
 
@@ -91,7 +103,7 @@
 
   <div class="page-width site-footer__bottom">
     <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | default: 'Yemeni Corner' }}</span>
-    <span>Premium Yemeni coffee for homes across Canada.</span>
+    <span>Cafe hospitality in Windsor and LaSalle, with Yemeni coffee for home brewing.</span>
   </div>
 </footer>
 
@@ -104,6 +116,12 @@
       "id": "menu",
       "label": "Footer menu",
       "default": "footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_curated_navigation",
+      "label": "Use curated coffee navigation",
+      "default": true
     }
   ]
 }

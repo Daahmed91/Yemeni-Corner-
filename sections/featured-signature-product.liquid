@@ -5,7 +5,10 @@
     assign product_url = featured_product.url
   endif
   assign story_page = pages['story']
-  assign story_url = story_page.url | default: '/pages/story'
+  assign story_url = routes.root_url | append: '#story'
+  if story_page != blank
+    assign story_url = story_page.url
+  endif
 -%}
 
 <section class="section" data-section-id="{{ section.id }}">
@@ -23,7 +26,7 @@
             alt: featured_product.featured_media.alt | default: featured_product.title
         }}
       {% else %}
-        <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="Yemeni Corner Signature Roast coffee bag" width="900" height="1100" loading="lazy">
+        <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="Yemeni Corner Harraz Signature Roast coffee bag" width="900" height="1100" loading="lazy">
       {% endif %}
     </div>
 
@@ -45,7 +48,7 @@
             {% if featured_product.available %}
               Ready to add to cart
             {% else %}
-              Launching soon
+              Temporarily unavailable
             {% endif %}
           </span>
         </div>
@@ -93,19 +96,19 @@
       "type": "text",
       "id": "heading",
       "label": "Fallback heading",
-      "default": "Yemeni Corner Signature Roast"
+      "default": "Yemeni Corner Harraz Signature Roast"
     },
     {
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "Premium Yemeni coffee, roasted for a rich, smooth, and memorable cup. One simple launch product built around heritage, quality, and everyday ritual."
+      "default": "Premium Yemeni coffee, roasted for a rich, smooth, and memorable cup. One focused online roast connects the cafe ritual to everyday brewing at home."
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "Shop Signature Roast"
+      "default": "Shop Harraz Roast"
     }
   ],
   "presets": [

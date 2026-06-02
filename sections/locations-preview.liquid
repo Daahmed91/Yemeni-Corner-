@@ -1,4 +1,12 @@
-<section class="section section--cream" data-section-id="{{ section.id }}">
+{%- liquid
+  assign section_anchor = section.settings.anchor_id | handle
+-%}
+
+<section
+  class="section section--cream"
+  {% if section_anchor != blank %}id="{{ section_anchor }}"{% endif %}
+  data-section-id="{{ section.id }}"
+>
   <div class="page-width">
     <div class="section-header" data-reveal>
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
@@ -36,6 +44,11 @@
       "id": "eyebrow",
       "label": "Eyebrow",
       "default": "Visit Us"
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Optional anchor ID"
     },
     {
       "type": "text",
