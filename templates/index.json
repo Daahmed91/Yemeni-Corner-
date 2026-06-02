@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -11,6 +20,7 @@
         "secondary_label": "Our Story",
         "secondary_link": "",
         "product": "yemeni-corner-harraz-signature-roast",
+        "image": "shopify://shop_images/37a47c90-ee1d-4f4d-a168-f5fd2225f091.png",
         "image_alt": "Yemeni Corner Harraz Signature Roast coffee bag"
       }
     },
@@ -88,14 +98,6 @@
     },
     "menu": {
       "type": "menu-showcase",
-      "settings": {
-        "eyebrow": "At the Coffee House",
-        "heading": "Taste the cafe menu, then take the ritual home",
-        "text": "Our cafes serve traditional drinks, signature lattes, cold favorites, and desserts in person. The online shop focuses on whole bean coffee for brewing that Yemeni Corner warmth at home.",
-        "primary_label": "View Full Cafe Menu",
-        "secondary_label": "Shop Harraz Roast",
-        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
-      },
       "blocks": {
         "menu_traditional": {
           "type": "category",
@@ -135,16 +137,19 @@
         "menu_signature",
         "menu_cold",
         "menu_home"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "At the Coffee House",
+        "heading": "Taste the cafe menu, then take the ritual home",
+        "text": "Our cafes serve traditional drinks, signature lattes, cold favorites, and desserts in person. The online shop focuses on whole bean coffee for brewing that Yemeni Corner warmth at home.",
+        "primary_label": "View Full Cafe Menu",
+        "primary_link": "",
+        "secondary_label": "Shop Harraz Roast",
+        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
+      }
     },
     "locations": {
       "type": "locations-preview",
-      "settings": {
-        "eyebrow": "Visit Us",
-        "anchor_id": "locations",
-        "heading": "Visit us for the full cafe menu",
-        "text": "Come for a cup, stay for the warmth. Our cafes bring Yemeni coffee, desserts, and hospitality into welcoming local spaces."
-      },
       "blocks": {
         "south_windsor": {
           "type": "location",
@@ -152,7 +157,8 @@
             "title": "South Windsor",
             "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
             "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
-            "phone": "519-915-0595"
+            "phone": "519-915-0595",
+            "map_link": ""
           }
         },
         "lasalle": {
@@ -161,21 +167,24 @@
             "title": "LaSalle",
             "address": "5881 Malden Rd\nLaSalle, ON",
             "hours": "Open daily for coffee, desserts, and warm hospitality.",
-            "phone": "519-915-1119"
+            "phone": "519-915-1119",
+            "map_link": ""
           }
         }
       },
       "block_order": [
         "south_windsor",
         "lasalle"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Visit Us",
+        "anchor_id": "locations",
+        "heading": "Visit us for the full cafe menu",
+        "text": "Come for a cup, stay for the warmth. Our cafes bring Yemeni coffee, desserts, and hospitality into welcoming local spaces."
+      }
     },
     "faq": {
       "type": "faq",
-      "settings": {
-        "eyebrow": "Good to Know",
-        "heading": "Coffee questions, answered simply"
-      },
       "blocks": {
         "faq_size": {
           "type": "question",
@@ -211,7 +220,11 @@
         "faq_flavor",
         "faq_cafe",
         "faq_shipping"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Good to Know",
+        "heading": "Coffee questions, answered simply"
+      }
     },
     "newsletter": {
       "type": "newsletter",
