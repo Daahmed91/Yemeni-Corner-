@@ -2,7 +2,10 @@
   "sections": {
     "main": {
       "type": "main-contact",
-      "settings": {}
+      "settings": {
+        "heading": "Questions about coffee, cafe visits, or catering?",
+        "text": "Reach out about the Harraz Signature Roast, cafe hours, menu questions, wholesale interest, or anything you would like to ask the Yemeni Corner team."
+      }
     },
     "newsletter": {
       "type": "newsletter",
@@ -14,4 +17,3 @@
     "newsletter"
   ]
 }
-

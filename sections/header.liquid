@@ -3,11 +3,18 @@
   assign story_page = pages['story']
   assign menu_page = pages['menu']
   assign locations_page = pages['locations']
-  assign story_url = story_page.url | default: '/pages/story'
+  assign contact_page = pages['contact']
+  assign story_url = routes.root_url | append: '#story'
+  if story_page != blank
+    assign story_url = story_page.url
+  endif
   assign menu_url = menu_page.url | default: '/pages/menu'
-  assign locations_url = locations_page.url | default: '/pages/locations'
-  assign journal_blog = blogs['news']
-  assign journal_url = journal_blog.url | default: '/blogs/news'
+  assign locations_url = routes.root_url | append: '#locations'
+  if locations_page != blank
+    assign locations_url = locations_page.url
+  endif
+  assign contact_url = contact_page.url | default: '/pages/contact'
+  assign shop_button_url = section.settings.shop_button_link | default: routes.all_products_collection_url
 -%}
 
 <header class="site-header" data-section-id="{{ section.id }}">
@@ -38,7 +45,14 @@
 
     <nav class="site-nav" aria-label="Primary navigation">
       <ul class="site-nav__list">
-        {% if navigation.links.size > 0 %}
+        {% if section.settings.use_curated_navigation %}
+          <li><a class="site-nav__link" href="{{ routes.root_url }}">Home</a></li>
+          <li><a class="site-nav__link" href="{{ routes.all_products_collection_url }}">Shop Coffee</a></li>
+          <li><a class="site-nav__link" href="{{ story_url }}">Story</a></li>
+          <li><a class="site-nav__link" href="{{ menu_url }}">Cafe Menu</a></li>
+          <li><a class="site-nav__link" href="{{ locations_url }}">Locations</a></li>
+          <li><a class="site-nav__link" href="{{ contact_url }}">Contact</a></li>
+        {% elsif navigation.links.size > 0 %}
           {% for link in navigation.links %}
             <li>
               <a class="site-nav__link" href="{{ link.url }}">{{ link.title }}</a>
@@ -46,18 +60,18 @@
           {% endfor %}
         {% else %}
           <li><a class="site-nav__link" href="{{ routes.root_url }}">Home</a></li>
-          <li><a class="site-nav__link" href="{{ routes.all_products_collection_url }}">Shop</a></li>
+          <li><a class="site-nav__link" href="{{ routes.all_products_collection_url }}">Shop Coffee</a></li>
           <li><a class="site-nav__link" href="{{ story_url }}">Story</a></li>
-          <li><a class="site-nav__link" href="{{ menu_url }}">Menu</a></li>
+          <li><a class="site-nav__link" href="{{ menu_url }}">Cafe Menu</a></li>
           <li><a class="site-nav__link" href="{{ locations_url }}">Locations</a></li>
-          <li><a class="site-nav__link" href="{{ journal_url }}">Journal</a></li>
+          <li><a class="site-nav__link" href="{{ contact_url }}">Contact</a></li>
         {% endif %}
       </ul>
     </nav>
 
     <div class="site-header__actions">
       {% if section.settings.show_shop_button %}
-        <a class="button button--gold site-header__shop-button" href="{{ routes.all_products_collection_url }}">
+        <a class="button button--gold site-header__shop-button" href="{{ shop_button_url }}">
           {{ section.settings.shop_button_label }}
         </a>
       {% endif %}
@@ -84,7 +98,15 @@
     <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ 'general.accessibility.menu' | t }}" tabindex="-1">
       <button class="header-action" type="button" data-drawer-close>{{ 'general.accessibility.close' | t }}</button>
       <nav class="mobile-drawer__nav" aria-label="Mobile navigation">
-        {% if navigation.links.size > 0 %}
+        {% if section.settings.use_curated_navigation %}
+          <a href="{{ routes.root_url }}">Home</a>
+          <a href="{{ routes.all_products_collection_url }}">Shop Coffee</a>
+          <a href="{{ story_url }}">Story</a>
+          <a href="{{ menu_url }}">Cafe Menu</a>
+          <a href="{{ locations_url }}">Locations</a>
+          <a href="{{ contact_url }}">Contact</a>
+          <a href="{{ routes.cart_url }}">Cart</a>
+        {% elsif navigation.links.size > 0 %}
           {% for link in navigation.links %}
             <a href="{{ link.url }}">{{ link.title }}</a>
           {% endfor %}
@@ -92,8 +114,9 @@
           <a href="{{ routes.root_url }}">Home</a>
           <a href="{{ routes.all_products_collection_url }}">Shop Coffee</a>
           <a href="{{ story_url }}">Story</a>
-          <a href="{{ menu_url }}">Menu</a>
+          <a href="{{ menu_url }}">Cafe Menu</a>
           <a href="{{ locations_url }}">Locations</a>
+          <a href="{{ contact_url }}">Contact</a>
           <a href="{{ routes.cart_url }}">Cart</a>
         {% endif %}
       </nav>
@@ -113,6 +136,12 @@
     },
     {
       "type": "checkbox",
+      "id": "use_curated_navigation",
+      "label": "Use curated coffee navigation",
+      "default": true
+    },
+    {
+      "type": "checkbox",
       "id": "show_shop_button",
       "label": "Show shop button",
       "default": true
@@ -122,6 +151,11 @@
       "id": "shop_button_label",
       "label": "Shop button label",
       "default": "Shop Coffee"
+    },
+    {
+      "type": "url",
+      "id": "shop_button_link",
+      "label": "Shop button link"
     }
   ]
 }

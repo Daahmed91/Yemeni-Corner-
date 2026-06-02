@@ -9,7 +9,10 @@
   endif
 
   assign locations_page = pages['locations']
-  assign fallback_locations_url = locations_page.url | default: '/pages/locations'
+  assign fallback_locations_url = routes.root_url | append: '#locations'
+  if locations_page != blank
+    assign fallback_locations_url = locations_page.url
+  endif
   assign secondary_url = section.settings.secondary_url | default: fallback_locations_url
 -%}
 
@@ -143,7 +146,7 @@
       <div class="menu-page__bottom-cta" data-reveal>
         <p class="eyebrow">From cafe to home</p>
         <h2 class="heading-md">Love the ritual? Brew Yemeni Corner at home.</h2>
-        <p>Start with the Signature Roast online, then visit the cafe for the full menu of traditional drinks, lattes, cold favorites, and smoothies.</p>
+        <p>Start with the Harraz Signature Roast online, then visit the cafe for the full menu of traditional drinks, lattes, cold favorites, and smoothies.</p>
         <div class="button-row">
           <a class="button" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
           <a class="button button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
@@ -173,7 +176,7 @@
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu, then bring the same warm ritual home with our Signature Roast."
+      "default": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu, then bring the same warm ritual home with our Harraz Signature Roast."
     },
     {
       "type": "image_picker",
@@ -189,7 +192,7 @@
       "type": "text",
       "id": "primary_label",
       "label": "Primary button label",
-      "default": "Shop Signature Roast"
+      "default": "Shop Harraz Roast"
     },
     {
       "type": "url",
@@ -217,7 +220,7 @@
       "type": "textarea",
       "id": "sales_text",
       "label": "Sales text",
-      "default": "The cafe menu shows the range of Yemeni Corner flavor. The online shop keeps it simple with our Signature Roast, made for rich everyday brewing at home."
+      "default": "The cafe menu shows the range of Yemeni Corner flavor. The online shop keeps it simple with our Harraz Signature Roast, made for rich everyday brewing at home."
     }
   ],
   "blocks": [

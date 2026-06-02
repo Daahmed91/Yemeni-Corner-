@@ -5,11 +5,13 @@
       "settings": {
         "eyebrow": "Yemeni Corner Cafe",
         "heading": "Cafe favorites, rooted in Yemeni hospitality",
-        "text": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu, then bring the same warm ritual home with our Signature Roast.",
-        "primary_label": "Shop Signature Roast",
+        "text": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu, then bring the same warm ritual home with our Harraz Signature Roast.",
+        "featured_product": "yemeni-corner-harraz-signature-roast",
+        "primary_label": "Shop Harraz Roast",
+        "primary_url": "/products/yemeni-corner-harraz-signature-roast",
         "secondary_label": "Visit Our Cafes",
         "sales_heading": "Bring the cafe ritual home",
-        "sales_text": "The cafe menu shows the range of Yemeni Corner flavor. The online shop keeps it simple with our Signature Roast, made for rich everyday brewing at home."
+        "sales_text": "The cafe menu shows the range of Yemeni Corner flavor. The online shop keeps it simple with our Harraz Signature Roast, made for rich everyday brewing at home."
       },
       "blocks": {
         "traditional_adeni_tea": {
