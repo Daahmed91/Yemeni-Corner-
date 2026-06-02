@@ -35,7 +35,11 @@
       {% else %}
         <div class="empty-state">
           <h2 class="heading-md">Coffee stories are brewing.</h2>
-          <p>Add articles in Shopify admin to share launch notes, origin stories, and brewing guides.</p>
+          <p>Our journal will share origin notes, cafe stories, and brewing guides. For now, explore the cafe menu or shop the Harraz Signature Roast.</p>
+          <div class="button-row">
+            <a class="button" href="{{ routes.all_products_collection_url }}">Shop Coffee</a>
+            <a class="button button--secondary" href="/pages/menu">View Cafe Menu</a>
+          </div>
         </div>
       {% endif %}
     {% endpaginate %}
@@ -56,9 +60,8 @@
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "Stories from the cafe, notes on Yemeni coffee, and behind-the-scenes updates from the first online roast."
+      "default": "Stories from the cafe, notes on Yemeni coffee, and brewing ideas for the Harraz Signature Roast."
     }
   ]
 }
 {% endschema %}
-

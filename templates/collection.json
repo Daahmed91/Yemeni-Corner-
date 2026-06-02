@@ -9,10 +9,11 @@
       "settings": {
         "background": "cream",
         "image_position": "right",
-        "eyebrow": "Simple Launch",
-        "heading": "One signature roast to start",
-        "text": "<p>The first online collection is intentionally simple: premium Yemeni coffee in a 340 g whole bean bag, crafted to be easy to choose and memorable to brew.</p>",
-        "button_label": ""
+        "eyebrow": "Flagship Roast",
+        "heading": "One signature coffee, chosen with purpose",
+        "text": "<p>The online shop is intentionally simple: premium Yemeni coffee in a 340 g whole bean bag, crafted to be easy to choose, memorable to brew, and connected to the Yemeni Corner cafe ritual.</p>",
+        "button_label": "View Cafe Menu",
+        "button_link": "/pages/menu"
       }
     },
     "faq": {
@@ -26,4 +27,3 @@
     "faq"
   ]
 }
-

@@ -1,10 +1,18 @@
 {%- liquid
   assign story_page = pages['story']
-  assign story_url = story_page.url | default: '/pages/story'
+  assign story_url = routes.root_url | append: '#story'
+  if story_page != blank
+    assign story_url = story_page.url
+  endif
   assign button_url = section.settings.button_link | default: story_url
+  assign section_anchor = section.settings.anchor_id | handle
 -%}
 
-<section class="section section--{{ section.settings.background }}" data-section-id="{{ section.id }}">
+<section
+  class="section section--{{ section.settings.background }}"
+  {% if section_anchor != blank %}id="{{ section_anchor }}"{% endif %}
+  data-section-id="{{ section.id }}"
+>
   <div class="page-width split {% if section.settings.image_position == 'right' %}split--reverse{% endif %}">
     <div class="split__media" data-reveal>
       <div class="media-panel media-panel--placeholder" data-parallax data-parallax-speed="0.035">
@@ -68,6 +76,11 @@
         { "value": "left", "label": "Left" },
         { "value": "right", "label": "Right" }
       ]
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Optional anchor ID"
     },
     {
       "type": "text",

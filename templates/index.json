@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -14,13 +5,13 @@
       "settings": {
         "eyebrow": "Premium Yemeni Coffee",
         "heading": "Discover Yemen in Every Sip",
-        "text": "Premium Yemeni coffee, roasted for a rich and unforgettable cup. A heritage-led roast made for today's home coffee ritual.",
-        "primary_label": "Shop Coffee",
-        "primary_link": "",
+        "text": "Premium Yemeni coffee, roasted for a rich and unforgettable cup. The Harraz Signature Roast brings the warmth of our cafe ritual into your home brew.",
+        "primary_label": "Shop Harraz Roast",
+        "primary_link": "/products/yemeni-corner-harraz-signature-roast",
         "secondary_label": "Our Story",
         "secondary_link": "",
-        "product": "",
-        "image_alt": "Yemeni Corner Signature Roast coffee bag"
+        "product": "yemeni-corner-harraz-signature-roast",
+        "image_alt": "Yemeni Corner Harraz Signature Roast coffee bag"
       }
     },
     "featured": {
@@ -28,9 +19,9 @@
       "settings": {
         "product": "yemeni-corner-harraz-signature-roast",
         "eyebrow": "Signature Roast",
-        "heading": "Yemeni Corner Signature Roast",
-        "text": "One signature roast. One rich cup. A true taste of Yemeni coffee, launching as a 340 g whole bean bag.",
-        "button_label": "Shop Signature Roast"
+        "heading": "Yemeni Corner Harraz Signature Roast",
+        "text": "One signature roast. One rich cup. A true taste of Yemeni coffee in a 340 g whole bean bag, ready for everyday brewing.",
+        "button_label": "Shop Harraz Roast"
       }
     },
     "story": {
@@ -38,12 +29,13 @@
       "settings": {
         "background": "cream",
         "image_position": "right",
+        "anchor_id": "story",
         "eyebrow": "Coffee From Its Birthplace",
-        "heading": "A heritage roast, crafted for today",
-        "text": "<p>Coffee has roots in Yemen. Yemeni Corner brings that story home through a clean, premium coffee experience made for everyday brewing.</p>",
+        "heading": "From our cafes to your kitchen",
+        "text": "<p>Yemeni Corner started with hospitality: warm drinks, late conversations, and flavors rooted in Yemen. The Harraz Signature Roast carries that same feeling into a premium whole bean coffee you can brew at home.</p>",
         "badge": "Heritage in every sip",
-        "button_label": "Read the Story",
-        "button_link": ""
+        "button_label": "Shop Harraz Roast",
+        "button_link": "/products/yemeni-corner-harraz-signature-roast"
       }
     },
     "brew": {
@@ -91,45 +83,142 @@
       "settings": {
         "eyebrow": "A Richer Way to Brew",
         "heading": "Brew it slowly. Share it generously.",
-        "text": "Designed for familiar home methods, the Signature Roast brings warmth and depth to drip, French press, pour-over, and espresso."
+        "text": "Designed for familiar home methods, the Harraz Signature Roast brings warmth and depth to drip, French press, pour-over, and espresso."
       }
     },
     "menu": {
       "type": "menu-showcase",
       "settings": {
         "eyebrow": "At the Coffee House",
-        "heading": "A cafe menu rooted in Yemeni hospitality",
-        "text": "Our online shop is focused on coffee bags, while our cafes continue to serve traditional drinks, Yemeni-inspired lattes, cold drinks, and fresh desserts."
-      }
+        "heading": "Taste the cafe menu, then take the ritual home",
+        "text": "Our cafes serve traditional drinks, signature lattes, cold favorites, and desserts in person. The online shop focuses on whole bean coffee for brewing that Yemeni Corner warmth at home.",
+        "primary_label": "View Full Cafe Menu",
+        "secondary_label": "Shop Harraz Roast",
+        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
+      },
+      "blocks": {
+        "menu_traditional": {
+          "type": "category",
+          "settings": {
+            "label": "Heritage",
+            "title": "Traditional Drinks",
+            "text": "<p>Adeni tea, Mufawar coffee, Sana'ani coffee, Yemeni tea, mint tea, Jubani coffee, and Qishr.</p>"
+          }
+        },
+        "menu_signature": {
+          "type": "category",
+          "settings": {
+            "label": "Signature",
+            "title": "Yemeni-Inspired Lattes",
+            "text": "<p>Yemeni latte, pistachio latte, Lotus cookie butter latte, Tarim latte, date latte, and Yemeni matcha latte.</p>"
+          }
+        },
+        "menu_cold": {
+          "type": "category",
+          "settings": {
+            "label": "Fresh",
+            "title": "Cold Drinks",
+            "text": "<p>Tawahi lemonade, fruit lemonades, refreshers, iced Adeni, iced specialty lattes, and smoothies.</p>"
+          }
+        },
+        "menu_home": {
+          "type": "category",
+          "settings": {
+            "label": "At Home",
+            "title": "Harraz Signature Roast",
+            "text": "<p>The online roast connects the cafe flavor story to a whole bean coffee you can brew at home.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "menu_traditional",
+        "menu_signature",
+        "menu_cold",
+        "menu_home"
+      ]
     },
     "locations": {
       "type": "locations-preview",
       "settings": {
         "eyebrow": "Visit Us",
-        "heading": "Coffee houses in Windsor and LaSalle",
+        "anchor_id": "locations",
+        "heading": "Visit us for the full cafe menu",
         "text": "Come for a cup, stay for the warmth. Our cafes bring Yemeni coffee, desserts, and hospitality into welcoming local spaces."
-      }
-    },
-    "reviews": {
-      "type": "testimonials",
-      "settings": {
-        "eyebrow": "Shared Warmly",
-        "heading": "A richer cup, made to be remembered"
-      }
+      },
+      "blocks": {
+        "south_windsor": {
+          "type": "location",
+          "settings": {
+            "title": "South Windsor",
+            "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
+            "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
+            "phone": "519-915-0595"
+          }
+        },
+        "lasalle": {
+          "type": "location",
+          "settings": {
+            "title": "LaSalle",
+            "address": "5881 Malden Rd\nLaSalle, ON",
+            "hours": "Open daily for coffee, desserts, and warm hospitality.",
+            "phone": "519-915-1119"
+          }
+        }
+      },
+      "block_order": [
+        "south_windsor",
+        "lasalle"
+      ]
     },
     "faq": {
       "type": "faq",
       "settings": {
         "eyebrow": "Good to Know",
         "heading": "Coffee questions, answered simply"
-      }
+      },
+      "blocks": {
+        "faq_size": {
+          "type": "question",
+          "settings": {
+            "question": "What size is the coffee bag?",
+            "answer": "<p>Yemeni Corner Harraz Signature Roast is sold as a 340 g whole bean coffee bag.</p>"
+          }
+        },
+        "faq_flavor": {
+          "type": "question",
+          "settings": {
+            "question": "What does it taste like?",
+            "answer": "<p>The roast is built around warm spice, cocoa, and dried fruit notes with a smooth, aromatic finish.</p>"
+          }
+        },
+        "faq_cafe": {
+          "type": "question",
+          "settings": {
+            "question": "Can I order cafe drinks online?",
+            "answer": "<p>The cafe menu is served in person at Yemeni Corner. The online shop is focused on whole bean coffee for home brewing.</p>"
+          }
+        },
+        "faq_shipping": {
+          "type": "question",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>The online shop is set up for Canadian customers. Shipping rates and delivery options are shown at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_size",
+        "faq_flavor",
+        "faq_cafe",
+        "faq_shipping"
+      ]
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "eyebrow": "First Release",
-        "heading": "Be first to taste the Signature Roast",
-        "text": "Join the list for launch updates, brewing notes, and the first release of Yemeni Corner coffee bags.",
+        "eyebrow": "Coffee Notes",
+        "heading": "Get Yemeni Corner coffee notes",
+        "text": "Join the list for brewing notes, cafe updates, and reminders when fresh Harraz Signature Roast is available online.",
         "button_label": "Join"
       }
     }
@@ -141,7 +230,6 @@
     "brew",
     "menu",
     "locations",
-    "reviews",
     "faq",
     "newsletter"
   ]

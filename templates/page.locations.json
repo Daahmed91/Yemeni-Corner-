@@ -3,8 +3,34 @@
     "locations": {
       "type": "locations-preview",
       "settings": {
-        "heading": "Come grab a drink with us"
-      }
+        "anchor_id": "locations",
+        "heading": "Come grab a drink with us",
+        "text": "Visit Yemeni Corner for traditional drinks, signature lattes, cold favorites, and warm hospitality. The online shop is here when you want to brew the Harraz Signature Roast at home."
+      },
+      "blocks": {
+        "south_windsor": {
+          "type": "location",
+          "settings": {
+            "title": "South Windsor",
+            "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
+            "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
+            "phone": "519-915-0595"
+          }
+        },
+        "lasalle": {
+          "type": "location",
+          "settings": {
+            "title": "LaSalle",
+            "address": "5881 Malden Rd\nLaSalle, ON",
+            "hours": "Open daily for coffee, desserts, and warm hospitality.",
+            "phone": "519-915-1119"
+          }
+        }
+      },
+      "block_order": [
+        "south_windsor",
+        "lasalle"
+      ]
     },
     "contact": {
       "type": "main-contact",
@@ -19,4 +45,3 @@
     "contact"
   ]
 }
-

@@ -1,12 +1,21 @@
 {%- liquid
   assign featured_product = all_products[section.settings.product]
   assign story_page = pages['story']
-  assign story_url = story_page.url | default: '/pages/story'
+  assign story_url = routes.root_url | append: '#story'
+  if story_page != blank
+    assign story_url = story_page.url
+  endif
   assign hero_image = section.settings.image
   if hero_image == blank and featured_product.featured_media
     assign hero_image = featured_product.featured_media.preview_image
   endif
-  assign primary_url = section.settings.primary_link | default: routes.all_products_collection_url
+  assign primary_url = section.settings.primary_link
+  if primary_url == blank and featured_product != blank
+    assign primary_url = featured_product.url
+  endif
+  if primary_url == blank
+    assign primary_url = routes.all_products_collection_url
+  endif
   assign secondary_url = section.settings.secondary_link | default: story_url
 -%}
 
@@ -58,7 +67,7 @@
         </div>
         <div class="trust-item" data-reveal>
           <strong>Canada</strong>
-          <span>Launching online first</span>
+          <span>Ships from our Canadian store</span>
         </div>
       </div>
     </div>
@@ -75,7 +84,7 @@
         %}
         <div class="hero-coffee__note" aria-label="Launch roast details">
           <span>Launch roast</span>
-          <strong>Signature Roast</strong>
+          <strong>Harraz Signature Roast</strong>
           <span>Whole bean coffee for home brewing</span>
         </div>
       </div>
@@ -109,7 +118,7 @@
       "type": "text",
       "id": "primary_label",
       "label": "Primary button label",
-      "default": "Shop Coffee"
+      "default": "Shop Harraz Roast"
     },
     {
       "type": "url",
@@ -141,7 +150,7 @@
       "type": "text",
       "id": "image_alt",
       "label": "Image alt text",
-      "default": "Yemeni Corner Signature Roast coffee bag"
+      "default": "Yemeni Corner Harraz Signature Roast coffee bag"
     }
   ],
   "presets": [
