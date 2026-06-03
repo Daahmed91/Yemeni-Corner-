@@ -5,44 +5,143 @@
       "settings": {
         "background": "white",
         "image_position": "right",
-        "eyebrow": "From Cafe to Home",
-        "heading": "Yemeni hospitality, carried into every cup",
-        "text": "<p>Yemeni Corner began with the warmth of the coffee house: traditional drinks, shared tables, and flavors that feel generous. The online shop carries that same hospitality into one focused whole bean coffee for home brewing.</p>",
-        "badge": "Cafe warmth. Home ritual.",
+        "eyebrow": "Our Story",
+        "heading": "Yemeni Corner starts with welcome",
+        "text": "<p>Before Yemeni Corner is an online shop, it is a coffee house: a place for traditional drinks, family flavors, late conversations, and the kind of warmth that makes a cup feel generous.</p><p>The website should do the same thing the cafe does in person. It should slow the shopper down, tell them why the coffee matters, and give them a clear way to experience it at home or in one of our local cafes.</p>",
+        "badge": "Story before sale",
         "button_label": "Shop Harraz Roast",
         "button_link": "/products/yemeni-corner-harraz-signature-roast"
+      }
+    },
+    "heritage": {
+      "type": "heritage-timeline",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Yemen and Coffee",
+        "heading": "A heritage deeper than a flavor note",
+        "text": "Yemeni coffee history gives the brand real gravity. This section teaches that history while keeping the Harraz Signature Roast claims honest and specific.",
+        "note": "Use this page for public coffee education. Add farm, process, altitude, harvest, importer, or roast-date claims only after they are verified."
+      },
+      "blocks": {
+        "roots": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Coffee culture",
+            "title": "Yemen helped shape coffee drinking",
+            "text": "<p>Coffee's plant history is tied to Ethiopia, but Yemen is central to the story of coffee cultivation, preparation, trade, and the social culture around the cup.</p>"
+          }
+        },
+        "mocha": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Mocha",
+            "title": "The original coffee port",
+            "text": "<p>Mocha, on Yemen's Red Sea coast, became famous as a coffee-exporting center. Its name traveled so far that it still lives in coffee language today.</p>"
+          }
+        },
+        "haraz": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Haraz",
+            "title": "A mountain name with meaning",
+            "text": "<p>Haraz is known in specialty coffee for Yemeni mountain coffee and terraced landscapes. For Yemeni Corner, the name points to heritage, depth, and a warm cup profile.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "roots",
+        "mocha",
+        "haraz"
+      ]
+    },
+    "cafe": {
+      "type": "story-split",
+      "settings": {
+        "background": "white",
+        "image_position": "left",
+        "eyebrow": "Cafe Hospitality",
+        "heading": "The menu carries the memory",
+        "text": "<p>Adeni tea, Mufawar coffee, Sana'ani coffee, Qishr, pistachio lattes, date lattes, and cold refreshers are not just a list of drinks. They are the way Yemeni Corner introduces people to spice, sweetness, texture, and hospitality.</p><p>The cafe remains the fullest expression of the brand. The online roast gives guests one focused way to take that feeling home.</p>",
+        "badge": "Traditional drinks. Modern cafe.",
+        "button_label": "View Cafe Menu",
+        "button_link": "/pages/menu"
       }
     },
     "haraz": {
       "type": "story-split",
       "settings": {
-        "background": "cream",
-        "image_position": "left",
+        "background": "brown",
+        "image_position": "right",
         "eyebrow": "Harraz Signature Roast",
-        "heading": "One roast that connects the whole brand",
-        "text": "<p>The cafe menu shows the range of Yemeni Corner flavor. The Harraz Signature Roast is the online expression of that same identity: smooth, aromatic, and built around warm spice, cocoa, and dried fruit notes.</p>",
-        "badge": "Heritage-led, modern, trustworthy",
-        "button_label": "View Cafe Menu",
-        "button_link": "/pages/menu"
+        "heading": "One roast, chosen with intention",
+        "text": "<p>The online shop stays intentionally simple. Instead of asking guests to sort through a long catalog, Yemeni Corner leads with one whole bean coffee: a 340 g Harraz Signature Roast with warm spice, cocoa, and dried fruit notes.</p><p>It is built for people who want a dependable home brew with a stronger story behind it.</p>",
+        "badge": "340 g whole bean coffee",
+        "button_label": "Shop the Roast",
+        "button_link": "/products/yemeni-corner-harraz-signature-roast"
       }
     },
     "featured": {
       "type": "featured-signature-product",
       "settings": {
         "product": "yemeni-corner-harraz-signature-roast",
+        "eyebrow": "At Home",
         "heading": "Yemeni Corner Harraz Signature Roast",
-        "text": "Brew the cafe ritual at home with our flagship 340 g whole bean coffee."
+        "text": "Brew the cafe ritual at home with our flagship medium roast whole bean coffee, built around warm spice, cocoa, and dried fruit notes.",
+        "button_label": "Shop Harraz Roast"
       }
+    },
+    "locations": {
+      "type": "locations-preview",
+      "settings": {
+        "eyebrow": "Visit Us",
+        "anchor_id": "locations",
+        "heading": "Come experience the story in person",
+        "text": "The full Yemeni Corner experience lives in the cafes: traditional drinks, signature lattes, cold favorites, desserts, and welcoming local spaces."
+      },
+      "blocks": {
+        "south_windsor": {
+          "type": "location",
+          "settings": {
+            "title": "South Windsor",
+            "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
+            "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
+            "phone": "519-915-0595",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3"
+          }
+        },
+        "lasalle": {
+          "type": "location",
+          "settings": {
+            "title": "LaSalle",
+            "address": "5881 Malden Rd\nLaSalle, ON",
+            "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.",
+            "phone": "519-915-1119",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON"
+          }
+        }
+      },
+      "block_order": [
+        "south_windsor",
+        "lasalle"
+      ]
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Coffee Notes",
+        "heading": "Follow the story as it grows",
+        "text": "Get brewing notes, cafe updates, and future roast details from Yemeni Corner.",
+        "button_label": "Join"
+      }
     }
   },
   "order": [
     "intro",
+    "heritage",
+    "cafe",
     "haraz",
     "featured",
+    "locations",
     "newsletter"
   ]
 }

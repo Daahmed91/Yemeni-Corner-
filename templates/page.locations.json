@@ -3,9 +3,10 @@
     "locations": {
       "type": "locations-preview",
       "settings": {
+        "eyebrow": "Visit Us",
         "anchor_id": "locations",
-        "heading": "Come grab a drink with us",
-        "text": "Visit Yemeni Corner for traditional drinks, signature lattes, cold favorites, and warm hospitality. The online shop is here when you want to brew the Harraz Signature Roast at home."
+        "heading": "Coffee houses in Windsor and LaSalle",
+        "text": "Visit Yemeni Corner for traditional drinks, signature lattes, cold favorites, desserts, and warm hospitality. Cafe drinks are served in person; the online shop is here when you want to brew the Harraz Signature Roast at home."
       },
       "blocks": {
         "south_windsor": {
@@ -14,7 +15,8 @@
             "title": "South Windsor",
             "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
             "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
-            "phone": "519-915-0595"
+            "phone": "519-915-0595",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3"
           }
         },
         "lasalle": {
@@ -22,8 +24,9 @@
           "settings": {
             "title": "LaSalle",
             "address": "5881 Malden Rd\nLaSalle, ON",
-            "hours": "Open daily for coffee, desserts, and warm hospitality.",
-            "phone": "519-915-1119"
+            "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.",
+            "phone": "519-915-1119",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON"
           }
         }
       },
@@ -36,7 +39,7 @@
       "type": "main-contact",
       "settings": {
         "heading": "Questions before you visit?",
-        "text": "Send a note about cafe hours, online coffee bags, or anything else you would like to ask."
+        "text": "Send a note about cafe hours, catering, wholesale interest, online coffee bags, or anything else you would like to ask. For same-day location questions, calling the cafe is usually fastest."
       }
     }
   },

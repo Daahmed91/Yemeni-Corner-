@@ -7,7 +7,14 @@
     <meta name="theme-color" content="{{ settings.color_brown | default: '#4A2C2A' }}">
 
     {%- liquid
+      assign seo_site_name = settings.seo_site_name | default: shop.name
       assign seo_title = page_title
+      if template.name == 'index' and settings.seo_home_title != blank
+        assign seo_title = settings.seo_home_title
+      endif
+      if shop.name != blank and seo_site_name != shop.name and seo_title contains shop.name
+        assign seo_title = seo_title | replace: shop.name, seo_site_name
+      endif
       if current_tags
         assign meta_tags = current_tags | join: ', '
         assign seo_title = seo_title | append: ' - ' | append: meta_tags
@@ -15,11 +22,18 @@
       if current_page != 1
         assign seo_title = seo_title | append: ' - Page ' | append: current_page
       endif
-      unless seo_title contains shop.name
-        assign seo_title = seo_title | append: ' - ' | append: shop.name
+      unless seo_title contains seo_site_name
+        assign seo_title = seo_title | append: ' - ' | append: seo_site_name
       endunless
 
       assign seo_description = page_description | default: settings.brand_statement | default: shop.description
+      if page_image
+        assign social_image_url = page_image | image_url: width: 1200
+      elsif settings.social_share_image != blank
+        assign social_image_url = settings.social_share_image | image_url: width: 1200
+      else
+        assign social_image_url = 'yemeni-corner-social-share-1200x628.png' | asset_url
+      endif
     -%}
 
     <title>{{ seo_title | escape }}</title>
@@ -30,24 +44,30 @@
 
     <link rel="canonical" href="{{ canonical_url }}">
 
-    <meta property="og:site_name" content="{{ shop.name | escape }}">
+    <meta property="og:site_name" content="{{ seo_site_name | escape }}">
     <meta property="og:url" content="{{ canonical_url }}">
-    <meta property="og:title" content="{{ page_title | escape }}">
+    <meta property="og:title" content="{{ seo_title | escape }}">
     <meta property="og:type" content="website">
 
     {% if seo_description %}
       <meta property="og:description" content="{{ seo_description | strip_html | escape }}">
     {% endif %}
 
-    {% if page_image %}
-      <meta property="og:image" content="http:{{ page_image | image_url: width: 1200 }}">
-      <meta property="og:image:secure_url" content="https:{{ page_image | image_url: width: 1200 }}">
+    {% if social_image_url != blank %}
+      <meta property="og:image" content="https:{{ social_image_url }}">
+      <meta property="og:image:secure_url" content="https:{{ social_image_url }}">
+      {% unless page_image %}
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="628">
+      {% endunless %}
+      <meta property="og:image:alt" content="Yemeni Corner Harraz Signature Roast premium Yemeni coffee social preview">
       <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:image" content="https:{{ social_image_url }}">
     {% else %}
       <meta name="twitter:card" content="summary">
     {% endif %}
 
-    <meta name="twitter:title" content="{{ page_title | escape }}">
+    <meta name="twitter:title" content="{{ seo_title | escape }}">
     {% if seo_description %}
       <meta name="twitter:description" content="{{ seo_description | strip_html | escape }}">
     {% endif %}
@@ -56,13 +76,51 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": {{ shop.name | json }},
+        "name": {{ seo_site_name | json }},
         "url": {{ shop.url | json }},
         "potentialAction": {
           "@type": "SearchAction",
           "target": {{ shop.url | append: routes.search_url | append: '?q=%7Bsearch_term_string%7D' | json }},
           "query-input": "required name=search_term_string"
         }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CafeOrCoffeeShop",
+        "@id": {{ shop.url | append: '#organization' | json }},
+        "name": {{ seo_site_name | json }},
+        "url": {{ shop.url | json }},
+        "servesCuisine": ["Coffee", "Yemeni coffee", "Tea", "Dessert"],
+        "department": [
+          {
+            "@type": "CafeOrCoffeeShop",
+            "name": "Yemeni Corner South Windsor",
+            "telephone": "519-915-0595",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "350 Cabana Rd E",
+              "addressLocality": "Windsor",
+              "addressRegion": "ON",
+              "postalCode": "N9G 1A3",
+              "addressCountry": "CA"
+            }
+          },
+          {
+            "@type": "CafeOrCoffeeShop",
+            "name": "Yemeni Corner LaSalle",
+            "telephone": "519-915-1119",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "5881 Malden Rd",
+              "addressLocality": "LaSalle",
+              "addressRegion": "ON",
+              "addressCountry": "CA"
+            }
+          }
+        ]
       }
     </script>
 
@@ -79,7 +137,7 @@
           "description": {{ structured_description | strip | json }},
           "brand": {
             "@type": "Brand",
-            "name": {{ shop.name | json }}
+            "name": {{ seo_site_name | json }}
           },
           "image": [
             {% for media in product.media limit: 4 %}

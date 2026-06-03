@@ -3,17 +3,58 @@
     "main": {
       "type": "main-contact",
       "settings": {
-        "heading": "Questions about coffee, cafe visits, or catering?",
-        "text": "Reach out about the Harraz Signature Roast, cafe hours, menu questions, wholesale interest, or anything you would like to ask the Yemeni Corner team."
+        "heading": "Questions about coffee, cafe visits, catering, or wholesale?",
+        "text": "Reach out about the Harraz Signature Roast, cafe hours, menu questions, catering, wholesale interest, or anything you would like to ask the Yemeni Corner team. For same-day cafe questions, call the location directly."
       }
+    },
+    "locations": {
+      "type": "locations-preview",
+      "settings": {
+        "eyebrow": "Call or Visit",
+        "anchor_id": "locations",
+        "heading": "Two ways to reach the cafe team",
+        "text": "Cafe drinks are served in person at South Windsor and LaSalle. Online ordering is focused on the Harraz Signature Roast."
+      },
+      "blocks": {
+        "south_windsor": {
+          "type": "location",
+          "settings": {
+            "title": "South Windsor",
+            "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
+            "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
+            "phone": "519-915-0595",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3"
+          }
+        },
+        "lasalle": {
+          "type": "location",
+          "settings": {
+            "title": "LaSalle",
+            "address": "5881 Malden Rd\nLaSalle, ON",
+            "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.",
+            "phone": "519-915-1119",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON"
+          }
+        }
+      },
+      "block_order": [
+        "south_windsor",
+        "lasalle"
+      ]
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Coffee Notes",
+        "heading": "Stay close to the next cup",
+        "text": "Join for brewing notes, cafe updates, and future details about Yemeni Corner coffee.",
+        "button_label": "Join"
+      }
     }
   },
   "order": [
     "main",
+    "locations",
     "newsletter"
   ]
 }

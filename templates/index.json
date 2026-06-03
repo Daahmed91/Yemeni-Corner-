@@ -3,25 +3,15 @@
     "hero": {
       "type": "hero-coffee",
       "settings": {
-        "eyebrow": "Premium Yemeni Coffee",
-        "heading": "Discover Yemen in Every Sip",
-        "text": "Premium Yemeni coffee, roasted for a rich and unforgettable cup. The Harraz Signature Roast brings the warmth of our cafe ritual into your home brew.",
+        "eyebrow": "Yemeni Coffee, Shared Warmly",
+        "heading": "Yemeni Corner Coffee",
+        "text": "A coffee house story rooted in Yemeni hospitality, traditional drinks, and the Harraz Signature Roast you can brew at home. Start with the heritage, then choose the cup.",
         "primary_label": "Shop Harraz Roast",
         "primary_link": "/products/yemeni-corner-harraz-signature-roast",
         "secondary_label": "Our Story",
         "secondary_link": "",
         "product": "yemeni-corner-harraz-signature-roast",
-        "image_alt": "Yemeni Corner Harraz Signature Roast coffee bag"
-      }
-    },
-    "featured": {
-      "type": "featured-signature-product",
-      "settings": {
-        "product": "yemeni-corner-harraz-signature-roast",
-        "eyebrow": "Signature Roast",
-        "heading": "Yemeni Corner Harraz Signature Roast",
-        "text": "One signature roast. One rich cup. A true taste of Yemeni coffee in a 340 g whole bean bag, ready for everyday brewing.",
-        "button_label": "Shop Harraz Roast"
+        "image_alt": "Yemeni Corner Harraz Signature Roast whole bean coffee bag"
       }
     },
     "story": {
@@ -30,12 +20,63 @@
         "background": "cream",
         "image_position": "right",
         "anchor_id": "story",
-        "eyebrow": "Coffee From Its Birthplace",
-        "heading": "From our cafes to your kitchen",
-        "text": "<p>Yemeni Corner started with hospitality: warm drinks, late conversations, and flavors rooted in Yemen. The Harraz Signature Roast carries that same feeling into a premium whole bean coffee you can brew at home.</p>",
-        "badge": "Heritage in every sip",
-        "button_label": "Shop Harraz Roast",
-        "button_link": "/products/yemeni-corner-harraz-signature-roast"
+        "eyebrow": "The Story First",
+        "heading": "Hospitality is the reason for the roast",
+        "text": "<p>Yemeni Corner began with the feeling of the cafe: warm drinks, shared tables, late conversations, and flavors that invite people to stay. The online roast is an extension of that welcome, made for people who want to bring the same sense of care into their own kitchen.</p><p>The Harraz Signature Roast keeps the choice simple: one 340 g whole bean coffee with a medium profile, built around warm spice, cocoa, and dried fruit notes.</p>",
+        "badge": "Cafe warmth. Home ritual.",
+        "button_label": "Read Our Story",
+        "button_link": "/#story"
+      }
+    },
+    "heritage": {
+      "type": "heritage-timeline",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Yemeni Coffee Heritage",
+        "heading": "Why Yemen matters in every coffee story",
+        "text": "Yemeni Corner tells the broader history carefully: Yemen helped shape coffee as a cultivated crop, a social drink, and a global trade. Our product claims stay focused on what is known about this roast.",
+        "note": "Farm, harvest, altitude, and processing details should be added only after supplier verification."
+      },
+      "blocks": {
+        "coffee_roots": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "15th century",
+            "title": "Coffee becomes a ritual",
+            "text": "<p>Coffee plants are historically tied to Ethiopia, then to cultivation and coffee drinking in southern Arabia. Yemen helped turn coffee into a prepared beverage, a gathering point, and a daily tradition.</p>"
+          }
+        },
+        "mocha_port": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Mocha",
+            "title": "A port name becomes a coffee word",
+            "text": "<p>The Yemeni port of Mocha became famous as a coffee-exporting center. The name still carries meaning in coffee culture because Yemen was central to coffee's early movement into the wider world.</p>"
+          }
+        },
+        "haraz_mountains": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Haraz",
+            "title": "Mountain coffee with a reputation",
+            "text": "<p>Haraz is recognized for Yemeni mountain coffee, terraced landscapes, and cups often associated with natural warmth, fruit, cocoa, and spice. Our roast is named for that heritage without adding unverified farm-level claims.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "coffee_roots",
+        "mocha_port",
+        "haraz_mountains"
+      ]
+    },
+    "featured": {
+      "type": "featured-signature-product",
+      "settings": {
+        "product": "yemeni-corner-harraz-signature-roast",
+        "eyebrow": "Harraz Signature Roast",
+        "heading": "Yemeni Corner Harraz Signature Roast",
+        "text": "Our flagship online coffee is a 340 g whole bean bag with a medium roast profile and notes of warm spice, cocoa, and dried fruit. It is made for familiar home methods: drip, French press, pour-over, and espresso.",
+        "button_label": "Shop the Roast"
       }
     },
     "brew": {
@@ -45,32 +86,32 @@
           "type": "step",
           "settings": {
             "step": "01",
-            "title": "Grind fresh",
-            "text": "Start with whole beans and grind for your chosen brew method."
+            "title": "Grind for the method",
+            "text": "Use a medium grind for drip and pour-over, coarse for French press, and fine for espresso."
           }
         },
         "brew2": {
           "type": "step",
           "settings": {
             "step": "02",
-            "title": "Use clean water",
-            "text": "Good water helps the warm spice, cocoa, and dried fruit notes come forward."
+            "title": "Start with a simple ratio",
+            "text": "Try 1:15 to 1:16 coffee to water for drip or pour-over, then adjust stronger or softer to taste."
           }
         },
         "brew3": {
           "type": "step",
           "settings": {
             "step": "03",
-            "title": "Brew with care",
-            "text": "Use drip, French press, pour-over, or espresso for a rich everyday cup."
+            "title": "Let the notes open",
+            "text": "Clean water and a steady brew help the warm spice, cocoa, and dried fruit character come forward."
           }
         },
         "brew4": {
           "type": "step",
           "settings": {
             "step": "04",
-            "title": "Enjoy warmly",
-            "text": "Serve it slowly, share it generously, and make the ritual your own."
+            "title": "Store it well",
+            "text": "Keep the bag sealed in a cool, dry place and grind only what you need for the freshest cup."
           }
         }
       },
@@ -82,17 +123,17 @@
       ],
       "settings": {
         "eyebrow": "A Richer Way to Brew",
-        "heading": "Brew it slowly. Share it generously.",
-        "text": "Designed for familiar home methods, the Harraz Signature Roast brings warmth and depth to drip, French press, pour-over, and espresso."
+        "heading": "Brew with intention, not complication",
+        "text": "The Harraz Signature Roast is designed for everyday brewing, with enough depth for slow mornings and enough balance for a reliable daily cup."
       }
     },
     "menu": {
       "type": "menu-showcase",
       "settings": {
         "eyebrow": "At the Coffee House",
-        "heading": "Taste the cafe menu, then take the ritual home",
-        "text": "Our cafes serve traditional drinks, signature lattes, cold favorites, and desserts in person. The online shop focuses on whole bean coffee for brewing that Yemeni Corner warmth at home.",
-        "primary_label": "View Full Cafe Menu",
+        "heading": "The cafe menu is where the story is tasted",
+        "text": "Traditional drinks, spice-forward lattes, cold favorites, and desserts show the full Yemeni Corner experience. The online roast carries that same hospitality into home brewing.",
+        "primary_label": "View Cafe Menu",
         "secondary_label": "Shop Harraz Roast",
         "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
       },
@@ -102,7 +143,7 @@
           "settings": {
             "label": "Heritage",
             "title": "Traditional Drinks",
-            "text": "<p>Adeni tea, Mufawar coffee, Sana'ani coffee, Yemeni tea, mint tea, Jubani coffee, and Qishr.</p>"
+            "text": "<p>Adeni tea, Mufawar coffee, Sana'ani coffee, Yemeni tea, mint tea, Jubani coffee, and Qishr bring cardamom, ginger, cinnamon, milk, and coffee husk traditions into the cafe experience.</p>"
           }
         },
         "menu_signature": {
@@ -110,7 +151,7 @@
           "settings": {
             "label": "Signature",
             "title": "Yemeni-Inspired Lattes",
-            "text": "<p>Yemeni latte, pistachio latte, Lotus cookie butter latte, Tarim latte, date latte, and Yemeni matcha latte.</p>"
+            "text": "<p>Yemeni latte, pistachio latte, Lotus cookie butter latte, Tarim latte, date latte, and Yemeni matcha latte turn familiar cafe drinks toward house spices, date, honey, and nutty sweetness.</p>"
           }
         },
         "menu_cold": {
@@ -118,7 +159,7 @@
           "settings": {
             "label": "Fresh",
             "title": "Cold Drinks",
-            "text": "<p>Tawahi lemonade, fruit lemonades, refreshers, iced Adeni, iced specialty lattes, and smoothies.</p>"
+            "text": "<p>Tawahi lemonade, fruit lemonades, refreshers, iced Adeni, iced specialty lattes, and smoothies make the menu bright, generous, and easy to share.</p>"
           }
         },
         "menu_home": {
@@ -126,7 +167,7 @@
           "settings": {
             "label": "At Home",
             "title": "Harraz Signature Roast",
-            "text": "<p>The online roast connects the cafe flavor story to a whole bean coffee you can brew at home.</p>"
+            "text": "<p>The online roast is the take-home expression of the brand: whole bean coffee for anyone who wants Yemeni Corner warmth between cafe visits.</p>"
           }
         }
       },
@@ -142,8 +183,8 @@
       "settings": {
         "eyebrow": "Visit Us",
         "anchor_id": "locations",
-        "heading": "Visit us for the full cafe menu",
-        "text": "Come for a cup, stay for the warmth. Our cafes bring Yemeni coffee, desserts, and hospitality into welcoming local spaces."
+        "heading": "Two local cafes, one welcome",
+        "text": "Visit Yemeni Corner in South Windsor or LaSalle for the full cafe menu, then order the Harraz Signature Roast online when you want the ritual at home."
       },
       "blocks": {
         "south_windsor": {
@@ -152,7 +193,8 @@
             "title": "South Windsor",
             "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
             "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
-            "phone": "519-915-0595"
+            "phone": "519-915-0595",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3"
           }
         },
         "lasalle": {
@@ -160,8 +202,9 @@
           "settings": {
             "title": "LaSalle",
             "address": "5881 Malden Rd\nLaSalle, ON",
-            "hours": "Open daily for coffee, desserts, and warm hospitality.",
-            "phone": "519-915-1119"
+            "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.",
+            "phone": "519-915-1119",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON"
           }
         }
       },
@@ -174,9 +217,16 @@
       "type": "faq",
       "settings": {
         "eyebrow": "Good to Know",
-        "heading": "Coffee questions, answered simply"
+        "heading": "Coffee questions, answered with more care"
       },
       "blocks": {
+        "faq_story": {
+          "type": "question",
+          "settings": {
+            "question": "What makes Yemeni Corner different?",
+            "answer": "<p>The brand begins with Yemeni cafe hospitality: traditional drinks, spice, warmth, and shared tables. The online roast is one way to carry that feeling home.</p>"
+          }
+        },
         "faq_size": {
           "type": "question",
           "settings": {
@@ -188,14 +238,21 @@
           "type": "question",
           "settings": {
             "question": "What does it taste like?",
-            "answer": "<p>The roast is built around warm spice, cocoa, and dried fruit notes with a smooth, aromatic finish.</p>"
+            "answer": "<p>Expect a medium roast profile with warm spice, cocoa, and dried fruit notes, plus a smooth aromatic finish.</p>"
+          }
+        },
+        "faq_brew": {
+          "type": "question",
+          "settings": {
+            "question": "How should I brew it?",
+            "answer": "<p>It works well for drip, French press, pour-over, and espresso. Start around a 1:15 coffee-to-water ratio for filter methods and adjust to taste.</p>"
           }
         },
         "faq_cafe": {
           "type": "question",
           "settings": {
             "question": "Can I order cafe drinks online?",
-            "answer": "<p>The cafe menu is served in person at Yemeni Corner. The online shop is focused on whole bean coffee for home brewing.</p>"
+            "answer": "<p>Cafe drinks are served in person at Yemeni Corner. The online shop focuses on whole bean coffee for home brewing.</p>"
           }
         },
         "faq_shipping": {
@@ -207,8 +264,10 @@
         }
       },
       "block_order": [
+        "faq_story",
         "faq_size",
         "faq_flavor",
+        "faq_brew",
         "faq_cafe",
         "faq_shipping"
       ]
@@ -217,16 +276,17 @@
       "type": "newsletter",
       "settings": {
         "eyebrow": "Coffee Notes",
-        "heading": "Get Yemeni Corner coffee notes",
-        "text": "Join the list for brewing notes, cafe updates, and reminders when fresh Harraz Signature Roast is available online.",
+        "heading": "Get the story behind the next cup",
+        "text": "Join for brewing notes, cafe updates, new roast details, and the stories behind Yemeni Corner coffee.",
         "button_label": "Join"
       }
     }
   },
   "order": [
     "hero",
-    "featured",
     "story",
+    "heritage",
+    "featured",
     "brew",
     "menu",
     "locations",

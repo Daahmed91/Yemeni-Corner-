@@ -4,6 +4,7 @@
   assign menu_page = pages['menu']
   assign locations_page = pages['locations']
   assign contact_page = pages['contact']
+  assign brand_name = settings.seo_site_name | default: shop.name
   assign story_url = routes.root_url | append: '#story'
   if story_page != blank
     assign story_url = story_page.url
@@ -19,7 +20,7 @@
 <footer class="site-footer" data-section-id="{{ section.id }}">
   <div class="page-width site-footer__inner">
     <div class="site-footer__brand">
-      <a class="site-footer__logo-link" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      <a class="site-footer__logo-link" href="{{ routes.root_url }}" aria-label="{{ brand_name }}">
         {% if settings.logo_dark != blank %}
           {{
             settings.logo_dark
@@ -29,7 +30,7 @@
               sizes: '(min-width: 960px) 300px, 220px',
               loading: 'lazy',
               class: 'site-footer__logo',
-              alt: shop.name
+              alt: brand_name
           }}
         {% else %}
           <img
@@ -38,7 +39,7 @@
             width="715"
             height="140"
             loading="lazy"
-            alt="{{ shop.name | escape }}"
+            alt="{{ brand_name | escape }}"
           >
         {% endif %}
       </a>
@@ -102,7 +103,7 @@
   </div>
 
   <div class="page-width site-footer__bottom">
-    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | default: 'Yemeni Corner' }}</span>
+    <span>&copy; {{ 'now' | date: '%Y' }} {{ brand_name | default: 'Yemeni Corner' }}</span>
     <span>Cafe hospitality in Windsor and LaSalle, with Yemeni coffee for home brewing.</span>
   </div>
 </footer>

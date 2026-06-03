@@ -2,35 +2,191 @@
   "sections": {
     "main": {
       "type": "main-product",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Harraz Signature Roast",
+        "subtitle": "Whole Bean Coffee | 340 g | Medium Roast",
+        "tasting_notes": "Warm spice, cocoa, dried fruit",
+        "roast_level": "Medium, smooth, aromatic",
+        "best_for": "Drip, French press, pour-over, espresso",
+        "market": "Canada shipping",
+        "description": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it."
+      }
     },
-    "story": {
+    "taste": {
       "type": "story-split",
       "settings": {
         "background": "cream",
         "image_position": "left",
-        "eyebrow": "Rooted in Tradition",
-        "heading": "A coffee with a story",
-        "text": "<p>Yemeni Corner Harraz Signature Roast is built around heritage, quality, and simplicity: one premium coffee bag made for a richer daily ritual.</p>",
-        "button_label": "Read the Story"
+        "eyebrow": "What It Tastes Like",
+        "heading": "Warm, smooth, and built for everyday depth",
+        "text": "<p>The Harraz Signature Roast is built around three easy-to-understand notes: warm spice for aroma, cocoa for roundness, and dried fruit for sweetness. It is not positioned as a sharp or experimental cup; it is meant to feel rich, smooth, and familiar enough for daily brewing.</p><p>Choose it if you like coffee with character, but still want a reliable bag for drip, French press, pour-over, or espresso.</p>",
+        "badge": "Warm spice. Cocoa. Dried fruit.",
+        "button_label": "Read the Story",
+        "button_link": "/#story"
       }
+    },
+    "heritage": {
+      "type": "heritage-timeline",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Why Harraz",
+        "heading": "A roast name tied to Yemeni coffee heritage",
+        "text": "Haraz is recognized in coffee culture for Yemeni mountain coffee. This page uses that context as education, while keeping the exact product details limited to verified roast facts.",
+        "note": "Add supplier-confirmed farm, process, altitude, harvest, or roast-date details when available."
+      },
+      "blocks": {
+        "known": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Known",
+            "title": "What this bag says clearly",
+            "text": "<p>340 g whole bean coffee, medium roast profile, 100% Arabica coffee, warm spice, cocoa, dried fruit notes, and Canada shipping.</p>"
+          }
+        },
+        "context": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Context",
+            "title": "What Haraz represents",
+            "text": "<p>Haraz points to Yemeni mountain coffee heritage, terraced growing landscapes, and a reputation for complex cups with warmth, fruit, cocoa, and spice.</p>"
+          }
+        },
+        "future": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Future proof",
+            "title": "What to verify before adding",
+            "text": "<p>Farm names, import partners, processing method, altitude, harvest date, roast date, and batch details should come from supplier records before appearing on the public product page.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "known",
+        "context",
+        "future"
+      ]
     },
     "brew": {
       "type": "brew-guide",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Brew Guide",
+        "heading": "Start simple, then make it yours",
+        "text": "These starting points give shoppers a practical reason to trust the bag before checkout."
+      },
+      "blocks": {
+        "drip": {
+          "type": "step",
+          "settings": {
+            "step": "Drip",
+            "title": "Medium grind",
+            "text": "Use 20 g coffee to about 320 g water for a balanced filter brew."
+          }
+        },
+        "french": {
+          "type": "step",
+          "settings": {
+            "step": "Press",
+            "title": "Coarse grind",
+            "text": "Use a coarse grind, steep about 4 minutes, then press slowly for a rounder cup."
+          }
+        },
+        "pour": {
+          "type": "step",
+          "settings": {
+            "step": "Pour",
+            "title": "Steady bloom",
+            "text": "Bloom fresh grounds first, then pour gradually to bring out cocoa and dried fruit notes."
+          }
+        },
+        "storage": {
+          "type": "step",
+          "settings": {
+            "step": "Store",
+            "title": "Keep it sealed",
+            "text": "Store cool and dry, away from sunlight, and grind only what you need."
+          }
+        }
+      },
+      "block_order": [
+        "drip",
+        "french",
+        "pour",
+        "storage"
+      ]
     },
     "faq": {
       "type": "faq",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Before You Buy",
+        "heading": "Details that make the choice easier"
+      },
+      "blocks": {
+        "whole_bean": {
+          "type": "question",
+          "settings": {
+            "question": "Is this whole bean or ground coffee?",
+            "answer": "<p>The Harraz Signature Roast is sold as whole bean coffee so you can grind fresh for your brew method.</p>"
+          }
+        },
+        "taste": {
+          "type": "question",
+          "settings": {
+            "question": "What flavor should I expect?",
+            "answer": "<p>Expect warm spice, cocoa, and dried fruit notes in a medium, smooth, aromatic cup.</p>"
+          }
+        },
+        "brew_methods": {
+          "type": "question",
+          "settings": {
+            "question": "Which brew methods work best?",
+            "answer": "<p>Drip, French press, pour-over, and espresso are all good fits. Start with your normal method and adjust grind size from there.</p>"
+          }
+        },
+        "freshness": {
+          "type": "question",
+          "settings": {
+            "question": "How should I store it?",
+            "answer": "<p>Keep the bag sealed in a cool, dry place away from sunlight. For the best cup, grind only what you plan to brew.</p>"
+          }
+        },
+        "shipping": {
+          "type": "question",
+          "settings": {
+            "question": "Where does it ship?",
+            "answer": "<p>The online shop is set up for Canadian customers. Shipping rates and delivery options appear at checkout.</p>"
+          }
+        },
+        "cafe_drinks": {
+          "type": "question",
+          "settings": {
+            "question": "Can I order cafe drinks here too?",
+            "answer": "<p>No. Cafe drinks are served in person at Yemeni Corner. The online store is focused on the whole bean roast.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "whole_bean",
+        "taste",
+        "brew_methods",
+        "freshness",
+        "shipping",
+        "cafe_drinks"
+      ]
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Coffee Notes",
+        "heading": "Learn how to brew it better",
+        "text": "Join for brewing tips, cafe updates, and future details about Yemeni Corner coffee.",
+        "button_label": "Join"
+      }
     }
   },
   "order": [
     "main",
-    "story",
+    "taste",
+    "heritage",
     "brew",
     "faq",
     "newsletter"

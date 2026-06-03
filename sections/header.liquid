@@ -4,6 +4,7 @@
   assign menu_page = pages['menu']
   assign locations_page = pages['locations']
   assign contact_page = pages['contact']
+  assign brand_name = settings.seo_site_name | default: shop.name
   assign story_url = routes.root_url | append: '#story'
   if story_page != blank
     assign story_url = story_page.url
@@ -19,7 +20,7 @@
 
 <header class="site-header" data-section-id="{{ section.id }}">
   <div class="page-width site-header__inner">
-    <a class="site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    <a class="site-header__brand" href="{{ routes.root_url }}" aria-label="{{ brand_name }}">
       {% if settings.logo != blank %}
         {{
           settings.logo
@@ -29,7 +30,7 @@
             sizes: '160px',
             loading: 'eager',
             class: 'site-header__logo',
-            alt: shop.name
+            alt: brand_name
         }}
       {% else %}
         <img
@@ -38,7 +39,7 @@
           width="715"
           height="140"
           loading="eager"
-          alt="{{ shop.name | escape }}"
+          alt="{{ brand_name | escape }}"
         >
       {% endif %}
     </a>
