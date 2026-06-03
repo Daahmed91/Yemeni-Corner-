@@ -261,58 +261,6 @@
         "review3"
       ]
     },
-    "menu": {
-      "type": "menu-showcase",
-      "blocks": {
-        "menu_traditional": {
-          "type": "category",
-          "settings": {
-            "label": "Heritage",
-            "title": "Traditional Drinks",
-            "text": "<p>Adeni tea, Mufawar coffee, Sana'ani coffee, Yemeni tea, mint tea, Jubani coffee, and Qishr bring cardamom, ginger, cinnamon, milk, and coffee husk traditions into the cafe experience.</p>"
-          }
-        },
-        "menu_signature": {
-          "type": "category",
-          "settings": {
-            "label": "Signature",
-            "title": "Yemeni-Inspired Lattes",
-            "text": "<p>Yemeni latte, pistachio latte, Lotus cookie butter latte, Tarim latte, date latte, and Yemeni matcha latte turn familiar cafe drinks toward house spices, date, honey, and nutty sweetness.</p>"
-          }
-        },
-        "menu_cold": {
-          "type": "category",
-          "settings": {
-            "label": "Fresh",
-            "title": "Cold Drinks",
-            "text": "<p>Tawahi lemonade, fruit lemonades, refreshers, iced Adeni, iced specialty lattes, and smoothies make the menu bright, generous, and easy to share.</p>"
-          }
-        },
-        "menu_home": {
-          "type": "category",
-          "settings": {
-            "label": "At Home",
-            "title": "Yemeni Corner Signature Blend",
-            "text": "<p>The online coffee is the take-home expression of the brand: whole bean coffee for anyone who wants Yemeni Corner warmth between cafe visits.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "menu_traditional",
-        "menu_signature",
-        "menu_cold",
-        "menu_home"
-      ],
-      "settings": {
-        "eyebrow": "At the Coffee House",
-        "heading": "The cafe menu is where the story is tasted",
-        "text": "Traditional drinks, spice-forward lattes, cold favorites, and desserts show the full Yemeni Corner experience. The online coffee carries that same hospitality into home brewing.",
-        "primary_label": "View Cafe Menu",
-        "primary_link": "",
-        "secondary_label": "Shop Signature Blend",
-        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
-      }
-    },
     "locations": {
       "type": "locations-preview",
       "blocks": {
