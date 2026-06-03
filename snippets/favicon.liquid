@@ -1,0 +1,13 @@
+{%- liquid
+  if settings.favicon != blank
+    assign favicon_url = settings.favicon | image_url: width: 32, height: 32
+    assign apple_touch_icon_url = settings.favicon | image_url: width: 180, height: 180
+  else
+    assign favicon_url = 'favicon-32x32.png' | asset_url
+    assign apple_touch_icon_url = 'apple-touch-icon.png' | asset_url
+  endif
+-%}
+
+<link rel="icon" href="{{ favicon_url }}" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="{{ favicon_url }}" type="image/png">
+<link rel="apple-touch-icon" href="{{ apple_touch_icon_url }}" sizes="180x180">
