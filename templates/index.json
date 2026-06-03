@@ -12,16 +12,16 @@
     "hero": {
       "type": "hero-coffee",
       "settings": {
-        "eyebrow": "Premium Yemeni Coffee",
+        "eyebrow": "CANADA'S FIRST YEMENI COFFEE HOUSE!",
         "heading": "Discover Yemen in Every Sip",
-        "text": "Premium Yemeni coffee, roasted for a rich and unforgettable cup. The Harraz Signature Roast brings the warmth of our cafe ritual into your home brew.",
-        "primary_label": "Shop Harraz Roast",
+        "text": "Premium Yemeni coffee, roasted for a rich and unforgettable cup. The Yemeni Corner Signature Roast brings the warmth of our cafe ritual into your home brew.",
+        "primary_label": "Shop Signature Roast",
         "primary_link": "/products/yemeni-corner-harraz-signature-roast",
         "secondary_label": "Our Story",
         "secondary_link": "",
-        "product": "yemeni-corner-harraz-signature-roast",
+        "product": "",
         "image": "shopify://shop_images/37a47c90-ee1d-4f4d-a168-f5fd2225f091.png",
-        "image_alt": "Yemeni Corner Harraz Signature Roast coffee bag"
+        "image_alt": "Yemeni Corner Signature Roast coffee bag"
       }
     },
     "featured": {
