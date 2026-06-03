@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero-coffee",
       "settings": {
-        "eyebrow": "Yemeni Coffee, Shared Warmly",
+        "eyebrow": "CANADA'S FIRST YEMENI COFFEE HOUSE!",
         "heading": "Yemeni Corner Coffee",
         "text": "A coffee house story rooted in Yemeni hospitality, traditional drinks, and the Harraz Signature Roast you can brew at home. Start with the heritage, then choose the cup.",
         "primary_label": "Shop Harraz Roast",
