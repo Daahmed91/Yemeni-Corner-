@@ -79,6 +79,7 @@
         "tawahi": {
           "type": "favorite",
           "settings": {
+            "image": "shopify://shop_images/lemonade.png",
             "category": "Cold",
             "title": "Tawahi Lemonade",
             "description": "Bright, refreshing, and made for sharing on warmer cafe days.",
