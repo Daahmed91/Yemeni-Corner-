@@ -60,6 +60,7 @@
         "yemeni_latte": {
           "type": "favorite",
           "settings": {
+            "image": "shopify://shop_images/yemeni_latte.png",
             "category": "Signature",
             "title": "Yemeni Latte",
             "description": "A familiar latte turned toward Yemeni-inspired spice, sweetness, and warmth.",
