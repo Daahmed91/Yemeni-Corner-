@@ -70,6 +70,7 @@
         "pistachio": {
           "type": "favorite",
           "settings": {
+            "image": "shopify://shop_images/pistachio_lattee.png",
             "category": "Signature",
             "title": "Pistachio Latte",
             "description": "Nutty, smooth, and rich enough to feel like dessert in a cup.",
