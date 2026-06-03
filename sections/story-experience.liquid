@@ -1,0 +1,269 @@
+{%- liquid
+  assign featured_product = all_products[section.settings.product]
+  assign product_url = '/products/yemeni-corner-harraz-signature-roast'
+  if featured_product != blank
+    assign product_url = featured_product.url
+  endif
+
+  assign menu_page = pages['menu']
+  assign menu_url = '/pages/menu'
+  if menu_page != blank
+    assign menu_url = menu_page.url
+  endif
+
+  assign locations_page = pages['locations']
+  assign locations_url = '/pages/locations'
+  if locations_page != blank
+    assign locations_url = locations_page.url
+  endif
+-%}
+
+<div class="story-page" data-section-id="{{ section.id }}">
+  <section class="story-hero" aria-labelledby="StoryHeroHeading-{{ section.id }}">
+    <div class="story-hero__media" aria-hidden="true">
+      {% if section.settings.hero_image != blank %}
+        {{
+          section.settings.hero_image
+          | image_url: width: 2200
+          | image_tag:
+            widths: '720, 960, 1400, 1800, 2200',
+            sizes: '100vw',
+            loading: 'eager',
+            alt: ''
+        }}
+      {% else %}
+        <img src="{{ 'yc-hero-ritual.webp' | asset_url }}" alt="" width="1800" height="1200" loading="eager">
+      {% endif %}
+    </div>
+
+    <div class="page-width story-hero__inner">
+      <div class="story-hero__copy" data-reveal>
+        <p class="eyebrow">Our Story</p>
+        <h1 id="StoryHeroHeading-{{ section.id }}" class="heading-xl">A corner for home, even when home feels far away</h1>
+        <p class="story-hero__lead">Some people walk into Yemeni Corner because they want coffee. Others walk in because they miss the smell of cardamom, the comfort of familiar spices, or the feeling of being welcomed before they even sit down.</p>
+        <div class="button-row">
+          <a class="button button--gold" href="{{ locations_url }}">Visit Us</a>
+          <a class="button button--secondary story-hero__button" href="{{ product_url }}">Shop Signature Blend</a>
+        </div>
+      </div>
+
+      <div class="story-hero__details" data-reveal>
+        <span>Canada's first Yemeni coffee house</span>
+        <span>South Windsor and LaSalle</span>
+        <span>Traditional drinks, desserts, and whole bean coffee</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section story-welcome" aria-labelledby="StoryWelcomeHeading-{{ section.id }}">
+    <div class="page-width story-welcome__grid">
+      <div class="story-welcome__copy" data-reveal>
+        <p class="eyebrow">The Feeling</p>
+        <h2 id="StoryWelcomeHeading-{{ section.id }}" class="heading-lg">We built this around welcome</h2>
+        <div class="story-copy">
+          <p>Yemeni Corner is not just here to serve drinks. It is here to make space: a warm table, a late conversation, a dessert shared between friends, and a cup that carries history without making you feel like you need a history lesson to enjoy it.</p>
+          <p>It is for the people who know Yemen by heart, and for the people meeting it for the first time.</p>
+        </div>
+      </div>
+
+      <div class="story-welcome__media" data-reveal data-parallax data-parallax-speed="0.02">
+        {% if section.settings.welcome_image != blank %}
+          {{
+            section.settings.welcome_image
+            | image_url: width: 1200
+            | image_tag:
+              widths: '480, 720, 960, 1200',
+              sizes: '(min-width: 960px) 46vw, 92vw',
+              loading: 'lazy',
+              alt: 'Yemeni Corner coffee house table'
+          }}
+        {% else %}
+          <img src="{{ 'yemeni-corner-ritual.webp' | asset_url }}" alt="Yemeni Corner coffee ritual" width="1448" height="1086" loading="lazy">
+        {% endif %}
+        <blockquote>
+          <p>A guest is not treated like a transaction.</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream story-heritage" aria-labelledby="StoryHeritageHeading-{{ section.id }}">
+    <div class="page-width">
+      <div class="story-heritage__header" data-reveal>
+        <p class="eyebrow">Yemen And Coffee</p>
+        <h2 id="StoryHeritageHeading-{{ section.id }}" class="heading-lg">Yemen gave coffee a place to gather</h2>
+        <p class="lead">Coffee's plant story reaches back to Ethiopia, but Yemen helped turn coffee into the brewed drink, trade story, and social ritual the world recognizes today.</p>
+      </div>
+
+      <ol class="story-timeline" aria-label="Yemeni coffee heritage">
+        <li class="story-timeline__item" data-reveal>
+          <span class="story-timeline__number">01</span>
+          <h3>Plant roots</h3>
+          <p>Coffee plants are historically tied to Ethiopia, where the origin story begins.</p>
+        </li>
+        <li class="story-timeline__item" data-reveal>
+          <span class="story-timeline__number">02</span>
+          <h3>Yemen brews the ritual</h3>
+          <p>By the 15th century, coffee was being cultivated and brewed in Yemen, where it became part of devotion, conversation, and daily life.</p>
+        </li>
+        <li class="story-timeline__item" data-reveal>
+          <span class="story-timeline__number">03</span>
+          <h3>Mocha carries the name</h3>
+          <p>The port of Mocha became one of coffee's great historic names, carrying Yemeni coffee into the wider world.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section story-memory" aria-labelledby="StoryMemoryHeading-{{ section.id }}">
+    <div class="page-width">
+      <div class="story-memory__header" data-reveal>
+        <p class="eyebrow">The Menu</p>
+        <h2 id="StoryMemoryHeading-{{ section.id }}" class="heading-lg">Every drink has a memory in it</h2>
+        <p class="lead">The menu is how Yemeni Corner introduces people to spice, sweetness, texture, and the kind of hospitality that makes a cup feel generous.</p>
+      </div>
+
+      <div class="story-memory__grid">
+        <article class="story-memory-card story-memory-card--large" data-reveal>
+          <img src="{{ 'yc-cafe-adeni-tea.webp' | asset_url }}" alt="Adeni tea at Yemeni Corner" width="1200" height="900" loading="lazy">
+          <div>
+            <span>Adeni Tea</span>
+            <h3>Cardamom, milk, and comfort</h3>
+            <p>The first sip feels familiar even when it is new.</p>
+          </div>
+        </article>
+
+        <article class="story-memory-card" data-reveal>
+          <img src="{{ 'yc-cafe-mufawar.webp' | asset_url }}" alt="Mufawar coffee at Yemeni Corner" width="1200" height="900" loading="lazy">
+          <div>
+            <span>Mufawar Coffee</span>
+            <h3>Spiced and generous</h3>
+            <p>A coffee house staple with warmth that lingers.</p>
+          </div>
+        </article>
+
+        <article class="story-memory-card" data-reveal>
+          <img src="{{ 'yc-cafe-yemeni-latte.webp' | asset_url }}" alt="Yemeni latte at Yemeni Corner" width="1200" height="900" loading="lazy">
+          <div>
+            <span>Yemeni Latte</span>
+            <h3>A familiar cup, turned toward Yemen</h3>
+            <p>Modern cafe comfort with spice and sweetness woven in.</p>
+          </div>
+        </article>
+
+        <article class="story-memory-card" data-reveal>
+          <img src="{{ 'yc-cafe-saffron-milk-cake.webp' | asset_url }}" alt="Saffron milk cake at Yemeni Corner" width="1200" height="900" loading="lazy">
+          <div>
+            <span>Saffron Milk Cake</span>
+            <h3>Soft, fragrant, and made to share</h3>
+            <p>The kind of dessert that keeps the table together.</p>
+          </div>
+        </article>
+
+        <article class="story-memory-card" data-reveal>
+          <img src="{{ 'yc-cafe-tawahi-lemonade.webp' | asset_url }}" alt="Tawahi lemonade at Yemeni Corner" width="1200" height="900" loading="lazy">
+          <div>
+            <span>Cold Favorites</span>
+            <h3>Bright moments between slow cups</h3>
+            <p>Refreshers and cold drinks give the cafe its range.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section story-signature" aria-labelledby="StorySignatureHeading-{{ section.id }}">
+    <div class="page-width story-signature__grid">
+      <div class="story-signature__copy" data-reveal>
+        <p class="eyebrow">Signature Blend</p>
+        <h2 id="StorySignatureHeading-{{ section.id }}" class="heading-lg">For the days you cannot make it to the cafe</h2>
+        <p class="lead">The Yemeni Corner Signature Blend was created for home, but it comes from the same feeling as the cafe. It is our way of saying: take a piece of this ritual with you.</p>
+
+        <div class="story-signature__notes" aria-label="Signature Blend tasting notes">
+          <span>Warm spice</span>
+          <span>Cocoa</span>
+          <span>Dried fruit</span>
+          <span>340 g whole bean</span>
+        </div>
+
+        <p class="story-signature__body">Brew it slowly. Share it if you can. Let it turn an ordinary kitchen into a small corner of welcome.</p>
+
+        <div class="button-row">
+          <a class="button button--gold" href="{{ product_url }}">Shop Signature Blend</a>
+          <a class="button button--secondary story-signature__button" href="{{ menu_url }}">View Cafe Menu</a>
+        </div>
+      </div>
+
+      <div class="story-signature__product" data-reveal data-parallax data-parallax-speed="0.025">
+        <span>At home ritual</span>
+        {% if featured_product.featured_media %}
+          {{
+            featured_product.featured_media.preview_image
+            | image_url: width: 1200
+            | image_tag:
+              widths: '480, 720, 960, 1200',
+              sizes: '(min-width: 960px) 38vw, 88vw',
+              loading: 'lazy',
+              alt: 'Yemeni Corner Signature Blend coffee bag'
+          }}
+        {% else %}
+          <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="Yemeni Corner Signature Blend coffee bag" width="1100" height="1300" loading="lazy">
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section story-invitation" aria-labelledby="StoryInvitationHeading-{{ section.id }}">
+    <div class="page-width story-invitation__grid">
+      <div data-reveal>
+        <p class="eyebrow">Your Invitation</p>
+        <h2 id="StoryInvitationHeading-{{ section.id }}" class="heading-lg">Come for coffee. Stay for what it reminds you of.</h2>
+        <p class="lead">Yemeni Corner is Canada's first Yemeni coffee house, but the heart of it is older than any storefront. It is the cup offered to a guest, the table that gets pulled closer, and the friend who says, "Try this."</p>
+      </div>
+
+      <div class="story-location-list">
+        <article class="story-location" data-reveal>
+          <span>South Windsor</span>
+          <h3>350 Cabana Rd E</h3>
+          <p>Windsor, ON N9G 1A3</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3">Get Directions</a>
+        </article>
+
+        <article class="story-location" data-reveal>
+          <span>LaSalle</span>
+          <h3>5881 Malden Rd</h3>
+          <p>LaSalle, ON</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON">Get Directions</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Story experience",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Signature product"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "image_picker",
+      "id": "welcome_image",
+      "label": "Welcome image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Story experience"
+    }
+  ]
+}
+{% endschema %}
