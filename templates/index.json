@@ -24,61 +24,6 @@
         "image_alt": "Yemeni Corner Signature Blend whole bean coffee bag"
       }
     },
-    "story": {
-      "type": "story-split",
-      "settings": {
-        "background": "cream",
-        "image_position": "right",
-        "anchor_id": "story",
-        "eyebrow": "The Story First",
-        "heading": "Hospitality is the reason for the roast",
-        "text": "<p>Yemeni Corner began with the feeling of the cafe: warm drinks, shared tables, late conversations, and flavors that invite people to stay. The online coffee is an extension of that welcome, made for people who want to bring the same sense of care into their own kitchen.</p><p>The Yemeni Corner Signature Blend keeps the choice simple: one 340 g whole bean coffee with a medium profile, built around warm spice, cocoa, and dried fruit notes.</p>",
-        "badge": "Cafe warmth. Home ritual.",
-        "button_label": "Read Our Story",
-        "button_link": "/#story"
-      }
-    },
-    "heritage": {
-      "type": "heritage-timeline",
-      "blocks": {
-        "coffee_roots": {
-          "type": "milestone",
-          "settings": {
-            "kicker": "15th century",
-            "title": "Coffee becomes a ritual",
-            "text": "<p>Coffee plants are historically tied to Ethiopia, then to cultivation and coffee drinking in southern Arabia. Yemen helped turn coffee into a prepared beverage, a gathering point, and a daily tradition.</p>"
-          }
-        },
-        "mocha_port": {
-          "type": "milestone",
-          "settings": {
-            "kicker": "Mocha",
-            "title": "A port name becomes a coffee word",
-            "text": "<p>The Yemeni port of Mocha became famous as a coffee-exporting center. The name still carries meaning in coffee culture because Yemen was central to coffee's early movement into the wider world.</p>"
-          }
-        },
-        "haraz_mountains": {
-          "type": "milestone",
-          "settings": {
-            "kicker": "Harraz",
-            "title": "Mountain coffee with a reputation",
-            "text": "<p>The Harraz area is recognized for Yemeni mountain coffee, terraced landscapes, and cups often associated with natural warmth, fruit, cocoa, and spice. The Signature Blend carries a respectful nod to that heritage without adding unverified farm-level claims.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "coffee_roots",
-        "mocha_port",
-        "haraz_mountains"
-      ],
-      "settings": {
-        "background": "white",
-        "eyebrow": "Yemeni Coffee Heritage",
-        "heading": "Why Yemen matters in every coffee story",
-        "text": "Yemeni Corner tells the broader history carefully: Yemen helped shape coffee as a cultivated crop, a social drink, and a global trade. Our product claims stay focused on what is known about this roast.",
-        "note": "Farm, harvest, altitude, and processing details should be added only after supplier verification."
-      }
-    },
     "featured": {
       "type": "featured-signature-product",
       "settings": {
@@ -91,19 +36,11 @@
     },
     "cafe_favorites": {
       "type": "cafe-favorites",
-      "settings": {
-        "eyebrow": "Cafe Favorites",
-        "heading": "The drinks that make the cafe memorable",
-        "text": "Traditional drinks, signature lattes, cold favorites, and desserts give Yemeni Corner its full flavor. The Signature Blend brings part of that warmth home.",
-        "primary_label": "Explore Cafe Menu",
-        "primary_link": "/pages/menu",
-        "secondary_label": "Shop Signature Blend",
-        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
-      },
       "blocks": {
         "adeni": {
           "type": "favorite",
           "settings": {
+            "image": "shopify://shop_images/chai.png",
             "category": "Traditional",
             "title": "Adeni Tea",
             "description": "Black tea, milk, and warming spice with the comfort of a shared table.",
@@ -163,7 +100,71 @@
         "pistachio",
         "tawahi",
         "saffron"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Cafe Favorites",
+        "heading": "The drinks that make the cafe memorable",
+        "text": "Traditional drinks, signature lattes, cold favorites, and desserts give Yemeni Corner its full flavor. The Signature Blend brings part of that warmth home.",
+        "primary_label": "Explore Cafe Menu",
+        "primary_link": "/pages/menu",
+        "secondary_label": "Shop Signature Blend",
+        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
+      }
+    },
+    "story": {
+      "type": "story-split",
+      "settings": {
+        "background": "cream",
+        "image_position": "right",
+        "anchor_id": "story",
+        "eyebrow": "The Story First",
+        "heading": "Hospitality is the reason for the roast",
+        "text": "<p>Yemeni Corner began with the feeling of the cafe: warm drinks, shared tables, late conversations, and flavors that invite people to stay. The online coffee is an extension of that welcome, made for people who want to bring the same sense of care into their own kitchen.</p><p>The Yemeni Corner Signature Blend keeps the choice simple: one 340 g whole bean coffee with a medium profile, built around warm spice, cocoa, and dried fruit notes.</p>",
+        "badge": "Cafe warmth. Home ritual.",
+        "button_label": "Read Our Story",
+        "button_link": "/#story"
+      }
+    },
+    "heritage": {
+      "type": "heritage-timeline",
+      "blocks": {
+        "coffee_roots": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "15th century",
+            "title": "Coffee becomes a ritual",
+            "text": "<p>Coffee plants are historically tied to Ethiopia, then to cultivation and coffee drinking in southern Arabia. Yemen helped turn coffee into a prepared beverage, a gathering point, and a daily tradition.</p>"
+          }
+        },
+        "mocha_port": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Mocha",
+            "title": "A port name becomes a coffee word",
+            "text": "<p>The Yemeni port of Mocha became famous as a coffee-exporting center. The name still carries meaning in coffee culture because Yemen was central to coffee's early movement into the wider world.</p>"
+          }
+        },
+        "haraz_mountains": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Harraz",
+            "title": "Mountain coffee with a reputation",
+            "text": "<p>The Harraz area is recognized for Yemeni mountain coffee, terraced landscapes, and cups often associated with natural warmth, fruit, cocoa, and spice. The Signature Blend carries a respectful nod to that heritage without adding unverified farm-level claims.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "coffee_roots",
+        "mocha_port",
+        "haraz_mountains"
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "Yemeni Coffee Heritage",
+        "heading": "Why Yemen matters in every coffee story",
+        "text": "Yemeni Corner tells the broader history carefully: Yemen helped shape coffee as a cultivated crop, a social drink, and a global trade. Our product claims stay focused on what is known about this roast.",
+        "note": "Farm, harvest, altitude, and processing details should be added only after supplier verification."
+      }
     },
     "brew": {
       "type": "brew-guide",
@@ -228,10 +229,6 @@
     },
     "testimonials": {
       "type": "testimonials",
-      "settings": {
-        "eyebrow": "Shared Warmly",
-        "heading": "Notes from the Yemeni Corner table"
-      },
       "blocks": {
         "review1": {
           "type": "testimonial",
@@ -259,7 +256,11 @@
         "review1",
         "review2",
         "review3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Shared Warmly",
+        "heading": "Notes from the Yemeni Corner table"
+      }
     },
     "locations": {
       "type": "locations-preview",
