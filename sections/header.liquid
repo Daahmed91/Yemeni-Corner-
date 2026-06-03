@@ -77,7 +77,7 @@
         </a>
       {% endif %}
       <a class="header-action header-action--search" href="{{ routes.search_url }}" aria-label="{{ 'general.search.search' | t }}">Search</a>
-      <a class="header-action" href="{{ routes.cart_url }}" aria-label="{{ 'cart.general.title' | t }}">
+      <a class="header-action header-action--cart" href="{{ routes.cart_url }}" aria-label="{{ 'cart.general.title' | t }}">
         Cart
         <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
       </a>

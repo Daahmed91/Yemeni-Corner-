@@ -29,12 +29,14 @@
 
 html {
   min-width: 320px;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 12% 0%, rgba(47, 159, 152, 0.08), transparent 28rem),
     linear-gradient(180deg, var(--color-white) 0%, #fff8eb 38rem, var(--color-white) 100%);
@@ -43,6 +45,13 @@ body {
   font-size: 16px;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
 }
 
 body.drawer-open {
@@ -2744,5 +2753,48 @@ button[disabled] {
   .cart-drawer__panel {
     width: 100vw;
     padding: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --gutter: 14px;
+  }
+
+  .site-header__inner {
+    min-height: 72px;
+    gap: 8px;
+  }
+
+  .site-header__logo,
+  .site-header__fallback-logo {
+    max-width: 124px;
+    max-height: 40px;
+  }
+
+  .site-header__actions {
+    gap: 6px;
+  }
+
+  .header-action {
+    min-width: 40px;
+    min-height: 40px;
+    padding-inline: 9px;
+  }
+
+  .header-action--cart {
+    width: 42px;
+    gap: 0;
+    padding-inline: 8px;
+    font-size: 0;
+  }
+
+  .header-action--cart .cart-count {
+    margin-left: 0;
+    font-size: 0.72rem;
+  }
+
+  .menu-toggle {
+    padding-inline: 10px;
   }
 }
