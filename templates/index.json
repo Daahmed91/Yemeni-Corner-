@@ -14,7 +14,7 @@
       "settings": {
         "eyebrow": "CANADA'S FIRST YEMENI COFFEE HOUSE!",
         "heading": "Yemeni Corner Coffee",
-        "text": "A coffee house story rooted in Yemeni hospitality, traditional drinks, and the Harraz Signature Roast you can brew at home. Start with the heritage, then choose the cup.",
+        "text": "A coffee house story rooted in Yemeni hospitality, traditional drinks, and the Yemeni Corner Signature Roast you can brew at home. Start with the heritage, then choose the cup.",
         "primary_label": "Shop Harraz Roast",
         "primary_link": "/products/yemeni-corner-harraz-signature-roast",
         "secondary_label": "Our Story",
@@ -40,13 +40,6 @@
     },
     "heritage": {
       "type": "heritage-timeline",
-      "settings": {
-        "background": "white",
-        "eyebrow": "Yemeni Coffee Heritage",
-        "heading": "Why Yemen matters in every coffee story",
-        "text": "Yemeni Corner tells the broader history carefully: Yemen helped shape coffee as a cultivated crop, a social drink, and a global trade. Our product claims stay focused on what is known about this roast.",
-        "note": "Farm, harvest, altitude, and processing details should be added only after supplier verification."
-      },
       "blocks": {
         "coffee_roots": {
           "type": "milestone",
@@ -77,7 +70,14 @@
         "coffee_roots",
         "mocha_port",
         "haraz_mountains"
-      ]
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "Yemeni Coffee Heritage",
+        "heading": "Why Yemen matters in every coffee story",
+        "text": "Yemeni Corner tells the broader history carefully: Yemen helped shape coffee as a cultivated crop, a social drink, and a global trade. Our product claims stay focused on what is known about this roast.",
+        "note": "Farm, harvest, altitude, and processing details should be added only after supplier verification."
+      }
     },
     "featured": {
       "type": "featured-signature-product",
@@ -139,14 +139,6 @@
     },
     "menu": {
       "type": "menu-showcase",
-      "settings": {
-        "eyebrow": "At the Coffee House",
-        "heading": "The cafe menu is where the story is tasted",
-        "text": "Traditional drinks, spice-forward lattes, cold favorites, and desserts show the full Yemeni Corner experience. The online roast carries that same hospitality into home brewing.",
-        "primary_label": "View Cafe Menu",
-        "secondary_label": "Shop Harraz Roast",
-        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
-      },
       "blocks": {
         "menu_traditional": {
           "type": "category",
@@ -186,16 +178,19 @@
         "menu_signature",
         "menu_cold",
         "menu_home"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "At the Coffee House",
+        "heading": "The cafe menu is where the story is tasted",
+        "text": "Traditional drinks, spice-forward lattes, cold favorites, and desserts show the full Yemeni Corner experience. The online roast carries that same hospitality into home brewing.",
+        "primary_label": "View Cafe Menu",
+        "primary_link": "",
+        "secondary_label": "Shop Harraz Roast",
+        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
+      }
     },
     "locations": {
       "type": "locations-preview",
-      "settings": {
-        "eyebrow": "Visit Us",
-        "anchor_id": "locations",
-        "heading": "Two local cafes, one welcome",
-        "text": "Visit Yemeni Corner in South Windsor or LaSalle for the full cafe menu, then order the Harraz Signature Roast online when you want the ritual at home."
-      },
       "blocks": {
         "south_windsor": {
           "type": "location",
@@ -221,14 +216,16 @@
       "block_order": [
         "south_windsor",
         "lasalle"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Visit Us",
+        "anchor_id": "locations",
+        "heading": "Two local cafes, one welcome",
+        "text": "Visit Yemeni Corner in South Windsor or LaSalle for the full cafe menu, then order the Harraz Signature Roast online when you want the ritual at home."
+      }
     },
     "faq": {
       "type": "faq",
-      "settings": {
-        "eyebrow": "Good to Know",
-        "heading": "Coffee questions, answered with more care"
-      },
       "blocks": {
         "faq_story": {
           "type": "question",
@@ -280,7 +277,11 @@
         "faq_brew",
         "faq_cafe",
         "faq_shipping"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Good to Know",
+        "heading": "Coffee questions, answered with more care"
+      }
     },
     "newsletter": {
       "type": "newsletter",
