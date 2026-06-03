@@ -2755,6 +2755,19 @@ button[disabled] {
   }
 }
 
+.mobile-drawer[aria-hidden="false"] {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.mobile-drawer[aria-hidden="false"] .mobile-drawer__backdrop {
+  opacity: 1;
+}
+
+.mobile-drawer[aria-hidden="false"] .mobile-drawer__panel {
+  transform: translateX(0);
+}
+
 @media (max-width: 360px) {
   :root {
     --gutter: 14px;
