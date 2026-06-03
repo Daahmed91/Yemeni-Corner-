@@ -18,6 +18,12 @@
     <div class="cart-drawer__items" data-cart-drawer-items>
       {% if cart.item_count > 0 %}
         {% for item in cart.items limit: 4 %}
+          {%- liquid
+            assign item_display_title = item.product.title
+            if item_display_title contains 'Harraz'
+              assign item_display_title = 'Yemeni Corner Signature Blend'
+            endif
+          -%}
           <article class="cart-drawer__item">
             <div class="cart-drawer__image">
               {% if item.image %}
@@ -28,14 +34,14 @@
                     widths: '90, 140, 180',
                     sizes: '76px',
                     loading: 'lazy',
-                    alt: item.image.alt | default: item.product.title
+                    alt: item_display_title
                 }}
               {% else %}
-                <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item.product.title | escape }}" width="900" height="1100" loading="lazy">
+                <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item_display_title | escape }}" width="900" height="1100" loading="lazy">
               {% endif %}
             </div>
             <div>
-              <h3>{{ item.product.title }}</h3>
+              <h3>{{ item_display_title }}</h3>
               {% unless item.product.has_only_default_variant %}
                 <p>{{ item.variant.title }}</p>
               {% endunless %}

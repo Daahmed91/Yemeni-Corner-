@@ -9,6 +9,12 @@
       <form action="{{ routes.cart_url }}" method="post">
         <div class="cart-items">
           {% for item in cart.items %}
+            {%- liquid
+              assign item_display_title = item.product.title
+              if item_display_title contains 'Harraz'
+                assign item_display_title = 'Yemeni Corner Signature Blend'
+              endif
+            -%}
             <div class="cart-item">
               <div class="cart-item__image">
                 {% if item.image %}
@@ -19,14 +25,14 @@
                       widths: '120, 180, 220',
                       sizes: '110px',
                       loading: 'lazy',
-                      alt: item.image.alt | default: item.product.title
+                      alt: item_display_title
                   }}
                 {% else %}
-                  <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item.product.title | escape }}" width="900" height="1100" loading="lazy">
+                  <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item_display_title | escape }}" width="900" height="1100" loading="lazy">
                 {% endif %}
               </div>
               <div>
-                <h2 class="heading-md"><a href="{{ item.url }}">{{ item.product.title }}</a></h2>
+                <h2 class="heading-md"><a href="{{ item.url }}">{{ item_display_title }}</a></h2>
                 {% unless item.product.has_only_default_variant %}
                   <p>{{ item.variant.title }}</p>
                 {% endunless %}

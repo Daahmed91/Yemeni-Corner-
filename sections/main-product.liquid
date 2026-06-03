@@ -6,6 +6,10 @@
   assign brew_methods = product.metafields.custom.brew_methods.value | default: section.settings.best_for
   assign origin_context = product.metafields.custom.origin_context.value | default: section.settings.origin_context
   assign gift_message = product.metafields.custom.gift_message.value | default: section.settings.gift_message
+  assign product_display_title = product.title
+  if product_display_title contains 'Harraz'
+    assign product_display_title = 'Yemeni Corner Signature Blend'
+  endif
 -%}
 
 <section class="section" data-section-id="{{ section.id }}">
@@ -20,10 +24,10 @@
               widths: '520, 720, 960, 1200, 1400',
               sizes: '(min-width: 960px) 52vw, 92vw',
               loading: 'eager',
-              alt: product.featured_media.alt | default: product.title
+              alt: product_display_title
           }}
         {% else %}
-          <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="{{ product.title | escape }}" width="1100" height="1300" loading="eager">
+          <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="{{ product_display_title | escape }}" width="1100" height="1300" loading="eager">
         {% endif %}
       </div>
 
@@ -38,7 +42,7 @@
                   widths: '240, 360, 480, 600',
                   sizes: '(min-width: 960px) 16vw, 30vw',
                   loading: 'lazy',
-                  alt: media.alt | default: product.title
+                  alt: product_display_title
               }}
             </div>
           {% endfor %}
@@ -48,7 +52,7 @@
 
     <div class="product__info">
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
-      <h1 class="heading-md">{{ product.title }}</h1>
+      <h1 class="heading-md">{{ product_display_title }}</h1>
       <p class="lead">{{ section.settings.subtitle }}</p>
 
       <div>

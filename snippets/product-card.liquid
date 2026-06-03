@@ -1,4 +1,10 @@
 {% if product_card_product != blank %}
+  {%- liquid
+    assign product_card_title = product_card_product.title
+    if product_card_title contains 'Harraz'
+      assign product_card_title = 'Yemeni Corner Signature Blend'
+    endif
+  -%}
   <a class="product-card" href="{{ product_card_product.url }}">
     <div class="product-card__image">
       {% if product_card_product.featured_media %}
@@ -9,16 +15,16 @@
             widths: '360, 540, 720, 900',
             sizes: '(min-width: 960px) 33vw, 100vw',
             loading: 'lazy',
-            alt: product_card_product.featured_media.alt | default: product_card_product.title
+            alt: product_card_title
         }}
       {% else %}
-        <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ product_card_product.title | escape }}" width="900" height="1100" loading="lazy">
+        <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ product_card_title | escape }}" width="900" height="1100" loading="lazy">
       {% endif %}
     </div>
 
     <div>
       <p class="eyebrow">{{ product_card_product.type | default: settings.brand_tagline }}</p>
-      <h3>{{ product_card_product.title }}</h3>
+      <h3>{{ product_card_title }}</h3>
       {% render 'price', product: product_card_product, show_from: true %}
       <p class="product-card__cta">{{ 'products.product.view_product' | t }}</p>
     </div>

@@ -225,6 +225,11 @@ const escapeHtml = (value) =>
     return entities[character];
   });
 
+const displayProductTitle = (title) => {
+  const value = String(title || '');
+  return /Harraz/i.test(value) ? 'Yemeni Corner Signature Blend' : value;
+};
+
 const formatMoney = (cents, currency) => {
   const activeCurrency = currency || window.Shopify?.currency?.active || 'CAD';
   return new Intl.NumberFormat(undefined, {
@@ -263,14 +268,15 @@ const renderCartDrawer = (cart) => {
       .slice(0, 4)
       .map((item) => {
         const image = item.image || fallbackImage;
+        const title = displayProductTitle(item.product_title);
         const variant = item.variant_title && item.variant_title !== 'Default Title' ? `<p>${escapeHtml(item.variant_title)}</p>` : '';
         return `
           <article class="cart-drawer__item">
             <div class="cart-drawer__image">
-              <img src="${escapeHtml(image)}" alt="${escapeHtml(item.product_title)}" loading="lazy">
+              <img src="${escapeHtml(image)}" alt="${escapeHtml(title)}" loading="lazy">
             </div>
             <div>
-              <h3>${escapeHtml(item.product_title)}</h3>
+              <h3>${escapeHtml(title)}</h3>
               ${variant}
               <p>${item.quantity} x ${formatMoney(item.final_price, cart.currency)}</p>
             </div>
