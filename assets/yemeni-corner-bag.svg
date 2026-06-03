@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
-  <title id="title">Yemeni Corner Signature Roast coffee bag</title>
-  <desc id="desc">A matte black coffee bag with cream label, gold arch emblem, and Yemeni Corner Signature Roast text.</desc>
+  <title id="title">Yemeni Corner Signature Blend coffee bag</title>
+  <desc id="desc">A matte black coffee bag with cream label, gold arch emblem, and Yemeni Corner Signature Blend text.</desc>
   <defs>
     <linearGradient id="bag" x1="0" x2="1">
       <stop offset="0" stop-color="#1d1715"/>
@@ -22,6 +22,6 @@
   <text x="450" y="648" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#4a2c2a" letter-spacing="8">CORNER</text>
   <text x="450" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#4a2c2a" letter-spacing="5">PREMIUM YEMENI COFFEE</text>
   <line x1="315" y1="724" x2="585" y2="724" stroke="#c28839" stroke-width="3"/>
-  <text x="450" y="804" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#fffdf8">Signature Roast</text>
+  <text x="450" y="804" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#fffdf8">Signature Blend</text>
   <text x="450" y="858" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" fill="#f5e6d3" letter-spacing="4">WHOLE BEAN &#183; 340 G</text>
 </svg>

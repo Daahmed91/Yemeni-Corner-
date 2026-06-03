@@ -13,8 +13,8 @@
       "type": "main-collection",
       "settings": {
         "eyebrow": "Shop Coffee",
-        "heading": "One roast, chosen with purpose",
-        "text": "Shop Yemeni Corner's flagship 340 g whole bean coffee: a medium Harraz Signature Roast with warm spice, cocoa, and dried fruit notes."
+        "heading": "One blend, chosen with purpose",
+        "text": "Shop Yemeni Corner's flagship 340 g whole bean coffee: a medium roast Yemeni Corner Signature Blend with warm spice, cocoa, and dried fruit notes."
       }
     },
     "story": {
@@ -24,7 +24,7 @@
         "image_position": "right",
         "eyebrow": "Why One Coffee",
         "heading": "The shop is simple because the story is focused",
-        "text": "<p>Yemeni Corner does not need a crowded catalog to begin telling the story. The Harraz Signature Roast gives shoppers one clear way to bring the cafe's warmth home: whole bean coffee, a medium roast profile, and flavor notes that connect naturally to Yemeni spice and hospitality.</p><p>Visit the cafe for the full menu; order the roast when you want that ritual in your own kitchen.</p>",
+        "text": "<p>Yemeni Corner does not need a crowded catalog to begin telling the story. The Yemeni Corner Signature Blend gives shoppers one clear way to bring the cafe's warmth home: whole bean coffee, a medium roast profile, and flavor notes that connect naturally to Yemeni spice and hospitality.</p><p>Visit the cafe for the full menu; order the blend when you want that ritual in your own kitchen.</p>",
         "badge": "Flagship roast",
         "button_label": "View Cafe Menu",
         "button_link": "/pages/menu"
@@ -36,7 +36,7 @@
         "background": "white",
         "eyebrow": "Coffee With Context",
         "heading": "More than a product tile",
-        "text": "The shop page should help shoppers understand why this roast sits at the center of Yemeni Corner.",
+        "text": "The shop page should help shoppers understand why this blend sits at the center of Yemeni Corner.",
         "note": "Keep farm and sourcing details off this page until they are verified."
       },
       "blocks": {
@@ -60,8 +60,8 @@
           "type": "milestone",
           "settings": {
             "kicker": "At home",
-            "title": "The roast keeps the choice clear",
-            "text": "<p>The Harraz Signature Roast is the online expression of that experience: one coffee bag with a clear taste profile and a story behind it.</p>"
+            "title": "The blend keeps the choice clear",
+            "text": "<p>The Yemeni Corner Signature Blend is the online expression of that experience: one coffee bag with a clear taste profile and a story behind it.</p>"
           }
         }
       },
@@ -82,14 +82,14 @@
           "type": "question",
           "settings": {
             "question": "Why is there only one coffee online?",
-            "answer": "<p>The online shop is intentionally focused on the Harraz Signature Roast so the first at-home coffee experience is simple, memorable, and tied to the Yemeni Corner story.</p>"
+            "answer": "<p>The online shop is intentionally focused on the Yemeni Corner Signature Blend so the first at-home coffee experience is simple, memorable, and tied to the Yemeni Corner story.</p>"
           }
         },
         "whole_bean": {
           "type": "question",
           "settings": {
             "question": "Is it whole bean?",
-            "answer": "<p>Yes. The Harraz Signature Roast is sold as a 340 g whole bean coffee bag.</p>"
+            "answer": "<p>Yes. The Yemeni Corner Signature Blend is sold as a 340 g whole bean coffee bag.</p>"
           }
         },
         "brewing": {

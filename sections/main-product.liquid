@@ -1,5 +1,11 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
+  assign bag_size = product.metafields.custom.bag_size.value | default: section.settings.bag_size
+  assign tasting_notes = product.metafields.custom.tasting_notes.value | default: section.settings.tasting_notes
+  assign roast_level = product.metafields.custom.roast_level.value | default: section.settings.roast_level
+  assign brew_methods = product.metafields.custom.brew_methods.value | default: section.settings.best_for
+  assign origin_context = product.metafields.custom.origin_context.value | default: section.settings.origin_context
+  assign gift_message = product.metafields.custom.gift_message.value | default: section.settings.gift_message
 -%}
 
 <section class="section" data-section-id="{{ section.id }}">
@@ -17,7 +23,7 @@
               alt: product.featured_media.alt | default: product.title
           }}
         {% else %}
-          <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ product.title | escape }}" width="900" height="1100" loading="eager">
+          <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="{{ product.title | escape }}" width="1100" height="1300" loading="eager">
         {% endif %}
       </div>
 
@@ -50,7 +56,7 @@
       </div>
 
       <div class="product__trust" aria-label="Product highlights">
-        <span>340 g whole bean</span>
+        <span>{{ bag_size }}</span>
         <span>Ships in Canada</span>
         <span>Medium roast profile</span>
       </div>
@@ -100,22 +106,36 @@
         {% endif %}
       {% endform %}
 
+      <div class="product-nudges" aria-label="Ways to enjoy this coffee">
+        <span>One to brew, one to gift</span>
+        <span>Stock up for the week</span>
+        <span>Share the cafe ritual at home</span>
+      </div>
+
       <div class="product-meta">
         <div class="product-meta__item">
           <span>Tasting Notes</span>
-          <strong>{{ section.settings.tasting_notes }}</strong>
+          <strong>{{ tasting_notes }}</strong>
         </div>
         <div class="product-meta__item">
           <span>Roast Level</span>
-          <strong>{{ section.settings.roast_level }}</strong>
+          <strong>{{ roast_level }}</strong>
         </div>
         <div class="product-meta__item">
           <span>Best For</span>
-          <strong>{{ section.settings.best_for }}</strong>
+          <strong>{{ brew_methods }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Available For</span>
-          <strong>{{ section.settings.market }}</strong>
+          <span>In The Bag</span>
+          <strong>{{ bag_size }} coffee, {{ section.settings.market }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Origin Context</span>
+          <strong>{{ origin_context }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Gift Note</span>
+          <strong>{{ gift_message }}</strong>
         </div>
       </div>
 
@@ -143,7 +163,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Harraz Signature Roast"
+      "default": "Yemeni Corner Signature Blend"
     },
     {
       "type": "text",
@@ -156,6 +176,12 @@
       "id": "tasting_notes",
       "label": "Tasting notes",
       "default": "Warm spice, cocoa, dried fruit"
+    },
+    {
+      "type": "text",
+      "id": "bag_size",
+      "label": "Bag size",
+      "default": "340 g whole bean"
     },
     {
       "type": "text",
@@ -174,6 +200,18 @@
       "id": "market",
       "label": "Market",
       "default": "Canada shipping"
+    },
+    {
+      "type": "text",
+      "id": "origin_context",
+      "label": "Origin context",
+      "default": "Connected to the coffee heritage of the Harraz area of Yemen"
+    },
+    {
+      "type": "text",
+      "id": "gift_message",
+      "label": "Gift message",
+      "default": "A warm coffee gift for hosts, family, holidays, and coffee lovers"
     },
     {
       "type": "textarea",

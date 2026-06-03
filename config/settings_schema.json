@@ -35,7 +35,7 @@
         "type": "textarea",
         "id": "brand_statement",
         "label": "Brand statement",
-        "default": "Yemeni Corner shares cafe hospitality, traditional Yemeni drinks, and the Harraz Signature Roast: a 340 g whole bean coffee with warm spice, cocoa, and dried fruit notes for home brewing."
+        "default": "Yemeni Corner shares cafe hospitality, traditional Yemeni drinks, and the Yemeni Corner Signature Blend: a 340 g whole bean coffee with warm spice, cocoa, and dried fruit notes for home brewing."
       },
       {
         "type": "text",
@@ -47,7 +47,7 @@
         "type": "text",
         "id": "seo_home_title",
         "label": "Home SEO title",
-        "default": "Yemeni Corner | Yemeni Coffee, Cafe Menu & Harraz Roast"
+        "default": "Yemeni Corner | Yemeni Coffee, Cafe Menu & Signature Blend"
       },
       {
         "type": "image_picker",

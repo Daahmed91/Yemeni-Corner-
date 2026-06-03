@@ -13,7 +13,7 @@
       "type": "main-contact",
       "settings": {
         "heading": "Questions about coffee, cafe visits, catering, or wholesale?",
-        "text": "Reach out about the Harraz Signature Roast, cafe hours, menu questions, catering, wholesale interest, or anything you would like to ask the Yemeni Corner team. For same-day cafe questions, call the location directly."
+        "text": "Reach out about the Yemeni Corner Signature Blend, cafe hours, menu questions, catering, wholesale interest, or anything you would like to ask the Yemeni Corner team. For same-day cafe questions, call the location directly."
       }
     },
     "locations": {
@@ -22,7 +22,7 @@
         "eyebrow": "Call or Visit",
         "anchor_id": "locations",
         "heading": "Two ways to reach the cafe team",
-        "text": "Cafe drinks are served in person at South Windsor and LaSalle. Online ordering is focused on the Harraz Signature Roast."
+        "text": "Cafe drinks are served in person at South Windsor and LaSalle. Online ordering is focused on the Yemeni Corner Signature Blend."
       },
       "blocks": {
         "south_windsor": {

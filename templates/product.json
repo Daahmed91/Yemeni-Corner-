@@ -12,13 +12,29 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "eyebrow": "Harraz Signature Roast",
+        "eyebrow": "Yemeni Corner Signature Blend",
         "subtitle": "Whole Bean Coffee | 340 g | Medium Roast",
         "tasting_notes": "Warm spice, cocoa, dried fruit",
+        "bag_size": "340 g whole bean",
         "roast_level": "Medium, smooth, aromatic",
         "best_for": "Drip, French press, pour-over, espresso",
         "market": "Canada shipping",
+        "origin_context": "Connected to the coffee heritage of the Harraz area of Yemen",
+        "gift_message": "A warm coffee gift for hosts, family, holidays, and coffee lovers",
         "description": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it."
+      }
+    },
+    "gift": {
+      "type": "gift-ritual",
+      "settings": {
+        "product": "yemeni-corner-harraz-signature-roast",
+        "eyebrow": "Gift the Ritual",
+        "heading": "Gift the Yemeni Corner ritual",
+        "text": "The Yemeni Corner Signature Blend is a warm, thoughtful coffee gift for hosts, family, holidays, and anyone who loves a cup with a story behind it.",
+        "primary_label": "Gift the Signature Blend",
+        "primary_link": "",
+        "secondary_label": "Visit Our Cafes",
+        "secondary_link": "/#locations"
       }
     },
     "taste": {
@@ -28,7 +44,7 @@
         "image_position": "left",
         "eyebrow": "What It Tastes Like",
         "heading": "Warm, smooth, and built for everyday depth",
-        "text": "<p>The Harraz Signature Roast is built around three easy-to-understand notes: warm spice for aroma, cocoa for roundness, and dried fruit for sweetness. It is not positioned as a sharp or experimental cup; it is meant to feel rich, smooth, and familiar enough for daily brewing.</p><p>Choose it if you like coffee with character, but still want a reliable bag for drip, French press, pour-over, or espresso.</p>",
+        "text": "<p>The Yemeni Corner Signature Blend is built around three easy-to-understand notes: warm spice for aroma, cocoa for roundness, and dried fruit for sweetness. It is not positioned as a sharp or experimental cup; it is meant to feel rich, smooth, and familiar enough for daily brewing.</p><p>Choose it if you like coffee with character, want a dependable daily bag, or need a thoughtful coffee gift for someone who loves a cup with a story.</p>",
         "badge": "Warm spice. Cocoa. Dried fruit.",
         "button_label": "Read the Story",
         "button_link": "/#story"
@@ -38,9 +54,9 @@
       "type": "heritage-timeline",
       "settings": {
         "background": "white",
-        "eyebrow": "Why Harraz",
-        "heading": "A roast name tied to Yemeni coffee heritage",
-        "text": "Haraz is recognized in coffee culture for Yemeni mountain coffee. This page uses that context as education, while keeping the exact product details limited to verified roast facts.",
+        "eyebrow": "Harraz Area Heritage",
+        "heading": "A respectful nod to Yemeni coffee heritage",
+        "text": "The Harraz area is recognized in coffee culture for Yemeni mountain coffee. This page uses that context as education, while keeping the exact product details limited to verified coffee facts.",
         "note": "Add supplier-confirmed farm, process, altitude, harvest, or roast-date details when available."
       },
       "blocks": {
@@ -56,8 +72,8 @@
           "type": "milestone",
           "settings": {
             "kicker": "Context",
-            "title": "What Haraz represents",
-            "text": "<p>Haraz points to Yemeni mountain coffee heritage, terraced growing landscapes, and a reputation for complex cups with warmth, fruit, cocoa, and spice.</p>"
+            "title": "What the Harraz area represents",
+            "text": "<p>The Harraz area points to Yemeni mountain coffee heritage, terraced growing landscapes, and a reputation for complex cups with warmth, fruit, cocoa, and spice.</p>"
           }
         },
         "future": {
@@ -134,7 +150,7 @@
           "type": "question",
           "settings": {
             "question": "Is this whole bean or ground coffee?",
-            "answer": "<p>The Harraz Signature Roast is sold as whole bean coffee so you can grind fresh for your brew method.</p>"
+            "answer": "<p>The Yemeni Corner Signature Blend is sold as whole bean coffee so you can grind fresh for your brew method.</p>"
           }
         },
         "taste": {
@@ -194,6 +210,7 @@
   },
   "order": [
     "main",
+    "gift",
     "taste",
     "heritage",
     "brew",

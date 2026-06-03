@@ -1,6 +1,6 @@
 # Yemeni Corner Shopify Theme
 
-Premium Shopify Online Store 2.0 theme for Yemeni Corner, built as a coffee-first storefront for the launch of **Yemeni Corner Signature Roast**.
+Premium Shopify Online Store 2.0 theme for Yemeni Corner, built as a coffee-first storefront for the launch of **Yemeni Corner Signature Blend**.
 
 ## What Is Included
 
@@ -21,7 +21,7 @@ Premium Shopify Online Store 2.0 theme for Yemeni Corner, built as a coffee-firs
 
 Create one product in Shopify admin:
 
-- Product title: `Yemeni Corner Signature Roast`
+- Product title: `Yemeni Corner Signature Blend`
 - Product type: `Premium Yemeni Coffee`
 - Size: `340 g`
 - Format: `Whole Bean Coffee`
@@ -49,7 +49,7 @@ Create a collection for the shop page:
 
 - Collection title: `Shop Coffee`
 - Suggested handle: `coffee`
-- Include the Signature Roast product.
+- Include the Signature Blend product.
 
 If you want the header `Shop Coffee` link to go directly to this collection, update the main menu link in Shopify admin.
 

@@ -66,25 +66,33 @@
           <span>Balanced roast profile</span>
         </div>
         <div class="trust-item" data-reveal>
-          <strong>Canada</strong>
-          <span>Ships from our Canadian store</span>
+          <strong>Ships</strong>
+          <span>Available for Canadian delivery</span>
+        </div>
+        <div class="trust-item" data-reveal>
+          <strong>Heritage</strong>
+          <span>Inspired by Yemeni coffee culture</span>
         </div>
       </div>
     </div>
 
     <div class="hero-coffee__media" data-reveal data-parallax data-parallax-speed="0.05">
       <div class="hero-coffee__media-frame" data-parallax data-parallax-speed="0.03">
-        {% render 'responsive-image',
-          image: hero_image,
-          width: 1200,
-          sizes: '(min-width: 960px) 48vw, 92vw',
-          loading: 'eager',
-          alt: section.settings.image_alt,
-          image_class: 'hero-coffee__product'
-        %}
+        {% if hero_image != blank %}
+          {% render 'responsive-image',
+            image: hero_image,
+            width: 1200,
+            sizes: '(min-width: 960px) 48vw, 92vw',
+            loading: 'eager',
+            alt: section.settings.image_alt,
+            image_class: 'hero-coffee__product'
+          %}
+        {% else %}
+          <img class="hero-coffee__product hero-coffee__product--lifestyle" src="{{ 'yc-hero-ritual.webp' | asset_url }}" alt="{{ section.settings.image_alt | escape }}" width="1600" height="1100" loading="eager">
+        {% endif %}
         <div class="hero-coffee__note" aria-label="Launch roast details">
           <span>Launch roast</span>
-          <strong>Harraz Signature Roast</strong>
+          <strong>Yemeni Corner Signature Blend</strong>
           <span>Whole bean coffee for home brewing</span>
         </div>
       </div>
@@ -112,13 +120,13 @@
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "A coffee house story rooted in Yemeni hospitality, traditional drinks, and the Harraz Signature Roast you can brew at home."
+      "default": "A coffee house story rooted in Yemeni hospitality, traditional drinks, and the Yemeni Corner Signature Blend you can brew at home."
     },
     {
       "type": "text",
       "id": "primary_label",
       "label": "Primary button label",
-      "default": "Shop Harraz Roast"
+      "default": "Shop Signature Blend"
     },
     {
       "type": "url",
@@ -150,7 +158,7 @@
       "type": "text",
       "id": "image_alt",
       "label": "Image alt text",
-      "default": "Yemeni Corner Harraz Signature Roast coffee bag"
+      "default": "Yemeni Corner Signature Blend coffee bag"
     }
   ],
   "presets": [

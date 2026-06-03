@@ -13,15 +13,15 @@
       "type": "hero-coffee",
       "settings": {
         "eyebrow": "CANADA'S FIRST YEMENI COFFEE HOUSE!",
-        "heading": "Yemeni Corner Coffee",
-        "text": "A coffee house story rooted in Yemeni hospitality, traditional drinks, and the Yemeni Corner Signature Roast you can brew at home. Start with the heritage, then choose the cup.",
-        "primary_label": "Shop Harraz Roast",
+        "heading": "Yemeni Corner Coffee House",
+        "text": "Yemeni hospitality, traditional cafe drinks, and the Yemeni Corner Signature Blend you can brew at home. Visit for the full coffee house experience, or bring the ritual to your own kitchen.",
+        "primary_label": "Shop Signature Blend",
         "primary_link": "/products/yemeni-corner-harraz-signature-roast",
-        "secondary_label": "Our Story",
-        "secondary_link": "",
+        "secondary_label": "Explore Cafe Menu",
+        "secondary_link": "/pages/menu",
         "product": "yemeni-corner-harraz-signature-roast",
         "image": "shopify://shop_images/ChatGPT_Image_Jun_3_2026_12_50_52_AM_b916f429-bf03-4314-bdac-a4705fa917a7.png",
-        "image_alt": "Yemeni Corner Harraz Signature Roast whole bean coffee bag"
+        "image_alt": "Yemeni Corner Signature Blend whole bean coffee bag"
       }
     },
     "story": {
@@ -32,7 +32,7 @@
         "anchor_id": "story",
         "eyebrow": "The Story First",
         "heading": "Hospitality is the reason for the roast",
-        "text": "<p>Yemeni Corner began with the feeling of the cafe: warm drinks, shared tables, late conversations, and flavors that invite people to stay. The online roast is an extension of that welcome, made for people who want to bring the same sense of care into their own kitchen.</p><p>The Harraz Signature Roast keeps the choice simple: one 340 g whole bean coffee with a medium profile, built around warm spice, cocoa, and dried fruit notes.</p>",
+        "text": "<p>Yemeni Corner began with the feeling of the cafe: warm drinks, shared tables, late conversations, and flavors that invite people to stay. The online coffee is an extension of that welcome, made for people who want to bring the same sense of care into their own kitchen.</p><p>The Yemeni Corner Signature Blend keeps the choice simple: one 340 g whole bean coffee with a medium profile, built around warm spice, cocoa, and dried fruit notes.</p>",
         "badge": "Cafe warmth. Home ritual.",
         "button_label": "Read Our Story",
         "button_link": "/#story"
@@ -60,9 +60,9 @@
         "haraz_mountains": {
           "type": "milestone",
           "settings": {
-            "kicker": "Haraz",
+            "kicker": "Harraz",
             "title": "Mountain coffee with a reputation",
-            "text": "<p>Haraz is recognized for Yemeni mountain coffee, terraced landscapes, and cups often associated with natural warmth, fruit, cocoa, and spice. Our roast is named for that heritage without adding unverified farm-level claims.</p>"
+            "text": "<p>The Harraz area is recognized for Yemeni mountain coffee, terraced landscapes, and cups often associated with natural warmth, fruit, cocoa, and spice. The Signature Blend carries a respectful nod to that heritage without adding unverified farm-level claims.</p>"
           }
         }
       },
@@ -83,11 +83,87 @@
       "type": "featured-signature-product",
       "settings": {
         "product": "yemeni-corner-harraz-signature-roast",
-        "eyebrow": "Harraz Signature Roast",
-        "heading": "Yemeni Corner Harraz Signature Roast",
+        "eyebrow": "Yemeni Corner Signature Blend",
+        "heading": "Yemeni Corner Signature Blend",
         "text": "Our flagship online coffee is a 340 g whole bean bag with a medium roast profile and notes of warm spice, cocoa, and dried fruit. It is made for familiar home methods: drip, French press, pour-over, and espresso.",
-        "button_label": "Shop the Roast"
+        "button_label": "Shop Signature Blend"
       }
+    },
+    "cafe_favorites": {
+      "type": "cafe-favorites",
+      "settings": {
+        "eyebrow": "Cafe Favorites",
+        "heading": "The drinks that make the cafe memorable",
+        "text": "Traditional drinks, signature lattes, cold favorites, and desserts give Yemeni Corner its full flavor. The Signature Blend brings part of that warmth home.",
+        "primary_label": "Explore Cafe Menu",
+        "primary_link": "/pages/menu",
+        "secondary_label": "Shop Signature Blend",
+        "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
+      },
+      "blocks": {
+        "adeni": {
+          "type": "favorite",
+          "settings": {
+            "category": "Traditional",
+            "title": "Adeni Tea",
+            "description": "Black tea, milk, and warming spice with the comfort of a shared table.",
+            "badge": "Warm spice"
+          }
+        },
+        "mufawar": {
+          "type": "favorite",
+          "settings": {
+            "category": "Traditional",
+            "title": "Mufawar Coffee",
+            "description": "A Yemeni coffee house staple with aromatic spice and a generous finish.",
+            "badge": "Heritage cup"
+          }
+        },
+        "yemeni_latte": {
+          "type": "favorite",
+          "settings": {
+            "category": "Signature",
+            "title": "Yemeni Latte",
+            "description": "A familiar latte turned toward Yemeni-inspired spice, sweetness, and warmth.",
+            "badge": "House favorite"
+          }
+        },
+        "pistachio": {
+          "type": "favorite",
+          "settings": {
+            "category": "Signature",
+            "title": "Pistachio Latte",
+            "description": "Nutty, smooth, and rich enough to feel like dessert in a cup.",
+            "badge": "Creamy"
+          }
+        },
+        "tawahi": {
+          "type": "favorite",
+          "settings": {
+            "category": "Cold",
+            "title": "Tawahi Lemonade",
+            "description": "Bright, refreshing, and made for sharing on warmer cafe days.",
+            "badge": "Fresh"
+          }
+        },
+        "saffron": {
+          "type": "favorite",
+          "settings": {
+            "category": "Dessert",
+            "title": "Saffron Milk Cake",
+            "description": "Soft, fragrant, and made to sit beside a slow coffee or tea.",
+            "badge": "Sweet finish"
+          }
+        }
+      },
+      "block_order": [
+        "adeni",
+        "mufawar",
+        "yemeni_latte",
+        "pistachio",
+        "tawahi",
+        "saffron"
+      ]
     },
     "brew": {
       "type": "brew-guide",
@@ -134,8 +210,56 @@
       "settings": {
         "eyebrow": "A Richer Way to Brew",
         "heading": "Brew with intention, not complication",
-        "text": "The Harraz Signature Roast is designed for everyday brewing, with enough depth for slow mornings and enough balance for a reliable daily cup."
+        "text": "The Yemeni Corner Signature Blend is designed for everyday brewing, with enough depth for slow mornings and enough balance for a reliable daily cup."
       }
+    },
+    "gift": {
+      "type": "gift-ritual",
+      "settings": {
+        "product": "yemeni-corner-harraz-signature-roast",
+        "eyebrow": "Gift the Ritual",
+        "heading": "Gift the Yemeni Corner ritual",
+        "text": "The Yemeni Corner Signature Blend is a warm, thoughtful coffee gift for hosts, family, holidays, and anyone who loves a cup with a story behind it.",
+        "primary_label": "Gift the Signature Blend",
+        "primary_link": "/products/yemeni-corner-harraz-signature-roast",
+        "secondary_label": "Visit Our Cafes",
+        "secondary_link": "/#locations"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "eyebrow": "Shared Warmly",
+        "heading": "Notes from the Yemeni Corner table"
+      },
+      "blocks": {
+        "review1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "A warm, welcoming cafe experience with drinks that feel different from the usual coffee stop.",
+            "author": "Yemeni Corner guest"
+          }
+        },
+        "review2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The spices, desserts, and coffee make it the kind of place you want to bring someone to.",
+            "author": "Cafe regular"
+          }
+        },
+        "review3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The Signature Blend makes the home cup feel connected to the cafe ritual.",
+            "author": "Home brewer"
+          }
+        }
+      },
+      "block_order": [
+        "review1",
+        "review2",
+        "review3"
+      ]
     },
     "menu": {
       "type": "menu-showcase",
@@ -168,8 +292,8 @@
           "type": "category",
           "settings": {
             "label": "At Home",
-            "title": "Harraz Signature Roast",
-            "text": "<p>The online roast is the take-home expression of the brand: whole bean coffee for anyone who wants Yemeni Corner warmth between cafe visits.</p>"
+            "title": "Yemeni Corner Signature Blend",
+            "text": "<p>The online coffee is the take-home expression of the brand: whole bean coffee for anyone who wants Yemeni Corner warmth between cafe visits.</p>"
           }
         }
       },
@@ -182,10 +306,10 @@
       "settings": {
         "eyebrow": "At the Coffee House",
         "heading": "The cafe menu is where the story is tasted",
-        "text": "Traditional drinks, spice-forward lattes, cold favorites, and desserts show the full Yemeni Corner experience. The online roast carries that same hospitality into home brewing.",
+        "text": "Traditional drinks, spice-forward lattes, cold favorites, and desserts show the full Yemeni Corner experience. The online coffee carries that same hospitality into home brewing.",
         "primary_label": "View Cafe Menu",
         "primary_link": "",
-        "secondary_label": "Shop Harraz Roast",
+        "secondary_label": "Shop Signature Blend",
         "secondary_link": "/products/yemeni-corner-harraz-signature-roast"
       }
     },
@@ -221,7 +345,7 @@
         "eyebrow": "Visit Us",
         "anchor_id": "locations",
         "heading": "Two local cafes, one welcome",
-        "text": "Visit Yemeni Corner in South Windsor or LaSalle for the full cafe menu, then order the Harraz Signature Roast online when you want the ritual at home."
+        "text": "Visit Yemeni Corner in South Windsor or LaSalle for the full cafe menu, then order the Yemeni Corner Signature Blend online when you want the ritual at home."
       }
     },
     "faq": {
@@ -231,14 +355,14 @@
           "type": "question",
           "settings": {
             "question": "What makes Yemeni Corner different?",
-            "answer": "<p>The brand begins with Yemeni cafe hospitality: traditional drinks, spice, warmth, and shared tables. The online roast is one way to carry that feeling home.</p>"
+            "answer": "<p>The brand begins with Yemeni cafe hospitality: traditional drinks, spice, warmth, and shared tables. The online coffee is one way to carry that feeling home.</p>"
           }
         },
         "faq_size": {
           "type": "question",
           "settings": {
             "question": "What size is the coffee bag?",
-            "answer": "<p>Yemeni Corner Harraz Signature Roast is sold as a 340 g whole bean coffee bag.</p>"
+            "answer": "<p>Yemeni Corner Signature Blend is sold as a 340 g whole bean coffee bag.</p>"
           }
         },
         "faq_flavor": {
@@ -295,11 +419,13 @@
   },
   "order": [
     "hero",
+    "featured",
+    "cafe_favorites",
     "story",
     "heritage",
-    "featured",
     "brew",
-    "menu",
+    "gift",
+    "testimonials",
     "locations",
     "faq",
     "newsletter"
