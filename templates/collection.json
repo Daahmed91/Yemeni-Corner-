@@ -11,28 +11,114 @@
   "sections": {
     "main": {
       "type": "main-collection",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Shop Coffee",
+        "heading": "One roast, chosen with purpose",
+        "text": "Shop Yemeni Corner's flagship 340 g whole bean coffee: a medium Harraz Signature Roast with warm spice, cocoa, and dried fruit notes."
+      }
     },
     "story": {
       "type": "story-split",
       "settings": {
         "background": "cream",
         "image_position": "right",
-        "eyebrow": "Flagship Roast",
-        "heading": "One signature coffee, chosen with purpose",
-        "text": "<p>The online shop is intentionally simple: premium Yemeni coffee in a 340 g whole bean bag, crafted to be easy to choose, memorable to brew, and connected to the Yemeni Corner cafe ritual.</p>",
+        "eyebrow": "Why One Coffee",
+        "heading": "The shop is simple because the story is focused",
+        "text": "<p>Yemeni Corner does not need a crowded catalog to begin telling the story. The Harraz Signature Roast gives shoppers one clear way to bring the cafe's warmth home: whole bean coffee, a medium roast profile, and flavor notes that connect naturally to Yemeni spice and hospitality.</p><p>Visit the cafe for the full menu; order the roast when you want that ritual in your own kitchen.</p>",
+        "badge": "Flagship roast",
         "button_label": "View Cafe Menu",
         "button_link": "/pages/menu"
       }
     },
+    "heritage": {
+      "type": "heritage-timeline",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Coffee With Context",
+        "heading": "More than a product tile",
+        "text": "The shop page should help shoppers understand why this roast sits at the center of Yemeni Corner.",
+        "note": "Keep farm and sourcing details off this page until they are verified."
+      },
+      "blocks": {
+        "heritage": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Heritage",
+            "title": "Yemen shaped coffee culture",
+            "text": "<p>Yemen is central to coffee's history as a cultivated crop, prepared beverage, trade good, and social ritual.</p>"
+          }
+        },
+        "cafe": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "Cafe",
+            "title": "The menu gives the brand range",
+            "text": "<p>Traditional drinks, signature lattes, cold favorites, and desserts create the in-person Yemeni Corner experience.</p>"
+          }
+        },
+        "home": {
+          "type": "milestone",
+          "settings": {
+            "kicker": "At home",
+            "title": "The roast keeps the choice clear",
+            "text": "<p>The Harraz Signature Roast is the online expression of that experience: one coffee bag with a clear taste profile and a story behind it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heritage",
+        "cafe",
+        "home"
+      ]
+    },
     "faq": {
       "type": "faq",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Shop Questions",
+        "heading": "What to know before ordering"
+      },
+      "blocks": {
+        "one_roast": {
+          "type": "question",
+          "settings": {
+            "question": "Why is there only one coffee online?",
+            "answer": "<p>The online shop is intentionally focused on the Harraz Signature Roast so the first at-home coffee experience is simple, memorable, and tied to the Yemeni Corner story.</p>"
+          }
+        },
+        "whole_bean": {
+          "type": "question",
+          "settings": {
+            "question": "Is it whole bean?",
+            "answer": "<p>Yes. The Harraz Signature Roast is sold as a 340 g whole bean coffee bag.</p>"
+          }
+        },
+        "brewing": {
+          "type": "question",
+          "settings": {
+            "question": "What brew methods work?",
+            "answer": "<p>It is designed for familiar home methods including drip, French press, pour-over, and espresso.</p>"
+          }
+        },
+        "shipping": {
+          "type": "question",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>The online shop is set up for Canadian customers. Shipping rates and delivery options appear at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "one_roast",
+        "whole_bean",
+        "brewing",
+        "shipping"
+      ]
     }
   },
   "order": [
     "main",
     "story",
+    "heritage",
     "faq"
   ]
 }

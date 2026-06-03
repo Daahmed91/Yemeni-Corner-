@@ -68,7 +68,7 @@
     <div class="page-width">
       <div class="menu-page__sales" data-reveal>
         <div class="menu-page__sales-media" aria-hidden="true">
-          {% if featured_product.featured_media %}
+          {% if featured_product != blank and featured_product.featured_media %}
             {{
               featured_product.featured_media.preview_image
               | image_url: width: 640
@@ -96,7 +96,7 @@
       <div class="section-header full-menu__header" data-reveal>
         <p class="eyebrow">Cafe menu</p>
         <h2 class="heading-lg">Explore the full menu</h2>
-        <p class="lead">Browse the drinks that shape the Yemeni Corner experience. Cafe items are served in person; prices are intentionally hidden online.</p>
+        <p class="lead">Browse the drinks that shape the Yemeni Corner experience. Cafe items are served in person; online ordering is focused on whole bean coffee.</p>
       </div>
 
       <div class="menu-filters full-menu__filters" data-menu-filter role="tablist" aria-label="Cafe menu categories">
@@ -146,7 +146,7 @@
       <div class="menu-page__bottom-cta" data-reveal>
         <p class="eyebrow">From cafe to home</p>
         <h2 class="heading-md">Love the ritual? Brew Yemeni Corner at home.</h2>
-        <p>Start with the Harraz Signature Roast online, then visit the cafe for the full menu of traditional drinks, lattes, cold favorites, and smoothies.</p>
+        <p>Start with the Harraz Signature Roast online, then visit the cafe for the full menu of traditional drinks, lattes, cold favorites, desserts, and smoothies.</p>
         <div class="button-row">
           <a class="button" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
           <a class="button button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
@@ -176,7 +176,7 @@
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu, then bring the same warm ritual home with our Harraz Signature Roast."
+      "default": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu. The cafes carry the full Yemeni Corner experience; the Harraz Signature Roast brings one part of that ritual home."
     },
     {
       "type": "image_picker",
@@ -220,7 +220,7 @@
       "type": "textarea",
       "id": "sales_text",
       "label": "Sales text",
-      "default": "The cafe menu shows the range of Yemeni Corner flavor. The online shop keeps it simple with our Harraz Signature Roast, made for rich everyday brewing at home."
+      "default": "The cafe menu shows the full range of Yemeni Corner flavor. The online shop stays focused on the Harraz Signature Roast: whole bean coffee for rich everyday brewing at home."
     }
   ],
   "blocks": [
@@ -270,9 +270,9 @@
       "name": "Sales menu page",
       "blocks": [
         { "type": "menu_item" },
-        { "type": "menu_item", "settings": { "title": "Mufawar Coffee", "description": "<p>Medium roast with nutmeg, cardamom, and milk.</p>", "badge": "House favorite" } },
-        { "type": "menu_item", "settings": { "category": "espresso", "title": "Yemeni Latte", "description": "<p>Our famous 5 spice blend latte.</p>" } },
-        { "type": "menu_item", "settings": { "category": "cold", "subcategory": "Lemonades", "title": "Tawahi Lemonade", "description": "", "badge": "House favorite" } }
+        { "type": "menu_item", "settings": { "title": "Mufawar Coffee", "description": "<p>Medium roast coffee with nutmeg, cardamom, and milk, made for guests who want a comforting traditional cup.</p>", "badge": "House favorite" } },
+        { "type": "menu_item", "settings": { "category": "espresso", "title": "Yemeni Latte", "description": "<p>Espresso and milk layered with the house five-spice blend for the cafe's signature modern Yemeni cup.</p>" } },
+        { "type": "menu_item", "settings": { "category": "cold", "subcategory": "Lemonades", "title": "Tawahi Lemonade", "description": "<p>A bright house lemonade inspired by coastal refreshment, built for a crisp citrus finish.</p>", "badge": "House favorite" } }
       ]
     }
   ]

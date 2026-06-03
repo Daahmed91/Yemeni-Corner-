@@ -14,13 +14,13 @@
       "settings": {
         "eyebrow": "Yemeni Corner Cafe",
         "heading": "Cafe favorites, rooted in Yemeni hospitality",
-        "text": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu, then bring the same warm ritual home with our Harraz Signature Roast.",
+        "text": "Explore traditional drinks, signature lattes, cold favorites, and smoothies from the cafe menu. The cafes carry the full Yemeni Corner experience; the Harraz Signature Roast brings one part of that ritual home.",
         "featured_product": "yemeni-corner-harraz-signature-roast",
         "primary_label": "Shop Harraz Roast",
         "primary_url": "/products/yemeni-corner-harraz-signature-roast",
         "secondary_label": "Visit Our Cafes",
         "sales_heading": "Bring the cafe ritual home",
-        "sales_text": "The cafe menu shows the range of Yemeni Corner flavor. The online shop keeps it simple with our Harraz Signature Roast, made for rich everyday brewing at home."
+        "sales_text": "The cafe menu shows the full range of Yemeni Corner flavor. The online shop stays focused on the Harraz Signature Roast: whole bean coffee for rich everyday brewing at home."
       },
       "blocks": {
         "traditional_adeni_tea": {
@@ -28,7 +28,7 @@
           "settings": {
             "category": "traditional",
             "title": "Adeni Tea",
-            "description": "<p>Signature black tea with cardamom, nutmeg, and milk.</p>",
+            "description": "<p>A creamy black tea steeped with cardamom, nutmeg, and milk for a warm, spice-forward cafe favorite.</p>",
             "badge": "House favorite"
           }
         },
@@ -37,7 +37,7 @@
           "settings": {
             "category": "traditional",
             "title": "Mufawar Coffee",
-            "description": "<p>Medium roast with nutmeg, cardamom, and milk.</p>",
+            "description": "<p>Medium roast coffee with nutmeg, cardamom, and milk, made for guests who want a comforting traditional cup.</p>",
             "badge": "House favorite"
           }
         },
@@ -46,7 +46,7 @@
           "settings": {
             "category": "traditional",
             "title": "Sana'ani Coffee",
-            "description": "<p>Medium roast with cardamom.</p>"
+            "description": "<p>A focused traditional coffee with cardamom, aromatic and simple enough to let the spice lead.</p>"
           }
         },
         "traditional_yemeni_tea": {
@@ -54,7 +54,7 @@
           "settings": {
             "category": "traditional",
             "title": "Yemeni Tea",
-            "description": "<p>Black tea with cardamom and cloves.</p>"
+            "description": "<p>Black tea with cardamom and cloves, served warm for a familiar Yemeni tea-house feel.</p>"
           }
         },
         "traditional_yemeni_mint_tea": {
@@ -62,7 +62,7 @@
           "settings": {
             "category": "traditional",
             "title": "Yemeni Mint Tea",
-            "description": "<p>Black tea with fresh mint.</p>"
+            "description": "<p>Black tea brightened with fresh mint, balancing warmth, spice, and a clean finish.</p>"
           }
         },
         "traditional_jubani_coffee": {
@@ -70,7 +70,7 @@
           "settings": {
             "category": "traditional",
             "title": "Jubani Coffee",
-            "description": "<p>Light roast with cardamom, ginger, and cinnamon.</p>"
+            "description": "<p>Light roast coffee with cardamom, ginger, and cinnamon for a fragrant cup with gentle heat.</p>"
           }
         },
         "traditional_qishr": {
@@ -78,7 +78,7 @@
           "settings": {
             "category": "traditional",
             "title": "Qishr",
-            "description": "<p>Coffee husks with cardamom, ginger, and cinnamon.</p>"
+            "description": "<p>A traditional coffee husk drink with cardamom, ginger, and cinnamon; lighter than coffee but full of spice.</p>"
           }
         },
         "espresso_yemeni_latte": {
@@ -87,7 +87,7 @@
             "category": "espresso",
             "subcategory": "Signature lattes",
             "title": "Yemeni Latte",
-            "description": "<p>Our famous 5 spice blend latte.</p>"
+            "description": "<p>Espresso and milk layered with the house five-spice blend for the cafe's signature modern Yemeni cup.</p>"
           }
         },
         "espresso_pistachio_latte": {
@@ -96,7 +96,7 @@
             "category": "espresso",
             "subcategory": "Signature lattes",
             "title": "Pistachio Latte",
-            "description": "<p>Made with our in-house pistachio paste.</p>"
+            "description": "<p>Made with in-house pistachio paste for a nutty, creamy latte with a generous finish.</p>"
           }
         },
         "espresso_lotus_cookie_butter_latte": {
@@ -105,7 +105,7 @@
             "category": "espresso",
             "subcategory": "Signature lattes",
             "title": "Lotus Cookie Butter Latte",
-            "description": "<p>Lotus cookie-infused latte.</p>"
+            "description": "<p>A dessert-style latte with Lotus cookie butter flavor, espresso, and milk for a rich cafe treat.</p>"
           }
         },
         "espresso_tarim_latte": {
@@ -114,7 +114,7 @@
             "category": "espresso",
             "subcategory": "Signature lattes",
             "title": "Tarim Latte",
-            "description": "<p>A delicious honey latte.</p>"
+            "description": "<p>A honey latte with a smooth sweetness that pairs naturally with espresso and warm milk.</p>"
           }
         },
         "espresso_yemeni_matcha_latte": {
@@ -123,7 +123,7 @@
             "category": "espresso",
             "subcategory": "Signature lattes",
             "title": "Yemeni Matcha Latte",
-            "description": "<p>Matcha infused with our spice mix.</p>"
+            "description": "<p>Matcha blended with Yemeni Corner's spice mix for a green tea latte with added warmth and aroma.</p>"
           }
         },
         "espresso_date_latte": {
@@ -132,7 +132,7 @@
             "category": "espresso",
             "subcategory": "Signature lattes",
             "title": "Date Latte",
-            "description": "<p>Sweetened with our house-made date paste.</p>"
+            "description": "<p>Sweetened with house-made date paste for a naturally rich latte inspired by a classic coffee pairing.</p>"
           }
         },
         "espresso_andalusian_latte": {
@@ -141,7 +141,7 @@
             "category": "espresso",
             "subcategory": "Signature lattes",
             "title": "Andalusian Latte",
-            "description": "<p>Our signature triple milk blend in a latte.</p>"
+            "description": "<p>A smooth latte built around the house triple milk blend for a creamy, rounded cup.</p>"
           }
         },
         "espresso_iced_tiramisu_latte": {
@@ -150,7 +150,7 @@
             "category": "espresso",
             "subcategory": "Iced specialties",
             "title": "Iced Tiramisu Latte with Cold Foam",
-            "description": ""
+            "description": "<p>An iced dessert latte with coffee, creamy cold foam, and tiramisu-inspired richness.</p>"
           }
         },
         "espresso_iced_banana_pudding_latte": {
@@ -159,7 +159,7 @@
             "category": "espresso",
             "subcategory": "Iced specialties",
             "title": "Iced Banana Pudding Latte with Cold Foam",
-            "description": ""
+            "description": "<p>A chilled latte with banana pudding sweetness and cold foam for a creamy dessert-style drink.</p>"
           }
         },
         "espresso_iced_adeni": {
@@ -168,7 +168,7 @@
             "category": "espresso",
             "subcategory": "Iced specialties",
             "title": "Iced Adeni",
-            "description": ""
+            "description": "<p>A cold take on Adeni-inspired spice, milk, and cafe refreshment for warmer days.</p>"
           }
         },
         "espresso_caramel_macchiato": {
@@ -177,7 +177,7 @@
             "category": "espresso",
             "subcategory": "Cafe classics",
             "title": "Caramel Macchiato",
-            "description": ""
+            "description": "<p>Espresso, milk, and caramel layered into a familiar cafe classic with a sweet finish.</p>"
           }
         },
         "espresso_mocha_white_mocha": {
@@ -186,7 +186,7 @@
             "category": "espresso",
             "subcategory": "Cafe classics",
             "title": "Mocha / White Mocha",
-            "description": ""
+            "description": "<p>Espresso and milk with chocolate or white chocolate for a smooth, cozy classic.</p>"
           }
         },
         "espresso_hot_chocolate": {
@@ -195,7 +195,7 @@
             "category": "espresso",
             "subcategory": "Cafe classics",
             "title": "Hot Chocolate",
-            "description": ""
+            "description": "<p>A warm chocolate drink for guests who want comfort without coffee.</p>"
           }
         },
         "espresso_latte": {
@@ -204,7 +204,7 @@
             "category": "espresso",
             "subcategory": "Cafe classics",
             "title": "Latte",
-            "description": ""
+            "description": "<p>Espresso with steamed milk for a smooth, balanced coffee-house staple.</p>"
           }
         },
         "espresso_cappuccino": {
@@ -213,7 +213,7 @@
             "category": "espresso",
             "subcategory": "Cafe classics",
             "title": "Cappuccino",
-            "description": ""
+            "description": "<p>Espresso, steamed milk, and foam for a lighter classic with more coffee definition.</p>"
           }
         },
         "espresso_americano": {
@@ -222,7 +222,7 @@
             "category": "espresso",
             "subcategory": "Cafe classics",
             "title": "Americano",
-            "description": ""
+            "description": "<p>Espresso stretched with hot water for a clean, straightforward cup.</p>"
           }
         },
         "cold_tawahi": {
@@ -231,7 +231,7 @@
             "category": "cold",
             "subcategory": "Lemonades",
             "title": "Tawahi Lemonade",
-            "description": "",
+            "description": "<p>A bright house lemonade inspired by coastal refreshment, built for a crisp citrus finish.</p>",
             "badge": "House favorite"
           }
         },
@@ -241,7 +241,7 @@
             "category": "cold",
             "subcategory": "Lemonades",
             "title": "Strawberry Lemonade",
-            "description": ""
+            "description": "<p>Lemonade with strawberry sweetness for a fruit-forward cold favorite.</p>"
           }
         },
         "cold_mint_lemonade": {
@@ -250,7 +250,7 @@
             "category": "cold",
             "subcategory": "Lemonades",
             "title": "Mint Lemonade",
-            "description": ""
+            "description": "<p>Fresh mint and citrus for a cooling lemonade with a clean herbal finish.</p>"
           }
         },
         "cold_strawberry_lime": {
@@ -259,7 +259,7 @@
             "category": "cold",
             "subcategory": "Lemonades",
             "title": "Strawberry Lime Lemonade",
-            "description": ""
+            "description": "<p>Strawberry, lime, and lemonade for a sweet-tart drink with a brighter edge.</p>"
           }
         },
         "cold_blueberry_lime": {
@@ -268,7 +268,7 @@
             "category": "cold",
             "subcategory": "Lemonades",
             "title": "Blueberry Lime Lemonade",
-            "description": ""
+            "description": "<p>Blueberry and lime layered into lemonade for a deeper berry-citrus profile.</p>"
           }
         },
         "cold_lime_mint": {
@@ -277,7 +277,7 @@
             "category": "cold",
             "subcategory": "Lemonades",
             "title": "Lime Mint Lemonade",
-            "description": ""
+            "description": "<p>A sharp lime lemonade finished with mint for guests who like it crisp and refreshing.</p>"
           }
         },
         "cold_mango_dragonfruit": {
@@ -286,7 +286,7 @@
             "category": "cold",
             "subcategory": "Refreshers",
             "title": "Mango Dragonfruit",
-            "description": ""
+            "description": "<p>A tropical refresher with mango sweetness and dragonfruit color.</p>"
           }
         },
         "cold_strawberry_acai": {
@@ -295,7 +295,7 @@
             "category": "cold",
             "subcategory": "Refreshers",
             "title": "Strawberry Acai Splash",
-            "description": ""
+            "description": "<p>Strawberry and acai flavors in a bright, easy-drinking refresher.</p>"
           }
         },
         "cold_hibiscus_berry_blast": {
@@ -304,7 +304,7 @@
             "category": "cold",
             "subcategory": "Refreshers",
             "title": "Hibiscus Berry Blast",
-            "description": ""
+            "description": "<p>Berry flavor with hibiscus-style tartness for a floral, fruit-forward cold drink.</p>"
           }
         },
         "cold_socotra_island_breeze": {
@@ -313,7 +313,7 @@
             "category": "cold",
             "subcategory": "Refreshers",
             "title": "Socotra Island Breeze",
-            "description": ""
+            "description": "<p>A refreshing house drink named for Socotra, made to feel tropical, bright, and memorable.</p>"
           }
         },
         "cold_mango_lime": {
@@ -322,7 +322,7 @@
             "category": "cold",
             "subcategory": "Refreshers",
             "title": "Mango Lime",
-            "description": ""
+            "description": "<p>Mango sweetness balanced with lime for a clean tropical refresher.</p>"
           }
         },
         "cold_mixed_berry": {
@@ -331,7 +331,7 @@
             "category": "cold",
             "subcategory": "Refreshers",
             "title": "Mixed Berry",
-            "description": ""
+            "description": "<p>A berry-forward refresher with a juicy, easy-to-share flavor.</p>"
           }
         },
         "smoothies_banana": {
@@ -339,7 +339,7 @@
           "settings": {
             "category": "smoothies",
             "title": "Banana Smoothie",
-            "description": ""
+            "description": "<p>A creamy banana smoothie for a simple, filling cold option.</p>"
           }
         },
         "smoothies_strawberry": {
@@ -347,7 +347,7 @@
           "settings": {
             "category": "smoothies",
             "title": "Strawberry Smoothie",
-            "description": ""
+            "description": "<p>A smooth strawberry drink with bright fruit sweetness and a creamy texture.</p>"
           }
         },
         "smoothies_mixed_berry": {
@@ -355,7 +355,7 @@
           "settings": {
             "category": "smoothies",
             "title": "Mixed Berry Smoothie",
-            "description": ""
+            "description": "<p>A blended berry smoothie for guests who want something cold, fruity, and full-bodied.</p>"
           }
         },
         "smoothies_mango": {
@@ -363,7 +363,7 @@
           "settings": {
             "category": "smoothies",
             "title": "Mango Smoothie",
-            "description": ""
+            "description": "<p>A tropical mango smoothie with a thick, sunny fruit profile.</p>"
           }
         }
       },
@@ -411,7 +411,38 @@
     },
     "locations": {
       "type": "locations-preview",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Visit Us",
+        "anchor_id": "locations",
+        "heading": "Coffee houses in Windsor and LaSalle",
+        "text": "Cafe drinks and menu items are served in person. Visit us for traditional drinks, signature lattes, cold favorites, desserts, and warm hospitality."
+      },
+      "blocks": {
+        "south_windsor": {
+          "type": "location",
+          "settings": {
+            "title": "South Windsor",
+            "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
+            "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
+            "phone": "519-915-0595",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3"
+          }
+        },
+        "lasalle": {
+          "type": "location",
+          "settings": {
+            "title": "LaSalle",
+            "address": "5881 Malden Rd\nLaSalle, ON",
+            "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.",
+            "phone": "519-915-1119",
+            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON"
+          }
+        }
+      },
+      "block_order": [
+        "south_windsor",
+        "lasalle"
+      ]
     }
   },
   "order": [

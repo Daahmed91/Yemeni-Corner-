@@ -690,6 +690,90 @@ button[disabled] {
   margin-bottom: clamp(30px, 5vw, 56px);
 }
 
+.heritage-section__inner {
+  position: relative;
+}
+
+.heritage-section__header {
+  max-width: 880px;
+}
+
+.heritage-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.heritage-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 248, 0.82);
+  box-shadow: 0 14px 40px rgba(74, 44, 42, 0.06);
+}
+
+.heritage-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -42px -48px auto;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(194, 136, 57, 0.16);
+  border-radius: 50%;
+}
+
+.heritage-card__kicker {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid rgba(194, 136, 57, 0.34);
+  border-radius: 999px;
+  color: var(--color-gold);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heritage-card h3 {
+  margin: 16px 0 10px;
+  color: var(--color-brown);
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 1.08;
+}
+
+.heritage-card .rte {
+  position: relative;
+  z-index: 1;
+  color: rgba(51, 51, 51, 0.76);
+}
+
+.heritage-card .rte p {
+  margin-bottom: 0;
+}
+
+.heritage-section__note {
+  max-width: 820px;
+  margin: 22px 0 0;
+  color: rgba(51, 51, 51, 0.64);
+  font-size: 0.9rem;
+}
+
+.section--brown .heritage-card {
+  background: rgba(255, 253, 248, 0.1);
+  border-color: rgba(255, 253, 248, 0.18);
+}
+
+.section--brown .heritage-card h3,
+.section--brown .heritage-card .rte,
+.section--brown .heritage-section__note {
+  color: rgba(255, 253, 248, 0.82);
+}
+
 .split {
   display: grid;
   align-items: center;
@@ -2220,6 +2304,7 @@ button[disabled] {
   }
 
   .brew-grid,
+  .heritage-grid,
   .menu-grid,
   .full-menu__list,
   .collection-grid,
@@ -2292,6 +2377,7 @@ button[disabled] {
   .trust-strip,
   .product-points,
   .brew-grid,
+  .heritage-grid,
   .menu-grid,
   .full-menu__list,
   .location-grid,
