@@ -50,6 +50,7 @@
         "mufawar": {
           "type": "favorite",
           "settings": {
+            "image": "shopify://shop_images/muf_coffee.png",
             "category": "Traditional",
             "title": "Mufawar Coffee",
             "description": "A Yemeni coffee house staple with aromatic spice and a generous finish.",
