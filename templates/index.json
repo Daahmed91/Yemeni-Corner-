@@ -88,6 +88,7 @@
         "saffron": {
           "type": "favorite",
           "settings": {
+            "image": "shopify://shop_images/1f09eeba-1637-4f7b-9d39-4dd8a0b20191.png",
             "category": "Dessert",
             "title": "Saffron Milk Cake",
             "description": "Soft, fragrant, and made to sit beside a slow coffee or tea.",
