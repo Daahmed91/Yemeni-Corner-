@@ -2019,7 +2019,7 @@ button[disabled] {
   inset: 0;
   border: 0;
   background: rgba(31, 20, 18, 0.44);
-  opacity: 0;
+  opacity: 1;
   transition: opacity 200ms ease;
 }
 
@@ -2040,7 +2040,7 @@ button[disabled] {
     radial-gradient(circle at 0% 0%, rgba(194, 136, 57, 0.16), transparent 16rem),
     var(--color-white);
   box-shadow: -26px 0 70px rgba(0, 0, 0, 0.24);
-  transform: translateX(100%);
+  transform: none;
   transition: transform 220ms var(--ease-out);
 }
 
@@ -2400,7 +2400,7 @@ button[disabled] {
     inset: 0;
     border: 0;
     background: rgba(0, 0, 0, 0.42);
-    opacity: 0;
+    opacity: 1;
     transition: opacity 180ms ease;
   }
 
@@ -2418,7 +2418,7 @@ button[disabled] {
       radial-gradient(circle at 0% 0%, rgba(194, 136, 57, 0.16), transparent 16rem),
       var(--color-white);
     box-shadow: -24px 0 60px rgba(0, 0, 0, 0.2);
-    transform: translateX(100%);
+    transform: none;
     transition: transform 220ms var(--ease-out);
   }
 
