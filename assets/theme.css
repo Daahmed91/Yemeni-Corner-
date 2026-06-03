@@ -28,7 +28,6 @@
 }
 
 html {
-  min-width: 320px;
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
