@@ -72,7 +72,7 @@
         "anchor_id": "",
         "eyebrow": "Cafe Hospitality",
         "heading": "The menu carries the memory",
-        "text": "<p>Adeni tea, Mufawar coffee, Sana'ani coffee, Qishr, pistachio lattes, date lattes, and cold refreshers are not just a list of drinks. They are the way Yemeni Corner introduces people to spice, sweetness, texture, and hospitality.</p><p>The cafe remains the fullest expression of the brand. The online coffee gives guests one focused way to take that feeling home.</p>",
+        "text": "<p>Adeni tea, Mufawar coffee, Sana'ani coffee, Qishr, pistachio lattes, date lattes, and cold refreshers are not just a list of drinks. They are the way Yemeni Corner introduces people to spice, sweetness, texture, and hospitality.</p>",
         "badge": "Traditional drinks. Modern cafe.",
         "button_label": "View Cafe Menu",
         "button_link": "/pages/menu"
@@ -86,7 +86,7 @@
         "anchor_id": "",
         "eyebrow": "Yemeni Corner Signature Blend",
         "heading": "One blend, chosen with intention",
-        "text": "<p>The online shop stays intentionally simple. Instead of asking guests to sort through a long catalog, Yemeni Corner leads with one whole bean coffee: a 340 g whole bean Yemeni Corner Signature Blend with warm spice, cocoa, and dried fruit notes.</p><p>It is built for people who want a dependable home brew with a stronger story behind it.</p>",
+        "text": "",
         "badge": "340 g whole bean coffee",
         "button_label": "Shop Signature Blend",
         "button_link": "/products/yemeni-corner-harraz-signature-roast"
