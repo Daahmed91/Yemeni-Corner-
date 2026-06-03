@@ -127,7 +127,7 @@
         "text": "<p>Yemeni Corner began with the feeling of the cafe: warm drinks, shared tables, late conversations, and flavors that invite people to stay. The online coffee is an extension of that welcome, made for people who want to bring the same sense of care into their own kitchen.</p><p>The Yemeni Corner Signature Blend keeps the choice simple: one 340 g whole bean coffee with a medium profile, built around warm spice, cocoa, and dried fruit notes.</p>",
         "badge": "Cafe warmth. Home ritual.",
         "button_label": "Read Our Story",
-        "button_link": "/#story"
+        "button_link": "shopify://pages/our-story"
       }
     },
     "heritage": {
