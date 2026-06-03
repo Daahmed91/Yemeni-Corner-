@@ -26,6 +26,12 @@
         "label": "Compact brand mark"
       },
       {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Upload a square PNG or JPG, ideally 32 x 32 px."
+      },
+      {
         "type": "text",
         "id": "brand_tagline",
         "label": "Brand tagline",
