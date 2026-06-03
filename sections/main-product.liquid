@@ -10,6 +10,10 @@
   if product_display_title contains 'Harraz'
     assign product_display_title = 'Yemeni Corner Signature Blend'
   endif
+  assign use_fallback_description = false
+  if product.description contains 'Signature Roast' or product.description contains 'Sourced from' or product.description contains 'Harraz mountains'
+    assign use_fallback_description = true
+  endif
 -%}
 
 <section class="section" data-section-id="{{ section.id }}">
@@ -150,7 +154,11 @@
         {% endcase %}
       {% endfor %}
 
-      {% if product.description != blank %}
+      {% if use_fallback_description %}
+        <div class="rte">
+          <p>{{ section.settings.description }}</p>
+        </div>
+      {% elsif product.description != blank %}
         <div class="rte">{{ product.description }}</div>
       {% else %}
         <p class="muted">{{ section.settings.description }}</p>
