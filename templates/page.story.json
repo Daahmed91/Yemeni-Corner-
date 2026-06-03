@@ -14,9 +14,10 @@
       "settings": {
         "background": "white",
         "image_position": "right",
+        "anchor_id": "",
         "eyebrow": "Our Story",
         "heading": "Yemeni Corner starts with welcome",
-        "text": "<p>Before Yemeni Corner is an online shop, it is a coffee house: a place for traditional drinks, family flavors, late conversations, and the kind of warmth that makes a cup feel generous.</p><p>The website should do the same thing the cafe does in person. It should slow the shopper down, tell them why the coffee matters, and give them a clear way to experience it at home or in one of our local cafes.</p>",
+        "text": "<p>Before Yemeni Corner is an online shop, it is a coffee house: a place for traditional drinks, family flavors, late conversations, and the kind of warmth that makes a cup feel generous.</p>",
         "badge": "Story before sale",
         "button_label": "Shop Signature Blend",
         "button_link": "/products/yemeni-corner-harraz-signature-roast"
@@ -24,13 +25,6 @@
     },
     "heritage": {
       "type": "heritage-timeline",
-      "settings": {
-        "background": "cream",
-        "eyebrow": "Yemen and Coffee",
-        "heading": "A heritage deeper than a flavor note",
-        "text": "Yemeni coffee history gives the brand real gravity. This section teaches that history while keeping the Yemeni Corner Signature Blend claims honest and specific.",
-        "note": "Use this page for public coffee education. Add farm, process, altitude, harvest, importer, or roast-date claims only after they are verified."
-      },
       "blocks": {
         "roots": {
           "type": "milestone",
@@ -61,13 +55,21 @@
         "roots",
         "mocha",
         "haraz"
-      ]
+      ],
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Yemen and Coffee",
+        "heading": "A heritage deeper than a flavor note",
+        "text": "Yemeni coffee history gives the brand real gravity. This section teaches that history while keeping the Yemeni Corner Signature Blend claims honest and specific.",
+        "note": "Use this page for public coffee education. Add farm, process, altitude, harvest, importer, or roast-date claims only after they are verified."
+      }
     },
     "cafe": {
       "type": "story-split",
       "settings": {
         "background": "white",
         "image_position": "left",
+        "anchor_id": "",
         "eyebrow": "Cafe Hospitality",
         "heading": "The menu carries the memory",
         "text": "<p>Adeni tea, Mufawar coffee, Sana'ani coffee, Qishr, pistachio lattes, date lattes, and cold refreshers are not just a list of drinks. They are the way Yemeni Corner introduces people to spice, sweetness, texture, and hospitality.</p><p>The cafe remains the fullest expression of the brand. The online coffee gives guests one focused way to take that feeling home.</p>",
@@ -81,6 +83,7 @@
       "settings": {
         "background": "brown",
         "image_position": "right",
+        "anchor_id": "",
         "eyebrow": "Yemeni Corner Signature Blend",
         "heading": "One blend, chosen with intention",
         "text": "<p>The online shop stays intentionally simple. Instead of asking guests to sort through a long catalog, Yemeni Corner leads with one whole bean coffee: a 340 g whole bean Yemeni Corner Signature Blend with warm spice, cocoa, and dried fruit notes.</p><p>It is built for people who want a dependable home brew with a stronger story behind it.</p>",
@@ -101,12 +104,6 @@
     },
     "locations": {
       "type": "locations-preview",
-      "settings": {
-        "eyebrow": "Visit Us",
-        "anchor_id": "locations",
-        "heading": "Come experience the story in person",
-        "text": "The full Yemeni Corner experience lives in the cafes: traditional drinks, signature lattes, cold favorites, desserts, and welcoming local spaces."
-      },
       "blocks": {
         "south_windsor": {
           "type": "location",
@@ -132,7 +129,13 @@
       "block_order": [
         "south_windsor",
         "lasalle"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Visit Us",
+        "anchor_id": "locations",
+        "heading": "Come experience the story in person",
+        "text": "The full Yemeni Corner experience lives in the cafes: traditional drinks, signature lattes, cold favorites, desserts, and welcoming local spaces."
+      }
     },
     "newsletter": {
       "type": "newsletter",
