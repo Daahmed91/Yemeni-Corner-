@@ -31,12 +31,24 @@ document.querySelectorAll('[data-drawer-open]').forEach((button) => {
   if (!drawer) return;
 
   const panel = drawer.querySelector('[role="dialog"]') || drawer;
+  const backdrop = drawer.querySelector('[data-drawer-close]');
   let previouslyFocused = null;
+
+  const setDrawerVisualState = (isOpen) => {
+    drawer.classList.toggle('is-open', isOpen);
+    if (backdrop) {
+      backdrop.style.opacity = isOpen ? '1' : '';
+    }
+    if (panel) {
+      panel.style.transform = isOpen ? 'translateX(0)' : '';
+    }
+  };
 
   const closeDrawer = () => {
     drawer.setAttribute('aria-hidden', 'true');
     button.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('drawer-open');
+    setDrawerVisualState(false);
 
     if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
       previouslyFocused.focus();
@@ -48,6 +60,7 @@ document.querySelectorAll('[data-drawer-open]').forEach((button) => {
     drawer.setAttribute('aria-hidden', 'false');
     button.setAttribute('aria-expanded', 'true');
     document.body.classList.add('drawer-open');
+    setDrawerVisualState(true);
 
     const focusable = getFocusable(panel);
     (focusable[0] || panel).focus();
@@ -209,6 +222,7 @@ document.querySelectorAll('[data-quantity]').forEach((quantity) => {
 
 const cartDrawer = document.querySelector('[data-cart-drawer]');
 const cartDrawerPanel = cartDrawer ? cartDrawer.querySelector('[role="dialog"]') : null;
+const cartDrawerBackdrop = cartDrawer ? cartDrawer.querySelector('.cart-drawer__backdrop') : null;
 const cartDrawerItems = cartDrawer ? cartDrawer.querySelector('[data-cart-drawer-items]') : null;
 const cartDrawerSubtotal = cartDrawer ? cartDrawer.querySelector('[data-cart-drawer-subtotal]') : null;
 let cartReturnFocus = null;
@@ -225,6 +239,11 @@ const escapeHtml = (value) =>
     return entities[character];
   });
 
+const displayProductTitle = (title) => {
+  const value = String(title || '');
+  return /Harraz/i.test(value) ? 'Yemeni Corner Signature Blend' : value;
+};
+
 const formatMoney = (cents, currency) => {
   const activeCurrency = currency || window.Shopify?.currency?.active || 'CAD';
   return new Intl.NumberFormat(undefined, {
@@ -237,7 +256,12 @@ const openCartDrawer = (returnFocus) => {
   if (!cartDrawer || !cartDrawerPanel) return;
   cartReturnFocus = returnFocus || document.activeElement;
   cartDrawer.setAttribute('aria-hidden', 'false');
+  cartDrawer.classList.add('is-open');
   document.body.classList.add('drawer-open');
+  if (cartDrawerBackdrop) {
+    cartDrawerBackdrop.style.opacity = '1';
+  }
+  cartDrawerPanel.style.transform = 'translateX(0)';
   const focusable = getFocusable(cartDrawerPanel);
   (focusable[0] || cartDrawerPanel).focus();
 };
@@ -245,7 +269,14 @@ const openCartDrawer = (returnFocus) => {
 const closeCartDrawer = () => {
   if (!cartDrawer) return;
   cartDrawer.setAttribute('aria-hidden', 'true');
+  cartDrawer.classList.remove('is-open');
   document.body.classList.remove('drawer-open');
+  if (cartDrawerBackdrop) {
+    cartDrawerBackdrop.style.opacity = '';
+  }
+  if (cartDrawerPanel) {
+    cartDrawerPanel.style.transform = '';
+  }
 
   if (cartReturnFocus && typeof cartReturnFocus.focus === 'function') {
     cartReturnFocus.focus();
@@ -263,14 +294,15 @@ const renderCartDrawer = (cart) => {
       .slice(0, 4)
       .map((item) => {
         const image = item.image || fallbackImage;
+        const title = displayProductTitle(item.product_title);
         const variant = item.variant_title && item.variant_title !== 'Default Title' ? `<p>${escapeHtml(item.variant_title)}</p>` : '';
         return `
           <article class="cart-drawer__item">
             <div class="cart-drawer__image">
-              <img src="${escapeHtml(image)}" alt="${escapeHtml(item.product_title)}" loading="lazy">
+              <img src="${escapeHtml(image)}" alt="${escapeHtml(title)}" loading="lazy">
             </div>
             <div>
-              <h3>${escapeHtml(item.product_title)}</h3>
+              <h3>${escapeHtml(title)}</h3>
               ${variant}
               <p>${item.quantity} x ${formatMoney(item.final_price, cart.currency)}</p>
             </div>

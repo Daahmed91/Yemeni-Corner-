@@ -7,6 +7,7 @@
   if primary_url == blank
     assign primary_url = routes.all_products_collection_url
   endif
+  assign featured_product_title = 'Yemeni Corner Signature Blend'
 
   assign locations_page = pages['locations']
   assign fallback_locations_url = routes.root_url | append: '#locations'
@@ -76,7 +77,7 @@
                 widths: '220, 360, 480, 640',
                 sizes: '(min-width: 960px) 220px, 38vw',
                 loading: 'lazy',
-                alt: featured_product.title
+                alt: featured_product_title
             }}
           {% else %}
             <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="" width="900" height="1100" loading="lazy">

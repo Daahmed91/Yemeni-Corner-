@@ -9,6 +9,7 @@
   if story_page != blank
     assign story_url = story_page.url
   endif
+  assign display_title = section.settings.heading | default: 'Yemeni Corner Signature Blend'
 -%}
 
 <section class="section" data-section-id="{{ section.id }}">
@@ -23,7 +24,7 @@
             widths: '480, 720, 960, 1200',
             sizes: '(min-width: 960px) 42vw, 92vw',
             loading: 'lazy',
-            alt: featured_product.featured_media.alt | default: featured_product.title
+            alt: display_title
         }}
       {% else %}
         <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="Yemeni Corner Signature Blend coffee bag" width="1100" height="1300" loading="lazy">
@@ -32,13 +33,7 @@
 
     <div class="featured-product__content" data-reveal>
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
-      <h2 class="heading-lg">
-        {% if featured_product != blank %}
-          {{ featured_product.title }}
-        {% else %}
-          {{ section.settings.heading }}
-        {% endif %}
-      </h2>
+      <h2 class="heading-lg">{{ display_title }}</h2>
       <p class="lead">{{ section.settings.text }}</p>
 
       {% if featured_product != blank %}
