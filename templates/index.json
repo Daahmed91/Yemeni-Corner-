@@ -39,6 +39,7 @@
         "adeni": {
           "type": "favorite",
           "settings": {
+            "image": "shopify://shop_images/chai.png",
             "category": "Traditional",
             "title": "Adeni Tea",
             "description": "Black tea, milk, and warming spice with the comfort of a shared table.",
@@ -48,6 +49,7 @@
         "mufawar": {
           "type": "favorite",
           "settings": {
+            "image": "shopify://shop_images/muf_coffee.png",
             "category": "Traditional",
             "title": "Mufawar Coffee",
             "description": "A Yemeni coffee house staple with aromatic spice and a generous finish.",
