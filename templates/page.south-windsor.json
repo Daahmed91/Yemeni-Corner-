@@ -1,0 +1,112 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "location-landing",
+      "settings": {
+        "location_key": "south_windsor",
+        "location_name": "Yemeni Corner South Windsor",
+        "eyebrow": "South Windsor Cafe",
+        "heading": "Yemeni coffee in South Windsor",
+        "text": "Visit Yemeni Corner on Cabana Road East for traditional Yemeni drinks, signature lattes, cold favorites, desserts, and warm cafe hospitality. Stop in for the full menu, or order the Yemeni Corner Signature Blend online when you want to brew it at home.",
+        "badge_label": "South Windsor",
+        "badge_text": "Traditional drinks, desserts, and whole bean coffee nearby.",
+        "highlight_1": "Cabana Road East",
+        "highlight_2": "Traditional Yemeni drinks",
+        "highlight_3": "Late cafe hours",
+        "details_heading": "Find Yemeni Corner on Cabana Road East",
+        "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
+        "street_address": "350 Cabana Rd E",
+        "city": "Windsor",
+        "region": "ON",
+        "postal_code": "N9G 1A3",
+        "country": "CA",
+        "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
+        "phone": "519-915-0595",
+        "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3",
+        "map_embed_url": "https://www.google.com/maps?q=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3&output=embed",
+        "menu_url": "/pages/menu",
+        "locations_url": "/pages/locations",
+        "featured_product": "yemeni-corner-harraz-signature-roast",
+        "product_url": "/products/yemeni-corner-harraz-signature-roast",
+        "experience_eyebrow": "South Windsor Menu",
+        "experience_heading": "A local cafe stop for Yemeni coffee, tea, and sweets",
+        "experience_text": "<p>Come in for Adeni tea, Mufawar coffee, Yemeni-inspired lattes, cold drinks, smoothies, and desserts. The online shop stays focused on the Yemeni Corner Signature Blend when you want to bring the cafe ritual home.</p>",
+        "menu_label": "View the Cafe Menu",
+        "product_label": "Shop Signature Blend",
+        "links_heading": "Plan a visit or keep shopping",
+        "other_location_label": "Visit LaSalle",
+        "other_location_url": "/pages/lasalle",
+        "enable_structured_data": true
+      }
+    },
+    "featured": {
+      "type": "featured-signature-product",
+      "settings": {
+        "product": "yemeni-corner-harraz-signature-roast",
+        "eyebrow": "Brew It At Home",
+        "heading": "Yemeni Corner Signature Blend",
+        "text": "After a South Windsor cafe visit, keep the ritual close with a 340 g whole bean coffee built around warm spice, cocoa, and dried fruit notes.",
+        "button_label": "Shop Signature Blend"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "South Windsor FAQ",
+        "heading": "Before you visit"
+      },
+      "blocks": {
+        "menu": {
+          "type": "question",
+          "settings": {
+            "question": "Can I see the cafe menu before visiting South Windsor?",
+            "answer": "<p>Yes. Use the cafe menu page to browse traditional drinks, espresso drinks, cold drinks, smoothies, and cafe favorites. Cafe drinks are served in person.</p>"
+          }
+        },
+        "coffee": {
+          "type": "question",
+          "settings": {
+            "question": "Can I buy Yemeni Corner coffee online?",
+            "answer": "<p>Yes. The online shop focuses on the Yemeni Corner Signature Blend, a 340 g whole bean coffee for home brewing.</p>"
+          }
+        },
+        "hours": {
+          "type": "question",
+          "settings": {
+            "question": "Are holiday hours different?",
+            "answer": "<p>Holiday hours can change. For same-day questions, calling the South Windsor cafe is the fastest way to confirm.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "menu",
+        "coffee",
+        "hours"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Coffee Notes",
+        "heading": "Stay close to the next cup",
+        "text": "Join for brewing tips, cafe updates, and future details about Yemeni Corner coffee.",
+        "button_label": "Join"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured",
+    "faq",
+    "newsletter"
+  ]
+}

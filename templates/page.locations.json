@@ -25,7 +25,8 @@
             "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
             "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
             "phone": "519-915-0595",
-            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3"
+            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3",
+            "page_link": "/pages/south-windsor"
           }
         },
         "lasalle": {
@@ -35,7 +36,8 @@
             "address": "5881 Malden Rd\nLaSalle, ON",
             "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.",
             "phone": "519-915-1119",
-            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON"
+            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON",
+            "page_link": "/pages/lasalle"
           }
         }
       },

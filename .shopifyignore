@@ -4,7 +4,11 @@ node_modules/*
 .env
 .env.*
 README.md
+*.md
 package.json
 theme.zip
 *.zip
-templates/policy.json
+launch/**
+.gitattributes
+.gitignore
+.theme-check.yml

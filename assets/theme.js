@@ -5,8 +5,84 @@ const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, se
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const motionEnabled = document.body.classList.contains('motion-enabled') && !reducedMotion.matches;
 
+const normalizeDatasetKey = (key) =>
+  key
+    .replace(/^ycEvent/, '')
+    .replace(/[A-Z]/g, (character) => `_${character.toLowerCase()}`)
+    .replace(/^_/, '');
+
+const eventPayloadFromElement = (element) => {
+  const payload = {
+    path: window.location.pathname
+  };
+
+  Object.entries(element.dataset).forEach(([key, value]) => {
+    if (!key.startsWith('ycEvent') || key === 'ycEvent' || value === '') return;
+    payload[normalizeDatasetKey(key)] = value;
+  });
+
+  return payload;
+};
+
+const emitYcEvent = (eventName, payload = {}) => {
+  if (!eventName) return;
+
+  const eventPayload = {
+    ...payload,
+    path: payload.path || window.location.pathname
+  };
+
+  try {
+    window.Shopify?.analytics?.publish?.(eventName, eventPayload);
+  } catch (error) {
+    // Keep storefront interactions working if a pixel sandbox rejects a custom event.
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: eventName,
+    ...eventPayload
+  });
+
+  window.dispatchEvent(new CustomEvent(`yc:${eventName}`, { detail: eventPayload }));
+};
+
+window.ycTrackEvent = emitYcEvent;
+
 const getFocusable = (container) =>
   Array.from(container.querySelectorAll(focusableSelectors)).filter((element) => element.offsetParent !== null);
+
+document.addEventListener('click', (event) => {
+  if (!(event.target instanceof Element)) return;
+  const trackedElement = event.target.closest('[data-yc-event]');
+  if (!trackedElement) return;
+
+  emitYcEvent(trackedElement.dataset.ycEvent, eventPayloadFromElement(trackedElement));
+});
+
+document.addEventListener(
+  'submit',
+  (event) => {
+    const form = event.target;
+    if (!form.closest('[data-yc-newsletter-form]')) return;
+    if (typeof form.checkValidity === 'function' && !form.checkValidity()) return;
+
+    emitYcEvent('newsletter_signup', {
+      source: 'newsletter_form'
+    });
+  },
+  true
+);
+
+document.querySelectorAll('[data-yc-view-item]').forEach((item) => {
+  emitYcEvent('view_item', eventPayloadFromElement(item));
+});
+
+if (/\/pages\/menu\/?$/.test(window.location.pathname)) {
+  emitYcEvent('menu_view', {
+    source: 'page_load'
+  });
+}
 
 const trapTab = (event, container) => {
   if (event.key !== 'Tab') return;
@@ -175,7 +251,7 @@ document.querySelectorAll('[data-menu-filter]').forEach((filters) => {
     buttons.forEach((button) => {
       const isActive = button.dataset.menuFilterButton === category;
       button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-selected', String(isActive));
+      button.setAttribute('aria-pressed', String(isActive));
     });
 
     cards.forEach((card) => {
@@ -351,14 +427,25 @@ document.querySelectorAll('form.product-form').forEach((form) => {
     }
 
     try {
+      const formData = new FormData(form);
       const response = await fetch('/cart/add.js', {
         method: 'POST',
         headers: { Accept: 'application/json' },
-        body: new FormData(form)
+        body: formData
       });
 
       if (!response.ok) throw new Error('Cart add failed');
-      await response.json();
+      const addedItem = await response.json();
+
+      emitYcEvent('add_to_cart', {
+        source: 'ajax_product_form',
+        item_id: addedItem.product_id,
+        item_name: displayProductTitle(addedItem.product_title),
+        variant_id: addedItem.variant_id || formData.get('id'),
+        quantity: addedItem.quantity || formData.get('quantity') || 1,
+        price: Number(addedItem.final_price || 0) / 100,
+        currency: window.Shopify?.currency?.active || 'CAD'
+      });
 
       const cartResponse = await fetch('/cart.js', { headers: { Accept: 'application/json' } });
       const cart = await cartResponse.json();

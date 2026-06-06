@@ -1,0 +1,112 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "location-landing",
+      "settings": {
+        "location_key": "lasalle",
+        "location_name": "Yemeni Corner LaSalle",
+        "eyebrow": "LaSalle Cafe",
+        "heading": "Yemeni coffee in LaSalle",
+        "text": "Visit Yemeni Corner on Malden Road for traditional Yemeni drinks, signature lattes, cold favorites, desserts, and warm cafe hospitality. Stop in for the full menu, or order the Yemeni Corner Signature Blend online when you want to brew it at home.",
+        "badge_label": "LaSalle",
+        "badge_text": "Traditional drinks, desserts, and whole bean coffee nearby.",
+        "highlight_1": "Malden Road",
+        "highlight_2": "Traditional Yemeni drinks",
+        "highlight_3": "Coffee and desserts",
+        "details_heading": "Find Yemeni Corner on Malden Road",
+        "address": "5881 Malden Rd\nLaSalle, ON",
+        "street_address": "5881 Malden Rd",
+        "city": "LaSalle",
+        "region": "ON",
+        "postal_code": "",
+        "country": "CA",
+        "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.",
+        "phone": "519-915-1119",
+        "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON",
+        "map_embed_url": "https://www.google.com/maps?q=5881%20Malden%20Rd%20LaSalle%20ON&output=embed",
+        "menu_url": "/pages/menu",
+        "locations_url": "/pages/locations",
+        "featured_product": "yemeni-corner-harraz-signature-roast",
+        "product_url": "/products/yemeni-corner-harraz-signature-roast",
+        "experience_eyebrow": "LaSalle Menu",
+        "experience_heading": "A local cafe stop for Yemeni coffee, tea, and sweets",
+        "experience_text": "<p>Come in for Adeni tea, Mufawar coffee, Yemeni-inspired lattes, cold drinks, smoothies, and desserts. The online shop stays focused on the Yemeni Corner Signature Blend when you want to bring the cafe ritual home.</p>",
+        "menu_label": "View the Cafe Menu",
+        "product_label": "Shop Signature Blend",
+        "links_heading": "Plan a visit or keep shopping",
+        "other_location_label": "Visit South Windsor",
+        "other_location_url": "/pages/south-windsor",
+        "enable_structured_data": true
+      }
+    },
+    "featured": {
+      "type": "featured-signature-product",
+      "settings": {
+        "product": "yemeni-corner-harraz-signature-roast",
+        "eyebrow": "Brew It At Home",
+        "heading": "Yemeni Corner Signature Blend",
+        "text": "After a LaSalle cafe visit, keep the ritual close with a 340 g whole bean coffee built around warm spice, cocoa, and dried fruit notes.",
+        "button_label": "Shop Signature Blend"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "LaSalle FAQ",
+        "heading": "Before you visit"
+      },
+      "blocks": {
+        "menu": {
+          "type": "question",
+          "settings": {
+            "question": "Can I see the cafe menu before visiting LaSalle?",
+            "answer": "<p>Yes. Use the cafe menu page to browse traditional drinks, espresso drinks, cold drinks, smoothies, and cafe favorites. Cafe drinks are served in person.</p>"
+          }
+        },
+        "coffee": {
+          "type": "question",
+          "settings": {
+            "question": "Can I buy Yemeni Corner coffee online?",
+            "answer": "<p>Yes. The online shop focuses on the Yemeni Corner Signature Blend, a 340 g whole bean coffee for home brewing.</p>"
+          }
+        },
+        "hours": {
+          "type": "question",
+          "settings": {
+            "question": "Are holiday hours different?",
+            "answer": "<p>Holiday hours can change. For same-day questions, calling the LaSalle cafe is the fastest way to confirm.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "menu",
+        "coffee",
+        "hours"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Coffee Notes",
+        "heading": "Stay close to the next cup",
+        "text": "Join for brewing tips, cafe updates, and future details about Yemeni Corner coffee.",
+        "button_label": "Join"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured",
+    "faq",
+    "newsletter"
+  ]
+}

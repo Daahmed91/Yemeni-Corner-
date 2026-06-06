@@ -15,7 +15,8 @@
     assign locations_url = locations_page.url
   endif
   assign contact_url = contact_page.url | default: '/pages/contact'
-  assign shop_button_url = section.settings.shop_button_link | default: routes.all_products_collection_url
+  assign shop_url = section.settings.shop_link | default: routes.all_products_collection_url
+  assign shop_button_url = section.settings.shop_button_link | default: shop_url
 -%}
 
 <header class="site-header" data-section-id="{{ section.id }}">
@@ -48,7 +49,7 @@
       <ul class="site-nav__list">
         {% if section.settings.use_curated_navigation %}
           <li><a class="site-nav__link" href="{{ routes.root_url }}">Home</a></li>
-          <li><a class="site-nav__link" href="{{ routes.all_products_collection_url }}">Shop Coffee</a></li>
+          <li><a class="site-nav__link" href="{{ shop_url }}">Shop Coffee</a></li>
           <li><a class="site-nav__link" href="{{ story_url }}">Story</a></li>
           <li><a class="site-nav__link" href="{{ menu_url }}">Cafe Menu</a></li>
           <li><a class="site-nav__link" href="{{ locations_url }}">Locations</a></li>
@@ -61,7 +62,7 @@
           {% endfor %}
         {% else %}
           <li><a class="site-nav__link" href="{{ routes.root_url }}">Home</a></li>
-          <li><a class="site-nav__link" href="{{ routes.all_products_collection_url }}">Shop Coffee</a></li>
+          <li><a class="site-nav__link" href="{{ shop_url }}">Shop Coffee</a></li>
           <li><a class="site-nav__link" href="{{ story_url }}">Story</a></li>
           <li><a class="site-nav__link" href="{{ menu_url }}">Cafe Menu</a></li>
           <li><a class="site-nav__link" href="{{ locations_url }}">Locations</a></li>
@@ -103,7 +104,7 @@
     <nav class="mobile-drawer__nav" aria-label="Mobile navigation">
       {% if section.settings.use_curated_navigation %}
         <a href="{{ routes.root_url }}">Home</a>
-        <a href="{{ routes.all_products_collection_url }}">Shop Coffee</a>
+        <a href="{{ shop_url }}">Shop Coffee</a>
         <a href="{{ story_url }}">Story</a>
         <a href="{{ menu_url }}">Cafe Menu</a>
         <a href="{{ locations_url }}">Locations</a>
@@ -115,7 +116,7 @@
         {% endfor %}
       {% else %}
         <a href="{{ routes.root_url }}">Home</a>
-        <a href="{{ routes.all_products_collection_url }}">Shop Coffee</a>
+        <a href="{{ shop_url }}">Shop Coffee</a>
         <a href="{{ story_url }}">Story</a>
         <a href="{{ menu_url }}">Cafe Menu</a>
         <a href="{{ locations_url }}">Locations</a>
@@ -141,6 +142,11 @@
       "id": "use_curated_navigation",
       "label": "Use curated coffee navigation",
       "default": true
+    },
+    {
+      "type": "url",
+      "id": "shop_link",
+      "label": "Shop Coffee navigation link"
     },
     {
       "type": "checkbox",

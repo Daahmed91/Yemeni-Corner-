@@ -1,0 +1,484 @@
+{%- liquid
+  assign location_name = section.settings.location_name | default: page.title
+  assign phone_number = section.settings.phone
+  assign phone_href = phone_number | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | remove: '.'
+
+  assign menu_page = pages['menu']
+  assign menu_url = section.settings.menu_url
+  if menu_url == blank
+    assign menu_url = menu_page.url | default: '/pages/menu'
+  endif
+
+  assign locations_page = pages['locations']
+  assign locations_url = section.settings.locations_url
+  if locations_url == blank
+    assign locations_url = locations_page.url | default: '/pages/locations'
+  endif
+
+  assign product = all_products[section.settings.featured_product]
+  assign product_url = section.settings.product_url
+  if product_url == blank and product != blank
+    assign product_url = product.url
+  endif
+  if product_url == blank
+    assign product_url = routes.all_products_collection_url
+  endif
+
+  assign contact_page = pages['contact']
+  assign contact_url = contact_page.url | default: '/pages/contact'
+
+  assign fallback_hero = 'yc-cafe-yemeni-latte.webp'
+  assign fallback_gallery_1 = 'yc-cafe-adeni-tea.webp'
+  assign fallback_gallery_2 = 'yc-cafe-mufawar.webp'
+  assign fallback_gallery_3 = 'yc-cafe-saffron-milk-cake.webp'
+  if section.settings.location_key == 'lasalle'
+    assign fallback_hero = 'yc-cafe-pistachio-latte.webp'
+    assign fallback_gallery_1 = 'yc-cafe-tawahi-lemonade.webp'
+    assign fallback_gallery_2 = 'yc-cafe-pistachio-latte.webp'
+    assign fallback_gallery_3 = 'yc-cafe-saffron-milk-cake.webp'
+  endif
+-%}
+
+{% if section.settings.enable_structured_data %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": {{ location_name | json }},
+      "url": {{ canonical_url | json }},
+      "telephone": {{ phone_number | json }},
+      "servesCuisine": ["Yemeni coffee", "Coffee", "Tea", "Dessert"],
+      "image": {{ fallback_hero | asset_url | prepend: 'https:' | json }},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": {{ section.settings.street_address | json }},
+        "addressLocality": {{ section.settings.city | json }},
+        "addressRegion": {{ section.settings.region | json }},
+        {% if section.settings.postal_code != blank %}
+          "postalCode": {{ section.settings.postal_code | json }},
+        {% endif %}
+        "addressCountry": {{ section.settings.country | json }}
+      }
+    }
+  </script>
+{% endif %}
+
+<section class="location-landing" data-section-id="{{ section.id }}" data-yc-location-page="{{ location_name | escape }}">
+  <div class="location-landing__hero">
+    <div class="page-width location-landing__hero-inner">
+      <div class="location-landing__copy" data-reveal>
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1 class="heading-xl">{{ section.settings.heading }}</h1>
+        <p class="lead">{{ section.settings.text }}</p>
+
+        <div class="button-row">
+          {% if phone_number != blank %}
+            <a
+              class="button"
+              href="tel:{{ phone_href }}"
+              data-yc-event="phone_click"
+              data-yc-event-location="{{ location_name | escape }}"
+              data-yc-event-source="location_page"
+            >
+              Call {{ phone_number }}
+            </a>
+          {% endif %}
+          {% if section.settings.map_link != blank %}
+            <a
+              class="button button--secondary"
+              href="{{ section.settings.map_link }}"
+              data-yc-event="directions_click"
+              data-yc-event-location="{{ location_name | escape }}"
+              data-yc-event-source="location_page"
+            >
+              Get Directions
+            </a>
+          {% endif %}
+          <a
+            class="button button--secondary"
+            href="{{ menu_url }}"
+            data-yc-event="menu_view"
+            data-yc-event-location="{{ location_name | escape }}"
+            data-yc-event-source="location_page"
+          >
+            View Menu
+          </a>
+        </div>
+
+        <div class="location-landing__quickfacts" aria-label="Location highlights">
+          <span>{{ section.settings.highlight_1 }}</span>
+          <span>{{ section.settings.highlight_2 }}</span>
+          <span>{{ section.settings.highlight_3 }}</span>
+        </div>
+      </div>
+
+      <div class="location-landing__media" data-reveal data-parallax data-parallax-speed="0.025">
+        {% if section.settings.hero_image != blank %}
+          {% render 'responsive-image',
+            image: section.settings.hero_image,
+            width: 1400,
+            sizes: '(min-width: 960px) 46vw, 92vw',
+            alt: section.settings.hero_image.alt | default: location_name
+          %}
+        {% else %}
+          <img src="{{ fallback_hero | asset_url }}" alt="{{ location_name | escape }} cafe favorite" width="900" height="680" loading="eager">
+        {% endif %}
+        <div class="location-landing__badge">
+          <span>{{ section.settings.badge_label }}</span>
+          <strong>{{ section.settings.badge_text }}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="page-width location-landing__details">
+      <div class="location-landing__panel" data-reveal>
+        <p class="eyebrow">Visit</p>
+        <h2 class="heading-md">{{ section.settings.details_heading }}</h2>
+        <div class="location-landing__info-grid">
+          <div>
+            <span>Address</span>
+            <address>{{ section.settings.address | newline_to_br }}</address>
+          </div>
+          <div>
+            <span>Hours</span>
+            <p>{{ section.settings.hours | newline_to_br }}</p>
+          </div>
+          <div>
+            <span>Phone</span>
+            {% if phone_number != blank %}
+              <a
+                href="tel:{{ phone_href }}"
+                data-yc-event="phone_click"
+                data-yc-event-location="{{ location_name | escape }}"
+                data-yc-event-source="location_details"
+              >
+                {{ phone_number }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="location-landing__map" data-reveal>
+        {% if section.settings.map_embed_url != blank %}
+          <iframe
+            src="{{ section.settings.map_embed_url }}"
+            title="Map to {{ location_name | escape }}"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        {% elsif section.settings.map_link != blank %}
+          <div class="location-landing__map-fallback">
+            <p>Open the map for directions to {{ location_name }}.</p>
+            <a
+              class="button"
+              href="{{ section.settings.map_link }}"
+              data-yc-event="directions_click"
+              data-yc-event-location="{{ location_name | escape }}"
+              data-yc-event-source="map_fallback"
+            >
+              Open Map
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--cream">
+    <div class="page-width location-landing__experience">
+      <div class="section-header" data-reveal>
+        <p class="eyebrow">{{ section.settings.experience_eyebrow }}</p>
+        <h2 class="heading-lg">{{ section.settings.experience_heading }}</h2>
+        <div class="lead rte">{{ section.settings.experience_text }}</div>
+        <div class="button-row">
+          <a
+            class="button"
+            href="{{ menu_url }}"
+            data-yc-event="menu_view"
+            data-yc-event-location="{{ location_name | escape }}"
+            data-yc-event-source="experience_cta"
+          >
+            {{ section.settings.menu_label }}
+          </a>
+          <a class="button button--secondary" href="{{ product_url }}">{{ section.settings.product_label }}</a>
+        </div>
+      </div>
+
+      <div class="location-landing__gallery" aria-label="{{ location_name | escape }} cafe photos">
+        <div class="location-landing__photo" data-reveal>
+          {% if section.settings.gallery_image_1 != blank %}
+            {{ section.settings.gallery_image_1 | image_url: width: 900 | image_tag: widths: '320, 480, 640, 900', sizes: '(min-width: 960px) 31vw, 92vw', loading: 'lazy', alt: section.settings.gallery_image_1.alt | default: location_name }}
+          {% else %}
+            <img src="{{ fallback_gallery_1 | asset_url }}" alt="{{ location_name | escape }} cafe drink" width="900" height="680" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="location-landing__photo" data-reveal>
+          {% if section.settings.gallery_image_2 != blank %}
+            {{ section.settings.gallery_image_2 | image_url: width: 900 | image_tag: widths: '320, 480, 640, 900', sizes: '(min-width: 960px) 31vw, 92vw', loading: 'lazy', alt: section.settings.gallery_image_2.alt | default: location_name }}
+          {% else %}
+            <img src="{{ fallback_gallery_2 | asset_url }}" alt="{{ location_name | escape }} Yemeni coffee" width="900" height="680" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="location-landing__photo" data-reveal>
+          {% if section.settings.gallery_image_3 != blank %}
+            {{ section.settings.gallery_image_3 | image_url: width: 900 | image_tag: widths: '320, 480, 640, 900', sizes: '(min-width: 960px) 31vw, 92vw', loading: 'lazy', alt: section.settings.gallery_image_3.alt | default: location_name }}
+          {% else %}
+            <img src="{{ fallback_gallery_3 | asset_url }}" alt="{{ location_name | escape }} cafe dessert" width="900" height="680" loading="lazy">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="page-width location-landing__links" data-reveal>
+      <div>
+        <p class="eyebrow">Keep Exploring</p>
+        <h2 class="heading-md">{{ section.settings.links_heading }}</h2>
+      </div>
+      <div class="location-landing__link-list">
+        <a href="{{ locations_url }}">All locations</a>
+        <a href="{{ menu_url }}" data-yc-event="menu_view" data-yc-event-location="{{ location_name | escape }}" data-yc-event-source="internal_links">Cafe menu</a>
+        <a href="{{ section.settings.other_location_url }}">{{ section.settings.other_location_label }}</a>
+        <a href="{{ contact_url }}">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Location landing",
+  "settings": [
+    {
+      "type": "select",
+      "id": "location_key",
+      "label": "Location fallback photo set",
+      "default": "south_windsor",
+      "options": [
+        { "value": "south_windsor", "label": "South Windsor" },
+        { "value": "lasalle", "label": "LaSalle" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "location_name",
+      "label": "Location name",
+      "default": "Yemeni Corner South Windsor"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Yemeni Corner Cafe"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Yemeni coffee in South Windsor"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Intro text",
+      "default": "Visit Yemeni Corner for traditional Yemeni drinks, signature lattes, desserts, cold favorites, and warm cafe hospitality."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Hero badge label",
+      "default": "Local cafe"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Hero badge text",
+      "default": "Traditional drinks, desserts, and the Signature Blend nearby."
+    },
+    {
+      "type": "text",
+      "id": "highlight_1",
+      "label": "Highlight 1",
+      "default": "Traditional drinks"
+    },
+    {
+      "type": "text",
+      "id": "highlight_2",
+      "label": "Highlight 2",
+      "default": "Signature lattes"
+    },
+    {
+      "type": "text",
+      "id": "highlight_3",
+      "label": "Highlight 3",
+      "default": "Cafe desserts"
+    },
+    {
+      "type": "text",
+      "id": "details_heading",
+      "label": "Details heading",
+      "default": "Address, hours, and directions"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Display address",
+      "default": "350 Cabana Rd E\nWindsor, ON N9G 1A3"
+    },
+    {
+      "type": "text",
+      "id": "street_address",
+      "label": "Schema street address",
+      "default": "350 Cabana Rd E"
+    },
+    {
+      "type": "text",
+      "id": "city",
+      "label": "Schema city",
+      "default": "Windsor"
+    },
+    {
+      "type": "text",
+      "id": "region",
+      "label": "Schema region",
+      "default": "ON"
+    },
+    {
+      "type": "text",
+      "id": "postal_code",
+      "label": "Schema postal code",
+      "default": "N9G 1A3"
+    },
+    {
+      "type": "text",
+      "id": "country",
+      "label": "Schema country",
+      "default": "CA"
+    },
+    {
+      "type": "textarea",
+      "id": "hours",
+      "label": "Hours",
+      "default": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "519-915-0595"
+    },
+    {
+      "type": "url",
+      "id": "map_link",
+      "label": "Directions link"
+    },
+    {
+      "type": "url",
+      "id": "map_embed_url",
+      "label": "Map embed URL"
+    },
+    {
+      "type": "url",
+      "id": "menu_url",
+      "label": "Menu URL"
+    },
+    {
+      "type": "url",
+      "id": "locations_url",
+      "label": "Locations URL"
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Featured product"
+    },
+    {
+      "type": "url",
+      "id": "product_url",
+      "label": "Product URL fallback"
+    },
+    {
+      "type": "text",
+      "id": "experience_eyebrow",
+      "label": "Experience eyebrow",
+      "default": "Cafe Experience"
+    },
+    {
+      "type": "text",
+      "id": "experience_heading",
+      "label": "Experience heading",
+      "default": "A local stop for Yemeni coffee, tea, and sweets"
+    },
+    {
+      "type": "richtext",
+      "id": "experience_text",
+      "label": "Experience text",
+      "default": "<p>Come in for Adeni tea, Mufawar coffee, Yemeni-inspired lattes, cold drinks, smoothies, and desserts. The online shop stays focused on the Yemeni Corner Signature Blend when you want to brew the ritual at home.</p>"
+    },
+    {
+      "type": "text",
+      "id": "menu_label",
+      "label": "Menu button label",
+      "default": "Explore the Cafe Menu"
+    },
+    {
+      "type": "text",
+      "id": "product_label",
+      "label": "Product button label",
+      "default": "Shop Signature Blend"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_1",
+      "label": "Gallery image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_2",
+      "label": "Gallery image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_3",
+      "label": "Gallery image 3"
+    },
+    {
+      "type": "text",
+      "id": "links_heading",
+      "label": "Internal links heading",
+      "default": "Plan a visit or keep shopping"
+    },
+    {
+      "type": "text",
+      "id": "other_location_label",
+      "label": "Other location label",
+      "default": "Visit LaSalle"
+    },
+    {
+      "type": "url",
+      "id": "other_location_url",
+      "label": "Other location URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_structured_data",
+      "label": "Add location structured data",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Location landing"
+    }
+  ]
+}
+{% endschema %}

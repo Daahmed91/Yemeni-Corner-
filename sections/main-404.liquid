@@ -1,9 +1,38 @@
+{%- liquid
+  assign current_path = request.path | downcase
+  assign redirect_target = ''
+
+  case current_path
+    when '/contact-us', '/contact-us/'
+      assign redirect_target = '/pages/contact'
+    when '/menus', '/menus/'
+      assign redirect_target = '/pages/menu'
+    when '/online-ordering', '/online-ordering/'
+      assign redirect_target = '/pages/menu'
+    when '/this-is-us', '/this-is-us/'
+      assign redirect_target = routes.root_url | append: '#story'
+  endcase
+-%}
+
+{% if redirect_target != blank %}
+  <script>
+    window.location.replace({{ redirect_target | json }});
+  </script>
+{% endif %}
+
 <section class="section" data-section-id="{{ section.id }}">
   <div class="page-width empty-state">
-    <p class="eyebrow">404</p>
-    <h1 class="heading-lg">{{ section.settings.heading }}</h1>
-    <p>{{ section.settings.text }}</p>
-    <a class="button" href="{{ routes.root_url }}">{{ section.settings.button_label }}</a>
+    {% if redirect_target != blank %}
+      <p class="eyebrow">Redirecting</p>
+      <h1 class="heading-lg">Taking you to the current Yemeni Corner page.</h1>
+      <p>This old link has moved. Use the button below if the redirect does not continue automatically.</p>
+      <a class="button" href="{{ redirect_target }}">Continue</a>
+    {% else %}
+      <p class="eyebrow">404</p>
+      <h1 class="heading-lg">{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.text }}</p>
+      <a class="button" href="{{ routes.root_url }}">{{ section.settings.button_label }}</a>
+    {% endif %}
   </div>
 </section>
 

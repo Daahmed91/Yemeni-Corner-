@@ -2,7 +2,7 @@
   assign menu_page = pages['menu']
   assign menu_url = menu_page.url | default: '/pages/menu'
   assign primary_url = section.settings.primary_link | default: menu_url
-  assign secondary_url = section.settings.secondary_link | default: routes.all_products_collection_url
+  assign secondary_url = section.settings.secondary_link | default: '/collections/coffee'
 -%}
 
 <section class="section" data-section-id="{{ section.id }}">
@@ -17,8 +17,8 @@
       </div>
     </div>
 
-    <div class="menu-filters" data-menu-filter role="tablist" aria-label="Cafe menu categories">
-      <button class="menu-filter is-active" type="button" data-menu-filter-button="all" role="tab" aria-selected="true">All</button>
+    <div class="menu-filters" data-menu-filter aria-label="Cafe menu categories">
+      <button class="menu-filter is-active" type="button" data-menu-filter-button="all" aria-pressed="true">All</button>
       {%- liquid
         assign seen_labels = '|'
       -%}
@@ -28,7 +28,7 @@
           assign category_token = category_handle | prepend: '|' | append: '|'
         -%}
         {% unless seen_labels contains category_token %}
-          <button class="menu-filter" type="button" data-menu-filter-button="{{ category_handle }}" role="tab" aria-selected="false">
+          <button class="menu-filter" type="button" data-menu-filter-button="{{ category_handle }}" aria-pressed="false">
             {{ block.settings.label }}
           </button>
           {%- liquid

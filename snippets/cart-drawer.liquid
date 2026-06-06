@@ -63,7 +63,17 @@
       </div>
       <p class="muted">Shipping and taxes are calculated at checkout.</p>
       <div class="cart-drawer__actions">
-        <a class="button" href="/checkout">{{ 'cart.general.checkout' | t }}</a>
+        <form action="{{ routes.cart_url }}" method="post">
+          <button
+            class="button"
+            type="submit"
+            name="checkout"
+            data-yc-event="begin_checkout"
+            data-yc-event-source="cart_drawer"
+          >
+            {{ 'cart.general.checkout' | t }}
+          </button>
+        </form>
         <a class="button button--secondary" href="{{ routes.cart_url }}">{{ 'cart.general.title' | t }}</a>
       </div>
       <button class="cart-drawer__continue" type="button" data-cart-drawer-close>{{ 'cart.general.continue_shopping' | t }}</button>

@@ -3,9 +3,15 @@
   assign bag_size = product.metafields.custom.bag_size.value | default: section.settings.bag_size
   assign tasting_notes = product.metafields.custom.tasting_notes.value | default: section.settings.tasting_notes
   assign roast_level = product.metafields.custom.roast_level.value | default: section.settings.roast_level
+  assign roast_date = product.metafields.custom.roast_date.value | default: section.settings.roast_date
+  assign coffee_process = product.metafields.custom.coffee_process.value | default: section.settings.coffee_process
+  assign origin_importer = product.metafields.custom.origin_importer.value | default: section.settings.origin_importer
+  assign grind_format = product.metafields.custom.grind_format.value | default: section.settings.grind_format
+  assign shipping_returns = product.metafields.custom.shipping_returns.value | default: section.settings.shipping_returns
   assign brew_methods = product.metafields.custom.brew_methods.value | default: section.settings.best_for
   assign origin_context = product.metafields.custom.origin_context.value | default: section.settings.origin_context
   assign gift_message = product.metafields.custom.gift_message.value | default: section.settings.gift_message
+  assign trust_copy = product.metafields.custom.trust_copy.value | default: section.settings.trust_copy
   assign product_display_title = product.title
   if product_display_title contains 'Harraz'
     assign product_display_title = 'Yemeni Corner Signature Blend'
@@ -16,7 +22,16 @@
   endif
 -%}
 
-<section class="section" data-section-id="{{ section.id }}">
+<section
+  class="section"
+  data-section-id="{{ section.id }}"
+  data-yc-view-item
+  data-yc-event-item-id="{{ product.id }}"
+  data-yc-event-item-name="{{ product_display_title | escape }}"
+  data-yc-event-variant-id="{{ current_variant.id }}"
+  data-yc-event-price="{{ current_variant.price | divided_by: 100.0 }}"
+  data-yc-event-currency="{{ cart.currency.iso_code }}"
+>
   <div class="page-width product">
     <div class="product__media">
       <div class="product__media-main">
@@ -64,9 +79,9 @@
       </div>
 
       <div class="product__trust" aria-label="Product highlights">
-        <span>{{ bag_size }}</span>
-        <span>Ships in Canada</span>
-        <span>Medium roast profile</span>
+        <span>{{ grind_format }}</span>
+        <span>{{ roast_date }}</span>
+        <span>{{ section.settings.market }}</span>
       </div>
 
       {% form 'product', product, class: 'product-form' %}
@@ -114,6 +129,10 @@
         {% endif %}
       {% endform %}
 
+      {% if trust_copy != blank %}
+        <p class="product__confidence">{{ trust_copy }}</p>
+      {% endif %}
+
       <div class="product-nudges" aria-label="Ways to enjoy this coffee">
         <span>One to brew, one to gift</span>
         <span>Stock up for the week</span>
@@ -130,6 +149,22 @@
           <strong>{{ roast_level }}</strong>
         </div>
         <div class="product-meta__item">
+          <span>Roast Date</span>
+          <strong>{{ roast_date }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Process</span>
+          <strong>{{ coffee_process }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Origin / Importer</span>
+          <strong>{{ origin_importer }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Grind / Format</span>
+          <strong>{{ grind_format }}</strong>
+        </div>
+        <div class="product-meta__item">
           <span>Best For</span>
           <strong>{{ brew_methods }}</strong>
         </div>
@@ -144,6 +179,10 @@
         <div class="product-meta__item">
           <span>Gift Note</span>
           <strong>{{ gift_message }}</strong>
+        </div>
+        <div class="product-meta__item">
+          <span>Shipping / Returns</span>
+          <strong>{{ shipping_returns }}</strong>
         </div>
       </div>
 
@@ -203,6 +242,30 @@
     },
     {
       "type": "text",
+      "id": "roast_date",
+      "label": "Roast date",
+      "default": "Roast date confirmed per batch"
+    },
+    {
+      "type": "text",
+      "id": "coffee_process",
+      "label": "Coffee process",
+      "default": "Supplier-confirmed process pending"
+    },
+    {
+      "type": "text",
+      "id": "origin_importer",
+      "label": "Origin / importer",
+      "default": "Harraz area heritage; importer details pending supplier confirmation"
+    },
+    {
+      "type": "text",
+      "id": "grind_format",
+      "label": "Grind / format",
+      "default": "Whole bean coffee"
+    },
+    {
+      "type": "text",
       "id": "best_for",
       "label": "Best for",
       "default": "Drip, French press, pour-over, espresso"
@@ -224,6 +287,18 @@
       "id": "gift_message",
       "label": "Gift message",
       "default": "A warm coffee gift for hosts, family, holidays, and coffee lovers"
+    },
+    {
+      "type": "textarea",
+      "id": "shipping_returns",
+      "label": "Shipping / returns",
+      "default": "Ships to Canadian customers. Shipping rates appear at checkout; returns follow the store policy for sealed coffee."
+    },
+    {
+      "type": "textarea",
+      "id": "trust_copy",
+      "label": "Trust copy",
+      "default": "We keep coffee details specific: confirmed bag format and brew guidance are shown now, and supplier-confirmed roast, process, origin, and importer details can be added here as soon as the batch record is available."
     },
     {
       "type": "textarea",

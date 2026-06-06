@@ -16,6 +16,9 @@
 
     <div class="location-grid">
       {% for block in section.blocks %}
+        {%- liquid
+          assign phone_href = block.settings.phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | remove: '.'
+        -%}
         <article class="location-card" data-reveal {{ block.shopify_attributes }}>
           <span class="location-card__label">Yemeni Corner Cafe</span>
           <h3>{{ block.settings.title }}</h3>
@@ -23,10 +26,29 @@
           <p>{{ block.settings.hours | newline_to_br }}</p>
           <div class="location-card__actions">
             {% if block.settings.phone != blank %}
-              <a class="button button--secondary" href="tel:{{ block.settings.phone | remove: ' ' | remove: '-' }}">{{ block.settings.phone }}</a>
+              <a
+                class="button button--secondary"
+                href="tel:{{ phone_href }}"
+                data-yc-event="phone_click"
+                data-yc-event-location="{{ block.settings.title | escape }}"
+                data-yc-event-source="locations_card"
+              >
+                {{ block.settings.phone }}
+              </a>
             {% endif %}
             {% if block.settings.map_link != blank %}
-              <a class="button" href="{{ block.settings.map_link }}">Get Directions</a>
+              <a
+                class="button"
+                href="{{ block.settings.map_link }}"
+                data-yc-event="directions_click"
+                data-yc-event-location="{{ block.settings.title | escape }}"
+                data-yc-event-source="locations_card"
+              >
+                Get Directions
+              </a>
+            {% endif %}
+            {% if block.settings.page_link != blank %}
+              <a class="button button--secondary" href="{{ block.settings.page_link }}">View Location</a>
             {% endif %}
           </div>
         </article>
@@ -96,6 +118,11 @@
           "type": "url",
           "id": "map_link",
           "label": "Map link"
+        },
+        {
+          "type": "url",
+          "id": "page_link",
+          "label": "Location page link"
         }
       ]
     }
@@ -104,8 +131,8 @@
     {
       "name": "Locations preview",
       "blocks": [
-        { "type": "location", "settings": { "title": "South Windsor", "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3", "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am", "phone": "519-915-0595" } },
-        { "type": "location", "settings": { "title": "LaSalle", "address": "5881 Malden Rd\nLaSalle, ON", "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.", "phone": "519-915-1119" } }
+        { "type": "location", "settings": { "title": "South Windsor", "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3", "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am", "phone": "519-915-0595", "page_link": "/pages/south-windsor" } },
+        { "type": "location", "settings": { "title": "LaSalle", "address": "5881 Malden Rd\nLaSalle, ON", "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.", "phone": "519-915-1119", "page_link": "/pages/lasalle" } }
       ]
     }
   ]

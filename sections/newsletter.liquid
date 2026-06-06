@@ -7,33 +7,35 @@
         <p class="lead">{{ section.settings.text }}</p>
       </div>
 
-      {% form 'customer' %}
-        <input type="hidden" name="contact[tags]" value="newsletter">
-        <div class="form-row">
-          <div class="field">
-            <label for="NewsletterEmail-{{ section.id }}">{{ 'general.newsletter.email' | t }}</label>
-            <input
-              id="NewsletterEmail-{{ section.id }}"
-              class="input"
-              type="email"
-              name="contact[email]"
-              value="{{ form.email }}"
-              autocorrect="off"
-              autocapitalize="off"
-              autocomplete="email"
-              placeholder="you@example.com"
-              required
-            >
+      <div data-yc-newsletter-form>
+        {% form 'customer' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="form-row">
+            <div class="field">
+              <label for="NewsletterEmail-{{ section.id }}">{{ 'general.newsletter.email' | t }}</label>
+              <input
+                id="NewsletterEmail-{{ section.id }}"
+                class="input"
+                type="email"
+                name="contact[email]"
+                value="{{ form.email }}"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              >
+            </div>
+            <button class="button button--gold" type="submit">{{ section.settings.button_label }}</button>
           </div>
-          <button class="button button--gold" type="submit">{{ section.settings.button_label }}</button>
-        </div>
 
-        {% if form.posted_successfully? %}
-          <p class="form-message">{{ 'general.newsletter.success' | t }}</p>
-        {% elsif form.errors %}
-          <div class="form-message">{{ form.errors | default_errors }}</div>
-        {% endif %}
-      {% endform %}
+          {% if form.posted_successfully? %}
+            <p class="form-message">{{ 'general.newsletter.success' | t }}</p>
+          {% elsif form.errors %}
+            <div class="form-message">{{ form.errors | default_errors }}</div>
+          {% endif %}
+        {% endform %}
+      </div>
     </div>
   </div>
 </section>

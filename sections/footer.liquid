@@ -3,6 +3,8 @@
   assign story_page = pages['story']
   assign menu_page = pages['menu']
   assign locations_page = pages['locations']
+  assign south_windsor_page = pages['south-windsor']
+  assign lasalle_page = pages['lasalle']
   assign contact_page = pages['contact']
   assign brand_name = settings.seo_site_name | default: shop.name
   assign story_url = routes.root_url | append: '#story'
@@ -14,7 +16,10 @@
   if locations_page != blank
     assign locations_url = locations_page.url
   endif
+  assign south_windsor_url = south_windsor_page.url | default: '/pages/south-windsor'
+  assign lasalle_url = lasalle_page.url | default: '/pages/lasalle'
   assign contact_url = contact_page.url | default: '/pages/contact'
+  assign shop_url = section.settings.shop_link | default: routes.all_products_collection_url
 -%}
 
 <footer class="site-footer" data-section-id="{{ section.id }}">
@@ -51,7 +56,7 @@
       <h3 class="site-footer__title">Explore</h3>
       <ul class="footer-nav">
         {% if section.settings.use_curated_navigation %}
-          <li><a href="{{ routes.all_products_collection_url }}">Shop Coffee</a></li>
+          <li><a href="{{ shop_url }}">Shop Coffee</a></li>
           <li><a href="{{ story_url }}">Our Story</a></li>
           <li><a href="{{ menu_url }}">Cafe Menu</a></li>
           <li><a href="{{ locations_url }}">Locations</a></li>
@@ -61,7 +66,7 @@
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         {% else %}
-          <li><a href="{{ routes.all_products_collection_url }}">Shop Coffee</a></li>
+          <li><a href="{{ shop_url }}">Shop Coffee</a></li>
           <li><a href="{{ story_url }}">Our Story</a></li>
           <li><a href="{{ menu_url }}">Cafe Menu</a></li>
           <li><a href="{{ locations_url }}">Locations</a></li>
@@ -73,16 +78,30 @@
     <div>
       <h3 class="site-footer__title">Visit Us</h3>
       <p>
-        South Windsor<br>
+        <a href="{{ south_windsor_url }}">South Windsor</a><br>
         350 Cabana Rd E<br>
         Windsor, ON<br>
-        519-915-0595
+        <a
+          href="tel:5199150595"
+          data-yc-event="phone_click"
+          data-yc-event-location="South Windsor"
+          data-yc-event-source="footer"
+        >
+          519-915-0595
+        </a>
       </p>
       <p>
-        LaSalle<br>
+        <a href="{{ lasalle_url }}">LaSalle</a><br>
         5881 Malden Rd<br>
         LaSalle, ON<br>
-        519-915-1119
+        <a
+          href="tel:5199151119"
+          data-yc-event="phone_click"
+          data-yc-event-location="LaSalle"
+          data-yc-event-source="footer"
+        >
+          519-915-1119
+        </a>
       </p>
     </div>
 
@@ -123,6 +142,11 @@
       "id": "use_curated_navigation",
       "label": "Use curated coffee navigation",
       "default": true
+    },
+    {
+      "type": "url",
+      "id": "shop_link",
+      "label": "Shop Coffee navigation link"
     }
   ]
 }

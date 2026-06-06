@@ -17,10 +17,16 @@
         "tasting_notes": "Warm spice, cocoa, dried fruit",
         "bag_size": "340 g whole bean",
         "roast_level": "Medium, smooth, aromatic",
+        "roast_date": "Roast date confirmed per batch",
+        "coffee_process": "Supplier-confirmed process pending",
+        "origin_importer": "Harraz area heritage; importer details pending supplier confirmation",
+        "grind_format": "Whole bean coffee",
         "best_for": "Drip, French press, pour-over, espresso",
         "market": "Canada shipping",
         "origin_context": "Connected to the coffee heritage of the Harraz area of Yemen",
         "gift_message": "A warm coffee gift for hosts, family, holidays, and coffee lovers",
+        "shipping_returns": "Ships to Canadian customers. Shipping rates appear at checkout; returns follow the store policy for sealed coffee.",
+        "trust_copy": "We keep coffee details specific: confirmed bag format and brew guidance are shown now, and supplier-confirmed roast, process, origin, and importer details can be added here as soon as the batch record is available.",
         "description": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it."
       }
     },
@@ -170,15 +176,22 @@
         "freshness": {
           "type": "question",
           "settings": {
-            "question": "How should I store it?",
-            "answer": "<p>Keep the bag sealed in a cool, dry place away from sunlight. For the best cup, grind only what you plan to brew.</p>"
+            "question": "How fresh is the roast?",
+            "answer": "<p>Use the roast date or batch note on the product page when it is supplier-confirmed. Until then, the page avoids guessing and keeps verified details visible.</p>"
+          }
+        },
+        "process": {
+          "type": "question",
+          "settings": {
+            "question": "What is the process and origin?",
+            "answer": "<p>The page will show supplier-confirmed process, origin, and importer details when the batch record is available. Unverified farm-level claims should not be published.</p>"
           }
         },
         "shipping": {
           "type": "question",
           "settings": {
-            "question": "Where does it ship?",
-            "answer": "<p>The online shop is set up for Canadian customers. Shipping rates and delivery options appear at checkout.</p>"
+            "question": "Where does it ship and what about returns?",
+            "answer": "<p>The online shop is set up for Canadian customers. Shipping rates appear at checkout, and returns follow the store policy for sealed coffee.</p>"
           }
         },
         "cafe_drinks": {
@@ -194,6 +207,7 @@
         "taste",
         "brew_methods",
         "freshness",
+        "process",
         "shipping",
         "cafe_drinks"
       ]

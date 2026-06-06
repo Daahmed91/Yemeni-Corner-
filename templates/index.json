@@ -20,7 +20,7 @@
         "secondary_label": "Explore Cafe Menu",
         "secondary_link": "/pages/menu",
         "product": "",
-        "image": "shopify://shop_images/37a47c90-ee1d-4f4d-a168-f5fd2225f091.png",
+        "image": "",
         "image_alt": "Yemeni Corner Signature Blend whole bean coffee bag"
       }
     },
@@ -40,7 +40,7 @@
         "adeni": {
           "type": "favorite",
           "settings": {
-            "image": "shopify://shop_images/chai.png",
+            "image": "",
             "category": "Traditional",
             "title": "Adeni Tea",
             "description": "Black tea, milk, and warming spice with the comfort of a shared table.",
@@ -50,7 +50,7 @@
         "mufawar": {
           "type": "favorite",
           "settings": {
-            "image": "shopify://shop_images/muf_coffee.png",
+            "image": "",
             "category": "Traditional",
             "title": "Mufawar Coffee",
             "description": "A Yemeni coffee house staple with aromatic spice and a generous finish.",
@@ -60,7 +60,7 @@
         "yemeni_latte": {
           "type": "favorite",
           "settings": {
-            "image": "shopify://shop_images/yemeni_latte.png",
+            "image": "",
             "category": "Signature",
             "title": "Yemeni Latte",
             "description": "A familiar latte turned toward Yemeni-inspired spice, sweetness, and warmth.",
@@ -70,7 +70,7 @@
         "pistachio": {
           "type": "favorite",
           "settings": {
-            "image": "shopify://shop_images/pistachio_lattee.png",
+            "image": "",
             "category": "Signature",
             "title": "Pistachio Latte",
             "description": "Nutty, smooth, and rich enough to feel like dessert in a cup.",
@@ -80,7 +80,7 @@
         "tawahi": {
           "type": "favorite",
           "settings": {
-            "image": "shopify://shop_images/lemonade.png",
+            "image": "",
             "category": "Cold",
             "title": "Tawahi Lemonade",
             "description": "Bright, refreshing, and made for sharing on warmer cafe days.",
@@ -90,7 +90,7 @@
         "saffron": {
           "type": "favorite",
           "settings": {
-            "image": "shopify://shop_images/1f09eeba-1637-4f7b-9d39-4dd8a0b20191.png",
+            "image": "",
             "category": "Dessert",
             "title": "Saffron Milk Cake",
             "description": "Soft, fragrant, and made to sit beside a slow coffee or tea.",
@@ -234,34 +234,9 @@
     },
     "testimonials": {
       "type": "testimonials",
-      "blocks": {
-        "review1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "A warm, welcoming cafe experience with drinks that feel different from the usual coffee stop.",
-            "author": "Yemeni Corner guest"
-          }
-        },
-        "review2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "The spices, desserts, and coffee make it the kind of place you want to bring someone to.",
-            "author": "Cafe regular"
-          }
-        },
-        "review3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "The Signature Blend makes the home cup feel connected to the cafe ritual.",
-            "author": "Home brewer"
-          }
-        }
-      },
-      "block_order": [
-        "review1",
-        "review2",
-        "review3"
-      ],
+      "disabled": true,
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "eyebrow": "Shared Warmly",
         "heading": "Notes from the Yemeni Corner table"
@@ -277,7 +252,8 @@
             "address": "350 Cabana Rd E\nWindsor, ON N9G 1A3",
             "hours": "Mon-Thu: 9am-12am\nFri-Sat: 9am-2am\nSun: 9am-12am",
             "phone": "519-915-0595",
-            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3"
+            "map_link": "https://www.google.com/maps/search/?api=1&query=350%20Cabana%20Rd%20E%20Windsor%20ON%20N9G%201A3",
+            "page_link": "/pages/south-windsor"
           }
         },
         "lasalle": {
@@ -287,7 +263,8 @@
             "address": "5881 Malden Rd\nLaSalle, ON",
             "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm holiday hours by phone.",
             "phone": "519-915-1119",
-            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON"
+            "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON",
+            "page_link": "/pages/lasalle"
           }
         }
       },
