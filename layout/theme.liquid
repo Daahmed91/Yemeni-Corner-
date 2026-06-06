@@ -34,6 +34,7 @@
       unless seo_title contains seo_site_name
         assign seo_title = seo_title | append: ' - ' | append: seo_site_name
       endunless
+      assign seo_title = seo_title | replace: 'Yemeni CornerSignature', 'Yemeni Corner Signature' | replace: 'Yemeni CornerHarraz', 'Yemeni Corner Harraz' | replace: 'Yemeni Corner|', 'Yemeni Corner |'
 
       assign seo_description = page_description | default: settings.brand_statement | default: shop.description
       if page_image
