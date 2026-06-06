@@ -15,8 +15,7 @@
       "type": "footer",
       "settings": {
         "menu": "footer",
-        "use_curated_navigation": true,
-        "shop_link": "/collections/coffee"
+        "use_curated_navigation": true
       }
     }
   },

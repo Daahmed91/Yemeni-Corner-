@@ -205,7 +205,7 @@ Still admin-only or environment-blocked:
 
 Additional theme-side launch cleanup:
 
-- Added configurable Header and Footer `Shop Coffee navigation link` settings and set the curated navigation default to `/collections/coffee`.
+- Added configurable Header and Footer `Shop Coffee navigation link` settings. If no manual link is set, the theme uses a published `coffee` collection when it exists and otherwise falls back to Shopify's all-products collection.
 - Added a darker `--color-gold-text` token for small readable labels. Contrast is 5.51:1 on `#FFFDF8` and 4.57:1 on `#F5E6D3`.
 - Normalized CSS `letter-spacing` declarations to `0`.
 - Cleared default `shopify://shop_images` references from the home template so bundled theme assets provide the default hero and cafe favorite imagery.
@@ -215,18 +215,12 @@ Additional theme-side launch cleanup:
 
 Still admin-only or environment-blocked after this pass:
 
-- Confirm the `/collections/coffee` collection exists and contains the Signature Blend product.
+- Create and publish the `/collections/coffee` collection if a dedicated coffee collection URL is required. Live check on June 6, 2026 returned 404 for `/collections/coffee`, so the working fallback remains `/collections/all`.
 - Import the URL redirects from `launch/shopify-url-redirects.csv`.
 - Run `shopify theme check` and live checkout QA once Shopify CLI/admin access is available.
 
 ## June 6, 2026 Deployment Follow-Up
 
-GitHub `main` was pushed to commit `50d8ca76efa7f05a52f2e3a515c434a929e26506`, but the live storefront did not automatically pull the connected GitHub theme after multiple polls. Live evidence still showed the old homepage testimonial section and `Shop Coffee` resolving to `/collections/all`.
+GitHub `main` was pushed to commit `50d8ca76efa7f05a52f2e3a515c434a929e26506`. Later live storefront checks showed the homepage no longer rendering the placeholder testimonial section, confirming Shopify had pulled the theme update through the connected GitHub workflow.
 
-To remove that manual deployment gap, the repo now includes `.github/workflows/deploy-shopify-theme.yml`. It deploys on pushes to `main` and on manual `workflow_dispatch` runs using Shopify CLI. The workflow requires these GitHub repository secrets:
-
-- `SHOPIFY_CLI_THEME_TOKEN`
-- `SHOPIFY_STORE`
-- `SHOPIFY_THEME_ID`
-
-After those secrets exist, the next push to `main` should run Theme Check and push the current theme to the configured Shopify theme.
+The remaining `Shop Coffee` link points to `/collections/all` because `https://www.yemenicorner.ca/collections/coffee` currently returns 404. This is expected with the theme fallback until the `coffee` collection exists in Shopify admin.

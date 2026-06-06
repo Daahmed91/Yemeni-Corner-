@@ -1,8 +1,13 @@
 {%- liquid
   assign menu_page = pages['menu']
   assign menu_url = menu_page.url | default: '/pages/menu'
+  assign coffee_collection = collections['coffee']
+  assign shop_url = routes.all_products_collection_url
+  if coffee_collection != blank
+    assign shop_url = coffee_collection.url
+  endif
   assign primary_url = section.settings.primary_link | default: menu_url
-  assign secondary_url = section.settings.secondary_link | default: '/collections/coffee'
+  assign secondary_url = section.settings.secondary_link | default: shop_url
 -%}
 
 <section class="section" data-section-id="{{ section.id }}">

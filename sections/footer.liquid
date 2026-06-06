@@ -19,7 +19,14 @@
   assign south_windsor_url = south_windsor_page.url | default: '/pages/south-windsor'
   assign lasalle_url = lasalle_page.url | default: '/pages/lasalle'
   assign contact_url = contact_page.url | default: '/pages/contact'
-  assign shop_url = section.settings.shop_link | default: routes.all_products_collection_url
+  assign coffee_collection = collections['coffee']
+  assign shop_url = section.settings.shop_link
+  if shop_url == blank and coffee_collection != blank
+    assign shop_url = coffee_collection.url
+  endif
+  if shop_url == blank
+    assign shop_url = routes.all_products_collection_url
+  endif
 -%}
 
 <footer class="site-footer" data-section-id="{{ section.id }}">

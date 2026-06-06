@@ -15,7 +15,14 @@
     assign locations_url = locations_page.url
   endif
   assign contact_url = contact_page.url | default: '/pages/contact'
-  assign shop_url = section.settings.shop_link | default: routes.all_products_collection_url
+  assign coffee_collection = collections['coffee']
+  assign shop_url = section.settings.shop_link
+  if shop_url == blank and coffee_collection != blank
+    assign shop_url = coffee_collection.url
+  endif
+  if shop_url == blank
+    assign shop_url = routes.all_products_collection_url
+  endif
   assign shop_button_url = section.settings.shop_button_link | default: shop_url
 -%}
 
