@@ -36,6 +36,25 @@
   <script>
     window.location.replace({{ redirect_target | json }});
   </script>
+{% else %}
+  <script>
+    (function () {
+      var path = window.location.pathname.toLowerCase().replace(/\/$/, '');
+      var redirects = {
+        '/contact-us': '/pages/contact',
+        '/menus': '/pages/menu',
+        '/online-ordering': '/pages/menu',
+        '/this-is-us': {{ routes.root_url | append: '#story' | json }},
+        '/collections/coffee': {{ routes.all_products_collection_url | json }},
+        '/pages/south-windsor': {{ locations_url | json }},
+        '/pages/lasalle': {{ locations_url | json }}
+      };
+      var target = redirects[path];
+      if (target) {
+        window.location.replace(target);
+      }
+    })();
+  </script>
 {% endif %}
 
 <section class="section" data-section-id="{{ section.id }}">
