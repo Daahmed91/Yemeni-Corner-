@@ -137,6 +137,11 @@ Import `launch/shopify-url-redirects.csv` in Shopify admin under URL redirects:
 
 These should be configured as Shopify URL redirects so shoppers and search engines receive a real redirect. The theme also includes a 404 fallback for the same legacy paths, but that only helps if Shopify is already serving those old paths as 404 pages. If an old Wix-style page still renders at one of those paths, remove or unpublish that legacy page in admin after the redirect is created.
 
+The 404 template also protects currently missing launch URLs while admin content catches up:
+
+- `/collections/coffee` -> Shopify all-products collection until the `coffee` collection exists.
+- `/pages/south-windsor` and `/pages/lasalle` -> Locations page/section until those pages exist.
+
 ### Markets, Shipping, And Tax
 
 For v1, configure these in Shopify admin:

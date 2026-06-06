@@ -1,6 +1,11 @@
 {%- liquid
   assign current_path = request.path | downcase
   assign redirect_target = ''
+  assign locations_page = pages['locations']
+  assign locations_url = routes.root_url | append: '#locations'
+  if locations_page != blank
+    assign locations_url = locations_page.url
+  endif
 
   case current_path
     when '/contact-us', '/contact-us/'
@@ -11,6 +16,10 @@
       assign redirect_target = '/pages/menu'
     when '/this-is-us', '/this-is-us/'
       assign redirect_target = routes.root_url | append: '#story'
+    when '/collections/coffee', '/collections/coffee/'
+      assign redirect_target = routes.all_products_collection_url
+    when '/pages/south-windsor', '/pages/south-windsor/', '/pages/lasalle', '/pages/lasalle/'
+      assign redirect_target = locations_url
   endcase
 -%}
 
@@ -25,7 +34,7 @@
     {% if redirect_target != blank %}
       <p class="eyebrow">Redirecting</p>
       <h1 class="heading-lg">Taking you to the current Yemeni Corner page.</h1>
-      <p>This old link has moved. Use the button below if the redirect does not continue automatically.</p>
+      <p>This link is not available yet, so we are taking you to the closest current Yemeni Corner page. Use the button below if the redirect does not continue automatically.</p>
       <a class="button" href="{{ redirect_target }}">Continue</a>
     {% else %}
       <p class="eyebrow">404</p>

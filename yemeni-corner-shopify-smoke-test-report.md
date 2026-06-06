@@ -226,3 +226,5 @@ GitHub `main` was pushed to commit `50d8ca76efa7f05a52f2e3a515c434a929e26506`. L
 The remaining `Shop Coffee` link points to `/collections/all` because `https://www.yemenicorner.ca/collections/coffee` currently returns 404. This is expected with the theme fallback until the `coffee` collection exists in Shopify admin.
 
 Live route checks also showed `/pages/south-windsor` and `/pages/lasalle` returning 404. The theme now avoids linking to those pages until Shopify admin pages with handles `south-windsor` and `lasalle` exist.
+
+June 6 continuation: the 404 template now also catches direct visits to `/collections/coffee`, `/pages/south-windsor`, and `/pages/lasalle`, sending shoppers to the closest currently live page while preserving the ability for real Shopify collections/pages to take over later.
