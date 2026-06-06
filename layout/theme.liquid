@@ -14,6 +14,12 @@
       if template.name == 'index' and settings.seo_home_title != blank
         assign seo_title = settings.seo_home_title
       endif
+      if template.name == 'product' and product != blank
+        assign seo_product_title = product.title
+        if seo_product_title contains 'Harraz' or seo_product_title contains 'Signature Roast'
+          assign seo_title = 'Yemeni Corner Signature Blend - Premium Whole Bean Coffee 340g'
+        endif
+      endif
       if shop.name != blank and seo_site_name != shop.name and seo_title contains shop.name
         assign seo_title = seo_title | replace: shop.name, seo_site_name
       endif
@@ -130,12 +136,16 @@
       {%- liquid
         assign structured_variant = product.selected_or_first_available_variant
         assign structured_description = product.description | strip_html | default: seo_description
+        assign structured_product_name = product.title
+        if structured_product_name contains 'Harraz' or structured_product_name contains 'Signature Roast'
+          assign structured_product_name = 'Yemeni Corner Signature Blend'
+        endif
       -%}
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": {{ product.title | json }},
+          "name": {{ structured_product_name | json }},
           "description": {{ structured_description | strip | json }},
           "brand": {
             "@type": "Brand",
