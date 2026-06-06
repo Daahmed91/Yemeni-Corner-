@@ -68,6 +68,8 @@ Create these pages and assign the matching templates:
 
 The templates already include polished section content, so the page body can stay minimal at launch.
 
+If the South Windsor or LaSalle pages are not created yet, the theme will keep footer/location links on the main Locations section instead of linking shoppers to a 404. The `View Location` buttons appear automatically once the matching pages exist.
+
 ### Local SEO
 
 After Google Business Profile access is restored, update each location profile with:

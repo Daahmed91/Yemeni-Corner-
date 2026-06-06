@@ -16,8 +16,14 @@
   if locations_page != blank
     assign locations_url = locations_page.url
   endif
-  assign south_windsor_url = south_windsor_page.url | default: '/pages/south-windsor'
-  assign lasalle_url = lasalle_page.url | default: '/pages/lasalle'
+  assign south_windsor_url = locations_url
+  if south_windsor_page != blank
+    assign south_windsor_url = south_windsor_page.url
+  endif
+  assign lasalle_url = locations_url
+  if lasalle_page != blank
+    assign lasalle_url = lasalle_page.url
+  endif
   assign contact_url = contact_page.url | default: '/pages/contact'
   assign coffee_collection = collections['coffee']
   assign shop_url = section.settings.shop_link

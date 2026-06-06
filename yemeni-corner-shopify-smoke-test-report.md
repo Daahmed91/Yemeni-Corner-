@@ -224,3 +224,5 @@ Still admin-only or environment-blocked after this pass:
 GitHub `main` was pushed to commit `50d8ca76efa7f05a52f2e3a515c434a929e26506`. Later live storefront checks showed the homepage no longer rendering the placeholder testimonial section, confirming Shopify had pulled the theme update through the connected GitHub workflow.
 
 The remaining `Shop Coffee` link points to `/collections/all` because `https://www.yemenicorner.ca/collections/coffee` currently returns 404. This is expected with the theme fallback until the `coffee` collection exists in Shopify admin.
+
+Live route checks also showed `/pages/south-windsor` and `/pages/lasalle` returning 404. The theme now avoids linking to those pages until Shopify admin pages with handles `south-windsor` and `lasalle` exist.

@@ -18,6 +18,13 @@
       {% for block in section.blocks %}
         {%- liquid
           assign phone_href = block.settings.phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | remove: '.'
+          assign location_page = pages[block.settings.title | handle]
+          assign location_page_url = ''
+          if location_page != blank
+            assign location_page_url = location_page.url
+          elsif block.settings.page_link contains '#'
+            assign location_page_url = block.settings.page_link
+          endif
         -%}
         <article class="location-card" data-reveal {{ block.shopify_attributes }}>
           <span class="location-card__label">Yemeni Corner Cafe</span>
@@ -47,8 +54,8 @@
                 Get Directions
               </a>
             {% endif %}
-            {% if block.settings.page_link != blank %}
-              <a class="button button--secondary" href="{{ block.settings.page_link }}">View Location</a>
+            {% if location_page_url != blank %}
+              <a class="button button--secondary" href="{{ location_page_url }}">View Location</a>
             {% endif %}
           </div>
         </article>
