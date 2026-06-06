@@ -167,9 +167,20 @@ To upload as an unpublished theme:
 shopify theme push --unpublished --store your-store.myshopify.com
 ```
 
+## GitHub Deployment
+
+The repo includes `.github/workflows/deploy-shopify-theme.yml` so `main` can deploy through GitHub Actions after every push. Configure these repository secrets before relying on the workflow:
+
+- `SHOPIFY_CLI_THEME_TOKEN`: Theme Access app password or Admin API token with theme write access.
+- `SHOPIFY_STORE`: store URL or prefix, for example `your-store.myshopify.com`.
+- `SHOPIFY_THEME_ID`: the live or target Shopify theme ID.
+
+The workflow installs Shopify CLI, runs `shopify theme check`, then runs `shopify theme push --allow-live --strict` against the configured theme. It also supports manual runs through GitHub Actions `workflow_dispatch`.
+
 ## QA Checklist
 
 - Run `shopify theme check`.
+- Confirm the GitHub Actions deploy workflow succeeds after each push to `main`.
 - Import and test the legacy URL redirects listed in `launch/shopify-url-redirects.csv`.
 - Preview home, product, collection, cart, story, menu, locations, contact, blog, article, search, and 404 pages.
 - Test add to cart, quantity updates, cart note, checkout handoff, and empty cart state.

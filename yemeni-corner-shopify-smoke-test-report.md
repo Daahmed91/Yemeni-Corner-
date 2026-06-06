@@ -218,3 +218,15 @@ Still admin-only or environment-blocked after this pass:
 - Confirm the `/collections/coffee` collection exists and contains the Signature Blend product.
 - Import the URL redirects from `launch/shopify-url-redirects.csv`.
 - Run `shopify theme check` and live checkout QA once Shopify CLI/admin access is available.
+
+## June 6, 2026 Deployment Follow-Up
+
+GitHub `main` was pushed to commit `50d8ca76efa7f05a52f2e3a515c434a929e26506`, but the live storefront did not automatically pull the connected GitHub theme after multiple polls. Live evidence still showed the old homepage testimonial section and `Shop Coffee` resolving to `/collections/all`.
+
+To remove that manual deployment gap, the repo now includes `.github/workflows/deploy-shopify-theme.yml`. It deploys on pushes to `main` and on manual `workflow_dispatch` runs using Shopify CLI. The workflow requires these GitHub repository secrets:
+
+- `SHOPIFY_CLI_THEME_TOKEN`
+- `SHOPIFY_STORE`
+- `SHOPIFY_THEME_ID`
+
+After those secrets exist, the next push to `main` should run Theme Check and push the current theme to the configured Shopify theme.
