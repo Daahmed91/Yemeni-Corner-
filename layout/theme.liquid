@@ -9,7 +9,8 @@
     {% render 'favicon' %}
 
     {%- liquid
-      assign seo_site_name = settings.seo_site_name | default: shop.name
+      assign seo_site_name = settings.seo_site_name | default: shop.name | strip
+      assign shop_name_clean = shop.name | strip
       assign seo_title = page_title
       if template.name == 'index' and settings.seo_home_title != blank
         assign seo_title = settings.seo_home_title
@@ -20,7 +21,7 @@
           assign seo_title = 'Yemeni Corner Signature Blend - Premium Whole Bean Coffee 340g'
         endif
       endif
-      if shop.name != blank and seo_site_name != shop.name and seo_title contains shop.name
+      if shop_name_clean != blank and seo_site_name != shop_name_clean and seo_title contains shop.name
         assign seo_title = seo_title | replace: shop.name, seo_site_name
       endif
       if current_tags

@@ -1,5 +1,6 @@
 {%- liquid
   assign current_path = request.path | downcase
+  assign current_url = canonical_url | downcase
   assign redirect_target = ''
   assign locations_page = pages['locations']
   assign locations_url = routes.root_url | append: '#locations'
@@ -21,6 +22,14 @@
     when '/pages/south-windsor', '/pages/south-windsor/', '/pages/lasalle', '/pages/lasalle/'
       assign redirect_target = locations_url
   endcase
+
+  if redirect_target == blank
+    if current_url contains '/collections/coffee'
+      assign redirect_target = routes.all_products_collection_url
+    elsif current_url contains '/pages/south-windsor' or current_url contains '/pages/lasalle'
+      assign redirect_target = locations_url
+    endif
+  endif
 -%}
 
 {% if redirect_target != blank %}
