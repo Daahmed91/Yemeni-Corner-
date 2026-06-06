@@ -33,8 +33,10 @@
             {% for item in search.results %}
               {%- liquid
                 assign item_title = item.title
-                if item.object_type == 'product' and item_title contains 'Harraz'
-                  assign item_title = 'Yemeni Corner Signature Blend'
+                if item.object_type == 'product'
+                  if item_title contains 'Harraz' or item_title contains 'Signature Roast'
+                    assign item_title = 'Yemeni Corner Signature Blend'
+                  endif
                 endif
               -%}
               <article class="search-card">

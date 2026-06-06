@@ -13,7 +13,7 @@
   assign gift_message = product.metafields.custom.gift_message.value | default: section.settings.gift_message
   assign trust_copy = product.metafields.custom.trust_copy.value | default: section.settings.trust_copy
   assign product_display_title = product.title
-  if product_display_title contains 'Harraz'
+  if product_display_title contains 'Harraz' or product_display_title contains 'Signature Roast'
     assign product_display_title = 'Yemeni Corner Signature Blend'
   endif
   assign use_fallback_description = false

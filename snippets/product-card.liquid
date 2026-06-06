@@ -1,7 +1,7 @@
 {% if product_card_product != blank %}
   {%- liquid
     assign product_card_title = product_card_product.title
-    if product_card_title contains 'Harraz'
+    if product_card_title contains 'Harraz' or product_card_title contains 'Signature Roast'
       assign product_card_title = 'Yemeni Corner Signature Blend'
     endif
   -%}

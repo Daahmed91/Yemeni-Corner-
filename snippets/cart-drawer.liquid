@@ -20,7 +20,7 @@
         {% for item in cart.items limit: 4 %}
           {%- liquid
             assign item_display_title = item.product.title
-            if item_display_title contains 'Harraz'
+            if item_display_title contains 'Harraz' or item_display_title contains 'Signature Roast'
               assign item_display_title = 'Yemeni Corner Signature Blend'
             endif
           -%}

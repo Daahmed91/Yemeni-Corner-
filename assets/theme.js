@@ -317,7 +317,7 @@ const escapeHtml = (value) =>
 
 const displayProductTitle = (title) => {
   const value = String(title || '');
-  return /Harraz/i.test(value) ? 'Yemeni Corner Signature Blend' : value;
+  return /Harraz|Signature\s+Roast/i.test(value) ? 'Yemeni Corner Signature Blend' : value;
 };
 
 const formatMoney = (cents, currency) => {
