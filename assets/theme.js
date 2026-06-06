@@ -52,6 +52,10 @@ window.ycTrackEvent = emitYcEvent;
 const getFocusable = (container) =>
   Array.from(container.querySelectorAll(focusableSelectors)).filter((element) => element.offsetParent !== null);
 
+document.querySelectorAll('a[href="/pages/careers"], a[href="https://www.yemenicorner.ca/pages/careers"]').forEach((link) => {
+  link.setAttribute('href', '/careers');
+});
+
 document.addEventListener('click', (event) => {
   if (!(event.target instanceof Element)) return;
   const trackedElement = event.target.closest('[data-yc-event]');
