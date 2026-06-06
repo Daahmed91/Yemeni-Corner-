@@ -9,6 +9,8 @@
   endif
 
   case current_path
+    when '/careers', '/careers/'
+      assign redirect_target = '/pages/careers'
     when '/contact-us', '/contact-us/'
       assign redirect_target = '/pages/contact'
     when '/menus', '/menus/'
@@ -41,6 +43,7 @@
     (function () {
       var path = window.location.pathname.toLowerCase().replace(/\/$/, '');
       var redirects = {
+        '/careers': '/pages/careers',
         '/contact-us': '/pages/contact',
         '/menus': '/pages/menu',
         '/online-ordering': '/pages/menu',

@@ -1,0 +1,381 @@
+{%- liquid
+  assign careers_anchor = section.settings.apply_anchor | default: 'apply' | handle
+  assign locations_page = pages['locations']
+  assign locations_url = routes.root_url | append: '#locations'
+  if locations_page != blank
+    assign locations_url = locations_page.url
+  endif
+  assign secondary_url = section.settings.secondary_link | default: locations_url
+-%}
+
+<section class="careers-page" data-section-id="{{ section.id }}">
+  <div class="careers-page__hero">
+    <div class="page-width careers-page__hero-inner">
+      <div class="careers-page__copy" data-reveal>
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1 class="heading-xl">{{ section.settings.heading }}</h1>
+        <p class="lead">{{ section.settings.text }}</p>
+
+        <div class="button-row">
+          <a class="button" href="#{{ careers_anchor }}">{{ section.settings.primary_label }}</a>
+          <a class="button button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
+        </div>
+
+        <div class="careers-page__chips" aria-label="Open roles">
+          <span>Bakers</span>
+          <span>Baristas</span>
+          <span>Windsor and LaSalle</span>
+        </div>
+      </div>
+
+      <div class="careers-page__hero-media" data-reveal data-parallax data-parallax-speed="0.035">
+        {% if section.settings.hero_image != blank %}
+          {{
+            section.settings.hero_image
+            | image_url: width: 1600
+            | image_tag:
+              widths: '540, 720, 960, 1200, 1600',
+              sizes: '(min-width: 960px) 46vw, 92vw',
+              loading: 'eager',
+              alt: section.settings.heading
+          }}
+        {% else %}
+          <img
+            src="{{ 'yc-cafe-adeni-tea.webp' | asset_url }}"
+            alt="Cafe drink prepared at Yemeni Corner"
+            width="1200"
+            height="900"
+            loading="eager"
+          >
+        {% endif %}
+        <div class="careers-page__hero-badge">
+          <span>Now hiring</span>
+          <strong>Bakers and baristas for the cafe team</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="page-width">
+      <div class="section-header" data-reveal>
+        <p class="eyebrow">{{ section.settings.roles_eyebrow }}</p>
+        <h2 class="heading-lg">{{ section.settings.roles_heading }}</h2>
+        <p class="lead">{{ section.settings.roles_text }}</p>
+      </div>
+
+      <div class="careers-page__role-grid">
+        {% for block in section.blocks %}
+          <article class="career-role-card" data-reveal {{ block.shopify_attributes }}>
+            {% if block.settings.badge != blank %}
+              <span class="career-role-card__badge">{{ block.settings.badge }}</span>
+            {% endif %}
+            <p class="career-role-card__kicker">{{ block.settings.kicker }}</p>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+            {% if block.settings.points != blank %}
+              <div class="career-role-card__points">{{ block.settings.points | newline_to_br }}</div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--cream careers-page__expectations">
+    <div class="page-width careers-page__expectations-inner">
+      <div class="section-header" data-reveal>
+        <p class="eyebrow">{{ section.settings.expectations_eyebrow }}</p>
+        <h2 class="heading-lg">{{ section.settings.expectations_heading }}</h2>
+        <p class="lead">{{ section.settings.expectations_text }}</p>
+      </div>
+
+      <div class="careers-page__culture-grid">
+        <div class="careers-page__culture-card" data-reveal>
+          <span>Hospitality</span>
+          <strong>Warm service that makes guests feel welcome.</strong>
+        </div>
+        <div class="careers-page__culture-card" data-reveal>
+          <span>Consistency</span>
+          <strong>Careful prep, clean work, and steady standards.</strong>
+        </div>
+        <div class="careers-page__culture-card" data-reveal>
+          <span>Team pace</span>
+          <strong>Calm communication during busy cafe hours.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="{{ careers_anchor }}">
+    <div class="page-width careers-page__apply-grid">
+      <div data-reveal>
+        <p class="eyebrow">{{ section.settings.apply_eyebrow }}</p>
+        <h2 class="heading-lg">{{ section.settings.apply_heading }}</h2>
+        <p class="lead">{{ section.settings.apply_text }}</p>
+
+        <div class="product-meta careers-page__meta">
+          <div class="product-meta__item">
+            <span>Roles</span>
+            <strong>Bakers and baristas</strong>
+          </div>
+          <div class="product-meta__item">
+            <span>Locations</span>
+            <strong>South Windsor and LaSalle</strong>
+          </div>
+          <div class="product-meta__item">
+            <span>Next step</span>
+            <strong>Apply online</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="careers-page__apply-card" data-reveal>
+        {% form 'contact' %}
+          <input type="hidden" name="contact[tags]" value="careers, application">
+          <input type="hidden" name="contact[subject]" value="Careers application - Yemeni Corner">
+
+          {% if form.posted_successfully? %}
+            <p class="form-message">Thanks for applying. We will review your note and follow up if there is a fit.</p>
+          {% elsif form.errors %}
+            <div class="form-message">{{ form.errors | default_errors }}</div>
+          {% endif %}
+
+          <div class="careers-page__form-grid">
+            <div class="field">
+              <label for="CareersName-{{ section.id }}">Name</label>
+              <input id="CareersName-{{ section.id }}" class="input" type="text" name="contact[name]" value="{{ form.name }}" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="CareersEmail-{{ section.id }}">Email</label>
+              <input id="CareersEmail-{{ section.id }}" class="input" type="email" name="contact[email]" value="{{ form.email }}" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="CareersPhone-{{ section.id }}">Phone</label>
+              <input id="CareersPhone-{{ section.id }}" class="input" type="tel" name="contact[phone]" autocomplete="tel">
+            </div>
+
+            <div class="field">
+              <label for="CareersRole-{{ section.id }}">Role</label>
+              <select id="CareersRole-{{ section.id }}" class="select" name="contact[Desired role]" required>
+                <option value="">Select a role</option>
+                <option value="Baker">Baker</option>
+                <option value="Barista">Barista</option>
+                <option value="Baker or barista">Baker or barista</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="CareersLocation-{{ section.id }}">Location preference</label>
+              <select id="CareersLocation-{{ section.id }}" class="select" name="contact[Location preference]" required>
+                <option value="">Select a location</option>
+                <option value="South Windsor">South Windsor</option>
+                <option value="LaSalle">LaSalle</option>
+                <option value="Either location">Either location</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="CareersAvailability-{{ section.id }}">Availability</label>
+              <input id="CareersAvailability-{{ section.id }}" class="input" type="text" name="contact[Availability]" placeholder="Weekdays, evenings, weekends">
+            </div>
+
+            <div class="field field--full">
+              <label for="CareersResume-{{ section.id }}">Resume or portfolio link</label>
+              <input id="CareersResume-{{ section.id }}" class="input" type="url" name="contact[Resume or portfolio link]" placeholder="https://">
+            </div>
+
+            <div class="field field--full">
+              <label for="CareersMessage-{{ section.id }}">Experience and why you want to join</label>
+              <textarea id="CareersMessage-{{ section.id }}" class="textarea" name="contact[body]" required>{{ form.body }}</textarea>
+            </div>
+          </div>
+
+          <button class="button button--gold" type="submit">{{ section.settings.submit_label }}</button>
+          <p class="careers-page__note">Please do not include sensitive personal information in this form.</p>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main careers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Hero eyebrow",
+      "default": "Careers at Yemeni Corner"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Hero heading",
+      "default": "Join the cafe team"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Hero text",
+      "default": "We are hiring bakers and baristas for Yemeni Corner. Bring care, pace, and warm hospitality to a cafe built around Yemeni drinks, desserts, and community."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Apply Now"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "View Locations"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "apply_anchor",
+      "label": "Apply anchor",
+      "default": "apply"
+    },
+    {
+      "type": "text",
+      "id": "roles_eyebrow",
+      "label": "Roles eyebrow",
+      "default": "Open roles"
+    },
+    {
+      "type": "text",
+      "id": "roles_heading",
+      "label": "Roles heading",
+      "default": "Bakers and baristas wanted"
+    },
+    {
+      "type": "textarea",
+      "id": "roles_text",
+      "label": "Roles text",
+      "default": "Whether you are strongest behind the bar, in prep, or in the bake flow, we are looking for people who care about quality and guests."
+    },
+    {
+      "type": "text",
+      "id": "expectations_eyebrow",
+      "label": "Expectations eyebrow",
+      "default": "What matters here"
+    },
+    {
+      "type": "text",
+      "id": "expectations_heading",
+      "label": "Expectations heading",
+      "default": "Skill matters, and so does care"
+    },
+    {
+      "type": "textarea",
+      "id": "expectations_text",
+      "label": "Expectations text",
+      "default": "Yemeni Corner is a guest-facing cafe environment. We value reliability, cleanliness, curiosity, and the ability to keep service warm even when the line is moving."
+    },
+    {
+      "type": "text",
+      "id": "apply_eyebrow",
+      "label": "Apply eyebrow",
+      "default": "Apply online"
+    },
+    {
+      "type": "text",
+      "id": "apply_heading",
+      "label": "Apply heading",
+      "default": "Tell us where you fit"
+    },
+    {
+      "type": "textarea",
+      "id": "apply_text",
+      "label": "Apply text",
+      "default": "Use the form to share the role you want, your preferred location, your availability, and any cafe, baking, or customer service experience."
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Submit button label",
+      "default": "Submit Application"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "role",
+      "name": "Role",
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "Now hiring"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Cafe team"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Barista"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Prepare drinks, support guests, keep the bar clean, and help carry the Yemeni Corner welcome through every order."
+        },
+        {
+          "type": "textarea",
+          "id": "points",
+          "label": "Points",
+          "default": "Espresso and drink preparation\nGuest service\nClean, organized station habits"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main careers",
+      "blocks": [
+        {
+          "type": "role",
+          "settings": {
+            "badge": "Now hiring",
+            "kicker": "Bakery",
+            "title": "Bakers",
+            "text": "Support the dessert and bakery side of the cafe with careful prep, clean execution, and steady quality.",
+            "points": "Baking or prep experience helpful\nAttention to detail\nReliable opening, closing, and prep routines"
+          }
+        },
+        {
+          "type": "role",
+          "settings": {
+            "badge": "Now hiring",
+            "kicker": "Coffee bar",
+            "title": "Baristas",
+            "text": "Prepare traditional drinks, lattes, cold favorites, and guest orders while keeping the cafe experience warm and efficient.",
+            "points": "Coffee or cafe experience helpful\nGuest-first service\nComfort working during busy periods"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

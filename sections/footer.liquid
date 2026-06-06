@@ -5,6 +5,7 @@
   assign locations_page = pages['locations']
   assign south_windsor_page = pages['south-windsor']
   assign lasalle_page = pages['lasalle']
+  assign careers_page = pages['careers']
   assign contact_page = pages['contact']
   assign brand_name = settings.seo_site_name | default: shop.name
   assign story_url = routes.root_url | append: '#story'
@@ -24,6 +25,7 @@
   if lasalle_page != blank
     assign lasalle_url = lasalle_page.url
   endif
+  assign careers_url = careers_page.url | default: '/pages/careers'
   assign contact_url = contact_page.url | default: '/pages/contact'
   assign coffee_collection = collections['coffee']
   assign shop_url = section.settings.shop_link
@@ -73,6 +75,7 @@
           <li><a href="{{ story_url }}">Our Story</a></li>
           <li><a href="{{ menu_url }}">Cafe Menu</a></li>
           <li><a href="{{ locations_url }}">Locations</a></li>
+          <li><a href="{{ careers_url }}">Careers</a></li>
           <li><a href="{{ contact_url }}">Contact</a></li>
         {% elsif footer_menu.links.size > 0 %}
           {% for link in footer_menu.links %}
@@ -83,6 +86,7 @@
           <li><a href="{{ story_url }}">Our Story</a></li>
           <li><a href="{{ menu_url }}">Cafe Menu</a></li>
           <li><a href="{{ locations_url }}">Locations</a></li>
+          <li><a href="{{ careers_url }}">Careers</a></li>
           <li><a href="{{ contact_url }}">Contact</a></li>
         {% endif %}
       </ul>
@@ -129,6 +133,7 @@
         {% if settings.social_facebook_link != blank %}
           <li><a href="{{ settings.social_facebook_link }}">Facebook</a></li>
         {% endif %}
+        <li><a href="{{ careers_url }}">Careers</a></li>
         <li><a href="{{ contact_url }}">Contact</a></li>
       </ul>
     </div>

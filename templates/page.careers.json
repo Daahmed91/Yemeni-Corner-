@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-careers",
+      "settings": {
+        "eyebrow": "Careers at Yemeni Corner",
+        "heading": "Join the cafe team",
+        "text": "We are hiring bakers and baristas for Yemeni Corner. Bring care, pace, and warm hospitality to a cafe built around Yemeni drinks, desserts, and community.",
+        "primary_label": "Apply Now",
+        "secondary_label": "View Locations",
+        "secondary_link": "/pages/locations",
+        "apply_anchor": "apply",
+        "roles_eyebrow": "Open roles",
+        "roles_heading": "Bakers and baristas wanted",
+        "roles_text": "Whether you are strongest behind the bar, in prep, or in the bake flow, we are looking for people who care about quality and guests.",
+        "expectations_eyebrow": "What matters here",
+        "expectations_heading": "Skill matters, and so does care",
+        "expectations_text": "Yemeni Corner is a guest-facing cafe environment. We value reliability, cleanliness, curiosity, and the ability to keep service warm even when the line is moving.",
+        "apply_eyebrow": "Apply online",
+        "apply_heading": "Tell us where you fit",
+        "apply_text": "Use the form to share the role you want, your preferred location, your availability, and any cafe, baking, or customer service experience.",
+        "submit_label": "Submit Application"
+      },
+      "blocks": {
+        "bakers": {
+          "type": "role",
+          "settings": {
+            "badge": "Now hiring",
+            "kicker": "Bakery",
+            "title": "Bakers",
+            "text": "Support the dessert and bakery side of the cafe with careful prep, clean execution, and steady quality.",
+            "points": "Baking or prep experience helpful\nAttention to detail\nReliable opening, closing, and prep routines"
+          }
+        },
+        "baristas": {
+          "type": "role",
+          "settings": {
+            "badge": "Now hiring",
+            "kicker": "Coffee bar",
+            "title": "Baristas",
+            "text": "Prepare traditional drinks, lattes, cold favorites, and guest orders while keeping the cafe experience warm and efficient.",
+            "points": "Coffee or cafe experience helpful\nGuest-first service\nComfort working during busy periods"
+          }
+        }
+      },
+      "block_order": [
+        "bakers",
+        "baristas"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

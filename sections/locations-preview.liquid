@@ -18,7 +18,8 @@
       {% for block in section.blocks %}
         {%- liquid
           assign phone_href = block.settings.phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | remove: '.'
-          assign location_page = pages[block.settings.title | handle]
+          assign location_page_handle = block.settings.title | handle
+          assign location_page = pages[location_page_handle]
           assign location_page_url = ''
           if location_page != blank
             assign location_page_url = location_page.url
