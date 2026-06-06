@@ -78,7 +78,14 @@
           <li><a href="{{ contact_url }}">Contact</a></li>
         {% elsif footer_menu.links.size > 0 %}
           {% for link in footer_menu.links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- liquid
+              assign link_url = link.url
+              assign link_title_handle = link.title | handle
+              if link_title_handle == 'careers'
+                assign link_url = careers_url
+              endif
+            -%}
+            <li><a href="{{ link_url }}">{{ link.title }}</a></li>
           {% endfor %}
         {% else %}
           <li><a href="{{ shop_url }}">Shop Coffee</a></li>

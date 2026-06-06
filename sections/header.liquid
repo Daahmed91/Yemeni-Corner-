@@ -65,8 +65,15 @@
           <li><a class="site-nav__link" href="{{ contact_url }}">Contact</a></li>
         {% elsif navigation.links.size > 0 %}
           {% for link in navigation.links %}
+            {%- liquid
+              assign link_url = link.url
+              assign link_title_handle = link.title | handle
+              if link_title_handle == 'careers'
+                assign link_url = careers_url
+              endif
+            -%}
             <li>
-              <a class="site-nav__link" href="{{ link.url }}">{{ link.title }}</a>
+              <a class="site-nav__link" href="{{ link_url }}">{{ link.title }}</a>
             </li>
           {% endfor %}
         {% else %}
@@ -123,7 +130,14 @@
         <a href="{{ routes.cart_url }}">Cart</a>
       {% elsif navigation.links.size > 0 %}
         {% for link in navigation.links %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- liquid
+            assign link_url = link.url
+            assign link_title_handle = link.title | handle
+            if link_title_handle == 'careers'
+              assign link_url = careers_url
+            endif
+          -%}
+          <a href="{{ link_url }}">{{ link.title }}</a>
         {% endfor %}
       {% else %}
         <a href="{{ routes.root_url }}">Home</a>
