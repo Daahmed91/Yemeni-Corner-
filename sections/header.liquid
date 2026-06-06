@@ -3,7 +3,6 @@
   assign story_page = pages['story']
   assign menu_page = pages['menu']
   assign locations_page = pages['locations']
-  assign careers_page = pages['careers']
   assign contact_page = pages['contact']
   assign brand_name = settings.seo_site_name | default: shop.name
   assign story_url = routes.root_url | append: '#story'
@@ -15,7 +14,7 @@
   if locations_page != blank
     assign locations_url = locations_page.url
   endif
-  assign careers_url = careers_page.url | default: '/pages/careers'
+  assign careers_url = '/careers'
   assign contact_url = contact_page.url | default: '/pages/contact'
   assign coffee_collection = collections['coffee']
   assign shop_url = section.settings.shop_link
