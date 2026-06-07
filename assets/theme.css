@@ -306,14 +306,16 @@ button[disabled] {
 
 .site-header__inner {
   display: grid;
+  width: min(100% - (var(--gutter) * 2), 1480px);
   min-height: 78px;
   align-items: center;
-  gap: 20px;
-  grid-template-columns: auto 1fr auto;
+  gap: clamp(14px, 1.7vw, 28px);
+  grid-template-columns: minmax(190px, auto) minmax(0, 1fr) auto;
 }
 
 .site-header__brand {
   display: inline-flex;
+  min-width: 0;
   align-items: center;
   gap: 12px;
   color: var(--color-brown);
@@ -323,7 +325,7 @@ button[disabled] {
 .site-header__logo,
 .site-header__fallback-logo {
   width: auto;
-  max-width: clamp(210px, 18vw, 280px);
+  max-width: clamp(196px, 16vw, 270px);
   max-height: 56px;
   object-fit: contain;
 }
@@ -366,6 +368,8 @@ button[disabled] {
 }
 
 .site-nav {
+  width: 100%;
+  min-width: 0;
   justify-self: center;
 }
 
@@ -380,12 +384,18 @@ button[disabled] {
   list-style: none;
 }
 
+.site-nav__list {
+  gap: clamp(12px, 1.1vw, 22px);
+}
+
 .site-nav__link {
   position: relative;
   color: var(--color-brown);
   font-size: 0.94rem;
   font-weight: 900;
+  line-height: 1;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .site-nav__link::after {
@@ -407,6 +417,8 @@ button[disabled] {
 
 .site-header__actions {
   display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 10px;
 }
@@ -415,6 +427,7 @@ button[disabled] {
   min-height: 42px;
   padding: 10px 16px;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .header-action {
@@ -431,7 +444,9 @@ button[disabled] {
   color: var(--color-brown);
   font-size: 0.9rem;
   font-weight: 900;
+  line-height: 1;
   text-decoration: none;
+  white-space: nowrap;
   transition:
     background 160ms ease,
     border-color 160ms ease,
@@ -2860,14 +2875,19 @@ button[disabled] {
 
 @media (max-width: 1080px) {
   .site-nav__list {
-    gap: 16px;
+    gap: 12px;
   }
 
   .site-header__logo,
   .site-header__fallback-logo {
-    max-width: 220px;
+    max-width: 196px;
   }
 
+  .site-nav__link {
+    font-size: 0.84rem;
+  }
+
+  .site-header__shop-button,
   .header-action--search {
     display: none;
   }
