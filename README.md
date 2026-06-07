@@ -12,9 +12,11 @@ Premium Shopify Online Store 2.0 theme for Yemeni Corner, built as a coffee-firs
 - `page.locations.json`
 - `page.south-windsor.json`
 - `page.lasalle.json`
+- `page.careers.json`
+- `page.careers-pa.json`
 - `page.contact.json`
 - Premium Yemeni Corner design system using Heritage Gold, Deep Coffee Brown, Cream Sand, Charcoal Gray, and Warm White.
-- Sections for hero, signature product, story, brewing guide, cafe menu, locations, testimonials, FAQ, newsletter, contact, and core commerce pages. The testimonial section should stay off the homepage until verified customer quotes are available.
+- Sections for hero, signature product, story, brewing guide, cafe menu, locations, careers, testimonials, FAQ, newsletter, contact, and core commerce pages. The testimonial section should stay off the homepage until verified customer quotes are available.
 - Production design pass with responsive editorial layouts, premium product staging, richer hover/focus states, mobile drawer accessibility, structured data, and Shopify package hygiene.
 
 ## Required Store Setup
@@ -64,6 +66,7 @@ Create these pages and assign the matching templates:
 - `Locations` -> template `page.locations`
 - `South Windsor` -> template `page.south-windsor`, handle `south-windsor`
 - `LaSalle` -> template `page.lasalle`, handle `lasalle`
+- `Careers` -> template `page.careers-pa`, handle `careers`
 - `Contact` -> template `page.contact`
 
 The templates already include polished section content, so the page body can stay minimal at launch.
@@ -119,6 +122,7 @@ Create or update the `main-menu` navigation:
 - Story
 - Menu
 - Locations
+- Careers
 - Journal
 - Contact
 
@@ -130,6 +134,7 @@ Create or update the `footer` navigation with the same core links plus policies.
 
 Import `launch/shopify-url-redirects.csv` in Shopify admin under URL redirects:
 
+- `/careers` -> `/pages/careers?view=careers-pa`
 - `/contact-us` -> `/pages/contact`
 - `/menus` -> `/pages/menu`
 - `/online-ordering` -> `/pages/menu`
@@ -139,6 +144,7 @@ These should be configured as Shopify URL redirects so shoppers and search engin
 
 The 404 template also protects currently missing launch URLs while admin content catches up:
 
+- `/careers` -> Careers page after the page is created.
 - `/collections/coffee` -> Shopify all-products collection until the `coffee` collection exists.
 - `/pages/south-windsor` and `/pages/lasalle` -> Locations page/section until those pages exist.
 
@@ -178,7 +184,7 @@ shopify theme push --unpublished --store your-store.myshopify.com
 
 - Run `shopify theme check`.
 - Import and test the legacy URL redirects listed in `launch/shopify-url-redirects.csv`.
-- Preview home, product, collection, cart, story, menu, locations, contact, blog, article, search, and 404 pages.
+- Preview home, product, collection, cart, story, menu, locations, careers, contact, blog, article, search, and 404 pages.
 - Test add to cart, quantity updates, cart note, checkout handoff, and empty cart state.
 - Confirm the cart drawer checkout button posts through the Shopify cart form rather than a hard-coded `/checkout` link.
 - Check mobile navigation, keyboard focus, form labels, color contrast, and image alt text.

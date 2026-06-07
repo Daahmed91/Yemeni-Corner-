@@ -126,11 +126,23 @@
             "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON",
             "page_link": "/pages/lasalle"
           }
+        },
+        "mechanicsburg_pa": {
+          "type": "location",
+          "settings": {
+            "title": "Mechanicsburg, PA",
+            "address": "4957 Carlisle Pike\nMechanicsburg, PA 17050",
+            "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm current hours before visiting.",
+            "phone": "",
+            "map_link": "https://share.google/wcsuVJwqdAe4cnCKP",
+            "page_link": ""
+          }
         }
       },
       "block_order": [
         "south_windsor",
-        "lasalle"
+        "lasalle",
+        "mechanicsburg_pa"
       ],
       "settings": {
         "eyebrow": "Visit Us",

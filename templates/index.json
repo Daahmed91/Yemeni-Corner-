@@ -263,17 +263,29 @@
             "map_link": "https://www.google.com/maps/search/?api=1&query=5881%20Malden%20Rd%20LaSalle%20ON",
             "page_link": ""
           }
+        },
+        "mechanicsburg_pa": {
+          "type": "location",
+          "settings": {
+            "title": "Mechanicsburg, PA",
+            "address": "4957 Carlisle Pike\nMechanicsburg, PA 17050",
+            "hours": "Open daily for coffee, desserts, and warm hospitality. Confirm current hours before visiting.",
+            "phone": "",
+            "map_link": "https://share.google/wcsuVJwqdAe4cnCKP",
+            "page_link": ""
+          }
         }
       },
       "block_order": [
         "south_windsor",
-        "lasalle"
+        "lasalle",
+        "mechanicsburg_pa"
       ],
       "settings": {
         "eyebrow": "Visit Us",
         "anchor_id": "locations",
-        "heading": "Two local cafes, one welcome",
-        "text": "Visit Yemeni Corner in South Windsor or LaSalle for the full cafe menu, then order the Yemeni Corner Signature Blend online when you want the ritual at home."
+        "heading": "Three cafes, one welcome",
+        "text": "Visit Yemeni Corner in South Windsor, LaSalle, or Mechanicsburg for the full cafe menu, then order the Yemeni Corner Signature Blend online when you want the ritual at home."
       }
     },
     "faq": {
