@@ -300,6 +300,22 @@ document.querySelectorAll('[data-quantity]').forEach((quantity) => {
   });
 });
 
+document.querySelectorAll('[data-quantity-preset]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const form = button.closest('form');
+    const input = form ? form.querySelector('[data-quantity] input') : null;
+    const value = Number(button.dataset.quantityPreset || 1);
+    if (!input || !value) return;
+
+    input.value = String(value);
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+
+    form.querySelectorAll('[data-quantity-preset]').forEach((preset) => {
+      preset.setAttribute('aria-pressed', String(preset === button));
+    });
+  });
+});
+
 const cartDrawer = document.querySelector('[data-cart-drawer]');
 const cartDrawerPanel = cartDrawer ? cartDrawer.querySelector('[role="dialog"]') : null;
 const cartDrawerBackdrop = cartDrawer ? cartDrawer.querySelector('.cart-drawer__backdrop') : null;
@@ -319,17 +335,38 @@ const escapeHtml = (value) =>
     return entities[character];
   });
 
-const displayProductTitle = (title) => {
-  const value = String(title || '');
-  return /Harraz|Signature\s+Roast/i.test(value) ? 'Yemeni Corner Signature Blend' : value;
-};
-
 const formatMoney = (cents, currency) => {
   const activeCurrency = currency || window.Shopify?.currency?.active || 'CAD';
   return new Intl.NumberFormat(undefined, {
     style: 'currency',
     currency: activeCurrency
   }).format(Number(cents || 0) / 100);
+};
+
+const updateFreeShippingMessaging = (cart) => {
+  const itemCount = Number(cart?.item_count || 0);
+
+  document.querySelectorAll('[data-free-shipping-message]').forEach((message) => {
+    const threshold = Number(message.dataset.freeShippingThreshold || 2);
+    const remaining = Math.max(threshold - itemCount, 0);
+
+    if (itemCount >= threshold) {
+      message.textContent = 'Free shipping unlocked at checkout for Canadian delivery.';
+    } else if (itemCount === 0) {
+      message.textContent = `Add ${threshold} bags to qualify for free shipping across Canada.`;
+    } else if (remaining === 1) {
+      message.textContent = 'Add 1 more bag to qualify for free shipping across Canada.';
+    } else {
+      message.textContent = `Add ${remaining} more bags to qualify for free shipping across Canada.`;
+    }
+  });
+
+  document.querySelectorAll('[data-free-shipping-progress]').forEach((progress) => {
+    const message = progress.closest('[data-free-shipping-offer]')?.querySelector('[data-free-shipping-message]');
+    const threshold = Number(message?.dataset.freeShippingThreshold || 2);
+    const percent = Math.min((itemCount / threshold) * 100, 100);
+    progress.style.width = `${percent}%`;
+  });
 };
 
 const openCartDrawer = (returnFocus) => {
@@ -374,7 +411,7 @@ const renderCartDrawer = (cart) => {
       .slice(0, 4)
       .map((item) => {
         const image = item.image || fallbackImage;
-        const title = displayProductTitle(item.product_title);
+        const title = item.product_title || '';
         const variant = item.variant_title && item.variant_title !== 'Default Title' ? `<p>${escapeHtml(item.variant_title)}</p>` : '';
         return `
           <article class="cart-drawer__item">
@@ -393,6 +430,7 @@ const renderCartDrawer = (cart) => {
   }
 
   cartDrawerSubtotal.textContent = formatMoney(cart.total_price, cart.currency);
+  updateFreeShippingMessaging(cart);
 };
 
 if (cartDrawer && cartDrawerPanel) {
@@ -444,7 +482,7 @@ document.querySelectorAll('form.product-form').forEach((form) => {
       emitYcEvent('add_to_cart', {
         source: 'ajax_product_form',
         item_id: addedItem.product_id,
-        item_name: displayProductTitle(addedItem.product_title),
+        item_name: addedItem.product_title,
         variant_id: addedItem.variant_id || formData.get('id'),
         quantity: addedItem.quantity || formData.get('quantity') || 1,
         price: Number(addedItem.final_price || 0) / 100,
@@ -473,3 +511,6 @@ document.querySelectorAll('form.product-form').forEach((form) => {
     }
   });
 });
+
+const initialCartCount = Number(document.querySelector('[data-cart-count]')?.textContent || 0);
+updateFreeShippingMessaging({ item_count: initialCartCount });

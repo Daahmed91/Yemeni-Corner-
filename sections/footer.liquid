@@ -27,12 +27,16 @@
   assign careers_url = '/careers'
   assign contact_url = contact_page.url | default: '/pages/contact'
   assign coffee_collection = collections['coffee']
+  assign signature_product = all_products['yemeni-corner-harraz-signature-roast']
   assign shop_url = section.settings.shop_link
   if shop_url == blank and coffee_collection != blank
     assign shop_url = coffee_collection.url
   endif
+  if shop_url == blank and signature_product != blank
+    assign shop_url = signature_product.url
+  endif
   if shop_url == blank
-    assign shop_url = routes.all_products_collection_url
+    assign shop_url = '/products/yemeni-corner-harraz-signature-roast'
   endif
 -%}
 

@@ -31,17 +31,9 @@
         {% if search.results_count > 0 %}
           <div class="search-grid section">
             {% for item in search.results %}
-              {%- liquid
-                assign item_title = item.title
-                if item.object_type == 'product'
-                  if item_title contains 'Harraz' or item_title contains 'Signature Roast'
-                    assign item_title = 'Yemeni Corner Signature Blend'
-                  endif
-                endif
-              -%}
               <article class="search-card">
                 <p class="eyebrow">{{ item.object_type }}</p>
-                <h2><a href="{{ item.url }}">{{ item_title }}</a></h2>
+                <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
                 {% if item.object_type == 'product' %}
                   {% render 'price', product: item %}
                 {% else %}

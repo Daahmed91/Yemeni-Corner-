@@ -13,12 +13,13 @@
   assign gift_message = product.metafields.custom.gift_message.value | default: section.settings.gift_message
   assign trust_copy = product.metafields.custom.trust_copy.value | default: section.settings.trust_copy
   assign product_display_title = product.title
-  if product_display_title contains 'Harraz' or product_display_title contains 'Signature Roast'
-    assign product_display_title = 'Yemeni Corner Signature Blend'
-  endif
-  assign use_fallback_description = false
-  if product.description contains 'Signature Roast' or product.description contains 'Sourced from' or product.description contains 'Harraz mountains'
-    assign use_fallback_description = true
+  assign product_form_id = 'ProductForm-' | append: section.id
+  assign verified_description = product.metafields.custom.verified_structured_description.value | default: product.metafields.custom.verified_seo_description.value
+  assign product_body_copy = product.description
+  if verified_description != blank
+    assign product_body_copy = verified_description
+  elsif product.handle == 'yemeni-corner-harraz-signature-roast'
+    assign product_body_copy = section.settings.description
   endif
 -%}
 
@@ -79,13 +80,21 @@
         {% render 'price', product: product %}
       </div>
 
+      {% if section.settings.show_launch_offer %}
+        <div class="product-offer">
+          <span>{{ section.settings.offer_eyebrow }}</span>
+          <strong>{{ section.settings.offer_heading }}</strong>
+          <p>{{ section.settings.offer_text }}</p>
+        </div>
+      {% endif %}
+
       <div class="product__trust" aria-label="Product highlights">
         <span>{{ grind_format }}</span>
         <span>{{ roast_date }}</span>
         <span>{{ section.settings.market }}</span>
       </div>
 
-      {% form 'product', product, class: 'product-form' %}
+      {% form 'product', product, id: product_form_id, class: 'product-form' %}
         {% if product.has_only_default_variant %}
           <input type="hidden" name="id" value="{{ current_variant.id }}">
         {% else %}
@@ -108,6 +117,26 @@
         <div class="field">
           <label>{{ 'products.product.quantity' | t }}</label>
           {% render 'quantity-input' %}
+          <div class="quantity-presets" aria-label="Quick quantity choices">
+            <button
+              type="button"
+              data-quantity-preset="1"
+              data-yc-event="quantity_preset"
+              data-yc-event-source="product_form"
+              data-yc-event-quantity="1"
+            >
+              1 bag
+            </button>
+            <button
+              type="button"
+              data-quantity-preset="2"
+              data-yc-event="quantity_preset"
+              data-yc-event-source="product_form"
+              data-yc-event-quantity="2"
+            >
+              2 bags - free shipping
+            </button>
+          </div>
         </div>
 
         <button
@@ -194,17 +223,25 @@
         {% endcase %}
       {% endfor %}
 
-      {% if use_fallback_description %}
-        <div class="rte">
-          <p>{{ section.settings.description }}</p>
-        </div>
-      {% elsif product.description != blank %}
-        <div class="rte">{{ product.description }}</div>
+      {% if product_body_copy != blank %}
+        <div class="rte">{{ product_body_copy }}</div>
       {% else %}
         <p class="muted">{{ section.settings.description }}</p>
       {% endif %}
     </div>
   </div>
+
+  {% if current_variant.available %}
+    <div class="product-sticky-cta" aria-label="Quick add to cart">
+      <div>
+        <span>{{ product_display_title }}</span>
+        <strong>{{ current_variant.price | money }}</strong>
+      </div>
+      <button class="button" type="submit" form="{{ product_form_id }}" name="add">
+        {{ 'products.product.add_to_cart' | t }}
+      </button>
+    </div>
+  {% endif %}
 </section>
 
 {% schema %}
@@ -251,13 +288,13 @@
       "type": "text",
       "id": "coffee_process",
       "label": "Coffee process",
-      "default": "Supplier-confirmed process pending"
+      "default": "Batch process pending admin entry"
     },
     {
       "type": "text",
       "id": "origin_importer",
       "label": "Origin / importer",
-      "default": "Harraz area heritage; importer details pending supplier confirmation"
+      "default": "Supplier-confirmed origin and importer pending admin entry"
     },
     {
       "type": "text",
@@ -281,7 +318,7 @@
       "type": "text",
       "id": "origin_context",
       "label": "Origin context",
-      "default": "Connected to the coffee heritage of the Harraz area of Yemen"
+      "default": "Batch origin details should match supplier records before promotion"
     },
     {
       "type": "text",
@@ -299,13 +336,37 @@
       "type": "textarea",
       "id": "trust_copy",
       "label": "Trust copy",
-      "default": "We keep coffee details specific: confirmed bag format and brew guidance are shown now, and supplier-confirmed roast, process, origin, and importer details can be added here as soon as the batch record is available."
+      "default": "We publish batch details only when they are supplier-confirmed, so the coffee story stays specific and trustworthy."
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Fallback description",
       "default": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_launch_offer",
+      "label": "Show launch offer",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "offer_eyebrow",
+      "label": "Offer eyebrow",
+      "default": "Best First Order"
+    },
+    {
+      "type": "text",
+      "id": "offer_heading",
+      "label": "Offer heading",
+      "default": "Buy 2 bags and ship free across Canada"
+    },
+    {
+      "type": "textarea",
+      "id": "offer_text",
+      "label": "Offer text",
+      "default": "Keep one bag for your own brew bar and gift one to someone who loves coffee with a story."
     },
     {
       "type": "checkbox",

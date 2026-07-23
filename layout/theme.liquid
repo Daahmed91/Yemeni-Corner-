@@ -15,12 +15,6 @@
       if template.name == 'index' and settings.seo_home_title != blank
         assign seo_title = settings.seo_home_title
       endif
-      if template.name == 'product' and product != blank
-        assign seo_product_title = product.title
-        if seo_product_title contains 'Harraz' or seo_product_title contains 'Signature Roast'
-          assign seo_title = 'Yemeni Corner: Signature Blend - Premium Whole Bean Coffee 340g'
-        endif
-      endif
       if shop_name_clean != blank and seo_site_name != shop_name_clean and seo_title contains shop.name
         assign seo_title = seo_title | replace: shop.name, seo_site_name
       endif
@@ -37,6 +31,16 @@
       assign seo_title = seo_title | replace: 'Yemeni CornerSignature', 'Yemeni Corner Signature' | replace: 'Yemeni CornerHarraz', 'Yemeni Corner Harraz' | replace: 'Yemeni Corner|', 'Yemeni Corner |'
 
       assign seo_description = page_description | default: settings.brand_statement | default: shop.description
+      if template.name == 'product' and product != blank
+        assign safe_signature_description = 'Yemeni Corner Signature Blend is a 340 g whole bean medium roast with warm spice, cocoa, and dried fruit notes, made for home brewing and shipping across Canada.'
+        assign product_safe_description = product.metafields.custom.verified_seo_description.value | default: product.metafields.custom.verified_structured_description.value
+        if product_safe_description == blank and product.handle == 'yemeni-corner-harraz-signature-roast'
+          assign product_safe_description = safe_signature_description
+        endif
+        if product_safe_description != blank
+          assign seo_description = product_safe_description
+        endif
+      endif
       if page_image
         assign social_image_url = page_image | image_url: width: 1200
       elsif settings.social_share_image != blank
@@ -149,17 +153,18 @@
     {% if template.name == 'product' and product != blank %}
       {%- liquid
         assign structured_variant = product.selected_or_first_available_variant
-        assign structured_description = product.description | strip_html | default: seo_description
-        assign structured_product_name = product.title
-        if structured_product_name contains 'Harraz' or structured_product_name contains 'Signature Roast'
-          assign structured_product_name = 'Yemeni Corner Signature Blend'
+        assign structured_description = product.metafields.custom.verified_structured_description.value | default: product.metafields.custom.verified_seo_description.value | default: product.metafields.custom.seo_description.value
+        if structured_description == blank and product.handle == 'yemeni-corner-harraz-signature-roast'
+          assign structured_description = safe_signature_description
+        elsif structured_description == blank
+          assign structured_description = product.description | strip_html | default: seo_description
         endif
       -%}
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": {{ structured_product_name | json }},
+          "name": {{ product.title | json }},
           "description": {{ structured_description | strip | json }},
           "brand": {
             "@type": "Brand",

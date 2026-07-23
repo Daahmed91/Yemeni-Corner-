@@ -2,6 +2,11 @@
   assign current_path = request.path | downcase
   assign current_url = canonical_url | downcase
   assign redirect_target = ''
+  assign signature_product = all_products['yemeni-corner-harraz-signature-roast']
+  assign signature_product_url = '/products/yemeni-corner-harraz-signature-roast'
+  if signature_product != blank
+    assign signature_product_url = signature_product.url
+  endif
   assign locations_page = pages['locations']
   assign locations_url = routes.root_url | append: '#locations'
   if locations_page != blank
@@ -20,14 +25,14 @@
     when '/this-is-us', '/this-is-us/'
       assign redirect_target = routes.root_url | append: '#story'
     when '/collections/coffee', '/collections/coffee/'
-      assign redirect_target = routes.all_products_collection_url
+      assign redirect_target = signature_product_url
     when '/pages/south-windsor', '/pages/south-windsor/', '/pages/lasalle', '/pages/lasalle/'
       assign redirect_target = locations_url
   endcase
 
   if redirect_target == blank
     if current_url contains '/collections/coffee'
-      assign redirect_target = routes.all_products_collection_url
+      assign redirect_target = signature_product_url
     elsif current_url contains '/pages/south-windsor' or current_url contains '/pages/lasalle'
       assign redirect_target = locations_url
     endif
@@ -48,7 +53,7 @@
         '/menus': '/pages/menu',
         '/online-ordering': '/pages/menu',
         '/this-is-us': {{ routes.root_url | append: '#story' | json }},
-        '/collections/coffee': {{ routes.all_products_collection_url | json }},
+        '/collections/coffee': {{ signature_product_url | json }},
         '/pages/south-windsor': {{ locations_url | json }},
         '/pages/lasalle': {{ locations_url | json }}
       };

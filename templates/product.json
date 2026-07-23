@@ -19,15 +19,19 @@
         "roast_level": "Medium, smooth, aromatic",
         "roast_date": "Roast date confirmed per batch",
         "coffee_process": "Supplier-confirmed process pending",
-        "origin_importer": "Harraz area heritage; importer details pending supplier confirmation",
+        "origin_importer": "Supplier-confirmed origin and importer pending admin entry",
         "grind_format": "Whole bean coffee",
         "best_for": "Drip, French press, pour-over, espresso",
         "market": "Canada shipping",
-        "origin_context": "Connected to the coffee heritage of the Harraz area of Yemen",
+        "origin_context": "Batch origin details should match supplier records before promotion",
         "gift_message": "A warm coffee gift for hosts, family, holidays, and coffee lovers",
         "shipping_returns": "Ships to Canadian customers. Shipping rates appear at checkout; returns follow the store policy for sealed coffee.",
-        "trust_copy": "We keep coffee details specific: confirmed bag format and brew guidance are shown now, and supplier-confirmed roast, process, origin, and importer details can be added here as soon as the batch record is available.",
-        "description": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it."
+        "trust_copy": "We publish batch details only when they are supplier-confirmed, so the coffee story stays specific and trustworthy.",
+        "description": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it.",
+        "show_launch_offer": true,
+        "offer_eyebrow": "Best First Order",
+        "offer_heading": "Buy 2 bags and ship free across Canada",
+        "offer_text": "Keep one bag for your own brew bar and gift one to someone who loves coffee with a story."
       }
     },
     "gift": {
@@ -60,10 +64,10 @@
       "type": "heritage-timeline",
       "settings": {
         "background": "white",
-        "eyebrow": "Harraz Area Heritage",
-        "heading": "A respectful nod to Yemeni coffee heritage",
-        "text": "The Harraz area is recognized in coffee culture for Yemeni mountain coffee. This page uses that context as education, while keeping the exact product details limited to verified coffee facts.",
-        "note": "Add supplier-confirmed farm, process, altitude, harvest, or roast-date details when available."
+        "eyebrow": "Verified Batch Details",
+        "heading": "Specific coffee facts before broad origin claims",
+        "text": "Use this section for supplier-confirmed batch details only. Until those records are entered, the page keeps the promise focused on verified bag format, roast profile, tasting notes, and brew guidance.",
+        "note": "Add supplier-confirmed farm, region, importer, process, altitude, harvest, roast date, or batch details only when the records are available in Shopify."
       },
       "blocks": {
         "known": {
@@ -77,17 +81,17 @@
         "context": {
           "type": "milestone",
           "settings": {
-            "kicker": "Context",
-            "title": "What the Harraz area represents",
-            "text": "<p>The Harraz area points to Yemeni mountain coffee heritage, terraced growing landscapes, and a reputation for complex cups with warmth, fruit, cocoa, and spice.</p>"
+            "kicker": "Batch record",
+            "title": "What to enter before promotion",
+            "text": "<p>Supplier-confirmed farm or region, importer, process, altitude, harvest, roast date, and lot details should be entered in product metafields before appearing in product copy, schema, feeds, email, or social posts.</p>"
           }
         },
         "future": {
           "type": "milestone",
           "settings": {
             "kicker": "Future proof",
-            "title": "What to verify before adding",
-            "text": "<p>Farm names, import partners, processing method, altitude, harvest date, roast date, and batch details should come from supplier records before appearing on the public product page.</p>"
+            "title": "What stays safe by default",
+            "text": "<p>If a detail is not in the supplier record, keep it out of public copy. The coffee can still sell clearly as a 340 g whole bean medium roast with warm spice, cocoa, and dried fruit notes.</p>"
           }
         }
       },

@@ -1,3 +1,12 @@
+{%- liquid
+  assign free_shipping_threshold_quantity = 2
+  assign free_shipping_remaining = free_shipping_threshold_quantity | minus: cart.item_count
+  assign free_shipping_progress = cart.item_count | times: 100 | divided_by: free_shipping_threshold_quantity
+  if free_shipping_progress > 100
+    assign free_shipping_progress = 100
+  endif
+-%}
+
 <section class="section" data-section-id="{{ section.id }}">
   <div class="page-width cart-page">
     <div class="section-header">
@@ -9,12 +18,6 @@
       <form action="{{ routes.cart_url }}" method="post">
         <div class="cart-items">
           {% for item in cart.items %}
-            {%- liquid
-              assign item_display_title = item.product.title
-              if item_display_title contains 'Harraz' or item_display_title contains 'Signature Roast'
-                assign item_display_title = 'Yemeni Corner Signature Blend'
-              endif
-            -%}
             <div class="cart-item">
               <div class="cart-item__image">
                 {% if item.image %}
@@ -25,14 +28,14 @@
                       widths: '120, 180, 220',
                       sizes: '110px',
                       loading: 'lazy',
-                      alt: item_display_title
+                      alt: item.product.title
                   }}
                 {% else %}
-                  <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item_display_title | escape }}" width="900" height="1100" loading="lazy">
+                  <img src="{{ 'yemeni-corner-bag.svg' | asset_url }}" alt="{{ item.product.title | escape }}" width="900" height="1100" loading="lazy">
                 {% endif %}
               </div>
               <div>
-                <h2 class="heading-md"><a href="{{ item.url }}">{{ item_display_title }}</a></h2>
+                <h2 class="heading-md"><a href="{{ item.url }}">{{ item.product.title }}</a></h2>
                 {% unless item.product.has_only_default_variant %}
                   <p>{{ item.variant.title }}</p>
                 {% endunless %}
@@ -52,6 +55,24 @@
         </div>
 
         <div class="cart-summary">
+          <div class="cart-offer" data-free-shipping-offer>
+            <div class="cart-offer__top">
+              <span>2-bag offer</span>
+              <strong>Free shipping in Canada</strong>
+            </div>
+            <div class="cart-offer__track" aria-hidden="true">
+              <span data-free-shipping-progress style="width: {{ free_shipping_progress }}%;"></span>
+            </div>
+            <p data-free-shipping-message data-free-shipping-threshold="{{ free_shipping_threshold_quantity }}">
+              {% if cart.item_count >= free_shipping_threshold_quantity %}
+                Free shipping unlocked at checkout for Canadian delivery.
+              {% elsif free_shipping_remaining == 1 %}
+                Add 1 more bag to qualify for free shipping across Canada.
+              {% else %}
+                Add {{ free_shipping_remaining }} more bags to qualify for free shipping across Canada.
+              {% endif %}
+            </p>
+          </div>
           <p class="price">{{ 'cart.general.subtotal' | t }}: {{ cart.total_price | money }}</p>
           <p class="muted">Shipping and taxes are calculated at checkout.</p>
           <div class="button-row">
@@ -72,7 +93,7 @@
       <div class="empty-state">
         <h2 class="heading-md">{{ 'cart.general.empty' | t }}</h2>
         <p>Your cart is ready for the Yemeni Corner Signature Blend, our flagship whole bean coffee for home brewing.</p>
-        <a class="button" href="{{ routes.all_products_collection_url }}">{{ 'cart.general.continue_shopping' | t }}</a>
+        <a class="button" href="/products/yemeni-corner-harraz-signature-roast">{{ 'cart.general.continue_shopping' | t }}</a>
       </div>
     {% endif %}
   </div>

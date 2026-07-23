@@ -18,6 +18,7 @@ Premium Shopify Online Store 2.0 theme for Yemeni Corner, built as a coffee-firs
 - Premium Yemeni Corner design system using Heritage Gold, Deep Coffee Brown, Cream Sand, Charcoal Gray, and Warm White.
 - Sections for hero, signature product, story, brewing guide, cafe menu, locations, careers, testimonials, FAQ, newsletter, contact, and core commerce pages. The testimonial section should stay off the homepage until verified customer quotes are available.
 - Production design pass with responsive editorial layouts, premium product staging, richer hover/focus states, mobile drawer accessibility, structured data, and Shopify package hygiene.
+- Coffee bean sales launch assets in `launch/`, including the Shopify admin checklist, cafe QR campaign URLs, staff scripts, email flow, social cadence, Google Business Profile prompts, and QA scorecard for the 60-day organic launch.
 
 ## Required Store Setup
 
@@ -26,6 +27,7 @@ Premium Shopify Online Store 2.0 theme for Yemeni Corner, built as a coffee-firs
 Create one product in Shopify admin:
 
 - Product title: `Yemeni Corner Signature Blend`
+- Product handle: `yemeni-corner-harraz-signature-roast`
 - Product type: `Premium Yemeni Coffee`
 - Size: `340 g`
 - Format: `Whole Bean Coffee`
@@ -39,6 +41,17 @@ A rich and aromatic coffee inspired by Yemen's deep coffee heritage. Smooth, war
 ```
 
 Add product photography when available. The theme includes a branded coffee bag placeholder for development only.
+
+For verified batch details, populate product metafields rather than broad copy in the Shopify product description:
+
+- `custom.roast_date`
+- `custom.coffee_process`
+- `custom.origin_importer`
+- `custom.origin_context`
+- `custom.verified_seo_description`
+- `custom.verified_structured_description`
+
+Do not publish farm, region, importer, process, altitude, harvest, roast-date, or batch claims unless they match supplier records. The theme uses safer Product JSON-LD, SEO, and product-page body fallback copy if the admin product description still contains broad sourcing language.
 
 For a polished launch, use:
 
@@ -55,7 +68,9 @@ Create a collection for the shop page:
 - Suggested handle: `coffee`
 - Include the Signature Blend product.
 
-The curated header and footer automatically use the `coffee` collection when a published collection with handle `coffee` exists. Until then, `Shop Coffee` falls back to Shopify's all-products collection so the live shop link still works.
+The curated header and footer automatically use the `coffee` collection when a published collection with handle `coffee` exists. Until then, `Shop Coffee` falls back to the Signature Blend product page so the live shop link keeps buyers close to the coffee.
+
+For the coffee bean sales launch, create and publish this collection before promotion. The launch QA gate requires `https://www.yemenicorner.ca/collections/coffee` to return 200.
 
 ### Pages
 
@@ -145,7 +160,7 @@ These should be configured as Shopify URL redirects so shoppers and search engin
 The 404 template also protects currently missing launch URLs while admin content catches up:
 
 - `/careers` -> Careers page after the page is created.
-- `/collections/coffee` -> Shopify all-products collection until the `coffee` collection exists.
+- `/collections/coffee` -> Signature Blend product page until the `coffee` collection exists.
 - `/pages/south-windsor` and `/pages/lasalle` -> Locations page/section until those pages exist.
 
 ### Markets, Shipping, And Tax
@@ -157,6 +172,18 @@ For v1, configure these in Shopify admin:
 - Taxes: Shopify-managed Canada tax setup
 - Subscriptions: disabled for v1
 - Cafe menu ordering: not enabled in this theme
+- Automatic free shipping discount: Canada only, unlocked by 2 coffee bags or a `$65.98 CAD` cart. Activate this in Shopify admin before publishing or promoting the 2-bag offer messaging.
+- Keep discount wording, announcement bars, product SEO titles/descriptions, and batch-specific sourcing claims in Shopify admin/metafields. Do not hardcode active offer promises in the theme unless Shopify admin cannot support the required placement.
+
+## 60-Day Coffee Bean Sales Launch
+
+Use these launch files before promoting the beans:
+
+- `launch/coffee-bean-sales-admin-checklist.md`
+- `launch/cafe-organic-sales-engine.md`
+- `launch/qr-campaign-urls.csv`
+
+The launch target is `100-200 bags` in 60 days, with a working target of `160 bags`, Canada-only shipping, no paid ads, and a cafe-powered organic engine. The core offer is: buy 2 bags of Yemeni Corner Signature Blend and get free shipping across Canada.
 
 ## Local Development
 
