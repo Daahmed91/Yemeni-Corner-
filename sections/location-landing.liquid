@@ -31,6 +31,7 @@
   assign fallback_gallery_1 = 'yc-cafe-adeni-tea.webp'
   assign fallback_gallery_2 = 'yc-cafe-mufawar.webp'
   assign fallback_gallery_3 = 'yc-cafe-saffron-milk-cake.webp'
+  assign hero_image_alt = section.settings.hero_image.alt | default: location_name
   if section.settings.location_key == 'lasalle'
     assign fallback_hero = 'yc-cafe-pistachio-latte.webp'
     assign fallback_gallery_1 = 'yc-cafe-tawahi-lemonade.webp'
@@ -118,7 +119,7 @@
             image: section.settings.hero_image,
             width: 1400,
             sizes: '(min-width: 960px) 46vw, 92vw',
-            alt: section.settings.hero_image.alt | default: location_name
+            alt: hero_image_alt
           %}
         {% else %}
           <img src="{{ fallback_hero | asset_url }}" alt="{{ location_name | escape }} cafe favorite" width="900" height="680" loading="eager">

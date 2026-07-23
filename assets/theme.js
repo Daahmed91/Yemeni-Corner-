@@ -316,6 +316,14 @@ document.querySelectorAll('[data-quantity-preset]').forEach((button) => {
   });
 });
 
+document.querySelectorAll('[data-localization-select]').forEach((select) => {
+  select.addEventListener('change', () => {
+    const form = select.closest('form');
+    if (!form) return;
+    form.submit();
+  });
+});
+
 const cartDrawer = document.querySelector('[data-cart-drawer]');
 const cartDrawerPanel = cartDrawer ? cartDrawer.querySelector('[role="dialog"]') : null;
 const cartDrawerBackdrop = cartDrawer ? cartDrawer.querySelector('.cart-drawer__backdrop') : null;
@@ -343,28 +351,55 @@ const formatMoney = (cents, currency) => {
   }).format(Number(cents || 0) / 100);
 };
 
+const getQualifyingQuantity = (cart) => {
+  if (Number.isFinite(Number(cart?.qualifying_quantity))) {
+    return Number(cart.qualifying_quantity);
+  }
+
+  const qualifyingHandle = cartDrawer?.dataset.qualifyingProductHandle || 'yemeni-corner-harraz-signature-roast';
+  const qualifyingProductId = Number(cartDrawer?.dataset.qualifyingProductId || 0);
+
+  if (Array.isArray(cart?.items)) {
+    return cart.items.reduce((total, item) => {
+      const handleMatches = item.handle === qualifyingHandle;
+      const idMatches = qualifyingProductId > 0 && Number(item.product_id) === qualifyingProductId;
+      return total + (handleMatches || idMatches ? Number(item.quantity || 0) : 0);
+    }, 0);
+  }
+
+  return Number(cartDrawer?.dataset.qualifyingQuantity || 0);
+};
+
 const updateFreeShippingMessaging = (cart) => {
-  const itemCount = Number(cart?.item_count || 0);
+  const qualifyingQuantity = getQualifyingQuantity(cart);
+
+  if (cartDrawer) {
+    cartDrawer.dataset.qualifyingQuantity = String(qualifyingQuantity);
+  }
 
   document.querySelectorAll('[data-free-shipping-message]').forEach((message) => {
     const threshold = Number(message.dataset.freeShippingThreshold || 2);
-    const remaining = Math.max(threshold - itemCount, 0);
+    const remaining = Math.max(threshold - qualifyingQuantity, 0);
+    const unlockedText = message.dataset.messageUnlocked || '';
+    const emptyText = message.dataset.messageEmpty || '';
+    const oneRemainingText = message.dataset.messageOne || '';
+    const manyRemainingText = message.dataset.messageMany || '';
 
-    if (itemCount >= threshold) {
-      message.textContent = 'Free shipping unlocked at checkout for Canadian delivery.';
-    } else if (itemCount === 0) {
-      message.textContent = `Add ${threshold} bags to qualify for free shipping across Canada.`;
+    if (qualifyingQuantity >= threshold) {
+      message.textContent = unlockedText;
+    } else if (qualifyingQuantity === 0) {
+      message.textContent = emptyText;
     } else if (remaining === 1) {
-      message.textContent = 'Add 1 more bag to qualify for free shipping across Canada.';
+      message.textContent = oneRemainingText;
     } else {
-      message.textContent = `Add ${remaining} more bags to qualify for free shipping across Canada.`;
+      message.textContent = manyRemainingText.replace('__COUNT__', String(remaining));
     }
   });
 
   document.querySelectorAll('[data-free-shipping-progress]').forEach((progress) => {
     const message = progress.closest('[data-free-shipping-offer]')?.querySelector('[data-free-shipping-message]');
     const threshold = Number(message?.dataset.freeShippingThreshold || 2);
-    const percent = Math.min((itemCount / threshold) * 100, 100);
+    const percent = Math.min((qualifyingQuantity / threshold) * 100, 100);
     progress.style.width = `${percent}%`;
   });
 };
@@ -404,7 +439,7 @@ const renderCartDrawer = (cart) => {
   if (!cartDrawer || !cartDrawerItems || !cartDrawerSubtotal) return;
 
   if (!cart.items || !cart.items.length) {
-    cartDrawerItems.innerHTML = '<div class="cart-drawer__empty"><p>Your cart is ready for its first coffee bag.</p></div>';
+    cartDrawerItems.innerHTML = `<div class="cart-drawer__empty"><p>${escapeHtml(cartDrawer.dataset.cartEmptyMessage)}</p></div>`;
   } else {
     const fallbackImage = cartDrawer.dataset.cartFallbackImage;
     cartDrawerItems.innerHTML = cart.items
@@ -455,13 +490,13 @@ document.querySelectorAll('form.product-form').forEach((form) => {
     if (!window.fetch || form.dataset.ajax === 'false') return;
 
     event.preventDefault();
-    const button = form.querySelector('[type="submit"]');
+    const button = event.submitter || form.querySelector('[type="submit"]');
     const originalText = button ? button.textContent : '';
     const status = form.querySelector('[data-product-status]');
 
     if (button) {
       button.disabled = true;
-      button.textContent = 'Adding...';
+      button.textContent = status?.dataset.addingText || originalText;
     }
 
     if (status) {
@@ -470,7 +505,8 @@ document.querySelectorAll('form.product-form').forEach((form) => {
 
     try {
       const formData = new FormData(form);
-      const response = await fetch('/cart/add.js', {
+      const rootPath = window.Shopify?.routes?.root || '/';
+      const response = await fetch(`${rootPath}cart/add.js`, {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: formData
@@ -489,7 +525,7 @@ document.querySelectorAll('form.product-form').forEach((form) => {
         currency: window.Shopify?.currency?.active || 'CAD'
       });
 
-      const cartResponse = await fetch('/cart.js', { headers: { Accept: 'application/json' } });
+      const cartResponse = await fetch(`${rootPath}cart.js`, { headers: { Accept: 'application/json' } });
       const cart = await cartResponse.json();
       document.querySelectorAll('[data-cart-count]').forEach((count) => {
         count.textContent = cart.item_count;
@@ -499,7 +535,7 @@ document.querySelectorAll('form.product-form').forEach((form) => {
       openCartDrawer(button);
 
       if (status) {
-        status.textContent = 'Added to cart. Your coffee bag is waiting in the mini cart.';
+        status.textContent = status.dataset.addedText || '';
       }
     } catch (error) {
       form.submit();
@@ -512,5 +548,4 @@ document.querySelectorAll('form.product-form').forEach((form) => {
   });
 });
 
-const initialCartCount = Number(document.querySelector('[data-cart-count]')?.textContent || 0);
-updateFreeShippingMessaging({ item_count: initialCartCount });
+updateFreeShippingMessaging({ qualifying_quantity: Number(cartDrawer?.dataset.qualifyingQuantity || 0) });

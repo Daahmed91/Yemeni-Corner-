@@ -22,16 +22,16 @@
         "origin_importer": "Supplier-confirmed origin and importer pending admin entry",
         "grind_format": "Whole bean coffee",
         "best_for": "Drip, French press, pour-over, espresso",
-        "market": "Canada shipping",
+        "market": "Canada and U.S. shipping",
         "origin_context": "Batch origin details should match supplier records before promotion",
         "gift_message": "A warm coffee gift for hosts, family, holidays, and coffee lovers",
-        "shipping_returns": "Ships to Canadian customers. Shipping rates appear at checkout; returns follow the store policy for sealed coffee.",
+        "shipping_returns": "Ships to customers in Canada and the United States. Rates, taxes, and delivery options appear at checkout; returns follow the store policy for sealed coffee.",
         "trust_copy": "We publish batch details only when they are supplier-confirmed, so the coffee story stays specific and trustworthy.",
         "description": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it.",
         "show_launch_offer": true,
         "offer_eyebrow": "Best First Order",
-        "offer_heading": "Buy 2 bags and ship free across Canada",
-        "offer_text": "Keep one bag for your own brew bar and gift one to someone who loves coffee with a story."
+        "offer_heading": "Buy 2 bags and get free standard shipping",
+        "offer_text": "Available in Canada and the United States. Keep one bag for your brew bar and gift one to someone who loves coffee with a story."
       }
     },
     "gift": {
@@ -75,7 +75,7 @@
           "settings": {
             "kicker": "Known",
             "title": "What this bag says clearly",
-            "text": "<p>340 g whole bean coffee, medium roast profile, 100% Arabica coffee, warm spice, cocoa, dried fruit notes, and Canada shipping.</p>"
+            "text": "<p>340 g whole bean coffee, medium roast profile, 100% Arabica coffee, warm spice, cocoa, dried fruit notes, and shipping in Canada and the United States.</p>"
           }
         },
         "context": {
@@ -195,7 +195,7 @@
           "type": "question",
           "settings": {
             "question": "Where does it ship and what about returns?",
-            "answer": "<p>The online shop is set up for Canadian customers. Shipping rates appear at checkout, and returns follow the store policy for sealed coffee.</p>"
+            "answer": "<p>The online shop ships to customers in Canada and the United States. Rates, taxes, and delivery options appear at checkout, and returns follow the store policy for sealed coffee.</p>"
           }
         },
         "cafe_drinks": {

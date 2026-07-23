@@ -57,16 +57,16 @@
       {% endif %}
     </a>
 
-    <nav class="site-nav" aria-label="Primary navigation">
+    <nav class="site-nav" aria-label="{{ 'navigation.primary' | t }}">
       <ul class="site-nav__list">
         {% if section.settings.use_curated_navigation %}
-          <li><a class="site-nav__link" href="{{ routes.root_url }}">Home</a></li>
-          <li><a class="site-nav__link" href="{{ shop_url }}">Shop Coffee</a></li>
-          <li><a class="site-nav__link" href="{{ story_url }}">Story</a></li>
-          <li><a class="site-nav__link" href="{{ menu_url }}">Cafe Menu</a></li>
-          <li><a class="site-nav__link" href="{{ locations_url }}">Locations</a></li>
-          <li><a class="site-nav__link" href="{{ careers_url }}">Careers</a></li>
-          <li><a class="site-nav__link" href="{{ contact_url }}">Contact</a></li>
+          <li><a class="site-nav__link" href="{{ routes.root_url }}">{{ 'navigation.home' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ shop_url }}">{{ 'navigation.shop_coffee' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ story_url }}">{{ 'navigation.story' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ menu_url }}">{{ 'navigation.cafe_menu' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ locations_url }}">{{ 'navigation.locations' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ careers_url }}">{{ 'navigation.careers' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ contact_url }}">{{ 'navigation.contact' | t }}</a></li>
         {% elsif navigation.links.size > 0 %}
           {% for link in navigation.links %}
             {%- liquid
@@ -81,13 +81,13 @@
             </li>
           {% endfor %}
         {% else %}
-          <li><a class="site-nav__link" href="{{ routes.root_url }}">Home</a></li>
-          <li><a class="site-nav__link" href="{{ shop_url }}">Shop Coffee</a></li>
-          <li><a class="site-nav__link" href="{{ story_url }}">Story</a></li>
-          <li><a class="site-nav__link" href="{{ menu_url }}">Cafe Menu</a></li>
-          <li><a class="site-nav__link" href="{{ locations_url }}">Locations</a></li>
-          <li><a class="site-nav__link" href="{{ careers_url }}">Careers</a></li>
-          <li><a class="site-nav__link" href="{{ contact_url }}">Contact</a></li>
+          <li><a class="site-nav__link" href="{{ routes.root_url }}">{{ 'navigation.home' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ shop_url }}">{{ 'navigation.shop_coffee' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ story_url }}">{{ 'navigation.story' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ menu_url }}">{{ 'navigation.cafe_menu' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ locations_url }}">{{ 'navigation.locations' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ careers_url }}">{{ 'navigation.careers' | t }}</a></li>
+          <li><a class="site-nav__link" href="{{ contact_url }}">{{ 'navigation.contact' | t }}</a></li>
         {% endif %}
       </ul>
     </nav>
@@ -98,9 +98,9 @@
           {{ section.settings.shop_button_label }}
         </a>
       {% endif %}
-      <a class="header-action header-action--search" href="{{ routes.search_url }}" aria-label="{{ 'general.search.search' | t }}">Search</a>
+      <a class="header-action header-action--search" href="{{ routes.search_url }}" aria-label="{{ 'general.search.search' | t }}">{{ 'general.search.search' | t }}</a>
       <a class="header-action header-action--cart" href="{{ routes.cart_url }}" aria-label="{{ 'cart.general.title' | t }}">
-        Cart
+        {{ 'cart.general.short_title' | t }}
         <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
       </a>
       <button
@@ -111,7 +111,7 @@
         aria-expanded="false"
         aria-label="{{ 'general.accessibility.menu' | t }}"
       >
-        Menu
+        {{ 'general.accessibility.menu' | t }}
       </button>
     </div>
   </div>
@@ -122,16 +122,16 @@
   <button class="mobile-drawer__backdrop" type="button" data-drawer-close aria-label="{{ 'general.accessibility.close' | t }}"></button>
   <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ 'general.accessibility.menu' | t }}" tabindex="-1">
     <button class="header-action" type="button" data-drawer-close>{{ 'general.accessibility.close' | t }}</button>
-    <nav class="mobile-drawer__nav" aria-label="Mobile navigation">
+    <nav class="mobile-drawer__nav" aria-label="{{ 'navigation.mobile' | t }}">
       {% if section.settings.use_curated_navigation %}
-        <a href="{{ routes.root_url }}">Home</a>
-        <a href="{{ shop_url }}">Shop Coffee</a>
-        <a href="{{ story_url }}">Story</a>
-        <a href="{{ menu_url }}">Cafe Menu</a>
-        <a href="{{ locations_url }}">Locations</a>
-        <a href="{{ careers_url }}">Careers</a>
-        <a href="{{ contact_url }}">Contact</a>
-        <a href="{{ routes.cart_url }}">Cart</a>
+        <a href="{{ routes.root_url }}">{{ 'navigation.home' | t }}</a>
+        <a href="{{ shop_url }}">{{ 'navigation.shop_coffee' | t }}</a>
+        <a href="{{ story_url }}">{{ 'navigation.story' | t }}</a>
+        <a href="{{ menu_url }}">{{ 'navigation.cafe_menu' | t }}</a>
+        <a href="{{ locations_url }}">{{ 'navigation.locations' | t }}</a>
+        <a href="{{ careers_url }}">{{ 'navigation.careers' | t }}</a>
+        <a href="{{ contact_url }}">{{ 'navigation.contact' | t }}</a>
+        <a href="{{ routes.cart_url }}">{{ 'cart.general.short_title' | t }}</a>
       {% elsif navigation.links.size > 0 %}
         {% for link in navigation.links %}
           {%- liquid
@@ -144,16 +144,17 @@
           <a href="{{ link_url }}">{{ link.title }}</a>
         {% endfor %}
       {% else %}
-        <a href="{{ routes.root_url }}">Home</a>
-        <a href="{{ shop_url }}">Shop Coffee</a>
-        <a href="{{ story_url }}">Story</a>
-        <a href="{{ menu_url }}">Cafe Menu</a>
-        <a href="{{ locations_url }}">Locations</a>
-        <a href="{{ careers_url }}">Careers</a>
-        <a href="{{ contact_url }}">Contact</a>
-        <a href="{{ routes.cart_url }}">Cart</a>
+        <a href="{{ routes.root_url }}">{{ 'navigation.home' | t }}</a>
+        <a href="{{ shop_url }}">{{ 'navigation.shop_coffee' | t }}</a>
+        <a href="{{ story_url }}">{{ 'navigation.story' | t }}</a>
+        <a href="{{ menu_url }}">{{ 'navigation.cafe_menu' | t }}</a>
+        <a href="{{ locations_url }}">{{ 'navigation.locations' | t }}</a>
+        <a href="{{ careers_url }}">{{ 'navigation.careers' | t }}</a>
+        <a href="{{ contact_url }}">{{ 'navigation.contact' | t }}</a>
+        <a href="{{ routes.cart_url }}">{{ 'cart.general.short_title' | t }}</a>
       {% endif %}
     </nav>
+    {% render 'localization-form', id_prefix: 'MobileMenu', class_name: 'localization-form__field--drawer' %}
   </div>
 </div>
 

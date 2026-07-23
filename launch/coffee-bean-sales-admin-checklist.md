@@ -42,29 +42,33 @@ Populate these product metafields from supplier records only:
 | `custom.origin_importer` | Exact farm/region/importer record |
 | `custom.origin_context` | One short supplier-backed origin sentence |
 | `custom.brew_methods` | `Drip, French press, pour-over, espresso` |
-| `custom.shipping_returns` | `Buy 2 bags to unlock free shipping across Canada at checkout. Returns follow the store policy for sealed coffee.` |
+| `custom.shipping_returns` | `Buy 2 bags to unlock free standard shipping in Canada or the United States at checkout. Returns follow the store policy for sealed coffee.` |
 | `custom.verified_seo_description` | Safe SEO copy using only verified claims |
 | `custom.verified_structured_description` | Safe Product JSON-LD copy using only verified claims |
 
-## 2-Bag Free Shipping Discount
+## 2-Bag Free Standard Shipping Discounts
 
-- Create an automatic free-shipping discount:
-  - Title: `2-bag free shipping`
-  - Applies to: Canada only
-  - Customer eligibility: All customers
-  - Minimum requirement: 2 items, or minimum cart value `$65.98 CAD`
-  - Active dates: launch day onward
-  - Combines with: off by default unless another planned promo requires it
-- QA before launch:
-  - 1 bag: shipping is charged.
-  - 2 bags: free shipping appears in checkout.
-  - Non-Canada address: the Canada-only free-shipping rule does not apply.
+- Create two automatic shipping discounts limited to the Signature Blend product:
+  - `2-bag free standard shipping — Canada`: Canada only, minimum quantity 2, maximum shipping price `$12.00 CAD`.
+  - `2-bag free standard shipping — United States`: United States only, minimum quantity 2, maximum shipping price `$29.90 CAD`.
+- For both discounts:
+  - Customer eligibility: all customers.
+  - Usage limit: one use per customer.
+  - Active dates: launch day onward.
+  - Combinations: off by default unless another planned promotion requires them.
+  - Express shipping remains paid because its rate exceeds the discount cap.
+- QA before launch with separate Canada and U.S. addresses:
+  - 1 qualifying bag: shipping is charged.
+  - 2 qualifying bags: standard shipping is free.
+  - Express shipping remains paid.
+  - Non-qualifying products do not count toward the two-bag threshold.
+- Retire the legacy cart-value free-shipping rates (`$75 CAD` Canada and `$100 CAD` U.S.) only after both live checkout tests pass.
 
 ## Shopify Admin Setup
 
-- Markets: Canada enabled; US shipping disabled for v1.
-- Shipping: Canada rates active; packaging weight entered for one bag and two bags.
-- Taxes: Shopify-managed Canadian tax setup confirmed.
+- Markets: Canada and United States enabled; the U.S. market uses automatic local-currency pricing.
+- Shipping: Canada and U.S. rates active; packaging weight entered for one bag and two bags.
+- Taxes and duties: Shopify-managed settings reviewed for both markets.
 - Policies: shipping, refund, privacy, and terms pages published.
 - Returns: sealed coffee policy is visible before checkout or linked from policy pages.
 - Fulfillment: packing materials, labels, roast/batch sticker process, and pickup/shipping handoff confirmed.

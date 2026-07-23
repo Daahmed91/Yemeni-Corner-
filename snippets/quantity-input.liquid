@@ -1,11 +1,24 @@
+{% doc %}
+Renders an accessible quantity input with increment and decrement controls.
+
+@param {string} [id] - Optional input ID.
+@param {string} [name] - Optional input name.
+@param {number} [value] - Initial quantity.
+
+@example
+{% render 'quantity-input', id: 'ProductQuantity', value: 1 %}
+{% enddoc %}
+
 {%- liquid
   assign input_name = name | default: 'quantity'
   assign input_value = value | default: 1
+  assign input_id = id | default: ''
 -%}
 
 <div class="quantity" data-quantity>
-  <button type="button" aria-label="Decrease quantity" data-quantity-button="minus">-</button>
+  <button type="button" aria-label="{{ 'products.product.decrease_quantity' | t }}" data-quantity-button="minus">-</button>
   <input
+    {% if input_id != blank %}id="{{ input_id }}"{% endif %}
     type="number"
     name="{{ input_name }}"
     value="{{ input_value }}"
@@ -13,6 +26,5 @@
     inputmode="numeric"
     aria-label="{{ 'products.product.quantity' | t }}"
   >
-  <button type="button" aria-label="Increase quantity" data-quantity-button="plus">+</button>
+  <button type="button" aria-label="{{ 'products.product.increase_quantity' | t }}" data-quantity-button="plus">+</button>
 </div>
-

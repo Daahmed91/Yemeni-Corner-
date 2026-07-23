@@ -71,15 +71,15 @@
     </div>
 
     <div>
-      <h3 class="site-footer__title">Explore</h3>
+      <h3 class="site-footer__title">{{ 'footer.explore' | t }}</h3>
       <ul class="footer-nav">
         {% if section.settings.use_curated_navigation %}
-          <li><a href="{{ shop_url }}">Shop Coffee</a></li>
-          <li><a href="{{ story_url }}">Our Story</a></li>
-          <li><a href="{{ menu_url }}">Cafe Menu</a></li>
-          <li><a href="{{ locations_url }}">Locations</a></li>
-          <li><a href="{{ careers_url }}">Careers</a></li>
-          <li><a href="{{ contact_url }}">Contact</a></li>
+          <li><a href="{{ shop_url }}">{{ 'navigation.shop_coffee' | t }}</a></li>
+          <li><a href="{{ story_url }}">{{ 'navigation.our_story' | t }}</a></li>
+          <li><a href="{{ menu_url }}">{{ 'navigation.cafe_menu' | t }}</a></li>
+          <li><a href="{{ locations_url }}">{{ 'navigation.locations' | t }}</a></li>
+          <li><a href="{{ careers_url }}">{{ 'navigation.careers' | t }}</a></li>
+          <li><a href="{{ contact_url }}">{{ 'navigation.contact' | t }}</a></li>
         {% elsif footer_menu.links.size > 0 %}
           {% for link in footer_menu.links %}
             {%- liquid
@@ -92,18 +92,18 @@
             <li><a href="{{ link_url }}">{{ link.title }}</a></li>
           {% endfor %}
         {% else %}
-          <li><a href="{{ shop_url }}">Shop Coffee</a></li>
-          <li><a href="{{ story_url }}">Our Story</a></li>
-          <li><a href="{{ menu_url }}">Cafe Menu</a></li>
-          <li><a href="{{ locations_url }}">Locations</a></li>
-          <li><a href="{{ careers_url }}">Careers</a></li>
-          <li><a href="{{ contact_url }}">Contact</a></li>
+          <li><a href="{{ shop_url }}">{{ 'navigation.shop_coffee' | t }}</a></li>
+          <li><a href="{{ story_url }}">{{ 'navigation.our_story' | t }}</a></li>
+          <li><a href="{{ menu_url }}">{{ 'navigation.cafe_menu' | t }}</a></li>
+          <li><a href="{{ locations_url }}">{{ 'navigation.locations' | t }}</a></li>
+          <li><a href="{{ careers_url }}">{{ 'navigation.careers' | t }}</a></li>
+          <li><a href="{{ contact_url }}">{{ 'navigation.contact' | t }}</a></li>
         {% endif %}
       </ul>
     </div>
 
     <div>
-      <h3 class="site-footer__title">Visit Us</h3>
+      <h3 class="site-footer__title">{{ 'footer.visit_us' | t }}</h3>
       <p>
         <a href="{{ south_windsor_url }}">South Windsor</a><br>
         350 Cabana Rd E<br>
@@ -145,7 +145,7 @@
     </div>
 
     <div>
-      <h3 class="site-footer__title">Connect</h3>
+      <h3 class="site-footer__title">{{ 'footer.connect' | t }}</h3>
       <ul class="social-list">
         {% if settings.social_instagram_link != blank %}
           <li><a href="{{ settings.social_instagram_link }}">Instagram</a></li>
@@ -158,12 +158,13 @@
         <li><a href="{{ careers_url }}">Careers</a></li>
         <li><a href="{{ contact_url }}">Contact</a></li>
       </ul>
+      {% render 'localization-form', id_prefix: 'Footer', class_name: 'localization-form__field--footer' %}
     </div>
   </div>
 
   <div class="page-width site-footer__bottom">
     <span>&copy; {{ 'now' | date: '%Y' }} {{ brand_name | default: 'Yemeni Corner' }}</span>
-    <span>Cafe hospitality in Ontario and Pennsylvania, with Yemeni coffee for home brewing.</span>
+    <span>{{ 'footer.bottom_line' | t }}</span>
   </div>
 </footer>
 

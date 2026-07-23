@@ -1,7 +1,10 @@
 {%- liquid
   assign free_shipping_threshold_quantity = 2
-  assign free_shipping_remaining = free_shipping_threshold_quantity | minus: cart.item_count
-  assign free_shipping_progress = cart.item_count | times: 100 | divided_by: free_shipping_threshold_quantity
+  assign qualifying_product = all_products['yemeni-corner-harraz-signature-roast']
+  assign qualifying_line_items = cart | line_items_for: qualifying_product
+  assign qualifying_quantity = qualifying_line_items | sum: 'quantity'
+  assign free_shipping_remaining = free_shipping_threshold_quantity | minus: qualifying_quantity
+  assign free_shipping_progress = qualifying_quantity | times: 100 | divided_by: free_shipping_threshold_quantity
   if free_shipping_progress > 100
     assign free_shipping_progress = 100
   endif
@@ -11,6 +14,10 @@
   class="cart-drawer"
   data-cart-drawer
   data-cart-fallback-image="{{ 'yemeni-corner-bag.svg' | asset_url }}"
+  data-qualifying-product-handle="yemeni-corner-harraz-signature-roast"
+  data-qualifying-product-id="{{ qualifying_product.id }}"
+  data-qualifying-quantity="{{ qualifying_quantity }}"
+  data-cart-empty-message="{{ 'cart.drawer.empty' | t | escape }}"
   aria-hidden="true"
 >
   <button class="cart-drawer__backdrop" type="button" data-cart-drawer-close aria-label="{{ 'general.accessibility.close' | t }}"></button>
@@ -18,8 +25,8 @@
   <aside class="cart-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="CartDrawerTitle" tabindex="-1">
     <div class="cart-drawer__header">
       <div>
-        <p class="eyebrow">Coffee Bag</p>
-        <h2 id="CartDrawerTitle" class="heading-md">Added to your ritual</h2>
+        <p class="eyebrow">{{ 'cart.drawer.eyebrow' | t }}</p>
+        <h2 id="CartDrawerTitle" class="heading-md">{{ 'cart.drawer.title' | t }}</h2>
       </div>
       <button class="header-action" type="button" data-cart-drawer-close>{{ 'general.accessibility.close' | t }}</button>
     </div>
@@ -54,7 +61,7 @@
         {% endfor %}
       {% else %}
         <div class="cart-drawer__empty">
-          <p>Your cart is ready for its first coffee bag.</p>
+          <p>{{ 'cart.drawer.empty' | t }}</p>
         </div>
       {% endif %}
     </div>
@@ -62,21 +69,28 @@
     <div class="cart-drawer__summary">
       <div class="cart-offer" data-free-shipping-offer>
         <div class="cart-offer__top">
-          <span>2-bag offer</span>
-          <strong>Free shipping in Canada</strong>
+          <span>{{ 'cart.free_shipping.eyebrow' | t }}</span>
+          <strong>{{ 'cart.free_shipping.heading' | t }}</strong>
         </div>
         <div class="cart-offer__track" aria-hidden="true">
           <span data-free-shipping-progress style="width: {{ free_shipping_progress }}%;"></span>
         </div>
-        <p data-free-shipping-message data-free-shipping-threshold="{{ free_shipping_threshold_quantity }}">
-          {% if cart.item_count >= free_shipping_threshold_quantity %}
-            Free shipping unlocked at checkout for Canadian delivery.
-          {% elsif cart.item_count == 0 %}
-            Add 2 bags to qualify for free shipping across Canada.
+        <p
+          data-free-shipping-message
+          data-free-shipping-threshold="{{ free_shipping_threshold_quantity }}"
+          data-message-unlocked="{{ 'cart.free_shipping.unlocked' | t | escape }}"
+          data-message-empty="{{ 'cart.free_shipping.empty' | t | escape }}"
+          data-message-one="{{ 'cart.free_shipping.one_remaining' | t | escape }}"
+          data-message-many="{{ 'cart.free_shipping.many_remaining' | t: count: '__COUNT__' | escape }}"
+        >
+          {% if qualifying_quantity >= free_shipping_threshold_quantity %}
+            {{ 'cart.free_shipping.unlocked' | t }}
+          {% elsif qualifying_quantity == 0 %}
+            {{ 'cart.free_shipping.empty' | t }}
           {% elsif free_shipping_remaining == 1 %}
-            Add 1 more bag to qualify for free shipping across Canada.
+            {{ 'cart.free_shipping.one_remaining' | t }}
           {% else %}
-            Add {{ free_shipping_remaining }} more bags to qualify for free shipping across Canada.
+            {{ 'cart.free_shipping.many_remaining' | t: count: free_shipping_remaining }}
           {% endif %}
         </p>
       </div>
@@ -84,7 +98,7 @@
         <span>{{ 'cart.general.subtotal' | t }}</span>
         <strong data-cart-drawer-subtotal>{{ cart.total_price | money }}</strong>
       </div>
-      <p class="muted">Shipping and taxes are calculated at checkout.</p>
+      <p class="muted">{{ 'cart.general.shipping_taxes' | t }}</p>
       <div class="cart-drawer__actions">
         <form action="{{ routes.cart_url }}" method="post">
           <button

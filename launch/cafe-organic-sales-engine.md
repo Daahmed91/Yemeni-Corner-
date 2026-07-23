@@ -9,20 +9,20 @@ Counter display copy:
 ```text
 Brew the Yemeni Corner Signature Blend at home.
 340 g whole bean coffee | $32.99
-Buy 2 bags, ship free across Canada.
+Buy 2 bags, get free standard shipping in Canada or the U.S.
 Scan to order or ask the team.
 ```
 
 Staff script:
 
 ```text
-Do you brew coffee at home? The Yemeni Corner Signature Blend is the same cafe story in a 340 g whole-bean bag. If you buy two bags online, they ship free across Canada.
+Do you brew coffee at home? The Yemeni Corner Signature Blend is the same cafe story in a 340 g whole-bean bag. If you buy two bags online, standard shipping is free in Canada or the U.S.
 ```
 
 Receipt or cup-sleeve prompt:
 
 ```text
-Bring the ritual home. Scan for Yemeni Corner Signature Blend. Buy 2 bags, ship free in Canada.
+Bring the ritual home. Scan for Yemeni Corner Signature Blend. Buy 2 bags and get free standard shipping in Canada or the U.S.
 ```
 
 Placement:
@@ -55,7 +55,7 @@ The cafe ritual now has a bag for home. Yemeni Corner Signature Blend is a 340 g
 
 Brew it for slow mornings, family visits, or the cup you want after leaving the cafe.
 
-Launch offer: buy 2 bags and get free shipping across Canada.
+Launch offer: buy 2 bags and get free standard shipping in Canada or the U.S.
 ```
 
 Email 2 - Brew guide
@@ -67,7 +67,7 @@ Start simple: medium grind for drip or pour-over, coarse for French press, and f
 
 For filter coffee, try 20 g coffee to about 320 g water. Adjust stronger or softer from there.
 
-Buy 2 bags to unlock free shipping across Canada.
+Buy 2 bags to unlock free standard shipping in Canada or the U.S.
 ```
 
 Email 3 - Reminder
@@ -77,7 +77,7 @@ Subject: `One to brew, one to share`
 ```text
 The easiest way to try Yemeni Corner Signature Blend is to keep one bag at home and gift one to someone who loves coffee with a story.
 
-Two bags unlock free shipping across Canada.
+Two bags unlock free standard shipping in Canada or the U.S.
 ```
 
 Post-purchase reminder - Day 18
@@ -87,7 +87,7 @@ Subject: `How is the Signature Blend brewing?`
 ```text
 If the bag is open, keep it sealed, cool, and dry. Grind only what you need for the freshest cup.
 
-When you are ready to refill, two bags ship free across Canada.
+When you are ready to refill, two bags get free standard shipping in Canada or the U.S.
 ```
 
 Post-purchase reminder - Day 28
@@ -97,7 +97,7 @@ Subject: `Time for the next bag?`
 ```text
 If the Yemeni Corner Signature Blend became part of your morning, this is a good time to restock.
 
-Buy 2 bags to unlock free shipping across Canada.
+Buy 2 bags to unlock free standard shipping in Canada or the U.S.
 ```
 
 ## Social Cadence
@@ -122,7 +122,7 @@ Caption guardrail: do not mention farm, altitude, process, importer, or region u
 Post once per week on each Canadian location profile:
 
 ```text
-Now available online: Yemeni Corner Signature Blend, a 340 g whole-bean medium roast with warm spice, cocoa, and dried fruit notes. Buy 2 bags for free shipping across Canada.
+Now available online: Yemeni Corner Signature Blend, a 340 g whole-bean medium roast with warm spice, cocoa, and dried fruit notes. Buy 2 bags for free standard shipping in Canada or the U.S.
 ```
 
 SEO content topics:

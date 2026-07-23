@@ -14,6 +14,7 @@
   assign trust_copy = product.metafields.custom.trust_copy.value | default: section.settings.trust_copy
   assign product_display_title = product.title
   assign product_form_id = 'ProductForm-' | append: section.id
+  assign media_count = product.media.size | at_most: 4
   assign verified_description = product.metafields.custom.verified_structured_description.value | default: product.metafields.custom.verified_seo_description.value
   assign product_body_copy = product.description
   if verified_description != blank
@@ -33,41 +34,45 @@
   data-yc-event-variant-id="{{ current_variant.id }}"
   data-yc-event-price="{{ current_variant.price | divided_by: 100.0 }}"
   data-yc-event-currency="{{ cart.currency.iso_code }}"
+  data-market-country="{{ localization.country.iso_code }}"
 >
   <div class="page-width product">
-    <div class="product__media">
-      <div class="product__media-main">
-        {% if product.featured_media %}
-          {{
-            product.featured_media.preview_image
-            | image_url: width: 1400
-            | image_tag:
-              widths: '520, 720, 960, 1200, 1400',
-              sizes: '(min-width: 960px) 52vw, 92vw',
-              loading: 'eager',
-              alt: product_display_title
-          }}
+    <div class="product__media" aria-label="{{ 'products.media.gallery' | t }}">
+      <div class="product__media-track" role="list" data-product-media-track>
+        {% if product.media.size > 0 %}
+          {% for media in product.media limit: 4 %}
+            {%- liquid
+              assign media_loading = 'lazy'
+              assign media_alt = media.alt | default: product_display_title
+              if forloop.first
+                assign media_loading = 'eager'
+              endif
+            -%}
+            <figure
+              class="product__media-slide{% if forloop.first %} product__media-slide--primary{% endif %}"
+              role="listitem"
+              aria-label="{{ 'products.media.item' | t: index: forloop.index, total: media_count }}"
+            >
+              {{
+                media.preview_image
+                | image_url: width: 1400
+                | image_tag:
+                  widths: '360, 520, 720, 960, 1200, 1400',
+                  sizes: '(min-width: 960px) 52vw, 92vw',
+                  loading: media_loading,
+                  alt: media_alt
+              }}
+            </figure>
+          {% endfor %}
         {% else %}
-          <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="{{ product_display_title | escape }}" width="1100" height="1300" loading="eager">
+          <figure class="product__media-slide product__media-slide--primary" role="listitem">
+            <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="{{ product_display_title | escape }}" width="1100" height="1300" loading="eager">
+          </figure>
         {% endif %}
       </div>
 
       {% if product.media.size > 1 %}
-        <div class="collection-grid">
-          {% for media in product.media offset: 1 limit: 3 %}
-            <div class="product-card__image">
-              {{
-                media.preview_image
-                | image_url: width: 600
-                | image_tag:
-                  widths: '240, 360, 480, 600',
-                  sizes: '(min-width: 960px) 16vw, 30vw',
-                  loading: 'lazy',
-                  alt: product_display_title
-              }}
-            </div>
-          {% endfor %}
-        </div>
+        <p class="product__media-hint">{{ 'products.media.swipe_hint' | t }}</p>
       {% endif %}
     </div>
 
@@ -88,7 +93,7 @@
         </div>
       {% endif %}
 
-      <div class="product__trust" aria-label="Product highlights">
+      <div class="product__trust" aria-label="{{ 'products.product.highlights' | t }}">
         <span>{{ grind_format }}</span>
         <span>{{ roast_date }}</span>
         <span>{{ section.settings.market }}</span>
@@ -99,7 +104,7 @@
           <input type="hidden" name="id" value="{{ current_variant.id }}">
         {% else %}
           <div class="field">
-            <label for="VariantSelect-{{ section.id }}">Choose option</label>
+            <label for="VariantSelect-{{ section.id }}">{{ 'products.product.choose_option' | t }}</label>
             <select id="VariantSelect-{{ section.id }}" class="select" name="id">
               {% for variant in product.variants %}
                 <option
@@ -115,17 +120,19 @@
         {% endif %}
 
         <div class="field">
-          <label>{{ 'products.product.quantity' | t }}</label>
-          {% render 'quantity-input' %}
-          <div class="quantity-presets" aria-label="Quick quantity choices">
+          <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+          {% assign quantity_input_id = 'Quantity-' | append: section.id %}
+          {% render 'quantity-input', id: quantity_input_id %}
+          <div class="quantity-presets" aria-label="{{ 'products.product.quantity_choices' | t }}">
             <button
               type="button"
               data-quantity-preset="1"
               data-yc-event="quantity_preset"
               data-yc-event-source="product_form"
               data-yc-event-quantity="1"
+              aria-pressed="true"
             >
-              1 bag
+              {{ 'products.product.one_bag' | t }}
             </button>
             <button
               type="button"
@@ -133,8 +140,9 @@
               data-yc-event="quantity_preset"
               data-yc-event-source="product_form"
               data-yc-event-quantity="2"
+              aria-pressed="false"
             >
-              2 bags - free shipping
+              {{ 'products.product.two_bags_free' | t }}
             </button>
           </div>
         </div>
@@ -152,7 +160,13 @@
           {% endif %}
         </button>
 
-        <p class="form-message" data-product-status aria-live="polite"></p>
+        <p
+          class="form-message"
+          data-product-status
+          data-adding-text="{{ 'products.product.adding' | t | escape }}"
+          data-added-text="{{ 'products.product.added' | t | escape }}"
+          aria-live="polite"
+        ></p>
 
         {% if section.settings.show_dynamic_checkout %}
           {{ form | payment_button }}
@@ -163,55 +177,55 @@
         <p class="product__confidence">{{ trust_copy }}</p>
       {% endif %}
 
-      <div class="product-nudges" aria-label="Ways to enjoy this coffee">
-        <span>One to brew, one to gift</span>
-        <span>Stock up for the week</span>
-        <span>Share the cafe ritual at home</span>
+      <div class="product-nudges" aria-label="{{ 'products.product.ways_to_enjoy' | t }}">
+        <span>{{ 'products.product.nudge_gift' | t }}</span>
+        <span>{{ 'products.product.nudge_stock' | t }}</span>
+        <span>{{ 'products.product.nudge_share' | t }}</span>
       </div>
 
       <div class="product-meta">
         <div class="product-meta__item">
-          <span>Tasting Notes</span>
+          <span>{{ 'products.details.tasting_notes' | t }}</span>
           <strong>{{ tasting_notes }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Roast Level</span>
+          <span>{{ 'products.details.roast_level' | t }}</span>
           <strong>{{ roast_level }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Roast Date</span>
+          <span>{{ 'products.details.roast_date' | t }}</span>
           <strong>{{ roast_date }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Process</span>
+          <span>{{ 'products.details.process' | t }}</span>
           <strong>{{ coffee_process }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Origin / Importer</span>
+          <span>{{ 'products.details.origin_importer' | t }}</span>
           <strong>{{ origin_importer }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Grind / Format</span>
+          <span>{{ 'products.details.grind_format' | t }}</span>
           <strong>{{ grind_format }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Best For</span>
+          <span>{{ 'products.details.best_for' | t }}</span>
           <strong>{{ brew_methods }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>In The Bag</span>
+          <span>{{ 'products.details.in_the_bag' | t }}</span>
           <strong>{{ bag_size }} coffee, {{ section.settings.market }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Origin Context</span>
+          <span>{{ 'products.details.origin_context' | t }}</span>
           <strong>{{ origin_context }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Gift Note</span>
+          <span>{{ 'products.details.gift_note' | t }}</span>
           <strong>{{ gift_message }}</strong>
         </div>
         <div class="product-meta__item">
-          <span>Shipping / Returns</span>
+          <span>{{ 'products.details.shipping_returns' | t }}</span>
           <strong>{{ shipping_returns }}</strong>
         </div>
       </div>
@@ -232,7 +246,7 @@
   </div>
 
   {% if current_variant.available %}
-    <div class="product-sticky-cta" aria-label="Quick add to cart">
+    <div class="product-sticky-cta" aria-label="{{ 'products.product.quick_add' | t }}">
       <div>
         <span>{{ product_display_title }}</span>
         <strong>{{ current_variant.price | money }}</strong>
@@ -312,7 +326,7 @@
       "type": "text",
       "id": "market",
       "label": "Market",
-      "default": "Canada shipping"
+      "default": "Canada and U.S. shipping"
     },
     {
       "type": "text",
@@ -330,7 +344,7 @@
       "type": "textarea",
       "id": "shipping_returns",
       "label": "Shipping / returns",
-      "default": "Ships to Canadian customers. Shipping rates appear at checkout; returns follow the store policy for sealed coffee."
+      "default": "Ships to customers in Canada and the United States. Rates, taxes, and delivery options appear at checkout; returns follow the store policy for sealed coffee."
     },
     {
       "type": "textarea",
@@ -360,13 +374,13 @@
       "type": "text",
       "id": "offer_heading",
       "label": "Offer heading",
-      "default": "Buy 2 bags and ship free across Canada"
+      "default": "Buy 2 bags and get free standard shipping"
     },
     {
       "type": "textarea",
       "id": "offer_text",
       "label": "Offer text",
-      "default": "Keep one bag for your own brew bar and gift one to someone who loves coffee with a story."
+      "default": "Available in Canada and the United States. Keep one bag for your brew bar and gift one to someone who loves coffee with a story."
     },
     {
       "type": "checkbox",

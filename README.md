@@ -167,12 +167,12 @@ The 404 template also protects currently missing launch URLs while admin content
 
 For v1, configure these in Shopify admin:
 
-- Market: Canada only
-- Shipping zones: Canada only
-- Taxes: Shopify-managed Canada tax setup
+- Markets: Canada and United States enabled
+- Shipping zones: Canada and United States
+- Taxes and duties: Shopify-managed settings reviewed for both markets
 - Subscriptions: disabled for v1
 - Cafe menu ordering: not enabled in this theme
-- Automatic free shipping discount: Canada only, unlocked by 2 coffee bags or a `$65.98 CAD` cart. Activate this in Shopify admin before publishing or promoting the 2-bag offer messaging.
+- Automatic free standard shipping discounts: two qualifying Signature Blend bags, scoped separately to Canada and the United States. Activate and QA both discounts in Shopify admin before publishing or promoting the offer.
 - Keep discount wording, announcement bars, product SEO titles/descriptions, and batch-specific sourcing claims in Shopify admin/metafields. Do not hardcode active offer promises in the theme unless Shopify admin cannot support the required placement.
 
 ## 60-Day Coffee Bean Sales Launch
@@ -183,7 +183,7 @@ Use these launch files before promoting the beans:
 - `launch/cafe-organic-sales-engine.md`
 - `launch/qr-campaign-urls.csv`
 
-The launch target is `100-200 bags` in 60 days, with a working target of `160 bags`, Canada-only shipping, no paid ads, and a cafe-powered organic engine. The core offer is: buy 2 bags of Yemeni Corner Signature Blend and get free shipping across Canada.
+The launch target is `100-200 bags` in 60 days, with a working target of `160 bags`, Canada and U.S. shipping, no paid ads, and a cafe-powered organic engine. The core offer is: buy 2 bags of Yemeni Corner Signature Blend and get free standard shipping in Canada or the United States.
 
 ## Local Development
 

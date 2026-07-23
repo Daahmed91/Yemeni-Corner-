@@ -103,7 +103,7 @@
           "type": "question",
           "settings": {
             "question": "Where do you ship?",
-            "answer": "<p>The online shop is set up for Canadian customers. Shipping rates and delivery options appear at checkout.</p>"
+            "answer": "<p>The online shop ships to customers in Canada and the United States. Rates, taxes, and delivery options appear at checkout.</p>"
           }
         }
       },

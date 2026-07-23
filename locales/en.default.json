@@ -20,27 +20,97 @@
       "error": "Please review the highlighted fields."
     }
   },
+  "navigation": {
+    "primary": "Primary navigation",
+    "mobile": "Mobile navigation",
+    "home": "Home",
+    "shop_coffee": "Shop Coffee",
+    "story": "Story",
+    "our_story": "Our Story",
+    "cafe_menu": "Cafe Menu",
+    "locations": "Locations",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "localization": {
+    "country_label": "Country and currency",
+    "submit": "Update country"
+  },
   "products": {
     "product": {
       "add_to_cart": "Add to cart",
+      "adding": "Adding...",
+      "added": "Added to cart. Your coffee is waiting in the mini cart.",
       "sold_out": "Sold out",
       "quantity": "Quantity",
+      "increase_quantity": "Increase quantity",
+      "decrease_quantity": "Decrease quantity",
+      "quantity_choices": "Quick quantity choices",
+      "one_bag": "1 bag",
+      "two_bags_free": "2 bags — free standard shipping",
+      "choose_option": "Choose option",
+      "highlights": "Product highlights",
+      "ways_to_enjoy": "Ways to enjoy this coffee",
+      "nudge_gift": "One to brew, one to gift",
+      "nudge_stock": "Stock up for the week",
+      "nudge_share": "Share the cafe ritual at home",
+      "quick_add": "Quick add to cart",
       "from": "From",
       "unavailable": "Unavailable",
       "view_product": "View product"
+    },
+    "media": {
+      "gallery": "Product media gallery",
+      "item": "Product image {{ index }} of {{ total }}",
+      "swipe_hint": "Swipe to view more product images"
+    },
+    "details": {
+      "tasting_notes": "Tasting Notes",
+      "roast_level": "Roast Level",
+      "roast_date": "Roast Date",
+      "process": "Process",
+      "origin_importer": "Origin / Importer",
+      "grind_format": "Grind / Format",
+      "best_for": "Best For",
+      "in_the_bag": "In The Bag",
+      "origin_context": "Origin Context",
+      "gift_note": "Gift Note",
+      "shipping_returns": "Shipping / Returns"
     }
   },
   "cart": {
     "general": {
       "title": "Your cart",
+      "short_title": "Cart",
       "empty": "Your cart is empty.",
+      "empty_detail": "Your cart is ready for the Yemeni Corner Signature Blend, our flagship whole bean coffee for home brewing.",
       "checkout": "Checkout",
       "subtotal": "Subtotal",
       "remove": "Remove",
       "update": "Update cart",
       "note": "Order notes",
+      "shipping_taxes": "Shipping and taxes are calculated at checkout.",
       "continue_shopping": "Continue shopping"
+    },
+    "drawer": {
+      "eyebrow": "Coffee Bag",
+      "title": "Added to your ritual",
+      "empty": "Your cart is ready for its first coffee bag."
+    },
+    "free_shipping": {
+      "eyebrow": "2-bag offer",
+      "heading": "Free standard shipping in Canada and the U.S.",
+      "unlocked": "Free standard shipping unlocked for Canada or the United States.",
+      "empty": "Add 2 Signature Blend bags to qualify for free standard shipping.",
+      "one_remaining": "Add 1 more Signature Blend bag to qualify for free standard shipping.",
+      "many_remaining": "Add {{ count }} more Signature Blend bags to qualify for free standard shipping."
     }
+  },
+  "footer": {
+    "explore": "Explore",
+    "visit_us": "Visit Us",
+    "connect": "Connect",
+    "bottom_line": "Cafe hospitality in Ontario and Pennsylvania, with Yemeni coffee for home brewing."
   },
   "blogs": {
     "article": {
@@ -49,4 +119,3 @@
     }
   }
 }
-
