@@ -31,8 +31,8 @@
       assign seo_title = seo_title | replace: 'Yemeni CornerSignature', 'Yemeni Corner Signature' | replace: 'Yemeni CornerHarraz', 'Yemeni Corner Harraz' | replace: 'Yemeni Corner|', 'Yemeni Corner |'
 
       assign seo_description = page_description | default: settings.brand_statement | default: shop.description
-      if template.name == 'index' and settings.brand_statement != blank
-        assign seo_description = settings.brand_statement
+      if template.name == 'index'
+        assign seo_description = settings.seo_home_description | default: settings.brand_statement | default: seo_description
       endif
       if template.name == 'product' and product != blank
         assign safe_signature_description = 'Yemeni Corner Signature Blend is a 340 g whole bean medium roast with warm spice, cocoa, and dried fruit notes, made for home brewing with shipping in Canada and the United States.'
@@ -51,6 +51,7 @@
       else
         assign social_image_url = 'yemeni-corner-social-share-1200x628.jpg' | asset_url
       endif
+      assign social_image_alt = page_image.alt | default: page_title | default: seo_site_name
     -%}
 
     <title>{{ seo_title | escape }}</title>
@@ -77,9 +78,10 @@
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="628">
       {% endunless %}
-      <meta property="og:image:alt" content="Yemeni Corner Signature Blend premium Yemeni coffee social preview">
+      <meta property="og:image:alt" content="{{ social_image_alt | escape }}">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:image" content="https:{{ social_image_url }}">
+      <meta name="twitter:image:alt" content="{{ social_image_alt | escape }}">
     {% else %}
       <meta name="twitter:card" content="summary">
     {% endif %}
