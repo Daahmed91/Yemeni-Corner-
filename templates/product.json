@@ -30,7 +30,8 @@
         "description": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it.",
         "show_launch_offer": true,
         "offer_eyebrow": "Best First Order",
-        "offer_text": "Available in Canada and the United States. Keep one bag for your brew bar and gift one to someone who loves coffee with a story."
+        "offer_text": "Available in Canada and the United States. Keep one bag for your brew bar and gift one to someone who loves coffee with a story.",
+        "show_dynamic_checkout": true
       }
     },
     "taste": {

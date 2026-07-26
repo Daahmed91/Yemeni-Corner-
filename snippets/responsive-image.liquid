@@ -1,7 +1,22 @@
+{% doc %}
+  Renders a responsive Shopify image with optional loading priority controls.
+
+  @param {image} image - The Shopify image to render.
+  @param {number} [width] - Maximum rendered image width.
+  @param {string} [sizes] - Responsive sizes attribute.
+  @param {string} [loading] - Native image loading behavior.
+  @param {string} [fetchpriority] - Browser fetch priority.
+  @param {boolean} [preload] - Whether Shopify should preload the image.
+  @param {string} [alt] - Accessible image description.
+  @param {string} [image_class] - Optional image class.
+{% enddoc %}
+
 {%- liquid
   assign image_width = width | default: 1200
   assign image_sizes = sizes | default: '100vw'
   assign image_loading = loading | default: 'lazy'
+  assign image_fetchpriority = fetchpriority | default: 'auto'
+  assign image_preload = preload | default: false
   assign image_alt = alt | default: image.alt | default: shop.name
   assign image_class_name = image_class | default: ''
 -%}
@@ -14,6 +29,8 @@
       widths: '360, 540, 720, 900, 1080, 1400, 1800',
       sizes: image_sizes,
       loading: image_loading,
+      fetchpriority: image_fetchpriority,
+      preload: image_preload,
       alt: image_alt,
       class: image_class_name
   }}
@@ -24,6 +41,7 @@
     width="900"
     height="1100"
     loading="{{ image_loading }}"
+    fetchpriority="{{ image_fetchpriority }}"
     class="{{ image_class_name }}"
   >
 {% endif %}

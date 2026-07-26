@@ -44,9 +44,13 @@
           {% for media in product.media limit: 4 %}
             {%- liquid
               assign media_loading = 'lazy'
+              assign media_fetchpriority = 'auto'
+              assign media_preload = false
               assign media_alt = media.alt | default: product_display_title
               if forloop.first
                 assign media_loading = 'eager'
+                assign media_fetchpriority = 'high'
+                assign media_preload = true
               endif
             -%}
             <figure
@@ -61,13 +65,15 @@
                   widths: '360, 520, 720, 960, 1200, 1400',
                   sizes: '(min-width: 960px) 52vw, 92vw',
                   loading: media_loading,
+                  fetchpriority: media_fetchpriority,
+                  preload: media_preload,
                   alt: media_alt
               }}
             </figure>
           {% endfor %}
         {% else %}
           <figure class="product__media-slide product__media-slide--primary" role="listitem">
-            <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="{{ product_display_title | escape }}" width="1100" height="1300" loading="eager">
+            <img src="{{ 'yc-signature-blend-product.webp' | asset_url }}" alt="{{ product_display_title | escape }}" width="1100" height="1300" loading="eager" fetchpriority="high">
           </figure>
         {% endif %}
       </div>

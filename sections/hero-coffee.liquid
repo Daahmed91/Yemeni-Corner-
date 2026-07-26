@@ -28,11 +28,12 @@
         | image_tag:
           widths: '220, 360, 520',
           sizes: '220px',
-          loading: 'eager',
+          loading: 'lazy',
+          fetchpriority: 'low',
           alt: ''
       }}
     {% else %}
-      <img src="{{ 'yemeni-corner-mark.png' | asset_url }}" alt="" width="400" height="497" loading="eager">
+      <img src="{{ 'yemeni-corner-mark.png' | asset_url }}" alt="" width="400" height="497" loading="lazy" fetchpriority="low">
     {% endif %}
   </div>
   <div class="page-width hero-coffee__inner">
@@ -84,11 +85,13 @@
             width: 1200,
             sizes: '(min-width: 960px) 48vw, 92vw',
             loading: 'eager',
+            fetchpriority: 'high',
+            preload: true,
             alt: section.settings.image_alt,
             image_class: 'hero-coffee__product'
           %}
         {% else %}
-          <img class="hero-coffee__product hero-coffee__product--lifestyle" src="{{ 'yc-hero-ritual.webp' | asset_url }}" alt="{{ section.settings.image_alt | escape }}" width="1600" height="1100" loading="eager">
+          <img class="hero-coffee__product hero-coffee__product--lifestyle" src="{{ 'yc-hero-ritual.webp' | asset_url }}" alt="{{ section.settings.image_alt | escape }}" width="1600" height="1100" loading="eager" fetchpriority="high">
         {% endif %}
         <div class="hero-coffee__note" aria-label="Signature Blend details">
           <span>Signature blend</span>

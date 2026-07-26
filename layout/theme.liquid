@@ -31,6 +31,9 @@
       assign seo_title = seo_title | replace: 'Yemeni CornerSignature', 'Yemeni Corner Signature' | replace: 'Yemeni CornerHarraz', 'Yemeni Corner Harraz' | replace: 'Yemeni Corner|', 'Yemeni Corner |'
 
       assign seo_description = page_description | default: settings.brand_statement | default: shop.description
+      if template.name == 'index' and settings.brand_statement != blank
+        assign seo_description = settings.brand_statement
+      endif
       if template.name == 'product' and product != blank
         assign safe_signature_description = 'Yemeni Corner Signature Blend is a 340 g whole bean medium roast with warm spice, cocoa, and dried fruit notes, made for home brewing with shipping in Canada and the United States.'
         assign product_safe_description = product.metafields.custom.verified_seo_description.value | default: product.metafields.custom.verified_structured_description.value
@@ -46,7 +49,7 @@
       elsif settings.social_share_image != blank
         assign social_image_url = settings.social_share_image | image_url: width: 1200
       else
-        assign social_image_url = 'yemeni-corner-social-share-1200x628.png' | asset_url
+        assign social_image_url = 'yemeni-corner-social-share-1200x628.jpg' | asset_url
       endif
     -%}
 
@@ -61,7 +64,7 @@
     <meta property="og:site_name" content="{{ seo_site_name | escape }}">
     <meta property="og:url" content="{{ canonical_url }}">
     <meta property="og:title" content="{{ seo_title | escape }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{% if template.name == 'product' %}product{% else %}website{% endif %}">
 
     {% if seo_description %}
       <meta property="og:description" content="{{ seo_description | strip_html | escape }}">
@@ -84,6 +87,12 @@
     <meta name="twitter:title" content="{{ seo_title | escape }}">
     {% if seo_description %}
       <meta name="twitter:description" content="{{ seo_description | strip_html | escape }}">
+    {% endif %}
+
+    {% if template.name == 'product' and product != blank %}
+      <meta property="product:price:amount" content="{{ product.selected_or_first_available_variant.price | divided_by: 100.0 }}">
+      <meta property="product:price:currency" content="{{ cart.currency.iso_code }}">
+      <meta property="product:availability" content="{% if product.selected_or_first_available_variant.available %}in stock{% else %}out of stock{% endif %}">
     {% endif %}
 
     <script type="application/ld+json">
@@ -164,8 +173,13 @@
         {
           "@context": "https://schema.org",
           "@type": "Product",
+          "@id": {{ canonical_url | append: '#product' | json }},
           "name": {{ product.title | json }},
           "description": {{ structured_description | strip | json }},
+          "url": {{ canonical_url | json }},
+          {% if structured_variant.sku != blank %}
+            "sku": {{ structured_variant.sku | json }},
+          {% endif %}
           "brand": {
             "@type": "Brand",
             "name": {{ seo_site_name | json }}
@@ -180,7 +194,11 @@
             "url": {{ canonical_url | json }},
             "priceCurrency": {{ cart.currency.iso_code | json }},
             "price": {{ structured_variant.price | divided_by: 100.0 | json }},
-            "availability": "https://schema.org/{% if structured_variant.available %}InStock{% else %}OutOfStock{% endif %}"
+            "availability": "https://schema.org/{% if structured_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": {
+              "@id": {{ shop.url | append: '#organization' | json }}
+            }
           }
         }
       </script>
