@@ -3,6 +3,8 @@
   assign product_url = routes.all_products_collection_url
   if featured_product != blank
     assign product_url = featured_product.url
+    assign featured_variant = featured_product.selected_or_first_available_variant
+    assign two_bag_price = featured_variant.price | times: 2 | money_with_currency
   endif
   assign story_page = pages['story']
   assign story_url = routes.root_url | append: '#story'
@@ -49,12 +51,14 @@
         </div>
       {% endif %}
 
-      <div class="product-offer product-offer--compact">
-        <span>2-bag launch offer</span>
-        <strong>Buy 2 bags and get free standard shipping</strong>
-        <small>Available for delivery in Canada and the United States.</small>
-        <p>One to brew at home, one to gift or keep for the next slow morning.</p>
-      </div>
+      {% if featured_variant != blank %}
+        <div class="product-offer product-offer--compact">
+          <span>2-bag launch offer</span>
+          <strong>{{ 'products.product.two_bags_free' | t: price: two_bag_price }}</strong>
+          <small>Available for delivery in Canada and the United States.</small>
+          <p>One to brew at home, one to gift or keep for the next slow morning.</p>
+        </div>
+      {% endif %}
 
       <div class="product-points">
         <div class="point" data-reveal>

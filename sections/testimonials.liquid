@@ -1,3 +1,4 @@
+{% if section.blocks.size > 0 %}
 <section class="section" data-section-id="{{ section.id }}">
   <div class="page-width">
     <div class="section-header" data-reveal>
@@ -22,6 +23,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 {% schema %}
 {
@@ -48,24 +50,19 @@
         {
           "type": "textarea",
           "id": "quote",
-          "label": "Quote",
-          "default": "Add a real customer quote here before publishing this section."
+          "label": "Verified customer quote"
         },
         {
           "type": "text",
           "id": "author",
-          "label": "Author",
-          "default": "Verified customer"
+          "label": "Customer name or initials"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Testimonials",
-      "blocks": [
-        { "type": "testimonial", "settings": { "quote": "Add a real customer quote here before publishing this section.", "author": "Verified customer" } }
-      ]
+      "name": "Testimonials"
     }
   ]
 }

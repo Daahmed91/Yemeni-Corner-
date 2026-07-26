@@ -47,7 +47,7 @@
       "decrease_quantity": "Decrease quantity",
       "quantity_choices": "Quick quantity choices",
       "one_bag": "1 bag",
-      "two_bags_free": "2 bags — free standard shipping",
+      "two_bags_free": "2 bags — {{ price }} + free standard shipping",
       "choose_option": "Choose option",
       "highlights": "Product highlights",
       "ways_to_enjoy": "Ways to enjoy this coffee",

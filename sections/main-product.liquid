@@ -15,6 +15,7 @@
   assign product_display_title = product.title
   assign product_form_id = 'ProductForm-' | append: section.id
   assign media_count = product.media.size | at_most: 4
+  assign two_bag_price = current_variant.price | times: 2 | money_with_currency
   assign verified_description = product.metafields.custom.verified_structured_description.value | default: product.metafields.custom.verified_seo_description.value
   assign product_body_copy = product.description
   if verified_description != blank
@@ -128,7 +129,7 @@
               data-yc-event-quantity="2"
               aria-pressed="false"
             >
-              {{ 'products.product.two_bags_free' | t }}
+              {{ 'products.product.two_bags_free' | t: price: two_bag_price }}
             </button>
           </div>
         </div>
@@ -162,15 +163,15 @@
       {% if section.settings.show_launch_offer %}
         <div class="product-offer">
           <span>{{ section.settings.offer_eyebrow }}</span>
-          <strong>{{ section.settings.offer_heading }}</strong>
+          <strong>{{ 'products.product.two_bags_free' | t: price: two_bag_price }}</strong>
           <p>{{ section.settings.offer_text }}</p>
         </div>
       {% endif %}
 
       <div class="product__trust" aria-label="{{ 'products.product.highlights' | t }}">
-        <span>{{ grind_format }}</span>
-        <span>{{ roast_date }}</span>
-        <span>{{ section.settings.market }}</span>
+        {% if grind_format != blank %}<span>{{ grind_format }}</span>{% endif %}
+        {% if roast_date != blank %}<span>{{ roast_date }}</span>{% endif %}
+        {% if section.settings.market != blank %}<span>{{ section.settings.market }}</span>{% endif %}
       </div>
 
       {% if trust_copy != blank %}
@@ -184,50 +185,72 @@
       </div>
 
       <div class="product-meta">
-        <div class="product-meta__item">
-          <span>{{ 'products.details.tasting_notes' | t }}</span>
-          <strong>{{ tasting_notes }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.roast_level' | t }}</span>
-          <strong>{{ roast_level }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.roast_date' | t }}</span>
-          <strong>{{ roast_date }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.process' | t }}</span>
-          <strong>{{ coffee_process }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.origin_importer' | t }}</span>
-          <strong>{{ origin_importer }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.grind_format' | t }}</span>
-          <strong>{{ grind_format }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.best_for' | t }}</span>
-          <strong>{{ brew_methods }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.in_the_bag' | t }}</span>
-          <strong>{{ bag_size }} coffee, {{ section.settings.market }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.origin_context' | t }}</span>
-          <strong>{{ origin_context }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.gift_note' | t }}</span>
-          <strong>{{ gift_message }}</strong>
-        </div>
-        <div class="product-meta__item">
-          <span>{{ 'products.details.shipping_returns' | t }}</span>
-          <strong>{{ shipping_returns }}</strong>
-        </div>
+        {% if tasting_notes != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.tasting_notes' | t }}</span>
+            <strong>{{ tasting_notes }}</strong>
+          </div>
+        {% endif %}
+        {% if roast_level != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.roast_level' | t }}</span>
+            <strong>{{ roast_level }}</strong>
+          </div>
+        {% endif %}
+        {% if roast_date != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.roast_date' | t }}</span>
+            <strong>{{ roast_date }}</strong>
+          </div>
+        {% endif %}
+        {% if coffee_process != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.process' | t }}</span>
+            <strong>{{ coffee_process }}</strong>
+          </div>
+        {% endif %}
+        {% if origin_importer != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.origin_importer' | t }}</span>
+            <strong>{{ origin_importer }}</strong>
+          </div>
+        {% endif %}
+        {% if grind_format != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.grind_format' | t }}</span>
+            <strong>{{ grind_format }}</strong>
+          </div>
+        {% endif %}
+        {% if brew_methods != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.best_for' | t }}</span>
+            <strong>{{ brew_methods }}</strong>
+          </div>
+        {% endif %}
+        {% if bag_size != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.in_the_bag' | t }}</span>
+            <strong>{{ bag_size }} coffee{% if section.settings.market != blank %}, {{ section.settings.market }}{% endif %}</strong>
+          </div>
+        {% endif %}
+        {% if origin_context != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.origin_context' | t }}</span>
+            <strong>{{ origin_context }}</strong>
+          </div>
+        {% endif %}
+        {% if gift_message != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.gift_note' | t }}</span>
+            <strong>{{ gift_message }}</strong>
+          </div>
+        {% endif %}
+        {% if shipping_returns != blank %}
+          <div class="product-meta__item">
+            <span>{{ 'products.details.shipping_returns' | t }}</span>
+            <strong>{{ shipping_returns }}</strong>
+          </div>
+        {% endif %}
       </div>
 
       {% for block in section.blocks %}
@@ -295,20 +318,17 @@
     {
       "type": "text",
       "id": "roast_date",
-      "label": "Roast date",
-      "default": "Roast date confirmed per batch"
+      "label": "Roast date"
     },
     {
       "type": "text",
       "id": "coffee_process",
-      "label": "Coffee process",
-      "default": "Batch process pending admin entry"
+      "label": "Coffee process"
     },
     {
       "type": "text",
       "id": "origin_importer",
-      "label": "Origin / importer",
-      "default": "Supplier-confirmed origin and importer pending admin entry"
+      "label": "Origin / importer"
     },
     {
       "type": "text",
@@ -331,8 +351,7 @@
     {
       "type": "text",
       "id": "origin_context",
-      "label": "Origin context",
-      "default": "Batch origin details should match supplier records before promotion"
+      "label": "Origin context"
     },
     {
       "type": "text",
@@ -349,8 +368,7 @@
     {
       "type": "textarea",
       "id": "trust_copy",
-      "label": "Trust copy",
-      "default": "We publish batch details only when they are supplier-confirmed, so the coffee story stays specific and trustworthy."
+      "label": "Trust copy"
     },
     {
       "type": "textarea",
@@ -369,12 +387,6 @@
       "id": "offer_eyebrow",
       "label": "Offer eyebrow",
       "default": "Best First Order"
-    },
-    {
-      "type": "text",
-      "id": "offer_heading",
-      "label": "Offer heading",
-      "default": "Buy 2 bags and get free standard shipping"
     },
     {
       "type": "textarea",

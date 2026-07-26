@@ -233,10 +233,9 @@
     },
     "testimonials": {
       "type": "testimonials",
-      "disabled": true,
       "settings": {
-        "eyebrow": "Shared Warmly",
-        "heading": "Notes from the Yemeni Corner table"
+        "eyebrow": "From Verified Buyers",
+        "heading": "What customers say about Yemeni Corner"
       }
     },
     "locations": {
@@ -362,9 +361,6 @@
     "featured",
     "cafe_favorites",
     "story",
-    "heritage",
-    "brew",
-    "gift",
     "testimonials",
     "locations",
     "faq",

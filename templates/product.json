@@ -17,34 +17,20 @@
         "tasting_notes": "Warm spice, cocoa, dried fruit",
         "bag_size": "340 g whole bean",
         "roast_level": "Medium, smooth, aromatic",
-        "roast_date": "Roast date confirmed per batch",
-        "coffee_process": "Supplier-confirmed process pending",
-        "origin_importer": "Supplier-confirmed origin and importer pending admin entry",
+        "roast_date": "",
+        "coffee_process": "",
+        "origin_importer": "",
         "grind_format": "Whole bean coffee",
         "best_for": "Drip, French press, pour-over, espresso",
         "market": "Canada and U.S. shipping",
-        "origin_context": "Batch origin details should match supplier records before promotion",
+        "origin_context": "",
         "gift_message": "A warm coffee gift for hosts, family, holidays, and coffee lovers",
         "shipping_returns": "Ships to customers in Canada and the United States. Rates, taxes, and delivery options appear at checkout; returns follow the store policy for sealed coffee.",
-        "trust_copy": "We publish batch details only when they are supplier-confirmed, so the coffee story stays specific and trustworthy.",
+        "trust_copy": "Whole bean coffee, a clear roast profile, and practical brew guidance for a confident first order.",
         "description": "A 340 g whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it.",
         "show_launch_offer": true,
         "offer_eyebrow": "Best First Order",
-        "offer_heading": "Buy 2 bags and get free standard shipping",
         "offer_text": "Available in Canada and the United States. Keep one bag for your brew bar and gift one to someone who loves coffee with a story."
-      }
-    },
-    "gift": {
-      "type": "gift-ritual",
-      "settings": {
-        "product": "yemeni-corner-harraz-signature-roast",
-        "eyebrow": "Gift the Ritual",
-        "heading": "Gift the Yemeni Corner ritual",
-        "text": "The Yemeni Corner Signature Blend is a warm, thoughtful coffee gift for hosts, family, holidays, and anyone who loves a cup with a story behind it.",
-        "primary_label": "Gift the Signature Blend",
-        "primary_link": "",
-        "secondary_label": "Visit Our Cafes",
-        "secondary_link": "/#locations"
       }
     },
     "taste": {
@@ -59,47 +45,6 @@
         "button_label": "Read the Story",
         "button_link": "/#story"
       }
-    },
-    "heritage": {
-      "type": "heritage-timeline",
-      "settings": {
-        "background": "white",
-        "eyebrow": "Verified Batch Details",
-        "heading": "Specific coffee facts before broad origin claims",
-        "text": "Use this section for supplier-confirmed batch details only. Until those records are entered, the page keeps the promise focused on verified bag format, roast profile, tasting notes, and brew guidance.",
-        "note": "Add supplier-confirmed farm, region, importer, process, altitude, harvest, roast date, or batch details only when the records are available in Shopify."
-      },
-      "blocks": {
-        "known": {
-          "type": "milestone",
-          "settings": {
-            "kicker": "Known",
-            "title": "What this bag says clearly",
-            "text": "<p>340 g whole bean coffee, medium roast profile, 100% Arabica coffee, warm spice, cocoa, dried fruit notes, and shipping in Canada and the United States.</p>"
-          }
-        },
-        "context": {
-          "type": "milestone",
-          "settings": {
-            "kicker": "Batch record",
-            "title": "What to enter before promotion",
-            "text": "<p>Supplier-confirmed farm or region, importer, process, altitude, harvest, roast date, and lot details should be entered in product metafields before appearing in product copy, schema, feeds, email, or social posts.</p>"
-          }
-        },
-        "future": {
-          "type": "milestone",
-          "settings": {
-            "kicker": "Future proof",
-            "title": "What stays safe by default",
-            "text": "<p>If a detail is not in the supplier record, keep it out of public copy. The coffee can still sell clearly as a 340 g whole bean medium roast with warm spice, cocoa, and dried fruit notes.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "known",
-        "context",
-        "future"
-      ]
     },
     "brew": {
       "type": "brew-guide",
@@ -177,20 +122,6 @@
             "answer": "<p>Drip, French press, pour-over, and espresso are all good fits. Start with your normal method and adjust grind size from there.</p>"
           }
         },
-        "freshness": {
-          "type": "question",
-          "settings": {
-            "question": "How fresh is the roast?",
-            "answer": "<p>Use the roast date or batch note on the product page when it is supplier-confirmed. Until then, the page avoids guessing and keeps verified details visible.</p>"
-          }
-        },
-        "process": {
-          "type": "question",
-          "settings": {
-            "question": "What is the process and origin?",
-            "answer": "<p>The page will show supplier-confirmed process, origin, and importer details when the batch record is available. Unverified farm-level claims should not be published.</p>"
-          }
-        },
         "shipping": {
           "type": "question",
           "settings": {
@@ -210,11 +141,16 @@
         "whole_bean",
         "taste",
         "brew_methods",
-        "freshness",
-        "process",
         "shipping",
         "cafe_drinks"
       ]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "eyebrow": "From Verified Buyers",
+        "heading": "What customers say about the Signature Blend"
+      }
     },
     "newsletter": {
       "type": "newsletter",
@@ -228,10 +164,9 @@
   },
   "order": [
     "main",
-    "gift",
     "taste",
-    "heritage",
     "brew",
+    "testimonials",
     "faq",
     "newsletter"
   ]
