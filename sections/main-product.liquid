@@ -85,20 +85,6 @@
         {% render 'price', product: product %}
       </div>
 
-      {% if section.settings.show_launch_offer %}
-        <div class="product-offer">
-          <span>{{ section.settings.offer_eyebrow }}</span>
-          <strong>{{ section.settings.offer_heading }}</strong>
-          <p>{{ section.settings.offer_text }}</p>
-        </div>
-      {% endif %}
-
-      <div class="product__trust" aria-label="{{ 'products.product.highlights' | t }}">
-        <span>{{ grind_format }}</span>
-        <span>{{ roast_date }}</span>
-        <span>{{ section.settings.market }}</span>
-      </div>
-
       {% form 'product', product, id: product_form_id, class: 'product-form' %}
         {% if product.has_only_default_variant %}
           <input type="hidden" name="id" value="{{ current_variant.id }}">
@@ -172,6 +158,20 @@
           {{ form | payment_button }}
         {% endif %}
       {% endform %}
+
+      {% if section.settings.show_launch_offer %}
+        <div class="product-offer">
+          <span>{{ section.settings.offer_eyebrow }}</span>
+          <strong>{{ section.settings.offer_heading }}</strong>
+          <p>{{ section.settings.offer_text }}</p>
+        </div>
+      {% endif %}
+
+      <div class="product__trust" aria-label="{{ 'products.product.highlights' | t }}">
+        <span>{{ grind_format }}</span>
+        <span>{{ roast_date }}</span>
+        <span>{{ section.settings.market }}</span>
+      </div>
 
       {% if trust_copy != blank %}
         <p class="product__confidence">{{ trust_copy }}</p>
