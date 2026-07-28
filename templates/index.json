@@ -29,7 +29,7 @@
         "product": "yemeni-corner-harraz-signature-roast",
         "eyebrow": "Yemeni Corner Signature Blend",
         "heading": "Yemeni Corner Signature Blend",
-        "text": "Our flagship online coffee is a 12 oz whole bean bag with a medium roast profile and notes of warm spice, cocoa, and dried fruit. It is made for familiar home methods: drip, French press, pour-over, and espresso.",
+        "text": "Our flagship online coffee is a 12 oz whole bean bag with a dark roast profile and notes of warm spice, cocoa, and dried fruit. It is made for familiar home methods: drip, French press, pour-over, and espresso.",
         "button_label": "Shop Signature Blend"
       }
     },
@@ -123,7 +123,7 @@
         "anchor_id": "story",
         "eyebrow": "The Story First",
         "heading": "Hospitality is the reason for the roast",
-        "text": "<p>Yemeni Corner began with the feeling of the cafe: warm drinks, shared tables, late conversations, and flavors that invite people to stay. The online coffee is an extension of that welcome, made for people who want to bring the same sense of care into their own kitchen.</p><p>The Yemeni Corner Signature Blend keeps the choice simple: one 12 oz whole bean coffee with a medium profile, built around warm spice, cocoa, and dried fruit notes.</p>",
+        "text": "<p>Yemeni Corner began with the feeling of the cafe: warm drinks, shared tables, late conversations, and flavors that invite people to stay. The online coffee is an extension of that welcome, made for people who want to bring the same sense of care into their own kitchen.</p><p>The Yemeni Corner Signature Blend keeps the choice simple: one 12 oz whole bean coffee with a dark roast profile, built around warm spice, cocoa, and dried fruit notes.</p>",
         "badge": "Cafe warmth. Home ritual.",
         "button_label": "Read Our Story",
         "button_link": "shopify://pages/our-story"
@@ -206,7 +206,7 @@
           "type": "question",
           "settings": {
             "question": "What does it taste like?",
-            "answer": "<p>Expect a medium roast profile with warm spice, cocoa, and dried fruit notes, plus a smooth aromatic finish.</p>"
+            "answer": "<p>Expect a dark roast profile with warm spice, cocoa, and dried fruit notes, plus a bold aromatic finish.</p>"
           }
         },
         "faq_brew": {

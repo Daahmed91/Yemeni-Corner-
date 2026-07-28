@@ -13,10 +13,10 @@
       "type": "main-product",
       "settings": {
         "eyebrow": "Yemeni Corner Signature Blend",
-        "subtitle": "Whole Bean Coffee | 12 oz | Medium Roast",
+        "subtitle": "Whole Bean Coffee | 12 oz | Dark Roast",
         "tasting_notes": "Warm spice, cocoa, dried fruit",
         "bag_size": "12 oz whole bean",
-        "roast_level": "Medium, smooth, aromatic",
+        "roast_level": "Dark, bold, aromatic",
         "roast_date": "",
         "coffee_process": "",
         "origin_importer": "",
@@ -27,7 +27,7 @@
         "gift_message": "A warm coffee gift for hosts, family, holidays, and coffee lovers",
         "shipping_returns": "Ships to customers in Canada and the United States. Rates, taxes, and delivery options appear at checkout; returns follow the store policy for sealed coffee.",
         "trust_copy": "Whole bean coffee, a clear roast profile, and practical brew guidance for a confident first order.",
-        "description": "A 12 oz whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it.",
+        "description": "A 12 oz whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a dark roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it.",
         "show_launch_offer": true,
         "offer_eyebrow": "Best First Order",
         "offer_text": "Available in Canada and the United States. Keep one bag for your brew bar and gift one to someone who loves coffee with a story.",
@@ -113,7 +113,7 @@
           "type": "question",
           "settings": {
             "question": "What flavor should I expect?",
-            "answer": "<p>Expect warm spice, cocoa, and dried fruit notes in a medium, smooth, aromatic cup.</p>"
+            "answer": "<p>Expect warm spice, cocoa, and dried fruit notes in a dark, bold, aromatic cup.</p>"
           }
         },
         "brew_methods": {

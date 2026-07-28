@@ -14,7 +14,7 @@
       "settings": {
         "eyebrow": "Shop Coffee",
         "heading": "One blend, chosen with purpose",
-        "text": "Shop Yemeni Corner's flagship 12 oz whole bean coffee: a medium roast Yemeni Corner Signature Blend with warm spice, cocoa, and dried fruit notes."
+        "text": "Shop Yemeni Corner's flagship 12 oz whole bean coffee: a dark roast Yemeni Corner Signature Blend with warm spice, cocoa, and dried fruit notes."
       }
     },
     "story": {
@@ -24,7 +24,7 @@
         "image_position": "right",
         "eyebrow": "Why One Coffee",
         "heading": "The shop is simple because the story is focused",
-        "text": "<p>Yemeni Corner does not need a crowded catalog to begin telling the story. The Yemeni Corner Signature Blend gives shoppers one clear way to bring the cafe's warmth home: whole bean coffee, a medium roast profile, and flavor notes that connect naturally to Yemeni spice and hospitality.</p><p>Visit the cafe for the full menu; order the blend when you want that ritual in your own kitchen.</p>",
+        "text": "<p>Yemeni Corner does not need a crowded catalog to begin telling the story. The Yemeni Corner Signature Blend gives shoppers one clear way to bring the cafe's warmth home: whole bean coffee, a dark roast profile, and flavor notes that connect naturally to Yemeni spice and hospitality.</p><p>Visit the cafe for the full menu; order the blend when you want that ritual in your own kitchen.</p>",
         "badge": "Flagship roast",
         "button_label": "View Cafe Menu",
         "button_link": "/pages/menu"

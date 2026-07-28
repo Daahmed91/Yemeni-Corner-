@@ -6,6 +6,9 @@
   endif
   assign tasting_notes = product.metafields.custom.tasting_notes.value | default: section.settings.tasting_notes
   assign roast_level = product.metafields.custom.roast_level.value | default: section.settings.roast_level
+  if product.handle == 'yemeni-corner-harraz-signature-roast'
+    assign roast_level = roast_level | replace: 'Medium', 'Dark' | replace: 'medium', 'dark' | replace: 'smooth', 'bold'
+  endif
   assign roast_date = product.metafields.custom.roast_date.value | default: section.settings.roast_date
   assign coffee_process = product.metafields.custom.coffee_process.value | default: section.settings.coffee_process
   assign origin_importer = product.metafields.custom.origin_importer.value | default: section.settings.origin_importer
@@ -27,7 +30,7 @@
     assign product_body_copy = section.settings.description
   endif
   if product.handle == 'yemeni-corner-harraz-signature-roast'
-    assign product_body_copy = product_body_copy | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ'
+    assign product_body_copy = product_body_copy | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ' | replace: 'medium roast', 'dark roast' | replace: 'Medium roast', 'Dark roast' | replace: 'medium, smooth, aromatic', 'dark, bold, aromatic'
   endif
 -%}
 
@@ -310,7 +313,7 @@
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "Whole Bean Coffee | 12 oz | Medium Roast"
+      "default": "Whole Bean Coffee | 12 oz | Dark Roast"
     },
     {
       "type": "text",
@@ -328,7 +331,7 @@
       "type": "text",
       "id": "roast_level",
       "label": "Roast level",
-      "default": "Medium, smooth, aromatic"
+      "default": "Dark, bold, aromatic"
     },
     {
       "type": "text",
@@ -389,7 +392,7 @@
       "type": "textarea",
       "id": "description",
       "label": "Fallback description",
-      "default": "A 12 oz whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a medium roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it."
+      "default": "A 12 oz whole bean coffee inspired by Yemeni coffee heritage and the warmth of Yemeni Corner cafes. Expect a dark roast profile with warm spice, cocoa, and dried fruit notes. Brew it for slow mornings, shared tables, or a daily cup with more story behind it."
     },
     {
       "type": "checkbox",
