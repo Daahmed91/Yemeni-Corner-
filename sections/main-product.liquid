@@ -1,6 +1,9 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign bag_size = product.metafields.custom.bag_size.value | default: section.settings.bag_size
+  if product.handle == 'yemeni-corner-harraz-signature-roast'
+    assign bag_size = bag_size | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ'
+  endif
   assign tasting_notes = product.metafields.custom.tasting_notes.value | default: section.settings.tasting_notes
   assign roast_level = product.metafields.custom.roast_level.value | default: section.settings.roast_level
   assign roast_date = product.metafields.custom.roast_date.value | default: section.settings.roast_date
@@ -22,6 +25,9 @@
     assign product_body_copy = verified_description
   elsif product.handle == 'yemeni-corner-harraz-signature-roast'
     assign product_body_copy = section.settings.description
+  endif
+  if product.handle == 'yemeni-corner-harraz-signature-roast'
+    assign product_body_copy = product_body_copy | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ'
   endif
 -%}
 
@@ -47,6 +53,9 @@
               assign media_fetchpriority = 'auto'
               assign media_preload = false
               assign media_alt = media.alt | default: product_display_title
+              if product.handle == 'yemeni-corner-harraz-signature-roast'
+                assign media_alt = media_alt | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ'
+              endif
               if forloop.first
                 assign media_loading = 'eager'
                 assign media_fetchpriority = 'high'

@@ -29,6 +29,9 @@
         assign seo_title = seo_title | append: ' - ' | append: seo_site_name
       endunless
       assign seo_title = seo_title | replace: 'Yemeni CornerSignature', 'Yemeni Corner Signature' | replace: 'Yemeni CornerHarraz', 'Yemeni Corner Harraz' | replace: 'Yemeni Corner|', 'Yemeni Corner |'
+      if template.name == 'product' and product.handle == 'yemeni-corner-harraz-signature-roast'
+        assign seo_title = seo_title | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ'
+      endif
 
       assign seo_description = page_description | default: settings.brand_statement | default: shop.description
       if template.name == 'index'
@@ -37,6 +40,9 @@
       if template.name == 'product' and product != blank
         assign safe_signature_description = 'Yemeni Corner Signature Blend is a 12 oz whole bean medium roast with warm spice, cocoa, and dried fruit notes, made for home brewing with shipping in Canada and the United States.'
         assign product_safe_description = product.metafields.custom.verified_seo_description.value | default: product.metafields.custom.verified_structured_description.value
+        if product.handle == 'yemeni-corner-harraz-signature-roast' and product_safe_description != blank
+          assign product_safe_description = product_safe_description | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ'
+        endif
         if product_safe_description == blank and product.handle == 'yemeni-corner-harraz-signature-roast'
           assign product_safe_description = safe_signature_description
         endif
@@ -52,6 +58,9 @@
         assign social_image_url = 'yemeni-corner-social-share-1200x628.jpg' | asset_url
       endif
       assign social_image_alt = page_image.alt | default: page_title | default: seo_site_name
+      if template.name == 'product' and product.handle == 'yemeni-corner-harraz-signature-roast'
+        assign social_image_alt = social_image_alt | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ'
+      endif
     -%}
 
     <title>{{ seo_title | escape }}</title>
@@ -169,6 +178,9 @@
           assign structured_description = safe_signature_description
         elsif structured_description == blank
           assign structured_description = product.description | strip_html | default: seo_description
+        endif
+        if product.handle == 'yemeni-corner-harraz-signature-roast'
+          assign structured_description = structured_description | replace: '340 g', '12 oz' | replace: '340 G', '12 OZ'
         endif
       -%}
       <script type="application/ld+json">
