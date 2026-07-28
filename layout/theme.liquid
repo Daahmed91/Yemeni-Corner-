@@ -35,7 +35,7 @@
         assign seo_description = settings.seo_home_description | default: settings.brand_statement | default: seo_description
       endif
       if template.name == 'product' and product != blank
-        assign safe_signature_description = 'Yemeni Corner Signature Blend is a 340 g whole bean medium roast with warm spice, cocoa, and dried fruit notes, made for home brewing with shipping in Canada and the United States.'
+        assign safe_signature_description = 'Yemeni Corner Signature Blend is a 12 oz whole bean medium roast with warm spice, cocoa, and dried fruit notes, made for home brewing with shipping in Canada and the United States.'
         assign product_safe_description = product.metafields.custom.verified_seo_description.value | default: product.metafields.custom.verified_structured_description.value
         if product_safe_description == blank and product.handle == 'yemeni-corner-harraz-signature-roast'
           assign product_safe_description = safe_signature_description

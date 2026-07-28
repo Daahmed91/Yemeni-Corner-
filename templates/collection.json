@@ -14,7 +14,7 @@
       "settings": {
         "eyebrow": "Shop Coffee",
         "heading": "One blend, chosen with purpose",
-        "text": "Shop Yemeni Corner's flagship 340 g whole bean coffee: a medium roast Yemeni Corner Signature Blend with warm spice, cocoa, and dried fruit notes."
+        "text": "Shop Yemeni Corner's flagship 12 oz whole bean coffee: a medium roast Yemeni Corner Signature Blend with warm spice, cocoa, and dried fruit notes."
       }
     },
     "story": {
@@ -89,7 +89,7 @@
           "type": "question",
           "settings": {
             "question": "Is it whole bean?",
-            "answer": "<p>Yes. The Yemeni Corner Signature Blend is sold as a 340 g whole bean coffee bag.</p>"
+            "answer": "<p>Yes. The Yemeni Corner Signature Blend is sold as a 12 oz whole bean coffee bag.</p>"
           }
         },
         "brewing": {

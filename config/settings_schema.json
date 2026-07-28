@@ -41,7 +41,7 @@
         "type": "textarea",
         "id": "brand_statement",
         "label": "Brand statement",
-        "default": "Yemeni Corner shares cafe hospitality, traditional Yemeni drinks, and the Yemeni Corner Signature Blend: a 340 g whole bean coffee with warm spice, cocoa, and dried fruit notes for home brewing."
+        "default": "Yemeni Corner shares cafe hospitality, traditional Yemeni drinks, and the Yemeni Corner Signature Blend: a 12 oz whole bean coffee with warm spice, cocoa, and dried fruit notes for home brewing."
       },
       {
         "type": "text",
@@ -59,7 +59,7 @@
         "type": "textarea",
         "id": "seo_home_description",
         "label": "Home SEO description",
-        "default": "Yemeni Corner shares cafe hospitality, traditional Yemeni drinks, and a 340 g Signature Blend with warm spice, cocoa, and dried fruit for home brewing."
+        "default": "Yemeni Corner shares cafe hospitality, traditional Yemeni drinks, and a 12 oz Signature Blend with warm spice, cocoa, and dried fruit for home brewing."
       },
       {
         "type": "image_picker",
